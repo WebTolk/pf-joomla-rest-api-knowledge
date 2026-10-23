@@ -1,10 +1,10 @@
 """Check portable metadata, owned payload, dependencies, links and feed hashes."""
 from pathlib import Path
-import hashlib,json,re,sys,zipfile
+import argparse,hashlib,json,re,sys,zipfile
 import yaml
 ROOT=Path(__file__).resolve().parents[1]
 def load(p):return json.loads(p.read_text(encoding='utf-8'))
-def main():
+def main(args=None):
  bundle=load(ROOT/'bundle.json');ids={p['id'] for p in bundle['packages']};assert len(ids)==25
  owner=bundle['payload_owner'];count=0;consumer_files=0;links=0
  for entry in bundle['packages']:
@@ -34,7 +34,7 @@ def main():
      if '://' in link:continue
      assert (f.parent/link.split('#')[0]).exists(),f'Broken link: {f.relative_to(ROOT)} -> {link}'
      links+=1
- feed_path=ROOT/'updates/joomla-rest-api.json';artifacts=0
+ feed_path=Path(args.artifact_manifest) if args and args.artifact_manifest else ROOT/'updates/joomla-rest-api.json';artifacts=0
  if feed_path.exists():
   feed=load(feed_path);assert {s['id'] for s in feed['subjects']}==ids
   for subject in feed['subjects']:
@@ -42,7 +42,8 @@ def main():
    item=next(v for v in subject['versions'] if v['version']==bundle['version'])
    assert 'install_path' not in item.get('update_policy',{})
    artifact=item['artifacts'][0];assert artifact['url'].startswith('https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v'+bundle['version']+'/')
-   zip_path=ROOT/'.dist'/bundle['version']/artifact['url'].rsplit('/',1)[-1]
+   artifact_dir=Path(args.artifact_dir) if args and args.artifact_dir else ROOT/'.dist'/bundle['version']
+   zip_path=artifact_dir/artifact['url'].rsplit('/',1)[-1]
    if zip_path.exists():
     assert hashlib.sha256(zip_path.read_bytes()).hexdigest()==artifact['sha256']
     with zipfile.ZipFile(zip_path) as z:
@@ -52,4 +53,5 @@ def main():
     artifacts+=1
  result={'status':'pass','packages':len(ids),'resources':count,'consumer_files':consumer_files,'relative_links':links,'local_artifacts_verified':artifacts,'primary_core_version':bundle['primary_joomla_version']}
  print(json.dumps(result));return result
-if __name__=='__main__':main()
+if __name__=='__main__':
+ p=argparse.ArgumentParser();p.add_argument('--artifact-manifest');p.add_argument('--artifact-dir');main(p.parse_args())

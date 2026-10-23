@@ -29,11 +29,12 @@ def main(a):
   item={'version':version,'channels':['stable'],'stability':'stable','prerelease':False,'released_at':bundle['released_at'],'yanked':False,'source':{'provider':'github','repository':REPOSITORY,'ref':tag},'release':{'changelog_url':f'https://raw.githubusercontent.com/{REPOSITORY}/{tag}/CHANGELOG.md'},'compatibility':{'tested_processforge':'1.2.0','requires_contracts':['normalized-update-manifest-v1','knowledge-package-zip']},'dependencies':[{'type':'knowledge_package','id':d,'version':version} for d in entry['dependencies']],'artifacts':[{'type':'knowledge_package','format':'zip','url':f'https://github.com/{REPOSITORY}/releases/download/{tag}/{artifact.name}','sha256':digest,'size':artifact.stat().st_size}],'changes':[{'breaking':False,'summary':'Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites.'}],'migration':{'required':False}}
   history=[x for x in old.get(m['id'],{}).get('versions',[]) if x['version']!=version]
   same=next((x for x in old.get(m['id'],{}).get('versions',[]) if x['version']==version),None)
-  if same and same['artifacts'][0]['sha256']!=digest and not a.allow_unpublished_rebuild:raise SystemExit('Version artifact changed; bump version instead of replacing a published release: '+m['id'])
+  if same and same['artifacts'][0]['sha256']!=digest and not (a.allow_unpublished_rebuild or a.validation_build):raise SystemExit('Version artifact changed; bump version instead of replacing a published release: '+m['id'])
   subjects.append({'type':'knowledge_package','id':m['id'],'name':m['name'],'versions':history+[item]})
  manifest={'schema_version':1,'product':{'id':bundle['id']},'generated_at':bundle['released_at'],'channels':{'stable':{'latest':version}},'subjects':subjects}
- manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
- (out/'joomla-rest-api.json').write_bytes(manifest_path.read_bytes())
+ serialized=(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n').encode('utf-8')
+ if not a.validation_build:manifest_path.write_bytes(serialized)
+ (out/'joomla-rest-api.json').write_bytes(serialized)
  bundle_files=[]
  for name in ['packages','docs','templates','updates','evidence','tools']:
   bundle_files.extend(p for p in (ROOT/name).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix not in {'.pyc','.log'})
@@ -43,4 +44,4 @@ def main(a):
  print(json.dumps({'version':version,'package_archives':len(subjects),'bundle':full.name,'total_bytes':sum((out/name).stat().st_size for name,_ in checksums)}))
 
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--output');p.add_argument('--version');p.add_argument('--allow-unpublished-rebuild',action='store_true');main(p.parse_args())
+ p=argparse.ArgumentParser();p.add_argument('--output');p.add_argument('--version');p.add_argument('--allow-unpublished-rebuild',action='store_true');p.add_argument('--validation-build',action='store_true',help='Build disposable CI artifacts without changing the public update pointer or claiming byte identity with another zlib implementation.');main(p.parse_args())

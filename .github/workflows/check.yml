@@ -11,5 +11,5 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - run: python -m pip install -r requirements.txt
-      - run: python tools/build_release.py
-      - run: python tools/check_bundle.py
+      - run: python tools/build_release.py --validation-build --output .dist/validation
+      - run: python tools/check_bundle.py --artifact-manifest .dist/validation/joomla-rest-api.json --artifact-dir .dist/validation
