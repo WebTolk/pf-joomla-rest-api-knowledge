@@ -1,0 +1,25 @@
+{
+  "status": "delivery_pass_with_known_updater_limitation",
+  "tested_processforge": "1.2.0",
+  "transport": "public_https",
+  "package_version": "1.1.0",
+  "candidates": 25,
+  "staged_and_verified": 25,
+  "checksum_tampering_rejected": true,
+  "apply_without_confirm_rejected": true,
+  "applied": 25,
+  "files_rolled_back": 25,
+  "installed_subject_registry_rolled_back": false,
+  "installed_subject_registry_versions_after_rollback": [
+    "1.1.0"
+  ],
+  "known_updater_limitation": "PF 1.2.0 restores package files but leaves installed-subject versions at the applied release. Reconcile registry against restored manifests before relying on subsequent version selection.",
+  "package_doctors": 25,
+  "resources_resolved": 73,
+  "public_update_sites_discovered_after_install": 25,
+  "custom_install_path_preserved": true,
+  "fallback_install_path_not_created": true,
+  "owner_payload_sha256_matched": true,
+  "search_index_acceptance": "excluded; only optional post-effect suppressed inside disposable test process",
+  "live_workplace_modified": false
+}
