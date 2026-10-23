@@ -1,0 +1,378 @@
+[
+  {
+    "operationId": "com_categories_get_v1_banners_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_get_v1_banners_categoriesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "categories",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "alias": "Example",
+            "note": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_get_v1_banners_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_get_v1_banners_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_post_v1_banners_categories",
+    "direction": "request",
+    "schema": "com_categories_post_v1_banners_categoriesRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_post_v1_banners_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_post_v1_banners_categoriesResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_patch_v1_banners_categories_id",
+    "direction": "request",
+    "schema": "com_categories_patch_v1_banners_categories_idRequest",
+    "value": {
+      "parent_id": 1,
+      "extension": "Example",
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_patch_v1_banners_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_patch_v1_banners_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_get_v1_contacts_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_get_v1_contacts_categoriesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "categories",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "alias": "Example",
+            "note": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_get_v1_contacts_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_get_v1_contacts_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_post_v1_contacts_categories",
+    "direction": "request",
+    "schema": "com_categories_post_v1_contacts_categoriesRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_post_v1_contacts_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_post_v1_contacts_categoriesResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_patch_v1_contacts_categories_id",
+    "direction": "request",
+    "schema": "com_categories_patch_v1_contacts_categories_idRequest",
+    "value": {
+      "parent_id": 1,
+      "extension": "Example",
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_patch_v1_contacts_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_patch_v1_contacts_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_get_v1_content_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_get_v1_content_categoriesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "categories",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "alias": "Example",
+            "note": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_get_v1_content_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_get_v1_content_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_post_v1_content_categories",
+    "direction": "request",
+    "schema": "com_categories_post_v1_content_categoriesRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_post_v1_content_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_post_v1_content_categoriesResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_patch_v1_content_categories_id",
+    "direction": "request",
+    "schema": "com_categories_patch_v1_content_categories_idRequest",
+    "value": {
+      "parent_id": 1,
+      "extension": "Example",
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_patch_v1_content_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_patch_v1_content_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_get_v1_newsfeeds_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_get_v1_newsfeeds_categoriesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "categories",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "alias": "Example",
+            "note": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_get_v1_newsfeeds_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_get_v1_newsfeeds_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_post_v1_newsfeeds_categories",
+    "direction": "request",
+    "schema": "com_categories_post_v1_newsfeeds_categoriesRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_post_v1_newsfeeds_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_post_v1_newsfeeds_categoriesResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_patch_v1_newsfeeds_categories_id",
+    "direction": "request",
+    "schema": "com_categories_patch_v1_newsfeeds_categories_idRequest",
+    "value": {
+      "parent_id": 1,
+      "extension": "Example",
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_categories_patch_v1_newsfeeds_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_categories_patch_v1_newsfeeds_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "categories",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "alias": "Example",
+          "note": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

@@ -1,0 +1,155 @@
+{
+  "generic_410": {
+    "http_status": 500,
+    "body": {
+      "errors": [
+        {
+          "code": 500,
+          "title": "Internal server error"
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "generic_missing_task_404": {
+    "http_status": 500,
+    "body": {
+      "errors": [
+        {
+          "code": 500,
+          "title": "Internal server error"
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "invalid_update_token_403": {
+    "http_status": 400,
+    "body": {
+      "errors": [
+        {
+          "title": "Invalid token",
+          "code": 403
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "save": {
+    "http_status": 400,
+    "body": {
+      "errors": [
+        {
+          "title": "Save failed",
+          "code": 400
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "acl": {
+    "http_status": 403,
+    "body": {
+      "errors": [
+        {
+          "title": "Access Denied",
+          "code": 403
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "missing_resource": {
+    "http_status": 404,
+    "body": {
+      "errors": [
+        {
+          "title": "Resource not found",
+          "code": 404
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "authentication": {
+    "http_status": 401,
+    "body": {
+      "errors": [
+        {
+          "title": "Forbidden"
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "accept": {
+    "http_status": 406,
+    "body": {
+      "errors": [
+        {
+          "title": "Not Acceptable",
+          "code": 406
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "route": {
+    "http_status": 404,
+    "body": {
+      "errors": [
+        {
+          "title": "Resource not found",
+          "code": 404
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "checkout": {
+    "http_status": 400,
+    "body": {
+      "errors": [
+        {
+          "title": "Check-out failed"
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "mail": {
+    "http_status": 400,
+    "body": {
+      "errors": [
+        {
+          "title": "Error sending message"
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "save_missing_file": {
+    "http_status": 404,
+    "body": {
+      "errors": [
+        {
+          "title": "File not found",
+          "code": 404
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  },
+  "generic_runtime_400": {
+    "http_status": 500,
+    "body": {
+      "errors": [
+        {
+          "code": 500,
+          "title": "Internal server error"
+        }
+      ]
+    },
+    "provenance": "executed local exception formatter only"
+  }
+}

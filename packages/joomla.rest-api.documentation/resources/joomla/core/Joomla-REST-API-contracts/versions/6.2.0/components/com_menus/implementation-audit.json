@@ -1,0 +1,1264 @@
+{
+  "core_version": "6.2.0",
+  "status": "pass",
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v1/menus/site",
+      "task": "menus.displayList",
+      "handler_source": "api/components/com_menus/src/Controller/MenusController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b1798ea7dd7c06153724764f20b4b78ed181b757a18d5a05c967b5ba18b355ce"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/menus/site/{id}",
+      "task": "menus.displayItem",
+      "handler_source": "api/components/com_menus/src/Controller/MenusController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b1798ea7dd7c06153724764f20b4b78ed181b757a18d5a05c967b5ba18b355ce"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/menus/site",
+      "task": "menus.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_menus_post_v1_menus_siteRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/menus/site/{id}",
+      "task": "menus.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_menus_patch_v1_menus_site_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/menus/site/{id}",
+      "task": "menus.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/menus/administrator",
+      "task": "menus.displayList",
+      "handler_source": "api/components/com_menus/src/Controller/MenusController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b1798ea7dd7c06153724764f20b4b78ed181b757a18d5a05c967b5ba18b355ce"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/menus/administrator/{id}",
+      "task": "menus.displayItem",
+      "handler_source": "api/components/com_menus/src/Controller/MenusController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b1798ea7dd7c06153724764f20b4b78ed181b757a18d5a05c967b5ba18b355ce"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/menus/administrator",
+      "task": "menus.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_menus_post_v1_menus_administratorRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/menus/administrator/{id}",
+      "task": "menus.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_menus_patch_v1_menus_administrator_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/menus/administrator/{id}",
+      "task": "menus.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/menus/site/items",
+      "task": "items.displayList",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        },
+        {
+          "name": "filter[menutype]",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/menus/site/items/{id}",
+      "task": "items.displayItem",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/menus/site/items",
+      "task": "items.add",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_menus_post_v1_menus_site_itemsRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/menus/site/items/{id}",
+      "task": "items.edit",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_menus_patch_v1_menus_site_items_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/menus/site/items/{id}",
+      "task": "items.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/menus/administrator/items",
+      "task": "items.displayList",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        },
+        {
+          "name": "filter[menutype]",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/menus/administrator/items/{id}",
+      "task": "items.displayItem",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/menus/administrator/items",
+      "task": "items.add",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_menus_post_v1_menus_administrator_itemsRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/menus/administrator/items/{id}",
+      "task": "items.edit",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_menus_patch_v1_menus_administrator_items_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/menus/administrator/items/{id}",
+      "task": "items.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/menus/site/items/types",
+      "task": "items.getTypes",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 0
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/menus/administrator/items/types",
+      "task": "items.getTypes",
+      "handler_source": "api/components/com_menus/src/Controller/ItemsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_menus",
+        "client_id": 1
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "ba59ddfeacfc1c06c0db29630de1b7c4a0d98fef0b42aa72e6661c8cb7e71582"
+    }
+  ]
+}

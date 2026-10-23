@@ -1,0 +1,244 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/modules/types/site",
+    "task": "modules.getTypes",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/types/administrator",
+    "task": "modules.getTypes",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/site",
+    "task": "modules.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/site/{id}",
+    "task": "modules.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/modules/site",
+    "task": "modules.add",
+    "support": "source-derived",
+    "request_schema": "com_modules_post_v1_modules_siteRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/modules/site/{id}",
+    "task": "modules.edit",
+    "support": "source-derived",
+    "request_schema": "com_modules_patch_v1_modules_site_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/modules/site/{id}",
+    "task": "modules.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/administrator",
+    "task": "modules.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/administrator/{id}",
+    "task": "modules.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/modules/administrator",
+    "task": "modules.add",
+    "support": "source-derived",
+    "request_schema": "com_modules_post_v1_modules_administratorRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/modules/administrator/{id}",
+    "task": "modules.edit",
+    "support": "source-derived",
+    "request_schema": "com_modules_patch_v1_modules_administrator_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/modules/administrator/{id}",
+    "task": "modules.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/modules/src/Extension/Modules.php",
+      "api/components/com_modules/src/Controller/ModulesController.php"
+    ]
+  }
+]

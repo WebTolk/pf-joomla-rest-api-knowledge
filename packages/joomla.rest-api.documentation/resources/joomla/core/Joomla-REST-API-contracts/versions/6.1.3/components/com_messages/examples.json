@@ -1,0 +1,98 @@
+[
+  {
+    "operationId": "com_messages_get_v1_messages",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_messages_get_v1_messagesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "messages",
+          "id": "Example",
+          "attributes": {
+            "user_id_from": 1,
+            "user_id_to": 1,
+            "date_time": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_messages_get_v1_messages_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_messages_get_v1_messages_idResponse",
+    "value": {
+      "data": {
+        "type": "messages",
+        "id": "Example",
+        "attributes": {
+          "user_id_from": 1,
+          "user_id_to": 1,
+          "date_time": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_messages_post_v1_messages",
+    "direction": "request",
+    "schema": "com_messages_post_v1_messagesRequest",
+    "value": {
+      "user_id_to": 1,
+      "subject": "Example",
+      "message": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_messages_post_v1_messages",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_messages_post_v1_messagesResponse",
+    "value": {
+      "data": {
+        "type": "messages",
+        "id": "Example",
+        "attributes": {
+          "user_id_from": 1,
+          "user_id_to": 1,
+          "date_time": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_messages_patch_v1_messages_id",
+    "direction": "request",
+    "schema": "com_messages_patch_v1_messages_idRequest",
+    "value": {
+      "user_id_to": 1,
+      "subject": "Example",
+      "message": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_messages_patch_v1_messages_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_messages_patch_v1_messages_idResponse",
+    "value": {
+      "data": {
+        "type": "messages",
+        "id": "Example",
+        "attributes": {
+          "user_id_from": 1,
+          "user_id_to": 1,
+          "date_time": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

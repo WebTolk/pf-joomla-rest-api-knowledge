@@ -1,0 +1,192 @@
+[
+  {
+    "operationId": "com_templates_get_v1_templates_styles_site",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_templates_get_v1_templates_styles_siteResponse",
+    "value": {
+      "data": [
+        {
+          "type": "styles",
+          "id": "Example",
+          "attributes": {
+            "template": "Example",
+            "title": "Example",
+            "home": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_get_v1_templates_styles_site_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_templates_get_v1_templates_styles_site_idResponse",
+    "value": {
+      "data": {
+        "type": "styles",
+        "id": "Example",
+        "attributes": {
+          "template": "Example",
+          "client_id": 1,
+          "home": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_post_v1_templates_styles_site",
+    "direction": "request",
+    "schema": "com_templates_post_v1_templates_styles_siteRequest",
+    "value": {
+      "title": "API example",
+      "template": "cassiopeia"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_post_v1_templates_styles_site",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_templates_post_v1_templates_styles_siteResponse",
+    "value": {
+      "data": {
+        "type": "styles",
+        "id": "Example",
+        "attributes": {
+          "template": "Example",
+          "client_id": 1,
+          "home": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_patch_v1_templates_styles_site_id",
+    "direction": "request",
+    "schema": "com_templates_patch_v1_templates_styles_site_idRequest",
+    "value": {
+      "title": "Example",
+      "assigned": "Example",
+      "home": 1
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_patch_v1_templates_styles_site_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_templates_patch_v1_templates_styles_site_idResponse",
+    "value": {
+      "data": {
+        "type": "styles",
+        "id": "Example",
+        "attributes": {
+          "template": "Example",
+          "client_id": 1,
+          "home": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_get_v1_templates_styles_administrator",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_templates_get_v1_templates_styles_administratorResponse",
+    "value": {
+      "data": [
+        {
+          "type": "styles",
+          "id": "Example",
+          "attributes": {
+            "template": "Example",
+            "title": "Example",
+            "home": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_get_v1_templates_styles_administrator_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_templates_get_v1_templates_styles_administrator_idResponse",
+    "value": {
+      "data": {
+        "type": "styles",
+        "id": "Example",
+        "attributes": {
+          "template": "Example",
+          "client_id": 1,
+          "home": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_post_v1_templates_styles_administrator",
+    "direction": "request",
+    "schema": "com_templates_post_v1_templates_styles_administratorRequest",
+    "value": {
+      "title": "API example",
+      "template": "atum"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_post_v1_templates_styles_administrator",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_templates_post_v1_templates_styles_administratorResponse",
+    "value": {
+      "data": {
+        "type": "styles",
+        "id": "Example",
+        "attributes": {
+          "template": "Example",
+          "client_id": 1,
+          "home": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_patch_v1_templates_styles_administrator_id",
+    "direction": "request",
+    "schema": "com_templates_patch_v1_templates_styles_administrator_idRequest",
+    "value": {
+      "title": "Example",
+      "assigned": "Example",
+      "home": 0
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_templates_patch_v1_templates_styles_administrator_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_templates_patch_v1_templates_styles_administrator_idResponse",
+    "value": {
+      "data": {
+        "type": "styles",
+        "id": "Example",
+        "attributes": {
+          "template": "Example",
+          "client_id": 1,
+          "home": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

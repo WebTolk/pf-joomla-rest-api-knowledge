@@ -1,0 +1,103 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/newsfeeds/feeds",
+    "task": "feeds.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_newsfeeds/src/Controller/FeedsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/newsfeeds/feeds/{id}",
+    "task": "feeds.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_newsfeeds/src/Controller/FeedsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/newsfeeds/feeds",
+    "task": "feeds.add",
+    "support": "source-derived",
+    "request_schema": "com_newsfeeds_post_v1_newsfeeds_feedsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_newsfeeds/src/Controller/FeedsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/newsfeeds/feeds/{id}",
+    "task": "feeds.edit",
+    "support": "source-derived",
+    "request_schema": "com_newsfeeds_patch_v1_newsfeeds_feeds_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_newsfeeds/src/Controller/FeedsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/newsfeeds/feeds/{id}",
+    "task": "feeds.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_newsfeeds/src/Controller/FeedsController.php"
+    ]
+  }
+]

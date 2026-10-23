@@ -1,0 +1,67 @@
+schema_version: 1
+id: joomla.rest-api.documentation
+name: Joomla REST API documentation
+version: 1.1.0
+kind: documentation
+scope: workplace
+package_root: global
+description: Joomla 6.2.0 REST API source-verified overview and exact component contracts.
+resources:
+- id: rest-api-docs
+  kind: documentation
+  title: Joomla 6.2.0 REST API documentation
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 6.2.0
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-docs
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.documentation
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+type: knowledge_package
+status: released
+dependencies: []
+update_sites:
+- id: webtolk-joomla-rest-stable
+  enabled: true
+  manifest_url: https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/main/updates/joomla-rest-api.json
+  changelog_url: https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/main/CHANGELOG.md
+  channel: stable
+  priority: 10
+  trust:
+    require_https: true
+    require_sha256: true
+    allow_unsigned: true
+    signature_required: false
+  policy:
+    check_interval_hours: 24
+    auto_check: true
+    auto_stage: false
+    auto_apply: false
+    notify_operator: true
+    allow_stage: true
+    allow_apply: true
+    backup_before_apply: true

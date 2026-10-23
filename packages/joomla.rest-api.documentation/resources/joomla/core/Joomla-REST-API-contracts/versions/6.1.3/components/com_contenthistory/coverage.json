@@ -1,0 +1,185 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/banners/{id}/contenthistory",
+    "task": "history.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_contenthistory/src/Controller/HistoryController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/banners/{id}/contenthistory/keep",
+    "task": "history.keep",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_contenthistory/src/Controller/HistoryController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/banners/{id}/contenthistory",
+    "task": "history.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_contenthistory/src/Controller/HistoryController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts/{id}/contenthistory",
+    "task": "history.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_contenthistory/src/Controller/HistoryController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/contacts/{id}/contenthistory/keep",
+    "task": "history.keep",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_contenthistory/src/Controller/HistoryController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/contacts/{id}/contenthistory",
+    "task": "history.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_contenthistory/src/Controller/HistoryController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/content/articles/{id}/contenthistory",
+    "task": "history.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_contenthistory/src/Controller/HistoryController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/content/articles/{id}/contenthistory/keep",
+    "task": "history.keep",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_contenthistory/src/Controller/HistoryController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/content/articles/{id}/contenthistory",
+    "task": "history.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_contenthistory/src/Controller/HistoryController.php"
+    ]
+  }
+]

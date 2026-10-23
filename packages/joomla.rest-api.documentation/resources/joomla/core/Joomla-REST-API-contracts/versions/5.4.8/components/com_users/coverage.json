@@ -1,0 +1,305 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/users",
+    "task": "users.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/UsersController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/{id}",
+    "task": "users.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/UsersController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/users",
+    "task": "users.add",
+    "support": "source-derived",
+    "request_schema": "com_users_post_v1_usersRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/UsersController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/users/{id}",
+    "task": "users.edit",
+    "support": "source-derived",
+    "request_schema": "com_users_patch_v1_users_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/UsersController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/users/{id}",
+    "task": "users.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/UsersController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/groups",
+    "task": "groups.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/groups/{id}",
+    "task": "groups.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/users/groups",
+    "task": "groups.add",
+    "support": "source-derived",
+    "request_schema": "com_users_post_v1_users_groupsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/users/groups/{id}",
+    "task": "groups.edit",
+    "support": "source-derived",
+    "request_schema": "com_users_patch_v1_users_groups_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/users/groups/{id}",
+    "task": "groups.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/levels",
+    "task": "levels.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/LevelsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/levels/{id}",
+    "task": "levels.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/LevelsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/users/levels",
+    "task": "levels.add",
+    "support": "source-derived",
+    "request_schema": "com_users_post_v1_users_levelsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/LevelsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/users/levels/{id}",
+    "task": "levels.edit",
+    "support": "source-derived",
+    "request_schema": "com_users_patch_v1_users_levels_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/LevelsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/users/levels/{id}",
+    "task": "levels.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_users/src/Controller/LevelsController.php"
+    ]
+  }
+]

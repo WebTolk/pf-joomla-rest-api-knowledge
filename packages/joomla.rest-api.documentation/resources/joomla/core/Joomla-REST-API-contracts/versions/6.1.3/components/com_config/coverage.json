@@ -1,0 +1,82 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/config/application",
+    "task": "application.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/config/src/Extension/Config.php",
+      "api/components/com_config/src/Controller/ApplicationController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/config/application",
+    "task": "application.edit",
+    "support": "source-derived",
+    "request_schema": "com_config_patch_v1_config_applicationRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/config/src/Extension/Config.php",
+      "api/components/com_config/src/Controller/ApplicationController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/config/{component_name}",
+    "task": "component.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/config/src/Extension/Config.php",
+      "api/components/com_config/src/Controller/ComponentController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/config/{component_name}",
+    "task": "component.edit",
+    "support": "source-derived",
+    "request_schema": "com_config_patch_v1_config_component_nameRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/config/src/Extension/Config.php",
+      "api/components/com_config/src/Controller/ComponentController.php"
+    ]
+  }
+]

@@ -1,0 +1,328 @@
+{
+  "core_version": "6.2.0",
+  "status": "pass",
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/v1/contacts/form/{id}",
+      "task": "contact.submitForm",
+      "handler_source": "api/components/com_contact/src/Controller/ContactController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_contact"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_contact_post_v1_contacts_form_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "7a8120ca9d91153696254548bdeeeaafc328d0f524358db33af27e882c903d9b"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/contacts",
+      "task": "contact.displayList",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_contact"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/contacts/{id}",
+      "task": "contact.displayItem",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_contact"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/contacts",
+      "task": "contact.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_contact"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_contact_post_v1_contactsRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/contacts/{id}",
+      "task": "contact.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_contact"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_contact_patch_v1_contacts_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/contacts/{id}",
+      "task": "contact.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_contact"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    }
+  ]
+}

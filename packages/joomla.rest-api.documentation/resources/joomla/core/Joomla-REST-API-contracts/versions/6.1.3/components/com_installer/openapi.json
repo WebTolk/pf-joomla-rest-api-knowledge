@@ -1,0 +1,2428 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Joomla 6.1.3 com_installer REST contract",
+    "version": "6.1.3",
+    "description": "Source-pinned API knowledge. Examples are synthetic; no runtime requests."
+  },
+  "servers": [
+    {
+      "url": "/api/index.php"
+    }
+  ],
+  "security": [
+    {
+      "JoomlaToken": []
+    }
+  ],
+  "paths": {
+    "/v1/extensions": {
+      "get": {
+        "operationId": "com_installer_get_v1_extensions",
+        "summary": "GET /v1/extensions",
+        "tags": [
+          "com_installer"
+        ],
+        "x-controller-task": "manage.displayList",
+        "x-route-defaults": {
+          "component": "com_installer",
+          "public": false
+        },
+        "x-source": [
+          "plugins/webservices/installer/src/Extension/Installer.php",
+          "api/components/com_installer/src/Controller/ManageController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "page[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "page[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20
+            }
+          },
+          {
+            "name": "core",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ]
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_installer_get_v1_extensionsResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "manage",
+                      "id": "Example",
+                      "attributes": {
+                        "name": "Example",
+                        "type": "Example",
+                        "version": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "GET extensions перечисляет расширения; GET languages — доступные языковые пакеты.\nPOST languages -> languages.install зарегистрирован, но метод install отсутствует\nв API LanguagesController и ApiController этих снимков. Он отмечен как\nregistered-unimplemented: успешный ответ не выдумывается. Установка через UI\nтребует соответствующей области задания.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/languages": {
+      "get": {
+        "operationId": "com_installer_get_v1_languages",
+        "summary": "GET /v1/languages",
+        "tags": [
+          "com_installer"
+        ],
+        "x-controller-task": "languages.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_installer"
+        },
+        "x-source": [
+          "plugins/webservices/languages/src/Extension/Languages.php",
+          "api/components/com_installer/src/Controller/LanguagesController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "page[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "page[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_installer_get_v1_languagesResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "languages",
+                      "id": "Example",
+                      "attributes": {
+                        "name": "Example",
+                        "element": "Example",
+                        "version": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "GET extensions перечисляет расширения; GET languages — доступные языковые пакеты.\nPOST languages -> languages.install зарегистрирован, но метод install отсутствует\nв API LanguagesController и ApiController этих снимков. Он отмечен как\nregistered-unimplemented: успешный ответ не выдумывается. Установка через UI\nтребует соответствующей области задания.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      },
+      "post": {
+        "operationId": "com_installer_post_v1_languages",
+        "summary": "POST /v1/languages",
+        "tags": [
+          "com_installer"
+        ],
+        "x-controller-task": "languages.install",
+        "x-route-defaults": {
+          "component": "com_installer"
+        },
+        "x-source": [
+          "plugins/webservices/languages/src/Extension/Languages.php",
+          "api/components/com_installer/src/Controller/LanguagesController.php"
+        ],
+        "x-support": "registered-unimplemented",
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Маршрут зарегистрирован, но install не реализован. BaseController может перейти к default display; такой ответ не подтверждает установку. Успешный контракт установки для этого маршрута не объявляется.\n\n"
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "JoomlaToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Joomla-Token"
+      },
+      "JUpdateToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-JUpdate-Token"
+      }
+    },
+    "schemas": {
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        ]
+      },
+      "ResourceIdentifier": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Relationship": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceIdentifier"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceIdentifier"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Relationship"
+            }
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Links": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/JsonValue"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "href"
+              ]
+            }
+          ]
+        }
+      },
+      "EmptyActionResponse": {
+        "type": "array",
+        "maxItems": 0
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "status": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "ErrorDocument": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "anyOf": [
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/ErrorObject"
+                }
+              },
+              {
+                "$ref": "#/components/schemas/ErrorObject"
+              }
+            ],
+            "description": "Exception handlers return an error array; the core non-Exception Throwable branch can emit one error object."
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "errors"
+        ]
+      },
+      "LegacyDeleteError": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "messages": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+              "code": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "code",
+              "message"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ]
+      },
+      "Form_administrator_components_com_installer_forms_filter_database_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Extensions",
+                "description": "Search in extension name. Prefix with ID: to search for an extension ID.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_INSTALLER_MANAGE_FILTER_SEARCH_LABEL",
+                  "description": "COM_INSTALLER_MANAGE_FILTER_SEARCH_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_database.xml"
+              },
+              "client_id": {
+                "type": "string",
+                "title": "Location",
+                "description": "Joomla form field client_id; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "client_id",
+                  "type": "location",
+                  "label": "COM_INSTALLER_TYPE_CLIENT"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Location -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_database.xml"
+              },
+              "type": {
+                "type": "string",
+                "title": "Type",
+                "description": "Joomla form field type; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "type",
+                  "type": "type",
+                  "label": "COM_INSTALLER_HEADING_TYPE"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Type -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_database.xml"
+              },
+              "folder": {
+                "type": "string",
+                "title": "Folder",
+                "description": "Joomla form field folder; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "folder",
+                  "type": "folder",
+                  "label": "COM_INSTALLER_HEADING_FOLDER"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Folder -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_database.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "name ASC",
+                  "name DESC",
+                  "client_translated ASC",
+                  "client_translated DESC",
+                  "type_translated ASC",
+                  "type_translated DESC",
+                  "folder_translated ASC",
+                  "folder_translated DESC",
+                  "extension_id ASC",
+                  "extension_id DESC"
+                ],
+                "default": "name ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "name ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "name ASC",
+                    "label": "Name ascending"
+                  },
+                  {
+                    "value": "name DESC",
+                    "label": "Name descending"
+                  },
+                  {
+                    "value": "client_translated ASC",
+                    "label": "Location ascending"
+                  },
+                  {
+                    "value": "client_translated DESC",
+                    "label": "Location descending"
+                  },
+                  {
+                    "value": "type_translated ASC",
+                    "label": "Type ascending"
+                  },
+                  {
+                    "value": "type_translated DESC",
+                    "label": "Type descending"
+                  },
+                  {
+                    "value": "folder_translated ASC",
+                    "label": "Folder ascending"
+                  },
+                  {
+                    "value": "folder_translated DESC",
+                    "label": "Folder descending"
+                  },
+                  {
+                    "value": "extension_id ASC",
+                    "label": "ID ascending"
+                  },
+                  {
+                    "value": "extension_id DESC",
+                    "label": "ID descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_installer/forms/filter_database.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "2",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "2"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_database.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_installer_forms_filter_discover_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Discovered Extensions",
+                "description": "Search in discovered extension name. Prefix with ID: to search for an extension ID.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_INSTALLER_DISCOVER_FILTER_SEARCH_LABEL",
+                  "description": "COM_INSTALLER_DISCOVER_FILTER_SEARCH_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_discover.xml"
+              },
+              "client_id": {
+                "type": "string",
+                "title": "Location",
+                "description": "Joomla form field client_id; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "client_id",
+                  "type": "location",
+                  "label": "COM_INSTALLER_TYPE_CLIENT"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Location -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_discover.xml"
+              },
+              "type": {
+                "type": "string",
+                "title": "Type",
+                "description": "Joomla form field type; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "type",
+                  "type": "type",
+                  "label": "COM_INSTALLER_HEADING_TYPE"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Type -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_discover.xml"
+              },
+              "folder": {
+                "type": "string",
+                "title": "Folder",
+                "description": "Joomla form field folder; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "folder",
+                  "type": "folder",
+                  "label": "COM_INSTALLER_HEADING_FOLDER"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Folder -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_discover.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "name ASC",
+                  "name DESC",
+                  "client_translated ASC",
+                  "client_translated DESC",
+                  "type_translated ASC",
+                  "type_translated DESC",
+                  "folder_translated ASC",
+                  "folder_translated DESC",
+                  "extension_id ASC",
+                  "extension_id DESC"
+                ],
+                "default": "name ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "name ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "name ASC",
+                    "label": "Name ascending"
+                  },
+                  {
+                    "value": "name DESC",
+                    "label": "Name descending"
+                  },
+                  {
+                    "value": "client_translated ASC",
+                    "label": "Location ascending"
+                  },
+                  {
+                    "value": "client_translated DESC",
+                    "label": "Location descending"
+                  },
+                  {
+                    "value": "type_translated ASC",
+                    "label": "Type ascending"
+                  },
+                  {
+                    "value": "type_translated DESC",
+                    "label": "Type descending"
+                  },
+                  {
+                    "value": "folder_translated ASC",
+                    "label": "Folder ascending"
+                  },
+                  {
+                    "value": "folder_translated DESC",
+                    "label": "Folder descending"
+                  },
+                  {
+                    "value": "extension_id ASC",
+                    "label": "ID ascending"
+                  },
+                  {
+                    "value": "extension_id DESC",
+                    "label": "ID descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_installer/forms/filter_discover.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_discover.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_installer_forms_filter_languages_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Languages",
+                "description": "Search in language name and language tag.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_INSTALLER_LANGUAGES_FILTER_SEARCH_LABEL",
+                  "description": "COM_INSTALLER_LANGUAGES_FILTER_SEARCH_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_languages.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "name ASC",
+                  "name DESC",
+                  "element ASC",
+                  "element DESC"
+                ],
+                "default": "name ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "name ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "name ASC",
+                    "label": "Language ascending"
+                  },
+                  {
+                    "value": "name DESC",
+                    "label": "Language descending"
+                  },
+                  {
+                    "value": "element ASC",
+                    "label": "Language Tag ascending"
+                  },
+                  {
+                    "value": "element DESC",
+                    "label": "Language Tag descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_installer/forms/filter_languages.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_languages.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_installer_forms_filter_manage_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Extensions",
+                "description": "Search in extension name. Prefix with ID: to search for an extension ID.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_INSTALLER_MANAGE_FILTER_SEARCH_LABEL",
+                  "description": "COM_INSTALLER_MANAGE_FILTER_SEARCH_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_manage.xml"
+              },
+              "status": {
+                "type": "string",
+                "title": "Status",
+                "description": "Joomla form field status; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "status",
+                  "type": "extensionstatus",
+                  "label": "JSTATUS"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Status -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_manage.xml"
+              },
+              "client_id": {
+                "type": "string",
+                "title": "Location",
+                "description": "Joomla form field client_id; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "client_id",
+                  "type": "location",
+                  "label": "COM_INSTALLER_TYPE_CLIENT"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Location -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_manage.xml"
+              },
+              "type": {
+                "type": "string",
+                "title": "Type",
+                "description": "Joomla form field type; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "type",
+                  "type": "type",
+                  "label": "COM_INSTALLER_HEADING_TYPE"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Type -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_manage.xml"
+              },
+              "folder": {
+                "type": "string",
+                "title": "Folder",
+                "description": "Joomla form field folder; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "folder",
+                  "type": "folder",
+                  "label": "COM_INSTALLER_HEADING_FOLDER"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Folder -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_manage.xml"
+              },
+              "package_id": {
+                "type": "string",
+                "title": "Package",
+                "description": "Search for a package extension and extensions included with that package extension.",
+                "x-joomla-form": {
+                  "name": "package_id",
+                  "type": "package",
+                  "label": "COM_INSTALLER_MANAGE_FILTER_PACKAGE_ID_LABEL",
+                  "description": "COM_INSTALLER_MANAGE_FILTER_PACKAGE_ID_DESC"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Package -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_manage.xml"
+              },
+              "core": {
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "pattern": "^(?:-?[0-9]+)?$",
+                "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+                "enum": [
+                  "",
+                  1,
+                  0,
+                  "1",
+                  "0"
+                ],
+                "title": "Type",
+                "description": "Joomla form field core; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "core",
+                  "type": "list",
+                  "label": "COM_INSTALLER_HEADING_TYPE",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Extensions -"
+                  },
+                  {
+                    "value": "1",
+                    "label": "Core Extensions"
+                  },
+                  {
+                    "value": "0",
+                    "label": "Non-core Extensions"
+                  }
+                ],
+                "x-source": "administrator/components/com_installer/forms/filter_manage.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "status ASC",
+                  "status DESC",
+                  "name ASC",
+                  "name DESC",
+                  "client_translated ASC",
+                  "client_translated DESC",
+                  "type_translated ASC",
+                  "type_translated DESC",
+                  "creationDate ASC",
+                  "creationDate DESC",
+                  "folder_translated ASC",
+                  "folder_translated DESC",
+                  "package_id ASC",
+                  "package_id DESC",
+                  "extension_id ASC",
+                  "extension_id DESC"
+                ],
+                "default": "name ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "name ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "status ASC",
+                    "label": "Status ascending"
+                  },
+                  {
+                    "value": "status DESC",
+                    "label": "Status descending"
+                  },
+                  {
+                    "value": "name ASC",
+                    "label": "Name ascending"
+                  },
+                  {
+                    "value": "name DESC",
+                    "label": "Name descending"
+                  },
+                  {
+                    "value": "client_translated ASC",
+                    "label": "Location ascending"
+                  },
+                  {
+                    "value": "client_translated DESC",
+                    "label": "Location descending"
+                  },
+                  {
+                    "value": "type_translated ASC",
+                    "label": "Type ascending"
+                  },
+                  {
+                    "value": "type_translated DESC",
+                    "label": "Type descending"
+                  },
+                  {
+                    "value": "creationDate ASC",
+                    "label": "Date ascending"
+                  },
+                  {
+                    "value": "creationDate DESC",
+                    "label": "Date descending"
+                  },
+                  {
+                    "value": "folder_translated ASC",
+                    "label": "Folder ascending"
+                  },
+                  {
+                    "value": "folder_translated DESC",
+                    "label": "Folder descending"
+                  },
+                  {
+                    "value": "package_id ASC",
+                    "label": "Package ID ascending"
+                  },
+                  {
+                    "value": "package_id DESC",
+                    "label": "Package ID descending"
+                  },
+                  {
+                    "value": "extension_id ASC",
+                    "label": "ID ascending"
+                  },
+                  {
+                    "value": "extension_id DESC",
+                    "label": "ID descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_installer/forms/filter_manage.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_manage.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_installer_forms_filter_update_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Extensions with Updates",
+                "description": "Search in extension name. Prefix with ID:, UID: or EID: to search for an update ID, update site ID or extension ID.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_INSTALLER_UPDATE_FILTER_SEARCH_LABEL",
+                  "description": "COM_INSTALLER_UPDATE_FILTER_SEARCH_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_update.xml"
+              },
+              "client_id": {
+                "type": "string",
+                "title": "Location",
+                "description": "Joomla form field client_id; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "client_id",
+                  "type": "location",
+                  "label": "COM_INSTALLER_TYPE_CLIENT"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Location -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_update.xml"
+              },
+              "type": {
+                "type": "string",
+                "title": "Location",
+                "description": "Joomla form field type; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "type",
+                  "type": "type",
+                  "label": "COM_INSTALLER_TYPE_CLIENT"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Type -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_update.xml"
+              },
+              "folder": {
+                "type": "string",
+                "title": "Folder",
+                "description": "Joomla form field folder; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "folder",
+                  "type": "folder",
+                  "label": "COM_INSTALLER_HEADING_FOLDER"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Folder -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_update.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "u.name ASC",
+                  "u.name DESC",
+                  "client_translated ASC",
+                  "client_translated DESC",
+                  "type_translated ASC",
+                  "type_translated DESC",
+                  "folder_translated ASC",
+                  "folder_translated DESC"
+                ],
+                "default": "u.name ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "u.name ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "u.name ASC",
+                    "label": "Name ascending"
+                  },
+                  {
+                    "value": "u.name DESC",
+                    "label": "Name descending"
+                  },
+                  {
+                    "value": "client_translated ASC",
+                    "label": "Location ascending"
+                  },
+                  {
+                    "value": "client_translated DESC",
+                    "label": "Location descending"
+                  },
+                  {
+                    "value": "type_translated ASC",
+                    "label": "Type ascending"
+                  },
+                  {
+                    "value": "type_translated DESC",
+                    "label": "Type descending"
+                  },
+                  {
+                    "value": "folder_translated ASC",
+                    "label": "Folder ascending"
+                  },
+                  {
+                    "value": "folder_translated DESC",
+                    "label": "Folder descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_installer/forms/filter_update.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_update.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_installer_forms_filter_updatesites_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Update Sites",
+                "description": "Search in extension name. Prefix with ID: to search for an update site ID.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_INSTALLER_UPDATESITES_FILTER_SEARCH_LABEL",
+                  "description": "COM_INSTALLER_UPDATESITES_FILTER_SEARCH_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_updatesites.xml"
+              },
+              "enabled": {
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "pattern": "^(?:-?[0-9]+)?$",
+                "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+                "enum": [
+                  "",
+                  0,
+                  1,
+                  "0",
+                  "1"
+                ],
+                "title": "Status",
+                "description": "Joomla form field enabled; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "enabled",
+                  "type": "list",
+                  "label": "JSTATUS",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Status -"
+                  },
+                  {
+                    "value": "0",
+                    "label": "Disabled"
+                  },
+                  {
+                    "value": "1",
+                    "label": "Enabled"
+                  }
+                ],
+                "x-source": "administrator/components/com_installer/forms/filter_updatesites.xml"
+              },
+              "client_id": {
+                "type": "string",
+                "title": "Location",
+                "description": "Joomla form field client_id; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "client_id",
+                  "type": "location",
+                  "label": "COM_INSTALLER_TYPE_CLIENT"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Location -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_updatesites.xml"
+              },
+              "type": {
+                "type": "string",
+                "title": "Type",
+                "description": "Joomla form field type; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "type",
+                  "type": "type",
+                  "label": "COM_INSTALLER_HEADING_TYPE"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Type -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_updatesites.xml"
+              },
+              "folder": {
+                "type": "string",
+                "title": "Folder",
+                "description": "Joomla form field folder; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "folder",
+                  "type": "folder",
+                  "label": "COM_INSTALLER_HEADING_FOLDER"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Folder -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_installer/forms/filter_updatesites.xml"
+              },
+              "supported": {
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "pattern": "^(?:-?[0-9]+)?$",
+                "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+                "enum": [
+                  "",
+                  1,
+                  -1,
+                  2,
+                  "1",
+                  "-1",
+                  "2"
+                ],
+                "title": "Download Key",
+                "description": "Joomla form field supported; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "supported",
+                  "type": "list",
+                  "label": "COM_INSTALLER_HEADING_SUPPORTED",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Download Key -"
+                  },
+                  {
+                    "value": "1",
+                    "label": "Download Key Supported"
+                  },
+                  {
+                    "value": "-1",
+                    "label": "Download Key Missing"
+                  },
+                  {
+                    "value": "2",
+                    "label": "Download Key Exists"
+                  }
+                ],
+                "x-source": "administrator/components/com_installer/forms/filter_updatesites.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "enabled ASC",
+                  "enabled DESC",
+                  "update_site_name ASC",
+                  "update_site_name DESC",
+                  "name ASC",
+                  "name DESC",
+                  "client_translated ASC",
+                  "client_translated DESC",
+                  "type_translated ASC",
+                  "type_translated DESC",
+                  "folder_translated ASC",
+                  "folder_translated DESC",
+                  "update_site_id ASC",
+                  "update_site_id DESC"
+                ],
+                "default": "name ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "name ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "enabled ASC",
+                    "label": "Status ascending"
+                  },
+                  {
+                    "value": "enabled DESC",
+                    "label": "Status descending"
+                  },
+                  {
+                    "value": "update_site_name ASC",
+                    "label": "Update Site ascending"
+                  },
+                  {
+                    "value": "update_site_name DESC",
+                    "label": "Update Site descending"
+                  },
+                  {
+                    "value": "name ASC",
+                    "label": "Name ascending"
+                  },
+                  {
+                    "value": "name DESC",
+                    "label": "Name descending"
+                  },
+                  {
+                    "value": "client_translated ASC",
+                    "label": "Location ascending"
+                  },
+                  {
+                    "value": "client_translated DESC",
+                    "label": "Location descending"
+                  },
+                  {
+                    "value": "type_translated ASC",
+                    "label": "Type ascending"
+                  },
+                  {
+                    "value": "type_translated DESC",
+                    "label": "Type descending"
+                  },
+                  {
+                    "value": "folder_translated ASC",
+                    "label": "Folder ascending"
+                  },
+                  {
+                    "value": "folder_translated DESC",
+                    "label": "Folder descending"
+                  },
+                  {
+                    "value": "update_site_id ASC",
+                    "label": "ID ascending"
+                  },
+                  {
+                    "value": "update_site_id DESC",
+                    "label": "ID descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_installer/forms/filter_updatesites.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_installer/forms/filter_updatesites.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_installer_forms_updatesite_xml": {
+        "type": "object",
+        "properties": {
+          "update_site_id": {
+            "type": "string",
+            "title": "update_site_id",
+            "description": "Joomla form field update_site_id; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "update_site_id",
+              "type": "hidden"
+            },
+            "x-source": "administrator/components/com_installer/forms/updatesite.xml"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "name",
+              "type": "text",
+              "label": "COM_INSTALLER_FIELD_NAME_LABEL",
+              "disabled": "true"
+            },
+            "x-source": "administrator/components/com_installer/forms/updatesite.xml"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "description": "Joomla form field type; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "type",
+              "type": "text",
+              "label": "COM_INSTALLER_FIELD_TYPE_LABEL",
+              "disabled": "true"
+            },
+            "x-source": "administrator/components/com_installer/forms/updatesite.xml"
+          },
+          "location": {
+            "type": "string",
+            "title": "Location",
+            "description": "Joomla form field location; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "location",
+              "type": "text",
+              "label": "COM_INSTALLER_FIELD_TYPE_LOCATION",
+              "disabled": "true"
+            },
+            "x-source": "administrator/components/com_installer/forms/updatesite.xml"
+          },
+          "extra_query": {
+            "type": "string",
+            "default": "",
+            "title": "Download Key",
+            "description": "This extension restricts updates. Typically this means it is an extension with paid downloads. You need to obtain a Download Key from its developer and enter it here to unlock updates for it. You may need to make a payment to the developer to obtain or activate the download key.",
+            "x-joomla-form": {
+              "name": "extra_query",
+              "type": "text",
+              "label": "COM_INSTALLER_FIELD_EXTRA_QUERY_LABEL",
+              "description": "COM_INSTALLER_FIELD_EXTRA_QUERY_DESC",
+              "default": ""
+            },
+            "x-source": "administrator/components/com_installer/forms/updatesite.xml"
+          },
+          "downloadIdPrefix": {
+            "type": "string",
+            "title": "downloadIdPrefix",
+            "description": "Joomla form field downloadIdPrefix; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "downloadIdPrefix",
+              "type": "hidden"
+            },
+            "x-source": "administrator/components/com_installer/forms/updatesite.xml"
+          },
+          "downloadIdSuffix": {
+            "type": "string",
+            "title": "downloadIdSuffix",
+            "description": "Joomla form field downloadIdSuffix; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "downloadIdSuffix",
+              "type": "hidden"
+            },
+            "x-source": "administrator/components/com_installer/forms/updatesite.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_installer_config_xml": {
+        "type": "object",
+        "properties": {
+          "cachetimeout": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "6",
+            "title": "Updates Caching (in hours)",
+            "description": "Joomla form field cachetimeout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "cachetimeout",
+              "type": "integer",
+              "label": "COM_INSTALLER_CACHETIMEOUT_LABEL",
+              "first": "0",
+              "last": "24",
+              "step": "1",
+              "default": "6"
+            },
+            "x-source": "administrator/components/com_installer/config.xml"
+          },
+          "minimum_stability": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "default": "4",
+            "title": "Minimum Extension Stability",
+            "description": "The minimum stability of the extension updates you would like to see. Development is the least stable, Stable is production quality. If an extension doesn't specify a level it is assumed to be Stable.",
+            "x-joomla-form": {
+              "name": "minimum_stability",
+              "type": "list",
+              "label": "COM_INSTALLER_MINIMUM_STABILITY_LABEL",
+              "description": "COM_INSTALLER_MINIMUM_STABILITY_DESC",
+              "default": "4",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Development"
+              },
+              {
+                "value": "1",
+                "label": "Alpha"
+              },
+              {
+                "value": "2",
+                "label": "Beta"
+              },
+              {
+                "value": "3",
+                "label": "Release Candidate"
+              },
+              {
+                "value": "4",
+                "label": "Stable"
+              }
+            ],
+            "x-source": "administrator/components/com_installer/config.xml"
+          },
+          "rules": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {
+                "type": [
+                  "integer",
+                  "boolean",
+                  "string"
+                ]
+              }
+            },
+            "title": "Permissions",
+            "description": "Joomla form field rules; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "rules",
+              "type": "rules",
+              "label": "JCONFIG_PERMISSIONS_LABEL",
+              "filter": "rules",
+              "validate": "rules",
+              "component": "com_installer",
+              "section": "component"
+            },
+            "x-source": "administrator/components/com_installer/config.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "com_installer_get_v1_extensionsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "manage"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "x-sql-type": "varchar(100)",
+                      "x-source": "installation/sql/mysql/base.sql"
+                    },
+                    "type": {
+                      "type": "string",
+                      "maxLength": 20,
+                      "x-sql-type": "varchar(20)",
+                      "x-source": "installation/sql/mysql/base.sql"
+                    },
+                    "version": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "folder": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "x-sql-type": "varchar(100)",
+                      "x-source": "installation/sql/mysql/base.sql"
+                    },
+                    "status": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "2*protected+(1-protected)*enabled; integer or DB numeric string."
+                    },
+                    "client_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-source": "installation/sql/mysql/base.sql",
+                      "x-sql-type": "tinyint"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_installer_get_v1_languagesResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "languages"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "element": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "version": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "type": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "detailsurl": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      }
+    }
+  },
+  "x-knowledge-package": "joomla.rest-api.installer",
+  "x-core-version": "6.1.3",
+  "x-contract-status": "archived",
+  "x-primary-core-version": "6.2.0",
+  "x-extension-parameter-schemas": {},
+  "x-menu-view-schemas": {},
+  "x-source-verification": {
+    "method": "local route registration + XML + SQL + controller/view/serializer inspection",
+    "runtime_requests": false
+  }
+}

@@ -1,0 +1,145 @@
+schema_version: 1
+id: joomla.rest-api.common
+name: Joomla REST API common contract
+title: Joomla REST API common contract
+kind: documentation
+scope: workplace
+version: 1.1.0
+status: released
+description: Source-pinned REST request, response, error, field and browser fallback
+  knowledge; independent of tools and MCP.
+visibility: workplace
+load_policy: on_demand
+resources:
+- id: common-contract
+  kind: documentation
+  title: Joomla REST common contract
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 1.0.0
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/common
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.common
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+- id: contracts-catalog
+  kind: documentation
+  title: Joomla REST component contract catalog
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 1.0.0
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/README.md
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.common
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+- id: validation
+  kind: documentation
+  title: Joomla REST contract validation
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 1.0.0
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/validation.json
+  path_status: available
+  load_policy: on_demand
+  index_policy: metadata_only
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.common
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+indexes:
+  resource_index: indexes/resource-index.yaml
+tags:
+- documentation
+- knowledge
+package_root: global
+type: knowledge_package
+dependencies:
+- joomla.rest-api.documentation
+update_sites:
+- id: webtolk-joomla-rest-stable
+  enabled: true
+  manifest_url: https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/main/updates/joomla-rest-api.json
+  changelog_url: https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/main/CHANGELOG.md
+  channel: stable
+  priority: 10
+  trust:
+    require_https: true
+    require_sha256: true
+    allow_unsigned: true
+    signature_required: false
+  policy:
+    check_interval_hours: 24
+    auto_check: true
+    auto_stage: false
+    auto_apply: false
+    notify_operator: true
+    allow_stage: true
+    allow_apply: true
+    backup_before_apply: true

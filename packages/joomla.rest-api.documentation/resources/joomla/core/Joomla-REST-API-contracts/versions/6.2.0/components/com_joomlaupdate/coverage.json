@@ -1,0 +1,122 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/joomlaupdate/healthcheck",
+    "task": "healthcheck.show",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+      "api/components/com_joomlaupdate/src/Controller/HealthcheckController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/joomlaupdate/getUpdate",
+    "task": "updates.getUpdate",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+      "api/components/com_joomlaupdate/src/Controller/UpdatesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/joomlaupdate/prepareUpdate",
+    "task": "updates.prepareUpdate",
+    "support": "source-derived",
+    "request_schema": "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+      "api/components/com_joomlaupdate/src/Controller/UpdatesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/joomlaupdate/finalizeUpdate",
+    "task": "updates.finalizeUpdate",
+    "support": "source-derived",
+    "request_schema": "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+      "api/components/com_joomlaupdate/src/Controller/UpdatesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/joomlaupdate/notificationSuccess",
+    "task": "notification.success",
+    "support": "source-derived",
+    "request_schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+      "api/components/com_joomlaupdate/src/Controller/NotificationController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/joomlaupdate/notificationFailed",
+    "task": "notification.failed",
+    "support": "source-derived",
+    "request_schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationFailedRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+      "api/components/com_joomlaupdate/src/Controller/NotificationController.php"
+    ]
+  }
+]

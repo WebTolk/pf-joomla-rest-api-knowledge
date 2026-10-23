@@ -1,0 +1,446 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/menus/site",
+    "task": "menus.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/site/{id}",
+    "task": "menus.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/menus/site",
+    "task": "menus.add",
+    "support": "source-derived",
+    "request_schema": "com_menus_post_v1_menus_siteRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/menus/site/{id}",
+    "task": "menus.edit",
+    "support": "source-derived",
+    "request_schema": "com_menus_patch_v1_menus_site_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/menus/site/{id}",
+    "task": "menus.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator",
+    "task": "menus.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator/{id}",
+    "task": "menus.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/menus/administrator",
+    "task": "menus.add",
+    "support": "source-derived",
+    "request_schema": "com_menus_post_v1_menus_administratorRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/menus/administrator/{id}",
+    "task": "menus.edit",
+    "support": "source-derived",
+    "request_schema": "com_menus_patch_v1_menus_administrator_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/menus/administrator/{id}",
+    "task": "menus.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/MenusController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/site/items",
+    "task": "items.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/site/items/{id}",
+    "task": "items.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/menus/site/items",
+    "task": "items.add",
+    "support": "source-derived",
+    "request_schema": "com_menus_post_v1_menus_site_itemsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/menus/site/items/{id}",
+    "task": "items.edit",
+    "support": "source-derived",
+    "request_schema": "com_menus_patch_v1_menus_site_items_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/menus/site/items/{id}",
+    "task": "items.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator/items",
+    "task": "items.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator/items/{id}",
+    "task": "items.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/menus/administrator/items",
+    "task": "items.add",
+    "support": "source-derived",
+    "request_schema": "com_menus_post_v1_menus_administrator_itemsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/menus/administrator/items/{id}",
+    "task": "items.edit",
+    "support": "source-derived",
+    "request_schema": "com_menus_patch_v1_menus_administrator_items_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/menus/administrator/items/{id}",
+    "task": "items.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/site/items/types",
+    "task": "items.getTypes",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator/items/types",
+    "task": "items.getTypes",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/menus/src/Extension/Menus.php",
+      "api/components/com_menus/src/Controller/ItemsController.php"
+    ]
+  }
+]

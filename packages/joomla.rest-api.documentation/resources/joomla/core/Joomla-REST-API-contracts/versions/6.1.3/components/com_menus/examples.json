@@ -1,0 +1,424 @@
+[
+  {
+    "operationId": "com_menus_get_v1_menus_site",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_siteResponse",
+    "value": {
+      "data": [
+        {
+          "type": "menus",
+          "id": "Example",
+          "attributes": {
+            "asset_id": 1,
+            "menutype": "Example",
+            "title": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_site_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_site_idResponse",
+    "value": {
+      "data": {
+        "type": "menus",
+        "id": "Example",
+        "attributes": {
+          "menutype": "Example",
+          "title": "Example",
+          "description": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site",
+    "direction": "request",
+    "schema": "com_menus_post_v1_menus_siteRequest",
+    "value": {
+      "menutype": "Example",
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_post_v1_menus_siteResponse",
+    "value": {
+      "data": {
+        "type": "menus",
+        "id": "Example",
+        "attributes": {
+          "menutype": "Example",
+          "title": "Example",
+          "description": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_site_id",
+    "direction": "request",
+    "schema": "com_menus_patch_v1_menus_site_idRequest",
+    "value": {
+      "menutype": "Example",
+      "title": "Example",
+      "description": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_site_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_patch_v1_menus_site_idResponse",
+    "value": {
+      "data": {
+        "type": "menus",
+        "id": "Example",
+        "attributes": {
+          "menutype": "Example",
+          "title": "Example",
+          "description": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_administrator",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_administratorResponse",
+    "value": {
+      "data": [
+        {
+          "type": "menus",
+          "id": "Example",
+          "attributes": {
+            "asset_id": 1,
+            "menutype": "Example",
+            "title": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_administrator_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_administrator_idResponse",
+    "value": {
+      "data": {
+        "type": "menus",
+        "id": "Example",
+        "attributes": {
+          "menutype": "Example",
+          "title": "Example",
+          "description": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_administrator",
+    "direction": "request",
+    "schema": "com_menus_post_v1_menus_administratorRequest",
+    "value": {
+      "menutype": "Example",
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_administrator",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_post_v1_menus_administratorResponse",
+    "value": {
+      "data": {
+        "type": "menus",
+        "id": "Example",
+        "attributes": {
+          "menutype": "Example",
+          "title": "Example",
+          "description": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_administrator_id",
+    "direction": "request",
+    "schema": "com_menus_patch_v1_menus_administrator_idRequest",
+    "value": {
+      "menutype": "Example",
+      "title": "Example",
+      "description": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_administrator_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_patch_v1_menus_administrator_idResponse",
+    "value": {
+      "data": {
+        "type": "menus",
+        "id": "Example",
+        "attributes": {
+          "menutype": "Example",
+          "title": "Example",
+          "description": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_site_items",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_site_itemsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "items",
+          "id": "Example",
+          "attributes": {
+            "menutype": "Example",
+            "title": "Example",
+            "alias": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_site_items_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_site_items_idResponse",
+    "value": {
+      "data": {
+        "type": "items",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site_items",
+    "direction": "request",
+    "schema": "com_menus_post_v1_menus_site_itemsRequest",
+    "value": {
+      "title": "Example",
+      "menutype": "Example",
+      "type": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site_items",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_post_v1_menus_site_itemsResponse",
+    "value": {
+      "data": {
+        "type": "items",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_site_items_id",
+    "direction": "request",
+    "schema": "com_menus_patch_v1_menus_site_items_idRequest",
+    "value": {
+      "title": "Example",
+      "alias": "Example",
+      "note": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_site_items_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_patch_v1_menus_site_items_idResponse",
+    "value": {
+      "data": {
+        "type": "items",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_administrator_items",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_administrator_itemsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "items",
+          "id": "Example",
+          "attributes": {
+            "menutype": "Example",
+            "title": "Example",
+            "alias": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_administrator_items_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_administrator_items_idResponse",
+    "value": {
+      "data": {
+        "type": "items",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_administrator_items",
+    "direction": "request",
+    "schema": "com_menus_post_v1_menus_administrator_itemsRequest",
+    "value": {
+      "title": "Example",
+      "menutype": "Example",
+      "type": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_administrator_items",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_post_v1_menus_administrator_itemsResponse",
+    "value": {
+      "data": {
+        "type": "items",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_administrator_items_id",
+    "direction": "request",
+    "schema": "com_menus_patch_v1_menus_administrator_items_idRequest",
+    "value": {
+      "title": "Example",
+      "alias": "Example",
+      "note": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_administrator_items_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_patch_v1_menus_administrator_items_idResponse",
+    "value": {
+      "data": {
+        "type": "items",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_site_items_types",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_site_items_typesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "menutypes",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "description": "Example",
+            "group": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_administrator_items_types",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_administrator_items_typesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "menutypes",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "description": "Example",
+            "group": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  }
+]

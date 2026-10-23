@@ -1,0 +1,217 @@
+{
+  "core_version": "6.2.0",
+  "status": "pass",
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v1/extensions",
+      "task": "manage.displayList",
+      "handler_source": "api/components/com_installer/src/Controller/ManageController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_installer",
+        "public": false
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        },
+        {
+          "name": "core",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b4213f6f67723b50aa89757f861d8b38a9ce8af77e39ebe959120330d25e22ba"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/languages",
+      "task": "languages.displayList",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_installer"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/languages",
+      "task": "languages.install",
+      "handler_source": null,
+      "support": "registered-unimplemented",
+      "route_defaults": {
+        "component": "com_installer"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "500",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": null
+    }
+  ]
+}

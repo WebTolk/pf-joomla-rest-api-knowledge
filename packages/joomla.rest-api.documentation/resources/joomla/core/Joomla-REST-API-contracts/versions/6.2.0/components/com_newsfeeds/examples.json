@@ -1,0 +1,98 @@
+[
+  {
+    "operationId": "com_newsfeeds_get_v1_newsfeeds_feeds",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_newsfeeds_get_v1_newsfeeds_feedsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "newsfeeds",
+          "id": "Example",
+          "attributes": {
+            "name": "Example",
+            "alias": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_newsfeeds_get_v1_newsfeeds_feeds_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_newsfeeds_get_v1_newsfeeds_feeds_idResponse",
+    "value": {
+      "data": {
+        "type": "newsfeeds",
+        "id": "Example",
+        "attributes": {
+          "name": "Example",
+          "alias": "Example",
+          "link": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_newsfeeds_post_v1_newsfeeds_feeds",
+    "direction": "request",
+    "schema": "com_newsfeeds_post_v1_newsfeeds_feedsRequest",
+    "value": {
+      "name": "Example",
+      "catid": 1,
+      "link": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_newsfeeds_post_v1_newsfeeds_feeds",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_newsfeeds_post_v1_newsfeeds_feedsResponse",
+    "value": {
+      "data": {
+        "type": "newsfeeds",
+        "id": "Example",
+        "attributes": {
+          "name": "Example",
+          "alias": "Example",
+          "link": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_newsfeeds_patch_v1_newsfeeds_feeds_id",
+    "direction": "request",
+    "schema": "com_newsfeeds_patch_v1_newsfeeds_feeds_idRequest",
+    "value": {
+      "name": "Example",
+      "alias": "Example",
+      "published": 1
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_newsfeeds_patch_v1_newsfeeds_feeds_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_newsfeeds_patch_v1_newsfeeds_feeds_idResponse",
+    "value": {
+      "data": {
+        "type": "newsfeeds",
+        "id": "Example",
+        "attributes": {
+          "name": "Example",
+          "alias": "Example",
+          "link": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

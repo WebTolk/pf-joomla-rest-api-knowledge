@@ -1,0 +1,3318 @@
+{
+  "core_version": "6.2.0",
+  "status": "pass",
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v1/fields/contacts/contact",
+      "task": "fields.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/contacts/contact/{id}",
+      "task": "fields.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/contacts/contact",
+      "task": "fields.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_contacts_contactRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/contacts/contact/{id}",
+      "task": "fields.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_contacts_contact_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/contacts/contact/{id}",
+      "task": "fields.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/contacts/mail",
+      "task": "fields.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/contacts/mail/{id}",
+      "task": "fields.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/contacts/mail",
+      "task": "fields.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_contacts_mailRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/contacts/mail/{id}",
+      "task": "fields.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_contacts_mail_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/contacts/mail/{id}",
+      "task": "fields.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/contacts/categories",
+      "task": "fields.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/contacts/categories/{id}",
+      "task": "fields.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/contacts/categories",
+      "task": "fields.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_contacts_categoriesRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/contacts/categories/{id}",
+      "task": "fields.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_contacts_categories_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/contacts/categories/{id}",
+      "task": "fields.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/contacts/contact",
+      "task": "groups.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/contacts/contact/{id}",
+      "task": "groups.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/groups/contacts/contact",
+      "task": "groups.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_groups_contacts_contactRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/groups/contacts/contact/{id}",
+      "task": "groups.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_groups_contacts_contact_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/groups/contacts/contact/{id}",
+      "task": "groups.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.contact"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/contacts/mail",
+      "task": "groups.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/contacts/mail/{id}",
+      "task": "groups.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/groups/contacts/mail",
+      "task": "groups.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_groups_contacts_mailRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/groups/contacts/mail/{id}",
+      "task": "groups.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_groups_contacts_mail_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/groups/contacts/mail/{id}",
+      "task": "groups.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.mail"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/contacts/categories",
+      "task": "groups.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/contacts/categories/{id}",
+      "task": "groups.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/groups/contacts/categories",
+      "task": "groups.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_groups_contacts_categoriesRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/groups/contacts/categories/{id}",
+      "task": "groups.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_groups_contacts_categories_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/groups/contacts/categories/{id}",
+      "task": "groups.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_contact.categories"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/content/articles",
+      "task": "fields.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/content/articles/{id}",
+      "task": "fields.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/content/articles",
+      "task": "fields.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_content_articlesRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/content/articles/{id}",
+      "task": "fields.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_content_articles_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/content/articles/{id}",
+      "task": "fields.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/content/categories",
+      "task": "fields.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/content/categories/{id}",
+      "task": "fields.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/content/categories",
+      "task": "fields.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_content_categoriesRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/content/categories/{id}",
+      "task": "fields.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_content_categories_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/content/categories/{id}",
+      "task": "fields.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/content/articles",
+      "task": "groups.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/content/articles/{id}",
+      "task": "groups.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/groups/content/articles",
+      "task": "groups.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_groups_content_articlesRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/groups/content/articles/{id}",
+      "task": "groups.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_groups_content_articles_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/groups/content/articles/{id}",
+      "task": "groups.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.article"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/content/categories",
+      "task": "groups.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/content/categories/{id}",
+      "task": "groups.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/groups/content/categories",
+      "task": "groups.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_groups_content_categoriesRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/groups/content/categories/{id}",
+      "task": "groups.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_groups_content_categories_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/groups/content/categories/{id}",
+      "task": "groups.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_content.categories"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/users",
+      "task": "fields.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/users/{id}",
+      "task": "fields.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/FieldsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "078782eafc3b1d4253867c1648bbae7fb4d701f74ed2522b1e347baa58e59def"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/users",
+      "task": "fields.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_usersRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/users/{id}",
+      "task": "fields.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_users_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/users/{id}",
+      "task": "fields.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/FieldsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/users",
+      "task": "groups.displayList",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/fields/groups/users/{id}",
+      "task": "groups.displayItem",
+      "handler_source": "api/components/com_fields/src/Controller/GroupsController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "14368c10d5f310cf8368fbf9314e24e333ce3818cdfae956af8381de40a34f1a"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/fields/groups/users",
+      "task": "groups.add",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_post_v1_fields_groups_usersRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/fields/groups/users/{id}",
+      "task": "groups.edit",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_fields_patch_v1_fields_groups_users_idRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/fields/groups/users/{id}",
+      "task": "groups.delete",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_fields",
+        "context": "com_users.user"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500",
+        "409"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_fields/src/Controller/GroupsController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    }
+  ]
+}

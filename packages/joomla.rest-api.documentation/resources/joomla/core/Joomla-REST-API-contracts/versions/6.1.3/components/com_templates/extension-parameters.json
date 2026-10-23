@@ -1,0 +1,1420 @@
+{
+  "templates/cassiopeia/templateDetails.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "brand": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Brand",
+            "description": "Joomla form field brand; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "brand",
+              "type": "radio",
+              "label": "TPL_CASSIOPEIA_BRAND_LABEL",
+              "default": "1",
+              "filter": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "logoFile": {
+            "type": "string",
+            "default": "",
+            "title": "Logo",
+            "description": "Joomla form field logoFile; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "logoFile",
+              "type": "media",
+              "schemes": "http,https,ftp,ftps,data,file",
+              "validate": "url",
+              "relative": "true",
+              "default": "",
+              "label": "TPL_CASSIOPEIA_LOGO_LABEL",
+              "showon": "brand:1"
+            },
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "siteTitle": {
+            "type": "string",
+            "default": "",
+            "title": "Title (alternative to logo)",
+            "description": "Joomla form field siteTitle; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "siteTitle",
+              "type": "text",
+              "default": "",
+              "label": "TPL_CASSIOPEIA_TITLE",
+              "filter": "string",
+              "showon": "brand:1"
+            },
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "siteDescription": {
+            "type": "string",
+            "default": "",
+            "title": "Tagline",
+            "description": "Optional text to show as a subheading",
+            "x-joomla-form": {
+              "name": "siteDescription",
+              "type": "text",
+              "default": "",
+              "label": "TPL_CASSIOPEIA_TAGLINE_LABEL",
+              "description": "TPL_CASSIOPEIA_TAGLINE_DESC",
+              "filter": "string",
+              "showon": "brand:1"
+            },
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "useFontScheme": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "0",
+            "title": "Fonts Scheme",
+            "description": "Joomla form field useFontScheme; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "useFontScheme",
+              "type": "groupedlist",
+              "label": "TPL_CASSIOPEIA_FONT_LABEL",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "None"
+              }
+            ],
+            "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "systemFontBody": {
+            "type": "string",
+            "enum": [
+              "",
+              "Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif",
+              "'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif",
+              "Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif",
+              "Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif",
+              "Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif",
+              "Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif",
+              "'Nimbus Mono PS', 'Courier New', 'Cutive Mono', monospace",
+              "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+              "Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif",
+              "ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif",
+              "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+              "Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif",
+              "Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif",
+              "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive"
+            ],
+            "default": "",
+            "title": "Body Font Stack",
+            "description": "Joomla form field systemFontBody; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "systemFontBody",
+              "type": "list",
+              "label": "TPL_CASSIOPEIA_FONT_SYSTEM_BODY",
+              "default": "",
+              "validate": "options",
+              "showon": "useFontScheme:system"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Select"
+              },
+              {
+                "value": "Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif",
+                "label": "Transitional"
+              },
+              {
+                "value": "'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif",
+                "label": "Old Style"
+              },
+              {
+                "value": "Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif",
+                "label": "Humanist"
+              },
+              {
+                "value": "Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif",
+                "label": "Geometric Humanist"
+              },
+              {
+                "value": "Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif",
+                "label": "Classical Humanist"
+              },
+              {
+                "value": "Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif",
+                "label": "Neo-Grotesque"
+              },
+              {
+                "value": "'Nimbus Mono PS', 'Courier New', 'Cutive Mono', monospace",
+                "label": "Monospace Slab Serif"
+              },
+              {
+                "value": "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+                "label": "Monospace Code"
+              },
+              {
+                "value": "Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif",
+                "label": "Industrial"
+              },
+              {
+                "value": "ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif",
+                "label": "Rounded Sans"
+              },
+              {
+                "value": "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+                "label": "Slab Serif"
+              },
+              {
+                "value": "Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif",
+                "label": "Antique"
+              },
+              {
+                "value": "Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif",
+                "label": "Didone"
+              },
+              {
+                "value": "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive",
+                "label": "Handwritten"
+              }
+            ],
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "systemFontHeading": {
+            "type": "string",
+            "enum": [
+              "",
+              "Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif",
+              "'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif",
+              "Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif",
+              "Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif",
+              "Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif",
+              "Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif",
+              "'Nimbus Mono PS', 'Courier New', 'Cutive Mono', monospace",
+              "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+              "Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif",
+              "ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif",
+              "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+              "Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif",
+              "Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif",
+              "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive"
+            ],
+            "default": "",
+            "title": "Heading Font Stack",
+            "description": "Joomla form field systemFontHeading; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "systemFontHeading",
+              "type": "list",
+              "label": "TPL_CASSIOPEIA_FONT_SYSTEM_HEADING",
+              "default": "",
+              "validate": "options",
+              "showon": "useFontScheme:system"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Select"
+              },
+              {
+                "value": "Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif",
+                "label": "Transitional"
+              },
+              {
+                "value": "'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif",
+                "label": "Old Style"
+              },
+              {
+                "value": "Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif",
+                "label": "Humanist"
+              },
+              {
+                "value": "Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif",
+                "label": "Geometric Humanist"
+              },
+              {
+                "value": "Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif",
+                "label": "Classical Humanist"
+              },
+              {
+                "value": "Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif",
+                "label": "Neo-Grotesque"
+              },
+              {
+                "value": "'Nimbus Mono PS', 'Courier New', 'Cutive Mono', monospace",
+                "label": "Monospace Slab Serif"
+              },
+              {
+                "value": "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+                "label": "Monospace Code"
+              },
+              {
+                "value": "Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif",
+                "label": "Industrial"
+              },
+              {
+                "value": "ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif",
+                "label": "Rounded Sans"
+              },
+              {
+                "value": "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+                "label": "Slab Serif"
+              },
+              {
+                "value": "Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif",
+                "label": "Antique"
+              },
+              {
+                "value": "Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif",
+                "label": "Didone"
+              },
+              {
+                "value": "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive",
+                "label": "Handwritten"
+              }
+            ],
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "colorName": {
+            "type": "string",
+            "default": "colors_standard",
+            "title": "Colour Theme",
+            "description": "Joomla form field colorName; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "colorName",
+              "type": "filelist",
+              "label": "TPL_CASSIOPEIA_COLOR_NAME_LABEL",
+              "default": "colors_standard",
+              "fileFilter": "^custom.+[^min]\\.css$",
+              "exclude": "^colors.+",
+              "stripext": "true",
+              "hide_none": "true",
+              "hide_default": "true",
+              "directory": "media/templates/site/cassiopeia/css/global/",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "colors_standard",
+                "label": "Standard"
+              },
+              {
+                "value": "colors_alternative",
+                "label": "Alternative"
+              }
+            ],
+            "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "fluidContainer": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Layout",
+            "description": "Joomla form field fluidContainer; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "fluidContainer",
+              "type": "radio",
+              "default": "0",
+              "label": "TPL_CASSIOPEIA_FLUID_LABEL"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Static"
+              },
+              {
+                "value": "1",
+                "label": "Fluid"
+              }
+            ],
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "stickyHeader": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Sticky Header",
+            "description": "Joomla form field stickyHeader; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "stickyHeader",
+              "type": "radio",
+              "label": "TPL_CASSIOPEIA_STICKY_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          },
+          "backTop": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Back-to-top Link",
+            "description": "Joomla form field backTop; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "backTop",
+              "type": "radio",
+              "label": "TPL_CASSIOPEIA_BACKTOTOP_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "templates/cassiopeia/templateDetails.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "templates/cassiopeia_extended/templateDetails.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "brand": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Brand",
+            "description": "Joomla form field brand; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "brand",
+              "type": "radio",
+              "label": "TPL_CASSIOPEIA_BRAND_LABEL",
+              "default": "1",
+              "filter": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "logoFile": {
+            "type": "string",
+            "default": "",
+            "title": "Logo",
+            "description": "Joomla form field logoFile; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "logoFile",
+              "type": "media",
+              "schemes": "http,https,ftp,ftps,data,file",
+              "validate": "url",
+              "relative": "true",
+              "default": "",
+              "label": "TPL_CASSIOPEIA_LOGO_LABEL",
+              "showon": "brand:1"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "siteTitle": {
+            "type": "string",
+            "default": "",
+            "title": "Title (alternative to logo)",
+            "description": "Joomla form field siteTitle; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "siteTitle",
+              "type": "text",
+              "default": "",
+              "label": "TPL_CASSIOPEIA_TITLE",
+              "filter": "string",
+              "showon": "brand:1"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "siteDescription": {
+            "type": "string",
+            "default": "",
+            "title": "Tagline",
+            "description": "Optional text to show as a subheading",
+            "x-joomla-form": {
+              "name": "siteDescription",
+              "type": "text",
+              "default": "",
+              "label": "TPL_CASSIOPEIA_TAGLINE_LABEL",
+              "description": "TPL_CASSIOPEIA_TAGLINE_DESC",
+              "filter": "string",
+              "showon": "brand:1"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "fluidContainer": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Layout",
+            "description": "Joomla form field fluidContainer; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "fluidContainer",
+              "type": "radio",
+              "default": "0",
+              "label": "TPL_CASSIOPEIA_FLUID_LABEL"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Static"
+              },
+              {
+                "value": "1",
+                "label": "Fluid"
+              }
+            ],
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "stickyHeader": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Sticky Header",
+            "description": "Joomla form field stickyHeader; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "stickyHeader",
+              "type": "radio",
+              "label": "TPL_CASSIOPEIA_STICKY_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "backTop": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Back-to-top Link",
+            "description": "Joomla form field backTop; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "backTop",
+              "type": "radio",
+              "label": "TPL_CASSIOPEIA_BACKTOTOP_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "headerbg": {
+            "type": "string",
+            "default": "rgb(193, 205, 207)",
+            "title": "Header Background Colour",
+            "description": "Joomla form field headerbg; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "headerbg",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(193, 205, 207)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_HEADER_BACKGROUND_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "headercolor": {
+            "type": "string",
+            "default": "rgb(23, 23, 23)",
+            "title": "Header Text Colour",
+            "description": "Joomla form field headercolor; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "headercolor",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(23, 23, 23)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_HEADER_TEXT_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "bodybg": {
+            "type": "string",
+            "default": "rgb(254, 254, 254)",
+            "title": "Body Background Colour",
+            "description": "Joomla form field bodybg; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "bodybg",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(254, 254, 254)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_BODY_BACKGROUND_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "bodycolor": {
+            "type": "string",
+            "default": "rgb(23, 23, 23)",
+            "title": "Body Text Colour",
+            "description": "Joomla form field bodycolor; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "bodycolor",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(23, 23, 23)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_BODY_TEXT_COLOR_LABEL",
+              "description": ""
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "linkcolor": {
+            "type": "string",
+            "default": "rgb(29, 121, 137)",
+            "title": "Links Colour",
+            "description": "Joomla form field linkcolor; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "linkcolor",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(29, 121, 137)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_LINK_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "linkcolorh": {
+            "type": "string",
+            "default": "rgb(14, 59, 67)",
+            "title": "Links Hover Colour",
+            "description": "Joomla form field linkcolorh; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "linkcolorh",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(14, 59, 67)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_LINK_HOVER_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "btnbg": {
+            "type": "string",
+            "default": "rgb(206, 60, 55)",
+            "title": "Button Primary Background Colour",
+            "description": "Joomla form field btnbg; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "btnbg",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(206, 60, 55)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_BUTTON_BACKGROUND_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "btnbgh": {
+            "type": "string",
+            "default": "rgb(131, 35, 32)",
+            "title": "Button Primary Hover Background Colour",
+            "description": "Joomla form field btnbgh; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "btnbgh",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(131, 35, 32)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_BUTTON_BACKGROUND_HOVER_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "btncolor": {
+            "type": "string",
+            "default": "rgb(254, 254, 254)",
+            "title": "Button Primary Text Colour",
+            "description": "Joomla form field btncolor; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "btncolor",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(254, 254, 254)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_BUTTON_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "btncolorh": {
+            "type": "string",
+            "default": "rgb(254, 254, 254)",
+            "title": "Button Primary Hover Text Colour",
+            "description": "Joomla form field btncolorh; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "btncolorh",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(254, 254, 254)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_BUTTON_HOVER_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "footerbg": {
+            "type": "string",
+            "default": "rgb(29, 121, 137)",
+            "title": "Footer Background Colour",
+            "description": "Joomla form field footerbg; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "footerbg",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(29, 121, 137)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_FOOTER_BACKGROUND_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "footercolor": {
+            "type": "string",
+            "default": "rgb(254, 254, 254)",
+            "title": "Footer Text Colour",
+            "description": "Joomla form field footercolor; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "footercolor",
+              "type": "color",
+              "parentclass": "span-3-inline stack",
+              "default": "rgb(254, 254, 254)",
+              "format": "rgb",
+              "label": "TPL_CASSIOPEIA_FOOTER_TEXT_COLOR_LABEL"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "useFontScheme": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "0",
+            "title": "Fonts Scheme",
+            "description": "Joomla form field useFontScheme; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "useFontScheme",
+              "type": "groupedlist",
+              "label": "TPL_CASSIOPEIA_FONT_LABEL",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "None"
+              }
+            ],
+            "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "systemFontBody": {
+            "type": "string",
+            "enum": [
+              "",
+              "Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif",
+              "'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif",
+              "Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif",
+              "Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif",
+              "Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif",
+              "Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif",
+              "'Nimbus Mono PS', 'Courier New', 'Cutive Mono', monospace",
+              "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+              "Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif",
+              "ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif",
+              "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+              "Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif",
+              "Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif",
+              "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive"
+            ],
+            "default": "",
+            "title": "Body Font Stack",
+            "description": "Joomla form field systemFontBody; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "systemFontBody",
+              "type": "list",
+              "label": "TPL_CASSIOPEIA_FONT_SYSTEM_BODY",
+              "default": "",
+              "validate": "options",
+              "showon": "useFontScheme:system"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Select"
+              },
+              {
+                "value": "Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif",
+                "label": "Transitional"
+              },
+              {
+                "value": "'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif",
+                "label": "Old Style"
+              },
+              {
+                "value": "Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif",
+                "label": "Humanist"
+              },
+              {
+                "value": "Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif",
+                "label": "Geometric Humanist"
+              },
+              {
+                "value": "Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif",
+                "label": "Classical Humanist"
+              },
+              {
+                "value": "Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif",
+                "label": "Neo-Grotesque"
+              },
+              {
+                "value": "'Nimbus Mono PS', 'Courier New', 'Cutive Mono', monospace",
+                "label": "Monospace Slab Serif"
+              },
+              {
+                "value": "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+                "label": "Monospace Code"
+              },
+              {
+                "value": "Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif",
+                "label": "Industrial"
+              },
+              {
+                "value": "ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif",
+                "label": "Rounded Sans"
+              },
+              {
+                "value": "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+                "label": "Slab Serif"
+              },
+              {
+                "value": "Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif",
+                "label": "Antique"
+              },
+              {
+                "value": "Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif",
+                "label": "Didone"
+              },
+              {
+                "value": "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive",
+                "label": "Handwritten"
+              }
+            ],
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "systemFontHeading": {
+            "type": "string",
+            "enum": [
+              "",
+              "Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif",
+              "'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif",
+              "Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif",
+              "Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif",
+              "Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif",
+              "Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif",
+              "'Nimbus Mono PS', 'Courier New', 'Cutive Mono', monospace",
+              "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+              "Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif",
+              "ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif",
+              "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+              "Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif",
+              "Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif",
+              "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive"
+            ],
+            "default": "",
+            "title": "Heading Font Stack",
+            "description": "Joomla form field systemFontHeading; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "systemFontHeading",
+              "type": "list",
+              "label": "TPL_CASSIOPEIA_FONT_SYSTEM_HEADING",
+              "default": "",
+              "validate": "options",
+              "showon": "useFontScheme:system"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Select"
+              },
+              {
+                "value": "Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif",
+                "label": "Transitional"
+              },
+              {
+                "value": "'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif",
+                "label": "Old Style"
+              },
+              {
+                "value": "Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif",
+                "label": "Humanist"
+              },
+              {
+                "value": "Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif",
+                "label": "Geometric Humanist"
+              },
+              {
+                "value": "Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif",
+                "label": "Classical Humanist"
+              },
+              {
+                "value": "Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif",
+                "label": "Neo-Grotesque"
+              },
+              {
+                "value": "'Nimbus Mono PS', 'Courier New', 'Cutive Mono', monospace",
+                "label": "Monospace Slab Serif"
+              },
+              {
+                "value": "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace",
+                "label": "Monospace Code"
+              },
+              {
+                "value": "Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif",
+                "label": "Industrial"
+              },
+              {
+                "value": "ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif",
+                "label": "Rounded Sans"
+              },
+              {
+                "value": "Rockwell, 'Rockwell Nova', 'Roboto Slab', 'DejaVu Serif', 'Sitka Small', serif",
+                "label": "Slab Serif"
+              },
+              {
+                "value": "Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif",
+                "label": "Antique"
+              },
+              {
+                "value": "Didot, 'Bodoni MT', 'Noto Serif Display', 'URW Palladio L', P052, Sylfaen, serif",
+                "label": "Didone"
+              },
+              {
+                "value": "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive",
+                "label": "Handwritten"
+              }
+            ],
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "bodysize": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "default": "1",
+            "title": "Body Font Size (rem)",
+            "description": "Joomla form field bodysize; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "bodysize",
+              "type": "number",
+              "default": "1",
+              "label": "TPL_CASSIOPEIA_BODY_SIZE",
+              "validate": "number",
+              "min": "0"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "h1size": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "default": "2",
+            "title": "H1 Font Size (rem)",
+            "description": "Joomla form field h1size; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "h1size",
+              "type": "number",
+              "default": "2",
+              "label": "TPL_CASSIOPEIA_H1_SIZE",
+              "validate": "number",
+              "min": "0"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml"
+          },
+          "h2size": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "title": "H2 Font Size (rem)",
+            "description": "Joomla form field h2size; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "h2size",
+              "type": "number",
+              "default": "1.7",
+              "label": "TPL_CASSIOPEIA_H2_SIZE",
+              "validate": "number",
+              "min": "0"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml",
+            "x-joomla-default": "1.7",
+            "x-default-note": "Core XML default does not satisfy the static request schema; preserved as source metadata."
+          },
+          "h3size": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "title": "H3 Font Size (rem)",
+            "description": "Joomla form field h3size; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "h3size",
+              "type": "number",
+              "default": "1.5",
+              "label": "TPL_CASSIOPEIA_H3_SIZE",
+              "validate": "number",
+              "min": "0"
+            },
+            "x-source": "templates/cassiopeia_extended/templateDetails.xml",
+            "x-joomla-default": "1.5",
+            "x-default-note": "Core XML default does not satisfy the static request schema; preserved as source metadata."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "administrator/templates/atum/templateDetails.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "hue": {
+            "type": "string",
+            "default": "hsl(214,63%,20%)",
+            "title": "Choose your hue value for the dark template colour",
+            "description": "Joomla form field hue; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "hue",
+              "type": "color",
+              "label": "TPL_ATUM_COLORS_HUE",
+              "format": "hue",
+              "control": "slider",
+              "preview": "true",
+              "saveFormat": "hsl",
+              "default": "hsl(214,63%,20%)"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "bg-light": {
+            "type": "string",
+            "default": "#f0f4fb",
+            "title": "Light Background",
+            "description": "Joomla form field bg-light; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "bg-light",
+              "type": "color",
+              "label": "TPL_ATUM_COLORS_SETTINGS_BG_LIGHT_LABEL",
+              "default": "#f0f4fb",
+              "filter": "color"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "text-dark": {
+            "type": "string",
+            "default": "#495057",
+            "title": "Dark Text",
+            "description": "Joomla form field text-dark; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "text-dark",
+              "type": "color",
+              "label": "TPL_ATUM_COLORS_SETTINGS_TEXT_DARK_LABEL",
+              "default": "#495057",
+              "filter": "color"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "text-light": {
+            "type": "string",
+            "default": "#ffffff",
+            "title": "Light Text",
+            "description": "Joomla form field text-light; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "text-light",
+              "type": "color",
+              "label": "TPL_ATUM_COLORS_SETTINGS_TEXT_LIGHT_LABEL",
+              "default": "#ffffff",
+              "filter": "color"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "link-color": {
+            "type": "string",
+            "default": "#2a69b8",
+            "title": "Link Colour",
+            "description": "Joomla form field link-color; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "link-color",
+              "type": "color",
+              "label": "TPL_ATUM_COLORS_SETTINGS_LINK_COLOR_LABEL",
+              "default": "#2a69b8",
+              "filter": "color"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "link-color-dark": {
+            "type": "string",
+            "default": "#6fbfdb",
+            "title": "Link Colour (Dark Mode)",
+            "description": "Joomla form field link-color-dark; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "link-color-dark",
+              "type": "color",
+              "label": "TPL_ATUM_COLORS_SETTINGS_LINK_COLOR_DARK_LABEL",
+              "default": "#6fbfdb",
+              "filter": "color"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "special-color": {
+            "type": "string",
+            "default": "#001B4C",
+            "title": "Special Colour",
+            "description": "Joomla form field special-color; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "special-color",
+              "type": "color",
+              "label": "TPL_ATUM_COLORS_SETTINGS_SPECIAL_COLOR_LABEL",
+              "default": "#001B4C",
+              "filter": "color"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "monochrome": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Set Colour to Monochrome",
+            "description": "Joomla form field monochrome; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "monochrome",
+              "type": "radio",
+              "label": "TPL_ATUM_COLORS_SETTINGS_MONOCHROME_LABEL",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "colorScheme": {
+            "type": "string",
+            "enum": [
+              "0",
+              "os",
+              "light",
+              "dark"
+            ],
+            "default": "os",
+            "title": "Dark Mode",
+            "description": "Joomla form field colorScheme; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "colorScheme",
+              "type": "list",
+              "label": "TPL_ATUM_COLORSCHEME_LABEL",
+              "default": "os",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Disabled"
+              },
+              {
+                "value": "os",
+                "label": "Follow OS settings"
+              },
+              {
+                "value": "light",
+                "label": "Use Light colour scheme"
+              },
+              {
+                "value": "dark",
+                "label": "Use Dark colour scheme"
+              }
+            ],
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "loginLogo": {
+            "type": "string",
+            "title": "Image",
+            "description": "Joomla form field loginLogo; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "loginLogo",
+              "type": "media",
+              "schemes": "http,https,ftp,ftps,data,file",
+              "validate": "url",
+              "relative": "true",
+              "label": "TPL_ATUM_IMAGE_LABEL"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "loginLogoAlt": {
+            "type": "string",
+            "title": "Image Description (Alt Text)",
+            "description": "Joomla form field loginLogoAlt; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "loginLogoAlt",
+              "type": "text",
+              "label": "TPL_ATUM_LOGO_ALT_LABEL"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "emptyLoginLogoAlt": {
+            "type": "string",
+            "title": "No Description",
+            "description": "Decorative Image - no description required",
+            "x-joomla-form": {
+              "name": "emptyLoginLogoAlt",
+              "type": "checkbox",
+              "label": "TPL_ATUM_LOGO_ALT_EMPTY_LABEL",
+              "description": "TPL_ATUM_LOGO_ALT_EMPTY_DESC"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "logoBrandLarge": {
+            "type": "string",
+            "title": "Image",
+            "description": "Joomla form field logoBrandLarge; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "logoBrandLarge",
+              "type": "media",
+              "schemes": "http,https,ftp,ftps,data,file",
+              "validate": "url",
+              "relative": "true",
+              "label": "TPL_ATUM_IMAGE_LABEL"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "logoBrandLargeAlt": {
+            "type": "string",
+            "title": "Image Description (Alt Text)",
+            "description": "Joomla form field logoBrandLargeAlt; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "logoBrandLargeAlt",
+              "type": "text",
+              "label": "TPL_ATUM_LOGO_ALT_LABEL"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "emptyLogoBrandLargeAlt": {
+            "type": "string",
+            "title": "No Description",
+            "description": "Decorative Image - no description required",
+            "x-joomla-form": {
+              "name": "emptyLogoBrandLargeAlt",
+              "type": "checkbox",
+              "label": "TPL_ATUM_LOGO_ALT_EMPTY_LABEL",
+              "description": "TPL_ATUM_LOGO_ALT_EMPTY_DESC"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "logoBrandSmall": {
+            "type": "string",
+            "title": "Image",
+            "description": "Joomla form field logoBrandSmall; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "logoBrandSmall",
+              "type": "media",
+              "schemes": "http,https,ftp,ftps,data,file",
+              "validate": "url",
+              "relative": "true",
+              "label": "TPL_ATUM_IMAGE_LABEL"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "logoBrandSmallAlt": {
+            "type": "string",
+            "title": "Image Description (Alt Text)",
+            "description": "Joomla form field logoBrandSmallAlt; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "logoBrandSmallAlt",
+              "type": "text",
+              "label": "TPL_ATUM_LOGO_ALT_LABEL"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          },
+          "emptyLogoBrandSmallAlt": {
+            "type": "string",
+            "title": "No Description",
+            "description": "Decorative Image - no description required",
+            "x-joomla-form": {
+              "name": "emptyLogoBrandSmallAlt",
+              "type": "checkbox",
+              "label": "TPL_ATUM_LOGO_ALT_EMPTY_LABEL",
+              "description": "TPL_ATUM_LOGO_ALT_EMPTY_DESC"
+            },
+            "x-source": "administrator/templates/atum/templateDetails.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,474 @@
+{
+  "status": "pass",
+  "checks": 117,
+  "results": [
+    {
+      "name": "5.4.8: article create requires category",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: article draft is a flat body",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: JSON API response wrapper is not a request schema",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: PATCH preserves explicit raw text keys",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: contact state is geographic text",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: contact state is not article publish state",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: file upload needs content",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: folder creation omits content",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: file accepts base64 and explicit no override",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: media rename accepts target path",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: media PATCH without change is rejected",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: media PATCH empty content is rejected",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: media collection and item have different operation IDs",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: no invented finder REST routes",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: no invented associations REST routes",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: unimplemented language installation has no fake success",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: installer core query is flat",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: token code 403 maps to HTTP 400",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: generic internal 410 maps to HTTP 500",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: unknown core property rejected",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: module params selected by type",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: user groups are arrays of numeric IDs",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: module assignment is an ID array",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: dynamic menu keys are not a singleton enum",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: field params use the field instance schema",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: article language association is a map",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: article association array rejected",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: contact association uses owner record IDs",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: inline category title is a conditional core variant",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: new tag marker is a conditional core variant",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: plugin parameters are not writable through REST",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: plugin wrapper is rejected by raw whitelist",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: plugin state change is allowed",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: viewlevel POST uses array rules",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: viewlevel PATCH uses encoded rules",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: viewlevel PATCH array rules rejected",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: viewlevel PATCH malformed encoded rules rejected",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: search remains string before integer state",
+      "passed": true
+    },
+    {
+      "name": "5.4.8: media recursive search has actual parameter name",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: article create requires category",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: article draft is a flat body",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: JSON API response wrapper is not a request schema",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: PATCH preserves explicit raw text keys",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: contact state is geographic text",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: contact state is not article publish state",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: file upload needs content",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: folder creation omits content",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: file accepts base64 and explicit no override",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: media rename accepts target path",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: media PATCH without change is rejected",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: media PATCH empty content is rejected",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: media collection and item have different operation IDs",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: no invented finder REST routes",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: no invented associations REST routes",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: unimplemented language installation has no fake success",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: installer core query is flat",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: token code 403 maps to HTTP 400",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: generic internal 410 maps to HTTP 500",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: unknown core property rejected",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: module params selected by type",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: user groups are arrays of numeric IDs",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: module assignment is an ID array",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: dynamic menu keys are not a singleton enum",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: field params use the field instance schema",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: article language association is a map",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: article association array rejected",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: contact association uses owner record IDs",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: inline category title is a conditional core variant",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: new tag marker is a conditional core variant",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: plugin parameters are not writable through REST",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: plugin wrapper is rejected by raw whitelist",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: plugin state change is allowed",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: viewlevel POST uses array rules",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: viewlevel PATCH uses encoded rules",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: viewlevel PATCH array rules rejected",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: viewlevel PATCH malformed encoded rules rejected",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: search remains string before integer state",
+      "passed": true
+    },
+    {
+      "name": "6.1.3: media recursive search has actual parameter name",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: article create requires category",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: article draft is a flat body",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: JSON API response wrapper is not a request schema",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: PATCH preserves explicit raw text keys",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: contact state is geographic text",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: contact state is not article publish state",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: file upload needs content",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: folder creation omits content",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: file accepts base64 and explicit no override",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: media rename accepts target path",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: media PATCH without change is rejected",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: media PATCH empty content is rejected",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: media collection and item have different operation IDs",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: no invented finder REST routes",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: no invented associations REST routes",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: unimplemented language installation has no fake success",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: installer core query is flat",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: token code 403 maps to HTTP 400",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: generic internal 410 maps to HTTP 500",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: unknown core property rejected",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: module params selected by type",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: user groups are arrays of numeric IDs",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: module assignment is an ID array",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: dynamic menu keys are not a singleton enum",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: field params use the field instance schema",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: article language association is a map",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: article association array rejected",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: contact association uses owner record IDs",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: inline category title is a conditional core variant",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: new tag marker is a conditional core variant",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: plugin parameters are not writable through REST",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: plugin wrapper is rejected by raw whitelist",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: plugin state change is allowed",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: viewlevel POST uses array rules",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: viewlevel PATCH uses encoded rules",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: viewlevel PATCH array rules rejected",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: viewlevel PATCH malformed encoded rules rejected",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: search remains string before integer state",
+      "passed": true
+    },
+    {
+      "name": "6.2.0: media recursive search has actual parameter name",
+      "passed": true
+    }
+  ]
+}

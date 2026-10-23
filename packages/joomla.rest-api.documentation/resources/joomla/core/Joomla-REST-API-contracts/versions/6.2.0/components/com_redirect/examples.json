@@ -1,0 +1,97 @@
+[
+  {
+    "operationId": "com_redirect_get_v1_redirects",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_redirect_get_v1_redirectsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "links",
+          "id": "Example",
+          "attributes": {
+            "old_url": "Example",
+            "new_url": "Example",
+            "referer": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_redirect_get_v1_redirects_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_redirect_get_v1_redirects_idResponse",
+    "value": {
+      "data": {
+        "type": "links",
+        "id": "Example",
+        "attributes": {
+          "old_url": "Example",
+          "new_url": "Example",
+          "referer": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_redirect_post_v1_redirects",
+    "direction": "request",
+    "schema": "com_redirect_post_v1_redirectsRequest",
+    "value": {
+      "old_url": "Example",
+      "new_url": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_redirect_post_v1_redirects",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_redirect_post_v1_redirectsResponse",
+    "value": {
+      "data": {
+        "type": "links",
+        "id": "Example",
+        "attributes": {
+          "old_url": "Example",
+          "new_url": "Example",
+          "referer": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_redirect_patch_v1_redirects_id",
+    "direction": "request",
+    "schema": "com_redirect_patch_v1_redirects_idRequest",
+    "value": {
+      "old_url": "Example",
+      "new_url": "Example",
+      "comment": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_redirect_patch_v1_redirects_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_redirect_patch_v1_redirects_idResponse",
+    "value": {
+      "data": {
+        "type": "links",
+        "id": "Example",
+        "attributes": {
+          "old_url": "Example",
+          "new_url": "Example",
+          "referer": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

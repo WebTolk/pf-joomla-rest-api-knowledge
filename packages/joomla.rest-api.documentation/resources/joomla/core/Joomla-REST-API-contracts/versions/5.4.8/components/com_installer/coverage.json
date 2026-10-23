@@ -1,0 +1,61 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/extensions",
+    "task": "manage.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/installer/src/Extension/Installer.php",
+      "api/components/com_installer/src/Controller/ManageController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages",
+    "task": "languages.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_installer/src/Controller/LanguagesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages",
+    "task": "languages.install",
+    "support": "registered-unimplemented",
+    "request_schema": null,
+    "response_statuses": [
+      "500",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_installer/src/Controller/LanguagesController.php"
+    ]
+  }
+]

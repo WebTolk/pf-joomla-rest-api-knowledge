@@ -1,0 +1,509 @@
+{
+  "core_version": "6.2.0",
+  "status": "pass",
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v1/media/adapters",
+      "task": "adapters.displayList",
+      "handler_source": "libraries/src/MVC/Controller/ApiController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_media"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/media/adapters/{id}",
+      "task": "adapters.displayItem",
+      "handler_source": "api/components/com_media/src/Controller/AdaptersController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_media"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.edit",
+            "core.edit.own",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "bbf1f6d12ddad1f3b4ae8ff8cd7b940d98ca7e333ac7666b94b082666752b429"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/media/files",
+      "task": "media.displayList",
+      "handler_source": "api/components/com_media/src/Controller/MediaController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_media"
+      },
+      "query_parameters": [
+        {
+          "name": "filter[search]",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "url",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "temp",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "content",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "search_recursive",
+          "in": "query",
+          "schema": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.create",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "cb9a8c2910a278adb9184c63024e417c317ac8050b7f48859d703a0fb3bf1af7"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/media/files/{path}/",
+      "task": "media.displayList",
+      "handler_source": "api/components/com_media/src/Controller/MediaController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_media"
+      },
+      "query_parameters": [
+        {
+          "name": "filter[search]",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "url",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "temp",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "content",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "search_recursive",
+          "in": "query",
+          "schema": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.create",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "cb9a8c2910a278adb9184c63024e417c317ac8050b7f48859d703a0fb3bf1af7"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/media/files/{path}",
+      "task": "media.displayItem",
+      "handler_source": "api/components/com_media/src/Controller/MediaController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_media"
+      },
+      "query_parameters": [
+        {
+          "name": "url",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "temp",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "content",
+          "in": "query",
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.create",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "cb9a8c2910a278adb9184c63024e417c317ac8050b7f48859d703a0fb3bf1af7"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/media/files",
+      "task": "media.add",
+      "handler_source": "api/components/com_media/src/Controller/MediaController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_media"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_media_post_v1_media_filesRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.create",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "cb9a8c2910a278adb9184c63024e417c317ac8050b7f48859d703a0fb3bf1af7"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/media/files/{path}",
+      "task": "media.edit",
+      "handler_source": "api/components/com_media/src/Controller/MediaController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_media"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_media_patch_v1_media_files_pathRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.create",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "cb9a8c2910a278adb9184c63024e417c317ac8050b7f48859d703a0fb3bf1af7"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/media/files/{path}",
+      "task": "media.delete",
+      "handler_source": "api/components/com_media/src/Controller/MediaController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_media"
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "204",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.create",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.edit",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "api/components/com_media/src/Controller/MediaController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "cb9a8c2910a278adb9184c63024e417c317ac8050b7f48859d703a0fb3bf1af7"
+    }
+  ]
+}

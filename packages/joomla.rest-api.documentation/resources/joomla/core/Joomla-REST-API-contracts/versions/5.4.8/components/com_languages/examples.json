@@ -1,0 +1,308 @@
+[
+  {
+    "operationId": "com_languages_get_v1_languages_content",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_contentResponse",
+    "value": {
+      "data": [
+        {
+          "type": "languages",
+          "id": "Example",
+          "attributes": {
+            "asset_id": 1,
+            "lang_code": "Example",
+            "title": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_get_v1_languages_content_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_content_idResponse",
+    "value": {
+      "data": {
+        "type": "languages",
+        "id": "Example",
+        "attributes": {
+          "asset_id": 1,
+          "lang_code": "Example",
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_content",
+    "direction": "request",
+    "schema": "com_languages_post_v1_languages_contentRequest",
+    "value": {
+      "lang_code": "Example",
+      "title": "Example",
+      "title_native": "Example",
+      "sef": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_content",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_contentResponse",
+    "value": {
+      "data": {
+        "type": "languages",
+        "id": "Example",
+        "attributes": {
+          "asset_id": 1,
+          "lang_code": "Example",
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_patch_v1_languages_content_id",
+    "direction": "request",
+    "schema": "com_languages_patch_v1_languages_content_idRequest",
+    "value": {
+      "lang_code": "Example",
+      "title": "Example",
+      "title_native": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_patch_v1_languages_content_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_patch_v1_languages_content_idResponse",
+    "value": {
+      "data": {
+        "type": "languages",
+        "id": "Example",
+        "attributes": {
+          "asset_id": 1,
+          "lang_code": "Example",
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_search",
+    "direction": "request",
+    "schema": "com_languages_post_v1_languages_overrides_searchRequest",
+    "value": {
+      "searchstring": "Example",
+      "searchtype": "constant"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_search",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_overrides_searchResponse",
+    "value": {
+      "data": [
+        {
+          "type": "strings",
+          "id": "Example",
+          "attributes": {
+            "string": "Example",
+            "file": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_search_cache_refresh",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_overrides_search_cache_refreshResponse",
+    "value": [],
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_get_v1_languages_overrides_site_lang_code",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_overrides_site_lang_codeResponse",
+    "value": {
+      "data": [
+        {
+          "type": "overrides",
+          "id": "Example",
+          "attributes": {
+            "value": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_get_v1_languages_overrides_site_lang_code_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_overrides_site_lang_code_idResponse",
+    "value": {
+      "data": {
+        "type": "overrides",
+        "id": "Example",
+        "attributes": {
+          "value": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_site_lang_code",
+    "direction": "request",
+    "schema": "com_languages_post_v1_languages_overrides_site_lang_codeRequest",
+    "value": {
+      "key": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_site_lang_code",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_overrides_site_lang_codeResponse",
+    "value": {
+      "data": {
+        "type": "overrides",
+        "id": "Example",
+        "attributes": {
+          "value": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_patch_v1_languages_overrides_site_lang_code_id",
+    "direction": "request",
+    "schema": "com_languages_patch_v1_languages_overrides_site_lang_code_idRequest",
+    "value": {
+      "key": "Example",
+      "override": "Example",
+      "both": false
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_patch_v1_languages_overrides_site_lang_code_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_patch_v1_languages_overrides_site_lang_code_idResponse",
+    "value": {
+      "data": {
+        "type": "overrides",
+        "id": "Example",
+        "attributes": {
+          "value": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_get_v1_languages_overrides_administrator_lang_code",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_overrides_administrator_lang_codeResponse",
+    "value": {
+      "data": [
+        {
+          "type": "overrides",
+          "id": "Example",
+          "attributes": {
+            "value": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_get_v1_languages_overrides_administrator_lang_code_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_overrides_administrator_lang_code_idResponse",
+    "value": {
+      "data": {
+        "type": "overrides",
+        "id": "Example",
+        "attributes": {
+          "value": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_administrator_lang_code",
+    "direction": "request",
+    "schema": "com_languages_post_v1_languages_overrides_administrator_lang_codeRequest",
+    "value": {
+      "key": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_administrator_lang_code",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_overrides_administrator_lang_codeResponse",
+    "value": {
+      "data": {
+        "type": "overrides",
+        "id": "Example",
+        "attributes": {
+          "value": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_patch_v1_languages_overrides_administrator_lang_code_id",
+    "direction": "request",
+    "schema": "com_languages_patch_v1_languages_overrides_administrator_lang_code_idRequest",
+    "value": {
+      "key": "Example",
+      "override": "Example",
+      "both": false
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_languages_patch_v1_languages_overrides_administrator_lang_code_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_languages_patch_v1_languages_overrides_administrator_lang_code_idResponse",
+    "value": {
+      "data": {
+        "type": "overrides",
+        "id": "Example",
+        "attributes": {
+          "value": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

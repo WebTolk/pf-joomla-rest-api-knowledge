@@ -1,0 +1,123 @@
+[
+  {
+    "method": "POST",
+    "path": "/v1/contacts/form/{id}",
+    "task": "contact.submitForm",
+    "support": "source-derived",
+    "request_schema": "com_contact_post_v1_contacts_form_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_contact/src/Controller/ContactController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts",
+    "task": "contact.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_contact/src/Controller/ContactController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts/{id}",
+    "task": "contact.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_contact/src/Controller/ContactController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/contacts",
+    "task": "contact.add",
+    "support": "source-derived",
+    "request_schema": "com_contact_post_v1_contactsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_contact/src/Controller/ContactController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/contacts/{id}",
+    "task": "contact.edit",
+    "support": "source-derived",
+    "request_schema": "com_contact_patch_v1_contacts_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_contact/src/Controller/ContactController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/contacts/{id}",
+    "task": "contact.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_contact/src/Controller/ContactController.php"
+    ]
+  }
+]

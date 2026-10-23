@@ -1,0 +1,1136 @@
+[
+  {
+    "operationId": "com_fields_get_v1_fields_contacts_contact",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_contacts_contactResponse",
+    "value": {
+      "data": [
+        {
+          "type": "fields",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_contacts_contact_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_contacts_contact_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_contact",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_contacts_contactRequest",
+    "value": {
+      "title": "Example",
+      "type": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_contact",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_contacts_contactResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_contacts_contact_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_contacts_contact_idRequest",
+    "value": {
+      "context": "Example",
+      "group_id": 1,
+      "assigned_cat_ids": []
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_contacts_contact_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_contacts_contact_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_contacts_mail",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_contacts_mailResponse",
+    "value": {
+      "data": [
+        {
+          "type": "fields",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_contacts_mail_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_contacts_mail_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_mail",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_contacts_mailRequest",
+    "value": {
+      "title": "Example",
+      "type": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_mail",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_contacts_mailResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_contacts_mail_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_contacts_mail_idRequest",
+    "value": {
+      "context": "Example",
+      "group_id": 1,
+      "assigned_cat_ids": []
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_contacts_mail_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_contacts_mail_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_contacts_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_contacts_categoriesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "fields",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_contacts_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_contacts_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_categories",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_contacts_categoriesRequest",
+    "value": {
+      "title": "Example",
+      "type": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_contacts_categoriesResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_contacts_categories_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_contacts_categories_idRequest",
+    "value": {
+      "context": "Example",
+      "group_id": 1,
+      "assigned_cat_ids": []
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_contacts_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_contacts_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_contacts_contact",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_contacts_contactResponse",
+    "value": {
+      "data": [
+        {
+          "type": "groups",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_contacts_contact_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_contacts_contact_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_contact",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_groups_contacts_contactRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_contact",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_contacts_contactResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_contacts_contact_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_groups_contacts_contact_idRequest",
+    "value": {
+      "title": "Example",
+      "state": 1,
+      "created": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_contacts_contact_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_contacts_contact_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_contacts_mail",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_contacts_mailResponse",
+    "value": {
+      "data": [
+        {
+          "type": "groups",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_contacts_mail_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_contacts_mail_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_mail",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_groups_contacts_mailRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_mail",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_contacts_mailResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_contacts_mail_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_groups_contacts_mail_idRequest",
+    "value": {
+      "title": "Example",
+      "state": 1,
+      "created": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_contacts_mail_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_contacts_mail_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_contacts_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_contacts_categoriesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "groups",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_contacts_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_contacts_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_categories",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_groups_contacts_categoriesRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_contacts_categoriesResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_contacts_categories_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_groups_contacts_categories_idRequest",
+    "value": {
+      "title": "Example",
+      "state": 1,
+      "created": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_contacts_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_contacts_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_content_articles",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_content_articlesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "fields",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_content_articles_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_content_articles_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_articles",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_content_articlesRequest",
+    "value": {
+      "title": "Example",
+      "type": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_articles",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_content_articlesResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_content_articles_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_content_articles_idRequest",
+    "value": {
+      "context": "Example",
+      "group_id": 1,
+      "assigned_cat_ids": []
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_content_articles_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_content_articles_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_content_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_content_categoriesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "fields",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_content_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_content_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_categories",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_content_categoriesRequest",
+    "value": {
+      "title": "Example",
+      "type": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_content_categoriesResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_content_categories_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_content_categories_idRequest",
+    "value": {
+      "context": "Example",
+      "group_id": 1,
+      "assigned_cat_ids": []
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_content_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_content_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_content_articles",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_content_articlesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "groups",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_content_articles_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_content_articles_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_content_articles",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_groups_content_articlesRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_content_articles",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_content_articlesResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_content_articles_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_groups_content_articles_idRequest",
+    "value": {
+      "title": "Example",
+      "state": 1,
+      "created": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_content_articles_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_content_articles_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_content_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_content_categoriesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "groups",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_content_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_content_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_content_categories",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_groups_content_categoriesRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_content_categories",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_content_categoriesResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_content_categories_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_groups_content_categories_idRequest",
+    "value": {
+      "title": "Example",
+      "state": 1,
+      "created": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_content_categories_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_content_categories_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_users",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_usersResponse",
+    "value": {
+      "data": [
+        {
+          "type": "fields",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_users_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_users_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_users",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_usersRequest",
+    "value": {
+      "title": "Example",
+      "type": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_users",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_usersResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_users_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_users_idRequest",
+    "value": {
+      "context": "Example",
+      "group_id": 1,
+      "assigned_cat_ids": []
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_users_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_users_idResponse",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_users",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_usersResponse",
+    "value": {
+      "data": [
+        {
+          "type": "groups",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "name": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_get_v1_fields_groups_users_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_users_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_users",
+    "direction": "request",
+    "schema": "com_fields_post_v1_fields_groups_usersRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_users",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_usersResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_users_id",
+    "direction": "request",
+    "schema": "com_fields_patch_v1_fields_groups_users_idRequest",
+    "value": {
+      "title": "Example",
+      "state": 1,
+      "created": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_users_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_users_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

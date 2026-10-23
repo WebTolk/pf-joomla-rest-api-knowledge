@@ -1,0 +1,2497 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Joomla 6.2.0 com_redirect REST contract",
+    "version": "6.2.0",
+    "description": "Source-pinned API knowledge. Examples are synthetic; no runtime requests."
+  },
+  "servers": [
+    {
+      "url": "/api/index.php"
+    }
+  ],
+  "security": [
+    {
+      "JoomlaToken": []
+    }
+  ],
+  "paths": {
+    "/v1/redirects": {
+      "get": {
+        "operationId": "com_redirect_get_v1_redirects",
+        "summary": "GET /v1/redirects",
+        "tags": [
+          "com_redirect"
+        ],
+        "x-controller-task": "redirect.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_redirect"
+        },
+        "x-source": [
+          "plugins/webservices/redirect/src/Extension/Redirect.php",
+          "api/components/com_redirect/src/Controller/RedirectController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "page[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "page[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_redirect_get_v1_redirectsResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "links",
+                      "id": "Example",
+                      "attributes": {
+                        "old_url": "Example",
+                        "new_url": "Example",
+                        "referer": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "См. форму и схему ответа endpoint.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+      },
+      "post": {
+        "operationId": "com_redirect_post_v1_redirects",
+        "summary": "POST /v1/redirects",
+        "tags": [
+          "com_redirect"
+        ],
+        "x-controller-task": "redirect.add",
+        "x-route-defaults": {
+          "component": "com_redirect"
+        },
+        "x-source": [
+          "plugins/webservices/redirect/src/Extension/Redirect.php",
+          "api/components/com_redirect/src/Controller/RedirectController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_redirect_post_v1_redirectsResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "links",
+                    "id": "Example",
+                    "attributes": {
+                      "old_url": "Example",
+                      "new_url": "Example",
+                      "referer": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com_redirect_post_v1_redirectsRequest"
+              },
+              "example": {
+                "old_url": "Example",
+                "new_url": "Example"
+              }
+            }
+          }
+        },
+        "description": "См. форму и схему ответа endpoint.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+      }
+    },
+    "/v1/redirects/{id}": {
+      "get": {
+        "operationId": "com_redirect_get_v1_redirects_id",
+        "summary": "GET /v1/redirects/{id}",
+        "tags": [
+          "com_redirect"
+        ],
+        "x-controller-task": "redirect.displayItem",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_redirect"
+        },
+        "x-source": [
+          "plugins/webservices/redirect/src/Extension/Redirect.php",
+          "api/components/com_redirect/src/Controller/RedirectController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_redirect_get_v1_redirects_idResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "links",
+                    "id": "Example",
+                    "attributes": {
+                      "old_url": "Example",
+                      "new_url": "Example",
+                      "referer": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "См. форму и схему ответа endpoint.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+      },
+      "patch": {
+        "operationId": "com_redirect_patch_v1_redirects_id",
+        "summary": "PATCH /v1/redirects/{id}",
+        "tags": [
+          "com_redirect"
+        ],
+        "x-controller-task": "redirect.edit",
+        "x-route-defaults": {
+          "component": "com_redirect"
+        },
+        "x-source": [
+          "plugins/webservices/redirect/src/Extension/Redirect.php",
+          "api/components/com_redirect/src/Controller/RedirectController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_redirect_patch_v1_redirects_idResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "links",
+                    "id": "Example",
+                    "attributes": {
+                      "old_url": "Example",
+                      "new_url": "Example",
+                      "referer": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com_redirect_patch_v1_redirects_idRequest"
+              },
+              "example": {
+                "old_url": "Example",
+                "new_url": "Example",
+                "comment": "Example"
+              }
+            }
+          }
+        },
+        "description": "См. форму и схему ответа endpoint.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+      },
+      "delete": {
+        "operationId": "com_redirect_delete_v1_redirects_id",
+        "summary": "DELETE /v1/redirects/{id}",
+        "tags": [
+          "com_redirect"
+        ],
+        "x-controller-task": "redirect.delete",
+        "x-route-defaults": {
+          "component": "com_redirect"
+        },
+        "x-source": [
+          "plugins/webservices/redirect/src/Extension/Redirect.php",
+          "api/components/com_redirect/src/Controller/RedirectController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Удалено; обязательное тело отсутствует."
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи; AdminModel session flag can instead produce legacy application/json envelope.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                },
+                "example": {
+                  "success": true,
+                  "message": null,
+                  "messages": null,
+                  "data": {
+                    "status": "not found",
+                    "code": 404,
+                    "message": "Resource not found"
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Запись нельзя удалить в текущем состоянии",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                },
+                "example": {
+                  "success": true,
+                  "message": null,
+                  "messages": null,
+                  "data": {
+                    "status": "Conflict",
+                    "code": 409,
+                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "См. форму и схему ответа endpoint.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "JoomlaToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Joomla-Token"
+      },
+      "JUpdateToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-JUpdate-Token"
+      }
+    },
+    "schemas": {
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        ]
+      },
+      "ResourceIdentifier": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Relationship": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceIdentifier"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceIdentifier"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Relationship"
+            }
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Links": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/JsonValue"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "href"
+              ]
+            }
+          ]
+        }
+      },
+      "EmptyActionResponse": {
+        "type": "array",
+        "maxItems": 0
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "status": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "ErrorDocument": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "anyOf": [
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/ErrorObject"
+                }
+              },
+              {
+                "$ref": "#/components/schemas/ErrorObject"
+              }
+            ],
+            "description": "Exception handlers return an error array; the core non-Exception Throwable branch can emit one error object."
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "errors"
+        ]
+      },
+      "LegacyDeleteError": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "messages": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+              "code": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "code",
+              "message"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ]
+      },
+      "Form_administrator_components_com_redirect_forms_filter_links_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Links",
+                "description": "Search in expired URL, new URL, referring page and comment. Prefix with ID: to search for a link ID.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_REDIRECT_FILTER_SEARCH_LABEL",
+                  "description": "COM_REDIRECT_FILTER_SEARCH_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_redirect/forms/filter_links.xml"
+              },
+              "state": {
+                "type": "string",
+                "title": "Status",
+                "description": "Joomla form field state; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "state",
+                  "type": "RedirectStatus",
+                  "label": "JSTATUS"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Status -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_redirect/forms/filter_links.xml"
+              },
+              "http_status": {
+                "type": "string",
+                "title": "Status Code",
+                "description": "Joomla form field http_status; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "http_status",
+                  "type": "Redirect",
+                  "label": "COM_REDIRECT_HEADING_STATUS_CODE"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select HTTP Status Code -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_redirect/forms/filter_links.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "a.published ASC",
+                  "a.published DESC",
+                  "a.old_url ASC",
+                  "a.old_url DESC",
+                  "a.new_url ASC",
+                  "a.new_url DESC",
+                  "a.referer ASC",
+                  "a.referer DESC",
+                  "a.created_date ASC",
+                  "a.created_date DESC",
+                  "a.hits ASC",
+                  "a.hits DESC",
+                  "a.header ASC",
+                  "a.header DESC",
+                  "a.id ASC",
+                  "a.id DESC"
+                ],
+                "default": "a.old_url ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "a.old_url ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "a.published ASC",
+                    "label": "Status ascending"
+                  },
+                  {
+                    "value": "a.published DESC",
+                    "label": "Status descending"
+                  },
+                  {
+                    "value": "a.old_url ASC",
+                    "label": "Expired URL ascending"
+                  },
+                  {
+                    "value": "a.old_url DESC",
+                    "label": "Expired URL descending"
+                  },
+                  {
+                    "value": "a.new_url ASC",
+                    "label": "New URL ascending"
+                  },
+                  {
+                    "value": "a.new_url DESC",
+                    "label": "New URL descending"
+                  },
+                  {
+                    "value": "a.referer ASC",
+                    "label": "Referring Page ascending"
+                  },
+                  {
+                    "value": "a.referer DESC",
+                    "label": "Referring Page descending"
+                  },
+                  {
+                    "value": "a.created_date ASC",
+                    "label": "Created Date ascending"
+                  },
+                  {
+                    "value": "a.created_date DESC",
+                    "label": "Created Date descending"
+                  },
+                  {
+                    "value": "a.hits ASC",
+                    "label": "404 Hits ascending"
+                  },
+                  {
+                    "value": "a.hits DESC",
+                    "label": "404 Hits descending"
+                  },
+                  {
+                    "value": "a.header ASC",
+                    "label": "Status Code ascending"
+                  },
+                  {
+                    "value": "a.header DESC",
+                    "label": "Status Code descending"
+                  },
+                  {
+                    "value": "a.id ASC",
+                    "label": "ID ascending"
+                  },
+                  {
+                    "value": "a.id DESC",
+                    "label": "ID descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_redirect/forms/filter_links.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "5",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "5"
+                },
+                "x-source": "administrator/components/com_redirect/forms/filter_links.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_redirect_forms_link_xml": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "default": "0",
+            "title": "ID",
+            "description": "Joomla form field id; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "id",
+              "type": "text",
+              "label": "JGLOBAL_FIELD_ID_LABEL",
+              "default": "0",
+              "readonly": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml",
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "x-source-sql": "installation/sql/mysql/extensions.sql"
+          },
+          "old_url": {
+            "type": "string",
+            "title": "Expired URL",
+            "description": "Enter the URL that has to be redirected.",
+            "x-joomla-form": {
+              "name": "old_url",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_OLD_URL_LABEL",
+              "description": "COM_REDIRECT_FIELD_OLD_URL_DESC",
+              "required": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "new_url": {
+            "type": "string",
+            "title": "New URL",
+            "description": "Enter the URL to be redirected to.",
+            "x-joomla-form": {
+              "name": "new_url",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_NEW_URL_LABEL",
+              "description": "COM_REDIRECT_FIELD_NEW_URL_DESC",
+              "required": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "comment": {
+            "type": "string",
+            "title": "Comment",
+            "description": "Joomla form field comment; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "comment",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_COMMENT_LABEL"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "published": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              1,
+              0,
+              2,
+              -2,
+              "1",
+              "0",
+              "2",
+              "-2"
+            ],
+            "default": "1",
+            "title": "Status",
+            "description": "Joomla form field published; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "published",
+              "type": "list",
+              "label": "JSTATUS",
+              "default": "1",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "1",
+                "label": "Enabled"
+              },
+              {
+                "value": "0",
+                "label": "Disabled"
+              },
+              {
+                "value": "2",
+                "label": "Archived"
+              },
+              {
+                "value": "-2",
+                "label": "Trashed"
+              }
+            ],
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "referer": {
+            "type": "string",
+            "title": "Link Referrer",
+            "description": "Joomla form field referer; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "referer",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_REFERRER_LABEL",
+              "readonly": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "created_date": {
+            "type": "string",
+            "title": "Created Date",
+            "description": "Joomla form field created_date; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "created_date",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_CREATED_DATE_LABEL",
+              "readonly": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "modified_date": {
+            "type": "string",
+            "title": "Last Updated Date",
+            "description": "Joomla form field modified_date; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "modified_date",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_UPDATED_DATE_LABEL",
+              "readonly": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "header": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "default": "301",
+            "title": "Redirect Status Code",
+            "description": "Choose the HTTP 1.1 status code to associate with the redirect. Only status codes from 300-399 correspond to a redirect.",
+            "x-joomla-form": {
+              "name": "header",
+              "type": "redirect",
+              "label": "COM_REDIRECT_FIELD_REDIRECT_STATUS_CODE_LABEL",
+              "description": "COM_REDIRECT_FIELD_REDIRECT_STATUS_CODE_DESC",
+              "default": "301",
+              "validate": "options"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml",
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "x-source-sql": "installation/sql/mysql/extensions.sql"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "old_url",
+          "new_url"
+        ]
+      },
+      "Form_administrator_components_com_redirect_config_xml": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Activate Advanced Mode",
+            "description": "The Advanced Mode allows the use of HTTP 1.1 status codes other than the default '301 Permanently Moved'.",
+            "x-joomla-form": {
+              "name": "mode",
+              "type": "radio",
+              "label": "COM_REDIRECT_MODE_LABEL",
+              "description": "COM_REDIRECT_MODE_DESC",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_redirect/config.xml"
+          },
+          "separator": {
+            "type": "string",
+            "default": "|",
+            "title": "Bulk Import Separator",
+            "description": "The separator used for bulk import, by default it is '|' but it can be ',' for a copy / paste from a CSV file for instance.",
+            "x-joomla-form": {
+              "name": "separator",
+              "type": "text",
+              "label": "COM_REDIRECT_BULK_SEPARATOR_LABEL",
+              "description": "COM_REDIRECT_BULK_SEPARATOR_DESC",
+              "default": "|"
+            },
+            "x-source": "administrator/components/com_redirect/config.xml"
+          },
+          "defaultImportState": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Import State",
+            "description": "When batch importing redirects, enable or disable by default.",
+            "x-joomla-form": {
+              "name": "defaultImportState",
+              "type": "radio",
+              "label": "COM_REDIRECT_DEFAULT_IMPORT_STATE_LABEL",
+              "description": "COM_REDIRECT_DEFAULT_IMPORT_STATE_DESC",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Disabled"
+              },
+              {
+                "value": "1",
+                "label": "Enabled"
+              }
+            ],
+            "x-source": "administrator/components/com_redirect/config.xml"
+          },
+          "rules": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {
+                "type": [
+                  "integer",
+                  "boolean",
+                  "string"
+                ]
+              }
+            },
+            "title": "Permissions",
+            "description": "Joomla form field rules; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "rules",
+              "type": "rules",
+              "label": "JCONFIG_PERMISSIONS_LABEL",
+              "filter": "rules",
+              "validate": "rules",
+              "component": "com_redirect",
+              "section": "component"
+            },
+            "x-source": "administrator/components/com_redirect/config.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "com_redirect_get_v1_redirectsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "links"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "old_url": {
+                      "type": "string",
+                      "maxLength": 2048,
+                      "x-sql-type": "varchar(2048)",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "new_url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "maxLength": 2048,
+                      "x-sql-type": "varchar(2048)",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "referer": {
+                      "type": "string",
+                      "maxLength": 2048,
+                      "x-sql-type": "varchar(2048)",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "comment": {
+                      "type": "string",
+                      "maxLength": 255,
+                      "x-sql-type": "varchar(255)",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "hits": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-source": "installation/sql/mysql/extensions.sql",
+                      "x-sql-type": "int"
+                    },
+                    "published": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-source": "installation/sql/mysql/extensions.sql",
+                      "x-sql-type": "tinyint"
+                    },
+                    "created_date": {
+                      "type": "string",
+                      "x-sql-type": "datetime",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "modified_date": {
+                      "type": "string",
+                      "x-sql-type": "datetime",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "header": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-source": "installation/sql/mysql/extensions.sql",
+                      "x-sql-type": "smallint"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_redirect_get_v1_redirects_idResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "links"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "old_url": {
+                    "type": "string",
+                    "maxLength": 2048,
+                    "x-sql-type": "varchar(2048)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "new_url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 2048,
+                    "x-sql-type": "varchar(2048)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "referer": {
+                    "type": "string",
+                    "maxLength": 2048,
+                    "x-sql-type": "varchar(2048)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "x-sql-type": "varchar(255)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "hits": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "int"
+                  },
+                  "published": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "tinyint"
+                  },
+                  "created_date": {
+                    "type": "string",
+                    "x-sql-type": "datetime",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "modified_date": {
+                    "type": "string",
+                    "x-sql-type": "datetime",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "header": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "smallint"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_redirect_post_v1_redirectsRequest": {
+        "type": "object",
+        "properties": {
+          "old_url": {
+            "type": "string",
+            "title": "Expired URL",
+            "description": "Enter the URL that has to be redirected.",
+            "x-joomla-form": {
+              "name": "old_url",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_OLD_URL_LABEL",
+              "description": "COM_REDIRECT_FIELD_OLD_URL_DESC",
+              "required": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "new_url": {
+            "type": "string",
+            "title": "New URL",
+            "description": "Enter the URL to be redirected to.",
+            "x-joomla-form": {
+              "name": "new_url",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_NEW_URL_LABEL",
+              "description": "COM_REDIRECT_FIELD_NEW_URL_DESC",
+              "required": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "comment": {
+            "type": "string",
+            "title": "Comment",
+            "description": "Joomla form field comment; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "comment",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_COMMENT_LABEL"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "published": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              1,
+              0,
+              2,
+              -2,
+              "1",
+              "0",
+              "2",
+              "-2"
+            ],
+            "default": "1",
+            "title": "Status",
+            "description": "Joomla form field published; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "published",
+              "type": "list",
+              "label": "JSTATUS",
+              "default": "1",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "1",
+                "label": "Enabled"
+              },
+              {
+                "value": "0",
+                "label": "Disabled"
+              },
+              {
+                "value": "2",
+                "label": "Archived"
+              },
+              {
+                "value": "-2",
+                "label": "Trashed"
+              }
+            ],
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "header": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "default": "301",
+            "title": "Redirect Status Code",
+            "description": "Choose the HTTP 1.1 status code to associate with the redirect. Only status codes from 300-399 correspond to a redirect.",
+            "x-joomla-form": {
+              "name": "header",
+              "type": "redirect",
+              "label": "COM_REDIRECT_FIELD_REDIRECT_STATUS_CODE_LABEL",
+              "description": "COM_REDIRECT_FIELD_REDIRECT_STATUS_CODE_DESC",
+              "default": "301",
+              "validate": "options"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml",
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "x-source-sql": "installation/sql/mysql/extensions.sql"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "old_url",
+          "new_url"
+        ]
+      },
+      "com_redirect_post_v1_redirectsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "links"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "old_url": {
+                    "type": "string",
+                    "maxLength": 2048,
+                    "x-sql-type": "varchar(2048)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "new_url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 2048,
+                    "x-sql-type": "varchar(2048)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "referer": {
+                    "type": "string",
+                    "maxLength": 2048,
+                    "x-sql-type": "varchar(2048)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "x-sql-type": "varchar(255)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "hits": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "int"
+                  },
+                  "published": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "tinyint"
+                  },
+                  "created_date": {
+                    "type": "string",
+                    "x-sql-type": "datetime",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "modified_date": {
+                    "type": "string",
+                    "x-sql-type": "datetime",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "header": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "smallint"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_redirect_patch_v1_redirects_idRequest": {
+        "type": "object",
+        "properties": {
+          "old_url": {
+            "type": "string",
+            "title": "Expired URL",
+            "description": "Enter the URL that has to be redirected.",
+            "x-joomla-form": {
+              "name": "old_url",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_OLD_URL_LABEL",
+              "description": "COM_REDIRECT_FIELD_OLD_URL_DESC",
+              "required": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "new_url": {
+            "type": "string",
+            "title": "New URL",
+            "description": "Enter the URL to be redirected to.",
+            "x-joomla-form": {
+              "name": "new_url",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_NEW_URL_LABEL",
+              "description": "COM_REDIRECT_FIELD_NEW_URL_DESC",
+              "required": "true"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "comment": {
+            "type": "string",
+            "title": "Comment",
+            "description": "Joomla form field comment; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "comment",
+              "type": "text",
+              "label": "COM_REDIRECT_FIELD_COMMENT_LABEL"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "published": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              1,
+              0,
+              2,
+              -2,
+              "1",
+              "0",
+              "2",
+              "-2"
+            ],
+            "default": "1",
+            "title": "Status",
+            "description": "Joomla form field published; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "published",
+              "type": "list",
+              "label": "JSTATUS",
+              "default": "1",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "1",
+                "label": "Enabled"
+              },
+              {
+                "value": "0",
+                "label": "Disabled"
+              },
+              {
+                "value": "2",
+                "label": "Archived"
+              },
+              {
+                "value": "-2",
+                "label": "Trashed"
+              }
+            ],
+            "x-source": "administrator/components/com_redirect/forms/link.xml"
+          },
+          "header": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "default": "301",
+            "title": "Redirect Status Code",
+            "description": "Choose the HTTP 1.1 status code to associate with the redirect. Only status codes from 300-399 correspond to a redirect.",
+            "x-joomla-form": {
+              "name": "header",
+              "type": "redirect",
+              "label": "COM_REDIRECT_FIELD_REDIRECT_STATUS_CODE_LABEL",
+              "description": "COM_REDIRECT_FIELD_REDIRECT_STATUS_CODE_DESC",
+              "default": "301",
+              "validate": "options"
+            },
+            "x-source": "administrator/components/com_redirect/forms/link.xml",
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "x-source-sql": "installation/sql/mysql/extensions.sql"
+          }
+        },
+        "additionalProperties": false
+      },
+      "com_redirect_patch_v1_redirects_idResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "links"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "old_url": {
+                    "type": "string",
+                    "maxLength": 2048,
+                    "x-sql-type": "varchar(2048)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "new_url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 2048,
+                    "x-sql-type": "varchar(2048)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "referer": {
+                    "type": "string",
+                    "maxLength": 2048,
+                    "x-sql-type": "varchar(2048)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "x-sql-type": "varchar(255)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "hits": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "int"
+                  },
+                  "published": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "tinyint"
+                  },
+                  "created_date": {
+                    "type": "string",
+                    "x-sql-type": "datetime",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "modified_date": {
+                    "type": "string",
+                    "x-sql-type": "datetime",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "header": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "smallint"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      }
+    }
+  },
+  "x-knowledge-package": "joomla.rest-api.redirect",
+  "x-core-version": "6.2.0",
+  "x-contract-status": "current",
+  "x-primary-core-version": "6.2.0",
+  "x-extension-parameter-schemas": {},
+  "x-menu-view-schemas": {},
+  "x-source-verification": {
+    "method": "local route registration + XML + SQL + controller/view/serializer inspection",
+    "runtime_requests": false
+  }
+}

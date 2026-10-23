@@ -1,0 +1,117 @@
+[
+  {
+    "operationId": "com_contact_post_v1_contacts_form_id",
+    "direction": "request",
+    "schema": "com_contact_post_v1_contacts_form_idRequest",
+    "value": {
+      "contact_name": "Example",
+      "contact_email": "example@example.invalid",
+      "contact_subject": "Example",
+      "contact_message": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contact_post_v1_contacts_form_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contact_post_v1_contacts_form_idResponse",
+    "value": [],
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contact_get_v1_contacts",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contact_get_v1_contactsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "contacts",
+          "id": "Example",
+          "attributes": {
+            "alias": "Example",
+            "name": "Example",
+            "created": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contact_get_v1_contacts_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contact_get_v1_contacts_idResponse",
+    "value": {
+      "data": {
+        "type": "contacts",
+        "id": "Example",
+        "attributes": {
+          "alias": "Example",
+          "name": "Example",
+          "created": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contact_post_v1_contacts",
+    "direction": "request",
+    "schema": "com_contact_post_v1_contactsRequest",
+    "value": {
+      "name": "Example",
+      "catid": 1
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contact_post_v1_contacts",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contact_post_v1_contactsResponse",
+    "value": {
+      "data": {
+        "type": "contacts",
+        "id": "Example",
+        "attributes": {
+          "alias": "Example",
+          "name": "Example",
+          "created": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contact_patch_v1_contacts_id",
+    "direction": "request",
+    "schema": "com_contact_patch_v1_contacts_idRequest",
+    "value": {
+      "name": "Example",
+      "alias": "Example",
+      "version_note": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contact_patch_v1_contacts_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contact_patch_v1_contacts_idResponse",
+    "value": {
+      "data": {
+        "type": "contacts",
+        "id": "Example",
+        "attributes": {
+          "alias": "Example",
+          "name": "Example",
+          "created": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

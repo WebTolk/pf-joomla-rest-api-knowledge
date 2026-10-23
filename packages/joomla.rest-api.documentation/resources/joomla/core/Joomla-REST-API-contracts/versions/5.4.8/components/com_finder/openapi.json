@@ -1,0 +1,2440 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Joomla 5.4.8 com_finder REST contract",
+    "version": "5.4.8",
+    "description": "Source-pinned API knowledge. Examples are synthetic; no runtime requests."
+  },
+  "servers": [
+    {
+      "url": "/api/index.php"
+    }
+  ],
+  "security": [
+    {
+      "JoomlaToken": []
+    }
+  ],
+  "paths": {},
+  "components": {
+    "securitySchemes": {
+      "JoomlaToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Joomla-Token"
+      },
+      "JUpdateToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-JUpdate-Token"
+      }
+    },
+    "schemas": {
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        ]
+      },
+      "ResourceIdentifier": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Relationship": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceIdentifier"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceIdentifier"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Relationship"
+            }
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Links": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/JsonValue"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "href"
+              ]
+            }
+          ]
+        }
+      },
+      "EmptyActionResponse": {
+        "type": "array",
+        "maxItems": 0
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "status": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "ErrorDocument": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "anyOf": [
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/ErrorObject"
+                }
+              },
+              {
+                "$ref": "#/components/schemas/ErrorObject"
+              }
+            ],
+            "description": "Exception handlers return an error array; the core non-Exception Throwable branch can emit one error object."
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "errors"
+        ]
+      },
+      "LegacyDeleteError": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "messages": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+              "code": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "code",
+              "message"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ]
+      },
+      "Form_administrator_components_com_finder_forms_filter_xml": {
+        "type": "object",
+        "properties": {
+          "filter_id": {
+            "type": "string",
+            "default": "0",
+            "title": "ID",
+            "description": "Joomla form field filter_id; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "filter_id",
+              "type": "text",
+              "label": "JGLOBAL_FIELD_ID_LABEL",
+              "default": "0",
+              "readonly": "true"
+            },
+            "x-source": "administrator/components/com_finder/forms/filter.xml"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "Joomla form field title; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "title",
+              "type": "text",
+              "label": "JGLOBAL_TITLE",
+              "required": "true"
+            },
+            "x-source": "administrator/components/com_finder/forms/filter.xml"
+          },
+          "alias": {
+            "type": "string",
+            "title": "Alias",
+            "description": "The Alias will be used as part of the URL.",
+            "x-joomla-form": {
+              "name": "alias",
+              "type": "text",
+              "label": "JFIELD_ALIAS_LABEL",
+              "description": "JFIELD_ALIAS_DESC",
+              "hint": "JFIELD_ALIAS_PLACEHOLDER"
+            },
+            "x-source": "administrator/components/com_finder/forms/filter.xml"
+          },
+          "created": {
+            "type": "string",
+            "description": "Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.",
+            "title": "Created Date",
+            "x-joomla-form": {
+              "name": "created",
+              "type": "calendar",
+              "label": "JGLOBAL_FIELD_CREATED_LABEL",
+              "translateformat": "true",
+              "showtime": "true",
+              "filter": "user_utc"
+            },
+            "x-source": "administrator/components/com_finder/forms/filter.xml"
+          },
+          "modified": {
+            "type": "string",
+            "description": "Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.",
+            "title": "Modified Date",
+            "x-joomla-form": {
+              "name": "modified",
+              "type": "calendar",
+              "label": "JGLOBAL_FIELD_MODIFIED_LABEL",
+              "translateformat": "true",
+              "showtime": "true",
+              "readonly": "true",
+              "filter": "user_utc"
+            },
+            "x-source": "administrator/components/com_finder/forms/filter.xml"
+          },
+          "created_by": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Created By",
+            "description": "Joomla form field created_by; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "created_by",
+              "type": "user",
+              "label": "COM_FINDER_FIELD_CREATED_BY_LABEL",
+              "validate": "UserId"
+            },
+            "x-source": "administrator/components/com_finder/forms/filter.xml"
+          },
+          "created_by_alias": {
+            "type": "string",
+            "title": "Created by Alias",
+            "description": "Joomla form field created_by_alias; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "created_by_alias",
+              "type": "text",
+              "label": "COM_FINDER_FIELD_CREATED_BY_ALIAS_LABEL"
+            },
+            "x-source": "administrator/components/com_finder/forms/filter.xml"
+          },
+          "state": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              1,
+              0,
+              "1",
+              "0"
+            ],
+            "default": "1",
+            "title": "Status",
+            "description": "Joomla form field state; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "state",
+              "type": "list",
+              "label": "JSTATUS",
+              "filter": "intval",
+              "default": "1",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "1",
+                "label": "Published"
+              },
+              {
+                "value": "0",
+                "label": "Unpublished"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/forms/filter.xml"
+          },
+          "map_count": {
+            "type": "string",
+            "default": "0",
+            "title": "Map Count",
+            "description": "Joomla form field map_count; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "map_count",
+              "type": "text",
+              "label": "COM_FINDER_FILTER_MAP_COUNT",
+              "default": "0",
+              "readonly": "true"
+            },
+            "x-source": "administrator/components/com_finder/forms/filter.xml"
+          },
+          "params": {
+            "type": "object",
+            "properties": {
+              "w1": {
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "pattern": "^(?:-?[0-9]+)?$",
+                "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+                "enum": [
+                  "",
+                  -1,
+                  0,
+                  1,
+                  "-1",
+                  "0",
+                  "1"
+                ],
+                "default": "",
+                "title": "When (Start Date)",
+                "description": "Joomla form field w1; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "w1",
+                  "type": "list",
+                  "label": "COM_FINDER_FILTER_WHEN_START_DATE_LABEL",
+                  "default": "",
+                  "filter": "string",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "None"
+                  },
+                  {
+                    "value": "-1",
+                    "label": "Before"
+                  },
+                  {
+                    "value": "0",
+                    "label": "Exactly"
+                  },
+                  {
+                    "value": "1",
+                    "label": "After"
+                  }
+                ],
+                "x-source": "administrator/components/com_finder/forms/filter.xml"
+              },
+              "d1": {
+                "type": "string",
+                "description": "Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.",
+                "title": "Start Date",
+                "x-joomla-form": {
+                  "name": "d1",
+                  "type": "calendar",
+                  "label": "COM_FINDER_FILTER_START_DATE_LABEL",
+                  "translateformat": "true",
+                  "filter": "user_utc"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter.xml"
+              },
+              "w2": {
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "pattern": "^(?:-?[0-9]+)?$",
+                "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+                "enum": [
+                  "",
+                  -1,
+                  0,
+                  1,
+                  "-1",
+                  "0",
+                  "1"
+                ],
+                "default": "",
+                "title": "When (End Date)",
+                "description": "Joomla form field w2; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "w2",
+                  "type": "list",
+                  "label": "COM_FINDER_FILTER_WHEN_END_DATE_LABEL",
+                  "default": "",
+                  "filter": "string",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "None"
+                  },
+                  {
+                    "value": "-1",
+                    "label": "Before"
+                  },
+                  {
+                    "value": "0",
+                    "label": "Exactly"
+                  },
+                  {
+                    "value": "1",
+                    "label": "After"
+                  }
+                ],
+                "x-source": "administrator/components/com_finder/forms/filter.xml"
+              },
+              "d2": {
+                "type": "string",
+                "description": "Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.",
+                "title": "End Date",
+                "x-joomla-form": {
+                  "name": "d2",
+                  "type": "calendar",
+                  "label": "COM_FINDER_FILTER_END_DATE_LABEL",
+                  "translateformat": "true",
+                  "filter": "user_utc"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "title"
+        ]
+      },
+      "Form_administrator_components_com_finder_forms_filter_filters_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Filters",
+                "description": "Search in filter title.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_FINDER_SEARCH_FILTER_SEARCH_LABEL",
+                  "description": "COM_FINDER_SEARCH_FILTER_SEARCH_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter_filters.xml"
+              },
+              "state": {
+                "type": "string",
+                "title": "Status",
+                "description": "Joomla form field state; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "state",
+                  "type": "status",
+                  "label": "JSTATUS",
+                  "optionsFilter": "0,1"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Status -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_finder/forms/filter_filters.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "a.state ASC",
+                  "a.state DESC",
+                  "a.title ASC",
+                  "a.title DESC",
+                  "a.created_by_alias ASC",
+                  "a.created_by_alias DESC",
+                  "a.created ASC",
+                  "a.created DESC",
+                  "a.map_count ASC",
+                  "a.map_count DESC",
+                  "a.filter_id ASC",
+                  "a.filter_id DESC"
+                ],
+                "default": "a.title ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "a.title ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "a.state ASC",
+                    "label": "Status ascending"
+                  },
+                  {
+                    "value": "a.state DESC",
+                    "label": "Status descending"
+                  },
+                  {
+                    "value": "a.title ASC",
+                    "label": "Title ascending"
+                  },
+                  {
+                    "value": "a.title DESC",
+                    "label": "Title descending"
+                  },
+                  {
+                    "value": "a.created_by_alias ASC",
+                    "label": "Created By ascending"
+                  },
+                  {
+                    "value": "a.created_by_alias DESC",
+                    "label": "Created By descending"
+                  },
+                  {
+                    "value": "a.created ASC",
+                    "label": "Created On ascending"
+                  },
+                  {
+                    "value": "a.created DESC",
+                    "label": "Created On descending"
+                  },
+                  {
+                    "value": "a.map_count ASC",
+                    "label": "Map Count ascending"
+                  },
+                  {
+                    "value": "a.map_count DESC",
+                    "label": "Map Count descending"
+                  },
+                  {
+                    "value": "a.filter_id ASC",
+                    "label": "ID ascending"
+                  },
+                  {
+                    "value": "a.filter_id DESC",
+                    "label": "ID descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_finder/forms/filter_filters.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter_filters.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_finder_forms_filter_index_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Indexed Content",
+                "description": "Search in title, URL and last updated date.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_FINDER_INDEX_SEARCH_LABEL",
+                  "description": "COM_FINDER_INDEX_SEARCH_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter_index.xml"
+              },
+              "state": {
+                "type": "string",
+                "title": "Status",
+                "description": "Joomla form field state; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "state",
+                  "type": "status",
+                  "label": "JSTATUS",
+                  "optionsFilter": "0,1"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Status -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_finder/forms/filter_index.xml"
+              },
+              "type": {
+                "type": "string",
+                "title": "Content Type",
+                "description": "Joomla form field type; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "type",
+                  "type": "contenttypes",
+                  "label": "COM_FINDER_MAPS_HEADING_TYPE"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Type of Content -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_finder/forms/filter_index.xml"
+              },
+              "content_map": {
+                "type": "string",
+                "title": "Content Map",
+                "description": "Joomla form field content_map; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "content_map",
+                  "type": "contentmap",
+                  "label": "COM_FINDER_MAPS_HEADING_CONTENT_MAP"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Content Map -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_finder/forms/filter_index.xml"
+              },
+              "language": {
+                "type": "string",
+                "title": "Language",
+                "description": "Joomla form field language; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "language",
+                  "type": "contentlanguage",
+                  "label": "JGRID_HEADING_LANGUAGE"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Language -"
+                  },
+                  {
+                    "value": "*",
+                    "label": "All"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_finder/forms/filter_index.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "l.published ASC",
+                  "l.published DESC",
+                  "l.title ASC",
+                  "l.title DESC",
+                  "t.title ASC",
+                  "t.title DESC",
+                  "l.indexdate ASC",
+                  "l.indexdate DESC",
+                  "l.language ASC",
+                  "l.language DESC",
+                  "l.url ASC",
+                  "l.url DESC"
+                ],
+                "default": "l.title ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "l.title ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "l.published ASC",
+                    "label": "Status ascending"
+                  },
+                  {
+                    "value": "l.published DESC",
+                    "label": "Status descending"
+                  },
+                  {
+                    "value": "l.title ASC",
+                    "label": "Title ascending"
+                  },
+                  {
+                    "value": "l.title DESC",
+                    "label": "Title descending"
+                  },
+                  {
+                    "value": "t.title ASC",
+                    "label": "Type ascending"
+                  },
+                  {
+                    "value": "t.title DESC",
+                    "label": "Type descending"
+                  },
+                  {
+                    "value": "l.indexdate ASC",
+                    "label": "Last Updated ascending"
+                  },
+                  {
+                    "value": "l.indexdate DESC",
+                    "label": "Last Updated descending"
+                  },
+                  {
+                    "value": "l.language ASC",
+                    "label": "Language ascending"
+                  },
+                  {
+                    "value": "l.language DESC",
+                    "label": "Language descending"
+                  },
+                  {
+                    "value": "l.url ASC",
+                    "label": "Raw URL ascending"
+                  },
+                  {
+                    "value": "l.url DESC",
+                    "label": "Raw URL descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_finder/forms/filter_index.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter_index.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_finder_forms_filter_maps_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Content Maps",
+                "description": "Search in content map title.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_FINDER_SEARCH_SEARCH_QUERY_LABEL",
+                  "description": "COM_FINDER_SEARCH_SEARCH_QUERY_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter_maps.xml"
+              },
+              "state": {
+                "type": "string",
+                "title": "Status",
+                "description": "Joomla form field state; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "state",
+                  "type": "status",
+                  "label": "JSTATUS",
+                  "optionsFilter": "0,1"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Status -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_finder/forms/filter_maps.xml"
+              },
+              "branch": {
+                "type": "string",
+                "default": "0",
+                "title": "Map Group",
+                "description": "Joomla form field branch; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "branch",
+                  "type": "branches",
+                  "label": "COM_FINDER_MAPS_HEADING_BRANCH",
+                  "default": "0"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter_maps.xml"
+              },
+              "level": {
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "pattern": "^(?:-?[0-9]+)?$",
+                "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+                "title": "Subcategory Levels",
+                "description": "Joomla form field level; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "level",
+                  "type": "integer",
+                  "label": "JGLOBAL_MAXLEVEL_LABEL",
+                  "first": "1",
+                  "last": "2",
+                  "step": "1",
+                  "languages": "*"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Max Levels -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_finder/forms/filter_maps.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "a.state ASC",
+                  "a.state DESC",
+                  "branch_title ASC, a.lft ASC",
+                  "branch_title DESC, a.lft DESC",
+                  "a.language ASC",
+                  "a.language DESC"
+                ],
+                "x-joomla-default": "branch_title ASC",
+                "x-default-note": "Core XML default is absent from static options; not a valid request default.",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "branch_title ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "a.state ASC",
+                    "label": "Status ascending"
+                  },
+                  {
+                    "value": "a.state DESC",
+                    "label": "Status descending"
+                  },
+                  {
+                    "value": "branch_title ASC, a.lft ASC",
+                    "label": "Title ascending"
+                  },
+                  {
+                    "value": "branch_title DESC, a.lft DESC",
+                    "label": "Title descending"
+                  },
+                  {
+                    "value": "a.language ASC",
+                    "label": "Language ascending"
+                  },
+                  {
+                    "value": "a.language DESC",
+                    "label": "Language descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_finder/forms/filter_maps.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter_maps.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_finder_forms_filter_searches_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Filter by searched phrase",
+                "description": "Search for the logged phrase of a search.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_FINDER_SEARCH_IN_PHRASE_LABEL",
+                  "description": "COM_FINDER_SEARCH_IN_PHRASE_DESC",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter_searches.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "a.searchterm ASC",
+                  "a.searchterm DESC",
+                  "a.hits ASC",
+                  "a.hits DESC"
+                ],
+                "default": "a.hits ASC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "a.hits ASC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "a.searchterm ASC",
+                    "label": "Search Phrase ascending"
+                  },
+                  {
+                    "value": "a.searchterm DESC",
+                    "label": "Search Phrase descending"
+                  },
+                  {
+                    "value": "a.hits ASC",
+                    "label": "Hits ascending"
+                  },
+                  {
+                    "value": "a.hits DESC",
+                    "label": "Hits descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_finder/forms/filter_searches.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_finder/forms/filter_searches.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_finder_forms_indexer_xml": {
+        "type": "object",
+        "properties": {
+          "plugin": {
+            "type": "string",
+            "title": "Finder Plugin",
+            "description": "Joomla form field plugin; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "plugin",
+              "type": "plugins",
+              "label": "COM_FINDER_FIELD_FINDER_PLUGIN_LABEL",
+              "folder": "finder",
+              "required": "true"
+            },
+            "x-source": "administrator/components/com_finder/forms/indexer.xml"
+          },
+          "id": {
+            "type": "string",
+            "title": "ID",
+            "description": "Joomla form field id; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "id",
+              "type": "text",
+              "label": "JGLOBAL_FIELD_ID_LABEL",
+              "required": "true"
+            },
+            "x-source": "administrator/components/com_finder/forms/indexer.xml"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "plugin",
+          "id"
+        ]
+      },
+      "Form_administrator_components_com_finder_config_xml": {
+        "type": "object",
+        "properties": {
+          "word_match": {
+            "type": "string",
+            "enum": [
+              "exact",
+              "begin",
+              "fuzzy"
+            ],
+            "default": "exact",
+            "title": "Word Match",
+            "description": "Set how search terms are matched in the index. By default a word is matched exactly, but when a language supports compound words, this allows to match the search term to the beginning or in a random place inside of words in the index.",
+            "x-joomla-form": {
+              "name": "word_match",
+              "type": "list",
+              "label": "COM_FINDER_CONFIG_WORD_MATCH_LABEL",
+              "description": "COM_FINDER_CONFIG_WORD_MATCH_DESC",
+              "default": "exact"
+            },
+            "x-options": [
+              {
+                "value": "exact",
+                "label": "Match exactly"
+              },
+              {
+                "value": "begin",
+                "label": "Match words beginning with the search term"
+              },
+              {
+                "value": "fuzzy",
+                "label": "Match words containing the search term anywhere"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_taxonomy": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Result Taxonomy",
+            "description": "Joomla form field show_taxonomy; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_taxonomy",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_TAXONOMY_LABEL",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_description": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Result Description",
+            "description": "Joomla form field show_description; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_description",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_DESCRIPTION_LABEL",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "description_length": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "255",
+            "title": "Description Length",
+            "description": "Joomla form field description_length; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "description_length",
+              "type": "number",
+              "label": "COM_FINDER_CONFIG_DESCRIPTION_LENGTH_LABEL",
+              "default": "255",
+              "filter": "integer",
+              "showon": "show_description:1"
+            },
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_image": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Result Image",
+            "description": "Joomla form field show_image; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_image",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_IMAGE_LABEL",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "image_class": {
+            "type": "string",
+            "title": "Image Class",
+            "description": "Joomla form field image_class; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "image_class",
+              "type": "text",
+              "label": "COM_FINDER_CONFIG_IMAGE_CLASS_LABEL",
+              "validate": "CssIdentifier",
+              "showon": "show_image:1"
+            },
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "link_image": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Linked Image",
+            "description": "Joomla form field link_image; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "link_image",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_LINKED_IMAGE_LABEL",
+              "default": "0",
+              "showon": "show_image:1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_date": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Result Date",
+            "description": "Joomla form field show_date; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_date",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_DATE_LABEL",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_url": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Result URL",
+            "description": "Joomla form field show_url; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_url",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_URL_LABEL",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "gather_search_statistics": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Gather Search Statistics",
+            "description": "Joomla form field gather_search_statistics; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "gather_search_statistics",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_GATHER_SEARCH_STATISTICS_LABEL",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "allow_empty_query": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Allow Empty Search",
+            "description": "Joomla form field allow_empty_query; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "allow_empty_query",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_ALLOW_EMPTY_QUERY_LABEL",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_autosuggest": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Search Suggestions",
+            "description": "Joomla form field show_autosuggest; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_autosuggest",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_AUTOSUGGEST_LABEL",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_suggested_query": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Did You Mean",
+            "description": "Joomla form field show_suggested_query; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_suggested_query",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_SUGGESTED_QUERY_LABEL",
+              "default": "1",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_explained_query": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Query Explanation",
+            "description": "Joomla form field show_explained_query; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_explained_query",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_EXPLAINED_QUERY_LABEL",
+              "default": "1",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_advanced": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Advanced Search",
+            "description": "Joomla form field show_advanced; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_advanced",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_ADVANCED_LABEL",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_advanced_tips": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Advanced Tips",
+            "description": "Joomla form field show_advanced_tips; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_advanced_tips",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_ADVANCED_TIPS_LABEL",
+              "default": "1",
+              "showon": "show_advanced:1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "expand_advanced": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Expand Advanced Search",
+            "description": "Joomla form field expand_advanced; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "expand_advanced",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_EXPAND_ADVANCED_LABEL",
+              "default": "0",
+              "showon": "show_advanced:1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "show_date_filters": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Date Filters",
+            "description": "Joomla form field show_date_filters; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_date_filters",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_SHOW_DATE_FILTERS_LABEL",
+              "default": "0",
+              "showon": "show_advanced:1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "sort_order": {
+            "type": "string",
+            "enum": [
+              "relevance",
+              "title",
+              "date",
+              "price",
+              "sale_price"
+            ],
+            "default": "relevance",
+            "title": "Sort Field",
+            "description": "Joomla form field sort_order; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "sort_order",
+              "type": "list",
+              "label": "COM_FINDER_CONFIG_SORT_ORDER_LABEL",
+              "default": "relevance",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "relevance",
+                "label": "Relevance"
+              },
+              {
+                "value": "title",
+                "label": "Title"
+              },
+              {
+                "value": "date",
+                "label": "Date"
+              },
+              {
+                "value": "price",
+                "label": "List price"
+              },
+              {
+                "value": "sale_price",
+                "label": "Sales price"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "sort_direction": {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "desc",
+            "title": "Sort Direction",
+            "description": "Joomla form field sort_direction; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "sort_direction",
+              "type": "list",
+              "label": "COM_FINDER_CONFIG_SORT_DIRECTION_LABEL",
+              "default": "desc",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "desc",
+                "label": "Descending"
+              },
+              {
+                "value": "asc",
+                "label": "Ascending"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "highlight_terms": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Highlight Search Terms",
+            "description": "For performance reasons, this will not highlight more than 10 different terms in the search results.",
+            "x-joomla-form": {
+              "name": "highlight_terms",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_HIGHLIGHT_CONTENT_SEARCH_TERMS_LABEL",
+              "description": "COM_FINDER_CONFIG_HIGHLIGHT_CONTENT_SEARCH_TERMS_DESC",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "opensearch": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Enable OpenSearch",
+            "description": "Joomla form field opensearch; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "opensearch",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_OPENSEARCH_LABEL",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "opensearch_name": {
+            "type": "string",
+            "default": "",
+            "title": "OpenSearch Name",
+            "description": "Joomla form field opensearch_name; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "opensearch_name",
+              "type": "text",
+              "label": "COM_FINDER_CONFIG_FIELD_OPENSEARCH_NAME_LABEL",
+              "default": "",
+              "showon": "opensearch:1"
+            },
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "opensearch_description": {
+            "type": "string",
+            "default": "",
+            "title": "OpenSearch Description",
+            "description": "Joomla form field opensearch_description; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "opensearch_description",
+              "type": "textarea",
+              "label": "COM_FINDER_CONFIG_FIELD_OPENSEARCH_DESCRIPTION_LABEL",
+              "default": "",
+              "showon": "opensearch:1"
+            },
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "tuplecount": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              1,
+              3,
+              "1",
+              "3"
+            ],
+            "default": "1",
+            "title": "Search for Phrases",
+            "description": "Joomla form field tuplecount; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "tuplecount",
+              "type": "list",
+              "label": "COM_FINDER_CONFIG_TUPLECOUNT_LABEL",
+              "default": "1",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "1",
+                "label": "Disabled (Improved performance)"
+              },
+              {
+                "value": "3",
+                "label": "Enabled (Improved search results)"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "batch_size": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              5,
+              10,
+              25,
+              50,
+              75,
+              100,
+              150,
+              200,
+              250,
+              300,
+              "5",
+              "10",
+              "25",
+              "50",
+              "75",
+              "100",
+              "150",
+              "200",
+              "250",
+              "300"
+            ],
+            "default": "50",
+            "title": "Indexer Batch Size",
+            "description": "Joomla form field batch_size; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "batch_size",
+              "type": "list",
+              "label": "COM_FINDER_CONFIG_BATCH_SIZE_LABEL",
+              "default": "50",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "5",
+                "label": "5"
+              },
+              {
+                "value": "10",
+                "label": "10"
+              },
+              {
+                "value": "25",
+                "label": "25"
+              },
+              {
+                "value": "50",
+                "label": "50"
+              },
+              {
+                "value": "75",
+                "label": "75"
+              },
+              {
+                "value": "100",
+                "label": "100"
+              },
+              {
+                "value": "150",
+                "label": "150"
+              },
+              {
+                "value": "200",
+                "label": "200"
+              },
+              {
+                "value": "250",
+                "label": "250"
+              },
+              {
+                "value": "300",
+                "label": "300"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "title_multiplier": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "title": "Title Text Weight Multiplier",
+            "description": "Joomla form field title_multiplier; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "title_multiplier",
+              "type": "number",
+              "label": "COM_FINDER_CONFIG_TITLE_MULTIPLIER_LABEL",
+              "default": "1.7",
+              "min": "0"
+            },
+            "x-source": "administrator/components/com_finder/config.xml",
+            "x-joomla-default": "1.7",
+            "x-default-note": "Core XML default does not satisfy the static request schema; preserved as source metadata."
+          },
+          "text_multiplier": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "title": "Body Text Weight Multiplier",
+            "description": "Joomla form field text_multiplier; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "text_multiplier",
+              "type": "number",
+              "label": "COM_FINDER_CONFIG_TEXT_MULTIPLIER_LABEL",
+              "default": "0.7",
+              "min": "0"
+            },
+            "x-source": "administrator/components/com_finder/config.xml",
+            "x-joomla-default": "0.7",
+            "x-default-note": "Core XML default does not satisfy the static request schema; preserved as source metadata."
+          },
+          "meta_multiplier": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "title": "Metadata Weight Multiplier",
+            "description": "Joomla form field meta_multiplier; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "meta_multiplier",
+              "type": "number",
+              "label": "COM_FINDER_CONFIG_META_MULTIPLIER_LABEL",
+              "default": "1.2",
+              "min": "0"
+            },
+            "x-source": "administrator/components/com_finder/config.xml",
+            "x-joomla-default": "1.2",
+            "x-default-note": "Core XML default does not satisfy the static request schema; preserved as source metadata."
+          },
+          "path_multiplier": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "title": "Path Text Weight Multiplier",
+            "description": "Joomla form field path_multiplier; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "path_multiplier",
+              "type": "number",
+              "label": "COM_FINDER_CONFIG_PATH_MULTIPLIER_LABEL",
+              "default": "2.0",
+              "min": "0"
+            },
+            "x-source": "administrator/components/com_finder/config.xml",
+            "x-joomla-default": "2.0",
+            "x-default-note": "Core XML default does not satisfy the static request schema; preserved as source metadata."
+          },
+          "misc_multiplier": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "title": "Misc. Text Weight Multiplier",
+            "description": "Joomla form field misc_multiplier; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "misc_multiplier",
+              "type": "number",
+              "label": "COM_FINDER_CONFIG_MISC_MULTIPLIER_LABEL",
+              "default": "0.3",
+              "min": "0"
+            },
+            "x-source": "administrator/components/com_finder/config.xml",
+            "x-joomla-default": "0.3",
+            "x-default-note": "Core XML default does not satisfy the static request schema; preserved as source metadata."
+          },
+          "enable_logging": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Enable Logging",
+            "description": "Joomla form field enable_logging; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "enable_logging",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_ENABLE_LOGGING_LABEL",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "language_default": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Default Language",
+            "description": "Set the language to be used for non-multilingual sites or content marked as \"All\".",
+            "x-joomla-form": {
+              "name": "language_default",
+              "type": "language",
+              "label": "COM_FINDER_CONFIG_LANGUAGE_DEFAULT_LABEL",
+              "description": "COM_FINDER_CONFIG_LANGUAGE_DEFAULT_DESC"
+            },
+            "x-options": [
+              {
+                "value": "-1",
+                "label": "Default Site Language"
+              },
+              {
+                "value": "",
+                "label": "None"
+              }
+            ],
+            "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "filter_commonwords": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Filter Common Words",
+            "description": "Joomla form field filter_commonwords; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "filter_commonwords",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_FILTER_COMMONWORDS_LABEL",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "filter_numerics": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Filter Numeric Terms",
+            "description": "Joomla form field filter_numerics; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "filter_numerics",
+              "type": "radio",
+              "label": "COM_FINDER_CONFIG_FILTER_NUMERICS_LABEL",
+              "default": "0"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_finder/config.xml"
+          },
+          "rules": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {
+                "type": [
+                  "integer",
+                  "boolean",
+                  "string"
+                ]
+              }
+            },
+            "title": "Permissions",
+            "description": "Joomla form field rules; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "rules",
+              "type": "rules",
+              "label": "JCONFIG_PERMISSIONS_LABEL",
+              "filter": "rules",
+              "validate": "rules",
+              "component": "com_finder",
+              "section": "component"
+            },
+            "x-source": "administrator/components/com_finder/config.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "x-knowledge-package": "joomla.rest-api.finder",
+  "x-core-version": "5.4.8",
+  "x-contract-status": "archived",
+  "x-primary-core-version": "6.2.0",
+  "x-extension-parameter-schemas": {},
+  "x-menu-view-schemas": {},
+  "x-source-verification": {
+    "method": "local route registration + XML + SQL + controller/view/serializer inspection",
+    "runtime_requests": false
+  }
+}

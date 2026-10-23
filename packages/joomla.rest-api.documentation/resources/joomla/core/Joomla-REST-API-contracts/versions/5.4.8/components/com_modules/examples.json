@@ -1,0 +1,234 @@
+[
+  {
+    "operationId": "com_modules_get_v1_modules_types_site",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_types_siteResponse",
+    "value": {
+      "data": [
+        {
+          "type": "modules",
+          "id": "Example",
+          "attributes": {
+            "name": "Example",
+            "module": "Example",
+            "xml": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_get_v1_modules_types_administrator",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_types_administratorResponse",
+    "value": {
+      "data": [
+        {
+          "type": "modules",
+          "id": "Example",
+          "attributes": {
+            "name": "Example",
+            "module": "Example",
+            "xml": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_get_v1_modules_site",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_siteResponse",
+    "value": {
+      "data": [
+        {
+          "type": "modules",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "note": "Example",
+            "position": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_get_v1_modules_site_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_site_idResponse",
+    "value": {
+      "data": {
+        "type": "modules",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_post_v1_modules_site",
+    "direction": "request",
+    "schema": "com_modules_post_v1_modules_siteRequest",
+    "value": {
+      "title": "API example",
+      "module": "mod_custom",
+      "params": {}
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_post_v1_modules_site",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_post_v1_modules_siteResponse",
+    "value": {
+      "data": {
+        "type": "modules",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_patch_v1_modules_site_id",
+    "direction": "request",
+    "schema": "com_modules_patch_v1_modules_site_idRequest",
+    "value": {
+      "title": "Example",
+      "note": "Example",
+      "module": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_patch_v1_modules_site_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_patch_v1_modules_site_idResponse",
+    "value": {
+      "data": {
+        "type": "modules",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_get_v1_modules_administrator",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_administratorResponse",
+    "value": {
+      "data": [
+        {
+          "type": "modules",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "note": "Example",
+            "position": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_get_v1_modules_administrator_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_administrator_idResponse",
+    "value": {
+      "data": {
+        "type": "modules",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_post_v1_modules_administrator",
+    "direction": "request",
+    "schema": "com_modules_post_v1_modules_administratorRequest",
+    "value": {
+      "title": "API example",
+      "module": "mod_custom",
+      "params": {}
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_post_v1_modules_administrator",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_post_v1_modules_administratorResponse",
+    "value": {
+      "data": {
+        "type": "modules",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_patch_v1_modules_administrator_id",
+    "direction": "request",
+    "schema": "com_modules_patch_v1_modules_administrator_idRequest",
+    "value": {
+      "title": "Example",
+      "note": "Example",
+      "module": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_modules_patch_v1_modules_administrator_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_modules_patch_v1_modules_administrator_idResponse",
+    "value": {
+      "data": {
+        "type": "modules",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

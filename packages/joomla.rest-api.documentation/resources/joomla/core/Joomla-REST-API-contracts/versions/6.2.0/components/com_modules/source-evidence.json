@@ -1,0 +1,366 @@
+[
+  {
+    "path": "administrator/components/com_modules/config.xml",
+    "sha256": "3dd29feae968871baccfb3488324a299de1272c625682a14d1703c79707c5288"
+  },
+  {
+    "path": "administrator/components/com_modules/forms/advanced.xml",
+    "sha256": "b4cc2445e96cff55bd32ad2fad5958aea451dc6ddae733f7b4702ba0b3943dd0"
+  },
+  {
+    "path": "administrator/components/com_modules/forms/filter_modules.xml",
+    "sha256": "68ffb5641c2a7354f2c64f1edc1026a4a036f34be853d1db7471899dc3bcaef8"
+  },
+  {
+    "path": "administrator/components/com_modules/forms/filter_modulesadmin.xml",
+    "sha256": "ad151d27370e1ed8c066654a46ae3561b396e0bc6b373908874339ed59971fa0"
+  },
+  {
+    "path": "administrator/components/com_modules/forms/module.xml",
+    "sha256": "6d1508c2db88ea94fc1201c1e0cca73d31abe3410f7773886eb366de007a6d06"
+  },
+  {
+    "path": "administrator/components/com_modules/forms/moduleadmin.xml",
+    "sha256": "af02a27dde3cace557f64a5eb3d90d3c780ebbf417a00507965a0eb01be184d2"
+  },
+  {
+    "path": "administrator/components/com_modules/src/Model/ModuleModel.php",
+    "sha256": "0ece05ad452a83b03a188a6809be5ec5f733da9111a7378dba6a7e0a3c58b6ba"
+  },
+  {
+    "path": "administrator/components/com_modules/src/Model/ModulesModel.php",
+    "sha256": "ad8665d48a3470d73639fb7f1c1b91d4af06e37756a5dcebf95372e3f5354995"
+  },
+  {
+    "path": "administrator/components/com_modules/src/Model/PositionsModel.php",
+    "sha256": "ea57e30368e2519e7d9390c4bf79dc9cfc532c0ef637c092b3da3b5c37e01cf1"
+  },
+  {
+    "path": "administrator/components/com_modules/src/Model/SelectModel.php",
+    "sha256": "54f1236919927cc83f8fcf0a00974044bdcc1f8da2599670ca5a582b248588fa"
+  },
+  {
+    "path": "administrator/modules/mod_custom/mod_custom.xml",
+    "sha256": "78faa7a0427eb85568526dc04a969ad3f75647c70b14bf173dfaf79aa7ff0194"
+  },
+  {
+    "path": "administrator/modules/mod_feed/mod_feed.xml",
+    "sha256": "de75e970fdf4a48a9dc8b46f19ce0be58f3e13821d8894f2cbf76f17b1c1226e"
+  },
+  {
+    "path": "administrator/modules/mod_frontend/mod_frontend.xml",
+    "sha256": "ba6b7f2f3d16fd3d51f5c063814f57e44f07e30d0e1b8dcd12bd4bfb74733f2c"
+  },
+  {
+    "path": "administrator/modules/mod_guidedtours/mod_guidedtours.xml",
+    "sha256": "5f3a85c5d9439c476da6db1480179d1f63fb5465146c7914bcd36781d060d4d0"
+  },
+  {
+    "path": "administrator/modules/mod_latest/mod_latest.xml",
+    "sha256": "ef28f68e2485c05e2c01d5195b14126723eb3eea65439438b2800361f20b0a79"
+  },
+  {
+    "path": "administrator/modules/mod_latestactions/mod_latestactions.xml",
+    "sha256": "91415f57b1769eba7a638d4c4959a9f8ecf59149eb3a7f8b611eb111fad8cc68"
+  },
+  {
+    "path": "administrator/modules/mod_logged/mod_logged.xml",
+    "sha256": "35ea9c3eed57ff268b29f981fb1699a8b71189c87ae5c24e2d706e3670c5bc07"
+  },
+  {
+    "path": "administrator/modules/mod_login/mod_login.xml",
+    "sha256": "be8e1c0322005bfce3fae9a9e8a48953e9cc8b66d22d7a4e81e75536516b427b"
+  },
+  {
+    "path": "administrator/modules/mod_loginsupport/mod_loginsupport.xml",
+    "sha256": "2e2a368d426326ed3f73fff8231f0cfb0276fdf664ae6909f18f139cdf69c7ef"
+  },
+  {
+    "path": "administrator/modules/mod_menu/mod_menu.xml",
+    "sha256": "9d4046706552cf2e8695b266ce829168ec390f3001c01ee38d01e51c3af8104f"
+  },
+  {
+    "path": "administrator/modules/mod_messages/mod_messages.xml",
+    "sha256": "34cb63640286b779c7ec75e4ca9fbbf698cc80be4d2e754a40a984edc70f0b0a"
+  },
+  {
+    "path": "administrator/modules/mod_multilangstatus/mod_multilangstatus.xml",
+    "sha256": "b0382064ad0ab2ee23eba744b6a39a04e5dfb9e558be2cb5d3f37666fc309563"
+  },
+  {
+    "path": "administrator/modules/mod_popular/mod_popular.xml",
+    "sha256": "ae88a6a902f65c7127611eb83d9b70c1c98190d5b2c42206b13224ea809367c3"
+  },
+  {
+    "path": "administrator/modules/mod_post_installation_messages/mod_post_installation_messages.xml",
+    "sha256": "af786f07b986341ad0ae8e57cc4ec3329f782e1f6360c0294d86f1b3ab1c3abf"
+  },
+  {
+    "path": "administrator/modules/mod_privacy_dashboard/mod_privacy_dashboard.xml",
+    "sha256": "5f9d07ccb7a52fb9792670e5318959c5576bf77c88c343f62dd9639112355ccb"
+  },
+  {
+    "path": "administrator/modules/mod_privacy_status/mod_privacy_status.xml",
+    "sha256": "1635856a511eb765473f051bed8ea9fa5100047e0a928b64444ddf8deebccea2"
+  },
+  {
+    "path": "administrator/modules/mod_quickicon/mod_quickicon.xml",
+    "sha256": "75f69d8cf05a62a5f8dea80b862ecf70809cf78b33212791bae8605d79c79c9e"
+  },
+  {
+    "path": "administrator/modules/mod_sampledata/mod_sampledata.xml",
+    "sha256": "a699812189df1448d6de28183340030f4fd8b47e03e9f2b2115a3a8af949f112"
+  },
+  {
+    "path": "administrator/modules/mod_stats_admin/mod_stats_admin.xml",
+    "sha256": "6a0ca397f3550bf160d37e5e20926f043dea3465532bfb67cf5a27a6506a4338"
+  },
+  {
+    "path": "administrator/modules/mod_submenu/mod_submenu.xml",
+    "sha256": "afc383d6706c3c9d25f9eb516abf619ae7c2d88c724a56d60a83a4d7d93b3e52"
+  },
+  {
+    "path": "administrator/modules/mod_title/mod_title.xml",
+    "sha256": "f85b8ab36daf192784cbe887b43cfd1d8e498c822a15e396ede3ac11dbf95a6b"
+  },
+  {
+    "path": "administrator/modules/mod_toolbar/mod_toolbar.xml",
+    "sha256": "0bef5c9ddcea25047ebb6dcd68e28ae9de130120e716c478d20278f0f840fe5d"
+  },
+  {
+    "path": "administrator/modules/mod_user/mod_user.xml",
+    "sha256": "66354d9e46b1168e3dd5b7c384f8aa2eda6a500192867d5bf8268b43c8bf6886"
+  },
+  {
+    "path": "administrator/modules/mod_version/mod_version.xml",
+    "sha256": "ba6169bc5cbdc6b9f1e1533bf66ce80af2643d6339556b281d97b39a79412f57"
+  },
+  {
+    "path": "api/components/com_modules/src/Controller/ModulesController.php",
+    "sha256": "e44e9e2314f8456b3cf882b64f36ef850f7fdc6bf839628577133421a19698b3"
+  },
+  {
+    "path": "api/components/com_modules/src/View/Modules/JsonapiView.php",
+    "sha256": "d12d5c45c39f1975550d8ab5ffb821caf32b3b42a9ef636bfce3cc9f4b1e11a8"
+  },
+  {
+    "path": "installation/sql/mysql/base.sql",
+    "sha256": "d4935e398b4f660f7fa59d92e7fd5b2f487c6669544d8e77e72794a508afd842"
+  },
+  {
+    "path": "installation/sql/mysql/extensions.sql",
+    "sha256": "2e61aee2b71b1096833636af57fba466fa5333938555cbff24e06b72f7f81373"
+  },
+  {
+    "path": "installation/sql/mysql/supports.sql",
+    "sha256": "98028bb4f71274f16849862cb82e76731ec06ca5aee7d80d1952c094568d2b36"
+  },
+  {
+    "path": "libraries/src/Application/ApiApplication.php",
+    "sha256": "03540b0cfc0d9beb8827298215004ac74b4c9f0f581d5d3e68f2a50c58ae932d"
+  },
+  {
+    "path": "libraries/src/Document/JsonapiDocument.php",
+    "sha256": "3834b35620d5bd0a95c597d6c5fd591a4457c19d6e00f412c12449092138eb65"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/AuthenticationFailedExceptionHandler.php",
+    "sha256": "0e7758e0a410bb59d8dfcae38f3d5c149433beb5d9a25496ac7ea862d16f0a5f"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/CheckinCheckoutExceptionHandler.php",
+    "sha256": "b5b2fbd5e8e3f97cead8139bc90ae9a2f927fdc0f24171e9300e0855623850e8"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/InvalidParameterExceptionHandler.php",
+    "sha256": "0a0dfa581620208a4f0562b6cc07974cd25a4160248b98d1a162c3428ae5f313"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/InvalidRouteExceptionHandler.php",
+    "sha256": "c38d245bc20c881b2ca0dbe6a9a2560103c6b8ab8b116312fd2d9af0fd1f65ab"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/NotAcceptableExceptionHandler.php",
+    "sha256": "4f2a4daafca74548399538c2315d191b98ae494bb3b295d33c2fb9dda9f1afce"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/NotAllowedExceptionHandler.php",
+    "sha256": "ba8dfad4d1689e6df9e71696b54df46a6854ddfca886214c74dfae9ec5ee4678"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/ResourceNotFoundExceptionHandler.php",
+    "sha256": "f0d81b839e6d6ab4ee6acf69751d939b4684b3f024881e0c47c07fe17cc928d9"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/SaveExceptionHandler.php",
+    "sha256": "9246051703dc8c26ebed1b617782237c8c2985ffa109c9cab098545ebc73551d"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/SendEmailExceptionHandler.php",
+    "sha256": "c23ec173aee2c1c45fcb8405c1e8af9e26eb9f6a2ce90079256b5442014a2433"
+  },
+  {
+    "path": "libraries/src/Error/Renderer/JsonapiRenderer.php",
+    "sha256": "5395fb46bf48de86a169b3a7d3095c5c3fc47585ee2748e2e90895a9242b1dac"
+  },
+  {
+    "path": "libraries/src/Form/Field/CalendarField.php",
+    "sha256": "afd6228096cf639fcef5d718b8e2f1841a4c2960e46a20334a1799e32fa6422a"
+  },
+  {
+    "path": "libraries/src/Form/Field/ListField.php",
+    "sha256": "cffc2e87a3a2eae581e1997f1fda356866a956d4dcb0758aa0498cc25cceda82"
+  },
+  {
+    "path": "libraries/src/Form/Field/SqlField.php",
+    "sha256": "2fca11da5b4abf2c26246b6f42d6a8bd96f29b25fc7cbde7b8a118bd139f86c4"
+  },
+  {
+    "path": "libraries/src/Helper/TagsHelper.php",
+    "sha256": "aac1aed3c7cf5e08aebd19026bebd585a25a24a5cf3cb337c5d1f4cc87245420"
+  },
+  {
+    "path": "libraries/src/MVC/Controller/ApiController.php",
+    "sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+  },
+  {
+    "path": "libraries/src/MVC/Controller/BaseController.php",
+    "sha256": "d194ba52c7628082c34f23fd422ab3b866c24363e84bc7b781f3d85971546a7e"
+  },
+  {
+    "path": "libraries/src/MVC/Model/AdminModel.php",
+    "sha256": "1174662aca92fb95327f9e041cddba74e708ccaa1d1fc6f6cdff3ff04121f49c"
+  },
+  {
+    "path": "libraries/src/MVC/View/JsonApiView.php",
+    "sha256": "c5d44ebea6b4c4ff430f55f2e79257e04b609bfa9d34d4960ce0ba1a8b82cdbb"
+  },
+  {
+    "path": "libraries/src/MVC/View/JsonView.php",
+    "sha256": "6f2db5d07650eb46adde0c02f1070f48d24d6ecf9768702645b3d8b43ac56e10"
+  },
+  {
+    "path": "libraries/src/Router/ApiRouter.php",
+    "sha256": "50fd1afd08ddb9818e2daa7066512e2acd5f321cd103575cda964942dedbe538"
+  },
+  {
+    "path": "libraries/src/Serializer/JoomlaSerializer.php",
+    "sha256": "fb182dfe5dc9ae328fb362782642116afb6028cb367450fd82aa686b13fa2921"
+  },
+  {
+    "path": "libraries/src/Version.php",
+    "sha256": "65af30575ae02e9f3cffdaf2b5a382beaacd1c0e5bb7cd90ac0449b79398eee5"
+  },
+  {
+    "path": "libraries/vendor/tobscure/json-api/src/AbstractSerializer.php",
+    "sha256": "92bde84b0654d29178233ce71bfb57197a8ff7761ab1286b2dadb9139b8f2b45"
+  },
+  {
+    "path": "libraries/vendor/tobscure/json-api/src/Resource.php",
+    "sha256": "8322d679b2a04ff29ed76c3a90e0d3ca738e475bb9425a6fef96ea9710a59bed"
+  },
+  {
+    "path": "modules/mod_articles/mod_articles.xml",
+    "sha256": "b2517d31e9ba741a0748b83eb8b5f95892ccd450d02ee56325e1e7f3486a5131"
+  },
+  {
+    "path": "modules/mod_articles_archive/mod_articles_archive.xml",
+    "sha256": "b3f33f428a28edb81286f8b4e06ffb8b851067b83b857597ca9f66dac7239497"
+  },
+  {
+    "path": "modules/mod_articles_categories/mod_articles_categories.xml",
+    "sha256": "d8690bca8e7d4356a5d09b8d6a328f3a4cbb8b89eaa063eb74b75d158c2633ab"
+  },
+  {
+    "path": "modules/mod_articles_category/mod_articles_category.xml",
+    "sha256": "61462bb019bfa261f1918bc6142279791fbea25dbf9d3efcb5bd2177e82b27c3"
+  },
+  {
+    "path": "modules/mod_articles_latest/mod_articles_latest.xml",
+    "sha256": "0481b3f8efc39ec249ecda2a729817c3c500bffbbbc93b6c5def76f1ef113493"
+  },
+  {
+    "path": "modules/mod_articles_news/mod_articles_news.xml",
+    "sha256": "bc19cfe4a32e00ca14a59466c56aa4fe2c06f99e38fbf03680d01b9fec293452"
+  },
+  {
+    "path": "modules/mod_articles_popular/mod_articles_popular.xml",
+    "sha256": "3002df6763882342b7fcf62ed555a9c3b84317f7acc2ffd28ab4bf33136571c6"
+  },
+  {
+    "path": "modules/mod_banners/mod_banners.xml",
+    "sha256": "71ec304b9d380e9347f530dc9aff54007d51e1c38b5ed7b85eda98b00872c76b"
+  },
+  {
+    "path": "modules/mod_breadcrumbs/mod_breadcrumbs.xml",
+    "sha256": "72cd82f7fee24529570aef25115ff05bb81b5dd709e3a3b85958d8da78407e4f"
+  },
+  {
+    "path": "modules/mod_custom/mod_custom.xml",
+    "sha256": "31d00aa15579a5d3612face1f5dcea415dfd778238fdc4114db8462a8f40fb48"
+  },
+  {
+    "path": "modules/mod_feed/mod_feed.xml",
+    "sha256": "118a3626e7e242c0c6e67c11167aa3bd722f5f527d4962c5174b491abafeacf6"
+  },
+  {
+    "path": "modules/mod_finder/mod_finder.xml",
+    "sha256": "d9103b882ca64218cd75e75f287eee665b0b4c9b5846a8f28fb7820a984580ef"
+  },
+  {
+    "path": "modules/mod_footer/mod_footer.xml",
+    "sha256": "49275b79d4c044dee396c0fca26ee438db3105eef15bf02444fe2c571ff0760a"
+  },
+  {
+    "path": "modules/mod_languages/mod_languages.xml",
+    "sha256": "7d840d7dff774c4121b990288c41d7f36415f3b95ef451498b1ed8da30e463a8"
+  },
+  {
+    "path": "modules/mod_login/mod_login.xml",
+    "sha256": "ca587ed27fa418294fc625868b4a89a8e9fbd22fe1028b3d85a8582ba1e6decc"
+  },
+  {
+    "path": "modules/mod_menu/mod_menu.xml",
+    "sha256": "073677f7207f8f58cafe99fa57c18258bbc4dbef4517ff7de70a83063258e8d2"
+  },
+  {
+    "path": "modules/mod_random_image/mod_random_image.xml",
+    "sha256": "cb24c8ef074126ed9970421ecc83b6507041417887737a4e2e0b740f4f1252bb"
+  },
+  {
+    "path": "modules/mod_related_items/mod_related_items.xml",
+    "sha256": "17370127d74250163ddc3179ce36370d2f80505a86b332a0f03fa1cdba3ef2ee"
+  },
+  {
+    "path": "modules/mod_stats/mod_stats.xml",
+    "sha256": "4b330877ef693da449477394ecb362ac113919742407fd5ff30d4d7d76fe6fb1"
+  },
+  {
+    "path": "modules/mod_syndicate/mod_syndicate.xml",
+    "sha256": "384910ea1cdf4d56e4ba203ddc01b786d674e3e99ea1301e85273c961a2dd8f0"
+  },
+  {
+    "path": "modules/mod_tags_popular/mod_tags_popular.xml",
+    "sha256": "81e4bd971fa9e909095d5b1165054c51d254bfa9ffe8fe0ca621d500ad611b00"
+  },
+  {
+    "path": "modules/mod_tags_similar/mod_tags_similar.xml",
+    "sha256": "09682a02a6e4bda1b0a0fd53725059b2f5a3eaed65327399418d210fcb8d18c7"
+  },
+  {
+    "path": "modules/mod_users_latest/mod_users_latest.xml",
+    "sha256": "4f617b0703bdaf3df6149ad6f2eb726f9244ab87fdc31bb95c4d855025952d8c"
+  },
+  {
+    "path": "modules/mod_whosonline/mod_whosonline.xml",
+    "sha256": "45b5b6095faba0c0cc1a4cbbe96cee41296dc3018d203df1a0f743496fc8b9ae"
+  },
+  {
+    "path": "modules/mod_wrapper/mod_wrapper.xml",
+    "sha256": "669566f1575b04de6b5a8b582157dce0daa10174dfc55637c0f041c56040a726"
+  },
+  {
+    "path": "plugins/webservices/modules/src/Extension/Modules.php",
+    "sha256": "3a286aac39f50d5ef192b7bbccde6df01825a90b6ba082a7a44909e6a009b6e0"
+  }
+]

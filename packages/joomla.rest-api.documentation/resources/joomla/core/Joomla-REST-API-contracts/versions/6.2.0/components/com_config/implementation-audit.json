@@ -1,0 +1,234 @@
+{
+  "core_version": "6.2.0",
+  "status": "pass",
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v1/config/application",
+      "task": "application.displayList",
+      "handler_source": "api/components/com_config/src/Controller/ApplicationController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_config"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_config/src/Controller/ApplicationController.php",
+          "permissions": [
+            "core.admin"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "91fb26a80e7383d32c78029f7c3c2ef37e0155022a7d60635b8abc27ce9d3778"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/config/application",
+      "task": "application.edit",
+      "handler_source": "api/components/com_config/src/Controller/ApplicationController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_config"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_config_patch_v1_config_applicationRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_config/src/Controller/ApplicationController.php",
+          "permissions": [
+            "core.admin"
+          ]
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "91fb26a80e7383d32c78029f7c3c2ef37e0155022a7d60635b8abc27ce9d3778"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/config/{component_name}",
+      "task": "component.displayList",
+      "handler_source": "api/components/com_config/src/Controller/ComponentController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "public": false,
+        "component": "com_config"
+      },
+      "query_parameters": [
+        {
+          "name": "page[offset]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        {
+          "name": "page[limit]",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20
+          }
+        }
+      ],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_config/src/Controller/ComponentController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "969d1a540b5d695c1bc4bce68ccbcaf785c83bf4b932c61d8ccb48240d3f066a"
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/config/{component_name}",
+      "task": "component.edit",
+      "handler_source": "api/components/com_config/src/Controller/ComponentController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_config"
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_config_patch_v1_config_component_nameRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.create",
+            "core.manage"
+          ]
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_config/src/Controller/ComponentController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "969d1a540b5d695c1bc4bce68ccbcaf785c83bf4b932c61d8ccb48240d3f066a"
+    }
+  ]
+}

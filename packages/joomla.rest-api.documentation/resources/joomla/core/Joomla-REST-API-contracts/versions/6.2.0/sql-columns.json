@@ -1,0 +1,5090 @@
+{
+  "assets": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "parent_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "lft": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "rgt": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "level": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "rules": {
+      "type": "string",
+      "maxLength": 5120,
+      "x-sql-type": "varchar(5120)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "extensions": {
+    "extension_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "package_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "type": {
+      "type": "string",
+      "maxLength": 20,
+      "x-sql-type": "varchar(20)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "element": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "changelogurl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "folder": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "client_id": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "enabled": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "protected": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "locked": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "manifest_cache": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "custom_data": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "ordering": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "state": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "note": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "languages": {
+    "lang_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "asset_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "lang_code": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title_native": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "sef": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "image": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 512,
+      "x-sql-type": "varchar(512)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "metakey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "metadesc": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "sitename": {
+      "type": "string",
+      "maxLength": 1024,
+      "x-sql-type": "varchar(1024)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "menu": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "menutype": {
+      "type": "string",
+      "maxLength": 24,
+      "x-sql-type": "varchar(24)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "path": {
+      "type": "string",
+      "maxLength": 1024,
+      "x-sql-type": "varchar(1024)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 1024,
+      "x-sql-type": "varchar(1024)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "type": {
+      "type": "string",
+      "maxLength": 16,
+      "x-sql-type": "varchar(16)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "parent_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "level": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "component_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "browserNav": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "img": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "template_style_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "lft": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "rgt": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "home": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "client_id": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "publish_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "publish_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "menu_types": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "asset_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "menutype": {
+      "type": "string",
+      "maxLength": 24,
+      "x-sql-type": "varchar(24)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 48,
+      "x-sql-type": "varchar(48)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "client_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "modules": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "asset_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "content": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "position": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "publish_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "publish_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "module": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "showtitle": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "client_id": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "modules_menu": {
+    "moduleid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "menuid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "schemas": {
+    "extension_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "version_id": {
+      "type": "string",
+      "maxLength": 20,
+      "x-sql-type": "varchar(20)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "session": {
+    "session_id": {
+      "type": "string",
+      "x-sql-type": "varbinary(192)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "client_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "guest": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "time": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "data": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "userid": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "username": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 150,
+      "x-sql-type": "varchar(150)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "tags": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "parent_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "lft": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "rgt": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "level": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "path": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "metadesc": {
+      "type": "string",
+      "maxLength": 1024,
+      "x-sql-type": "varchar(1024)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "metakey": {
+      "type": "string",
+      "maxLength": 1024,
+      "x-sql-type": "varchar(1024)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "metadata": {
+      "type": "string",
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "created_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "created_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "created_by_alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "modified_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "modified_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "images": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "urls": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "hits": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "version": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "publish_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "publish_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "template_overrides": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "template": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "hash_id": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "extension_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "action": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "client_id": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "created_date": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "modified_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "template_styles": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "template": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "client_id": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "home": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "inheritable": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "parent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "updates": {
+    "update_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "update_site_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "extension_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "element": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 20,
+      "x-sql-type": "varchar(20)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "folder": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 20,
+      "x-sql-type": "varchar(20)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "client_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "version": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 32,
+      "x-sql-type": "varchar(32)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "data": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "detailsurl": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "infourl": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "changelogurl": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "extra_query": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1000,
+      "x-sql-type": "varchar(1000)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "security": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "tuf_metadata": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "update_site_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "root": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "targets": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "snapshot": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "timestamp": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "mirrors": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "update_sites": {
+    "update_site_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 20,
+      "x-sql-type": "varchar(20)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "location": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "enabled": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "last_check_timestamp": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "bigint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "extra_query": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1000,
+      "x-sql-type": "varchar(1000)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "update_sites_extensions": {
+    "update_site_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "extension_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "usergroups": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "parent_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "lft": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "rgt": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "users": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "username": {
+      "type": "string",
+      "maxLength": 150,
+      "x-sql-type": "varchar(150)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "email": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "password": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "block": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "sendEmail": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "registerDate": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "lastvisitDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "activation": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "lastResetTime": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "resetCount": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "otpKey": {
+      "type": "string",
+      "maxLength": 1000,
+      "x-sql-type": "varchar(1000)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "otep": {
+      "type": "string",
+      "maxLength": 1000,
+      "x-sql-type": "varchar(1000)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "requireReset": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "authProvider": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "user_keys": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "user_id": {
+      "type": "string",
+      "maxLength": 150,
+      "x-sql-type": "varchar(150)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "token": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "series": {
+      "type": "string",
+      "maxLength": 191,
+      "x-sql-type": "varchar(191)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "time": {
+      "type": "string",
+      "maxLength": 200,
+      "x-sql-type": "varchar(200)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "uastring": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "user_notes": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "catid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "subject": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "body": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "created_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "created_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "modified_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "modified_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "review_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "publish_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "publish_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "user_profiles": {
+    "user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "profile_key": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "profile_value": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "user_mfa": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "method": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "default": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "options": {
+      "type": "string",
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "created_on": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "last_used": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "tries": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "last_try": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "user_usergroup_map": {
+    "user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "group_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "viewlevels": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "rules": {
+      "type": "string",
+      "maxLength": 5120,
+      "x-sql-type": "varchar(5120)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "workflows": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "asset_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "extension": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "default": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "modified": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "workflow_associations": {
+    "item_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "stage_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "extension": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "workflow_stages": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "asset_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "workflow_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "default": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "workflow_transitions": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "asset_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "workflow_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "from_stage_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "to_stage_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "options": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/base.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/base.sql"
+    }
+  },
+  "banners": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "cid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "type": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "imptotal": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "impmade": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "clicks": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "clickurl": {
+      "type": "string",
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "catid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "custombannercode": {
+      "type": "string",
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "sticky": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metakey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "own_prefix": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metakey_prefix": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "purchase_type": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "track_clicks": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "track_impressions": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "reset": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by_alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "version": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "banner_clients": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "contact": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "email": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "extrainfo": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metakey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "own_prefix": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metakey_prefix": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "purchase_type": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "track_clicks": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "track_impressions": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "banner_tracks": {
+    "track_date": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "track_type": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "banner_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "count": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "contact_details": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "con_position": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "address": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "suburb": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "country": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "postcode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "telephone": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "fax": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "misc": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "image": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "email_to": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "default_con": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "catid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "mobile": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "webpage": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "sortname1": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "sortname2": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "sortname3": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "varchar(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by_alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metakey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metadesc": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metadata": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "featured": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "version": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "hits": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "content": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "asset_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "introtext": {
+      "type": "string",
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "fulltext": {
+      "type": "string",
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "catid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by_alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "images": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "urls": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "attribs": {
+      "type": "string",
+      "maxLength": 5120,
+      "x-sql-type": "varchar(5120)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "version": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metakey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metadesc": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "hits": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metadata": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "featured": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "content_frontpage": {
+    "content_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "featured_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "featured_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "content_rating": {
+    "content_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "rating_sum": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "rating_count": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "lastip": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_filters": {
+    "filter_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by_alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "map_count": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "data": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "params": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_links": {
+    "link_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "route": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "indexdate": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "md5sum": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 32,
+      "x-sql-type": "varchar(32)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_start_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_end_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "start_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "end_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "list_price": {
+      "type": "number",
+      "x-sql-type": "double",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "sale_price": {
+      "type": "number",
+      "x-sql-type": "double",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "type_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "object": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "mediumblob",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_links_terms": {
+    "link_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "term_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "weight": {
+      "type": "number",
+      "x-sql-type": "float",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_logging": {
+    "searchterm": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "VARCHAR(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "md5sum": {
+      "type": "string",
+      "maxLength": 32,
+      "x-sql-type": "VARCHAR(32)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "query": {
+      "type": "string",
+      "x-sql-type": "BLOB",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "hits": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "results": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_taxonomy": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "parent_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "lft": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "rgt": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "level": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "path": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "VARCHAR(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "VARCHAR(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "VARCHAR(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "CHAR(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_taxonomy_map": {
+    "link_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "node_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_terms": {
+    "term_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "term": {
+      "type": "string",
+      "maxLength": 75,
+      "x-sql-type": "varchar(75)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "stem": {
+      "type": "string",
+      "maxLength": 75,
+      "x-sql-type": "varchar(75)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "common": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "phrase": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "weight": {
+      "type": "number",
+      "x-sql-type": "float",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "soundex": {
+      "type": "string",
+      "maxLength": 75,
+      "x-sql-type": "varchar(75)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "links": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_terms_common": {
+    "term": {
+      "type": "string",
+      "maxLength": 75,
+      "x-sql-type": "varchar(75)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "custom": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_tokens": {
+    "term": {
+      "type": "string",
+      "maxLength": 75,
+      "x-sql-type": "varchar(75)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "stem": {
+      "type": "string",
+      "maxLength": 75,
+      "x-sql-type": "varchar(75)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "common": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "phrase": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "weight": {
+      "type": "number",
+      "x-sql-type": "float",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "context": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_tokens_aggregate": {
+    "term_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "term": {
+      "type": "string",
+      "maxLength": 75,
+      "x-sql-type": "varchar(75)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "stem": {
+      "type": "string",
+      "maxLength": 75,
+      "x-sql-type": "varchar(75)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "common": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "phrase": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "term_weight": {
+      "type": "number",
+      "x-sql-type": "float",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "context": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "context_weight": {
+      "type": "number",
+      "x-sql-type": "float",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "total_weight": {
+      "type": "number",
+      "x-sql-type": "float",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "finder_types": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "mime": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "messages": {
+    "message_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "user_id_from": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "user_id_to": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "folder_id": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "date_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "priority": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "subject": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "message": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "messages_cfg": {
+    "user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "cfg_name": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "cfg_value": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "newsfeeds": {
+    "catid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "link": {
+      "type": "string",
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "numarticles": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "cache_time": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "rtl": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by_alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metakey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metadesc": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "metadata": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "publish_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "version": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "hits": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "images": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "privacy_requests": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "email": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "requested_at": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "status": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "request_type": {
+      "type": "string",
+      "maxLength": 25,
+      "x-sql-type": "varchar(25)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "confirm_token": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "confirm_token_created_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "privacy_consents": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "subject": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "body": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "remind": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "token": {
+      "type": "string",
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "redirect_links": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "old_url": {
+      "type": "string",
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "new_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "referer": {
+      "type": "string",
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "comment": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "hits": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_date": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified_date": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "header": {
+      "type": "integer",
+      "x-sql-type": "smallint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "action_logs": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "message_language_key": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "message": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "log_date": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "extension": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "item_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "ip_address": {
+      "type": "string",
+      "maxLength": 40,
+      "x-sql-type": "VARCHAR(40)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "action_logs_extensions": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "extension": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "action_log_config": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "type_title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "type_alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "id_holder": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "title_holder": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "table_name": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "text_prefix": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "action_logs_users": {
+    "user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "notify": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "extensions": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "scheduler_tasks": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "asset_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "type": {
+      "type": "string",
+      "maxLength": 128,
+      "x-sql-type": "varchar(128)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "execution_rules": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "cron_rules": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "last_exit_code": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "last_execution": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "next_execution": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "times_executed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "times_failed": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "locked": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "priority": {
+      "type": "integer",
+      "x-sql-type": "smallint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "cli_exclusive": {
+      "type": "integer",
+      "x-sql-type": "smallint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "note": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "scheduler_logs": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "taskname": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "tasktype": {
+      "type": "string",
+      "maxLength": 128,
+      "x-sql-type": "varchar(128)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "duration": {
+      "type": "number",
+      "x-sql-type": "DECIMAL(5,3)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "jobid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "taskid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "exitcode": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "lastdate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "nextdate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "schemaorg": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "itemId": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "context": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "schemaType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 100,
+      "x-sql-type": "varchar(100)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "guidedtours": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "uid": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "extensions": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "varchar(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "autostart": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "guidedtour_steps": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "tour_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "position": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "target": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "type": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "interactive_type": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "varchar(7)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    },
+    "params": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/extensions.sql"
+    }
+  },
+  "associations": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "context": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "key": {
+      "type": "string",
+      "maxLength": 32,
+      "x-sql-type": "char(32)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "categories": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "asset_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "parent_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "lft": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "rgt": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "level": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "path": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "extension": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "published": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "params": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "metadesc": {
+      "type": "string",
+      "maxLength": 1024,
+      "x-sql-type": "varchar(1024)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "metakey": {
+      "type": "string",
+      "maxLength": 1024,
+      "x-sql-type": "varchar(1024)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "metadata": {
+      "type": "string",
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "created_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "created_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "modified_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "modified_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "hits": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "version": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "content_types": {
+    "type_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "type_title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "type_alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "table": {
+      "type": "string",
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "rules": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "field_mappings": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "router": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "content_history_options": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 5120,
+      "x-sql-type": "varchar(5120)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "contentitem_tag_map": {
+    "type_alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_content_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "content_item_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "tag_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "tag_date": {
+      "type": "string",
+      "x-sql-type": "timestamp",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "type_id": {
+      "type": "integer",
+      "x-sql-type": "mediumint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "fields": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "asset_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "context": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "group_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "label": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "default_value": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "type": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "required": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "only_use_in_subform": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "fieldparams": {
+      "type": "string",
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "created_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "created_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "modified_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "fields_categories": {
+    "field_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "category_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "fields_groups": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "asset_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "context": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "description": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "checked_out": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "created": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "created_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "modified": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "modified_by": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "fields_values": {
+    "field_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "item_id": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "value": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "overrider": {
+    "id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "constant": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "string": {
+      "type": "string",
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "file": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "postinstall_messages": {
+    "postinstall_message_id": {
+      "type": "integer",
+      "x-sql-type": "bigint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "extension_id": {
+      "type": "integer",
+      "x-sql-type": "bigint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "title_key": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "description_key": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "action_key": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "language_extension": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "language_client_id": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "type": {
+      "type": "string",
+      "maxLength": 10,
+      "x-sql-type": "varchar(10)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "action_file": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "action": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "condition_file": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "condition_method": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "version_introduced": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "enabled": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "ucm_base": {
+    "ucm_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "ucm_item_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "ucm_type_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "ucm_language_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "ucm_content": {
+    "core_content_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_type_alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_title": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_alias": {
+      "type": "string",
+      "maxLength": 400,
+      "x-sql-type": "varchar(400)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_body": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_state": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_checked_out_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_checked_out_user_id": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_access": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_params": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_featured": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_metadata": {
+      "type": "string",
+      "maxLength": 2048,
+      "x-sql-type": "varchar(2048)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_created_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_created_by_alias": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_created_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_modified_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_modified_time": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_publish_up": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_publish_down": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_content_item_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "asset_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_images": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_urls": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_hits": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_version": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_ordering": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_metakey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_metadesc": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-sql-type": "text",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_catid": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "core_type_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "history": {
+    "version_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "item_id": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "VARCHAR(50)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "version_note": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "varchar(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "save_date": {
+      "type": "string",
+      "x-sql-type": "datetime",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "editor_user_id": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "character_count": {
+      "type": "integer",
+      "x-sql-type": "int",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "sha1_hash": {
+      "type": "string",
+      "maxLength": 50,
+      "x-sql-type": "varchar(50)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "version_data": {
+      "type": "string",
+      "x-sql-type": "mediumtext",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "keep_forever": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "is_current": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "is_legacy": {
+      "type": "integer",
+      "x-sql-type": "tinyint",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "webauthn_credentials": {
+    "id": {
+      "type": "string",
+      "maxLength": 1000,
+      "x-sql-type": "VARCHAR(1000)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "user_id": {
+      "type": "string",
+      "maxLength": 128,
+      "x-sql-type": "VARCHAR(128)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "label": {
+      "type": "string",
+      "maxLength": 190,
+      "x-sql-type": "VARCHAR(190)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "credential": {
+      "type": "string",
+      "x-sql-type": "MEDIUMTEXT",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  },
+  "mail_templates": {
+    "template_id": {
+      "type": "string",
+      "maxLength": 127,
+      "x-sql-type": "VARCHAR(127)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "extension": {
+      "type": "string",
+      "maxLength": 127,
+      "x-sql-type": "VARCHAR(127)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "language": {
+      "type": "string",
+      "maxLength": 7,
+      "x-sql-type": "char(7)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "subject": {
+      "type": "string",
+      "maxLength": 255,
+      "x-sql-type": "VARCHAR(255)",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "body": {
+      "type": "string",
+      "x-sql-type": "TEXT",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "htmlbody": {
+      "type": "string",
+      "x-sql-type": "MEDIUMTEXT",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "attachments": {
+      "type": "string",
+      "x-sql-type": "TEXT",
+      "x-source": "installation/sql/mysql/supports.sql"
+    },
+    "params": {
+      "type": "string",
+      "x-sql-type": "TEXT",
+      "x-source": "installation/sql/mysql/supports.sql"
+    }
+  }
+}

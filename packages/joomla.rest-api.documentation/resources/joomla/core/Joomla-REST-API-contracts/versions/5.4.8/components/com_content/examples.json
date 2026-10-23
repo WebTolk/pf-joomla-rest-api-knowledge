@@ -1,0 +1,98 @@
+[
+  {
+    "operationId": "com_content_get_v1_content_articles",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_content_get_v1_content_articlesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "articles",
+          "id": "Example",
+          "attributes": {
+            "typeAlias": "Example",
+            "asset_id": 1,
+            "title": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_content_get_v1_content_articles_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_content_get_v1_content_articles_idResponse",
+    "value": {
+      "data": {
+        "type": "articles",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_content_post_v1_content_articles",
+    "direction": "request",
+    "schema": "com_content_post_v1_content_articlesRequest",
+    "value": {
+      "title": "API Example",
+      "catid": 2,
+      "state": 0,
+      "introtext": "<p>Example</p>",
+      "fulltext": ""
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_content_post_v1_content_articles",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_content_post_v1_content_articlesResponse",
+    "value": {
+      "data": {
+        "type": "articles",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_content_patch_v1_content_articles_id",
+    "direction": "request",
+    "schema": "com_content_patch_v1_content_articles_idRequest",
+    "value": {
+      "title": "Updated title"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_content_patch_v1_content_articles_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_content_patch_v1_content_articles_idResponse",
+    "value": {
+      "data": {
+        "type": "articles",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

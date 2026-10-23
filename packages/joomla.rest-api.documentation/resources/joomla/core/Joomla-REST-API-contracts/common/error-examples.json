@@ -1,0 +1,85 @@
+{
+  "400": {
+    "http_status": 400,
+    "body": {
+      "errors": [
+        {
+          "title": "Invalid field: Title"
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  "401": {
+    "http_status": 401,
+    "body": {
+      "errors": [
+        {
+          "title": "Forbidden"
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  "403": {
+    "http_status": 403,
+    "body": {
+      "errors": [
+        {
+          "title": "Access Denied",
+          "code": 403
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  "404": {
+    "http_status": 404,
+    "body": {
+      "errors": [
+        {
+          "title": "Resource not found",
+          "code": 404
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  "406": {
+    "http_status": 406,
+    "body": {
+      "errors": [
+        {
+          "title": "Not Acceptable"
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  "409": {
+    "http_status": 409,
+    "body": {
+      "success": true,
+      "message": null,
+      "messages": null,
+      "data": {
+        "status": "Conflict",
+        "code": 409,
+        "message": "Resource not in state that can be deleted, must be trashed before it can be deleted"
+      }
+    },
+    "provenance": "synthetic"
+  },
+  "500": {
+    "http_status": 500,
+    "body": {
+      "errors": [
+        {
+          "title": "Internal server error",
+          "code": 500
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  }
+}

@@ -1,0 +1,2559 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Joomla 5.4.8 com_privacy REST contract",
+    "version": "5.4.8",
+    "description": "Source-pinned API knowledge. Examples are synthetic; no runtime requests."
+  },
+  "servers": [
+    {
+      "url": "/api/index.php"
+    }
+  ],
+  "security": [
+    {
+      "JoomlaToken": []
+    }
+  ],
+  "paths": {
+    "/v1/privacy/requests": {
+      "get": {
+        "operationId": "com_privacy_get_v1_privacy_requests",
+        "summary": "GET /v1/privacy/requests",
+        "tags": [
+          "com_privacy"
+        ],
+        "x-controller-task": "requests.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_privacy"
+        },
+        "x-source": [
+          "plugins/webservices/privacy/src/Extension/Privacy.php",
+          "api/components/com_privacy/src/Controller/RequestsController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "page[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "page[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_privacy_get_v1_privacy_requestsResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "requests",
+                      "id": "Example",
+                      "attributes": {
+                        "email": "Example",
+                        "requested_at": "Example",
+                        "status": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Списки/элементы запросов и согласий, а также экспорт требуют core.admin\nна com_privacy в API-контроллерах. Удаление consent не имеет REST-маршрута.\nЭкспорт требует request_type=export и подтверждённый status=1; иначе модель\nне возвращает данные, представление вызывает RouteNotFoundException.\nРезультат формируется privacy-плагинами; REST export не равнозначен файлу\nэкспорта в админке. Подробности фактической сериализации см. в схеме ответа.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      },
+      "post": {
+        "operationId": "com_privacy_post_v1_privacy_requests",
+        "summary": "POST /v1/privacy/requests",
+        "tags": [
+          "com_privacy"
+        ],
+        "x-controller-task": "requests.add",
+        "x-route-defaults": {
+          "component": "com_privacy"
+        },
+        "x-source": [
+          "plugins/webservices/privacy/src/Extension/Privacy.php",
+          "api/components/com_privacy/src/Controller/RequestsController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_privacy_post_v1_privacy_requestsResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "requests",
+                    "id": "Example",
+                    "attributes": {
+                      "typeAlias": "Example",
+                      "email": "Example",
+                      "requested_at": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com_privacy_post_v1_privacy_requestsRequest"
+              },
+              "example": {
+                "email": "example@example.invalid"
+              }
+            }
+          }
+        },
+        "description": "Списки/элементы запросов и согласий, а также экспорт требуют core.admin\nна com_privacy в API-контроллерах. Удаление consent не имеет REST-маршрута.\nЭкспорт требует request_type=export и подтверждённый status=1; иначе модель\nне возвращает данные, представление вызывает RouteNotFoundException.\nРезультат формируется privacy-плагинами; REST export не равнозначен файлу\nэкспорта в админке. Подробности фактической сериализации см. в схеме ответа.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/privacy/requests/{id}": {
+      "get": {
+        "operationId": "com_privacy_get_v1_privacy_requests_id",
+        "summary": "GET /v1/privacy/requests/{id}",
+        "tags": [
+          "com_privacy"
+        ],
+        "x-controller-task": "requests.displayItem",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_privacy"
+        },
+        "x-source": [
+          "plugins/webservices/privacy/src/Extension/Privacy.php",
+          "api/components/com_privacy/src/Controller/RequestsController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_privacy_get_v1_privacy_requests_idResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "requests",
+                    "id": "Example",
+                    "attributes": {
+                      "typeAlias": "Example",
+                      "email": "Example",
+                      "requested_at": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Списки/элементы запросов и согласий, а также экспорт требуют core.admin\nна com_privacy в API-контроллерах. Удаление consent не имеет REST-маршрута.\nЭкспорт требует request_type=export и подтверждённый status=1; иначе модель\nне возвращает данные, представление вызывает RouteNotFoundException.\nРезультат формируется privacy-плагинами; REST export не равнозначен файлу\nэкспорта в админке. Подробности фактической сериализации см. в схеме ответа.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/privacy/requests/export/{id}": {
+      "get": {
+        "operationId": "com_privacy_get_v1_privacy_requests_export_id",
+        "summary": "GET /v1/privacy/requests/export/{id}",
+        "tags": [
+          "com_privacy"
+        ],
+        "x-controller-task": "requests.export",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_privacy"
+        },
+        "x-source": [
+          "plugins/webservices/privacy/src/Extension/Privacy.php",
+          "api/components/com_privacy/src/Controller/RequestsController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_privacy_get_v1_privacy_requests_export_idResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "export",
+                    "id": "",
+                    "attributes": [
+                      {
+                        "name": "example",
+                        "description": "Synthetic privacy domain"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Списки/элементы запросов и согласий, а также экспорт требуют core.admin\nна com_privacy в API-контроллерах. Удаление consent не имеет REST-маршрута.\nЭкспорт требует request_type=export и подтверждённый status=1; иначе модель\nне возвращает данные, представление вызывает RouteNotFoundException.\nРезультат формируется privacy-плагинами; REST export не равнозначен файлу\nэкспорта в админке. Подробности фактической сериализации см. в схеме ответа.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/privacy/consents": {
+      "get": {
+        "operationId": "com_privacy_get_v1_privacy_consents",
+        "summary": "GET /v1/privacy/consents",
+        "tags": [
+          "com_privacy"
+        ],
+        "x-controller-task": "consents.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_privacy"
+        },
+        "x-source": [
+          "plugins/webservices/privacy/src/Extension/Privacy.php",
+          "api/components/com_privacy/src/Controller/ConsentsController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "page[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "page[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_privacy_get_v1_privacy_consentsResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "consents",
+                      "id": "Example",
+                      "attributes": {
+                        "user_id": 1,
+                        "state": 1,
+                        "created": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Списки/элементы запросов и согласий, а также экспорт требуют core.admin\nна com_privacy в API-контроллерах. Удаление consent не имеет REST-маршрута.\nЭкспорт требует request_type=export и подтверждённый status=1; иначе модель\nне возвращает данные, представление вызывает RouteNotFoundException.\nРезультат формируется privacy-плагинами; REST export не равнозначен файлу\nэкспорта в админке. Подробности фактической сериализации см. в схеме ответа.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/privacy/consents/{id}": {
+      "get": {
+        "operationId": "com_privacy_get_v1_privacy_consents_id",
+        "summary": "GET /v1/privacy/consents/{id}",
+        "tags": [
+          "com_privacy"
+        ],
+        "x-controller-task": "consents.displayItem",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_privacy"
+        },
+        "x-source": [
+          "plugins/webservices/privacy/src/Extension/Privacy.php",
+          "api/components/com_privacy/src/Controller/ConsentsController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_privacy_get_v1_privacy_consents_idResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "consents",
+                    "id": "Example",
+                    "attributes": {
+                      "user_id": 1,
+                      "state": 1,
+                      "created": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "Списки/элементы запросов и согласий, а также экспорт требуют core.admin\nна com_privacy в API-контроллерах. Удаление consent не имеет REST-маршрута.\nЭкспорт требует request_type=export и подтверждённый status=1; иначе модель\nне возвращает данные, представление вызывает RouteNotFoundException.\nРезультат формируется privacy-плагинами; REST export не равнозначен файлу\nэкспорта в админке. Подробности фактической сериализации см. в схеме ответа.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "JoomlaToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Joomla-Token"
+      },
+      "JUpdateToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-JUpdate-Token"
+      }
+    },
+    "schemas": {
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        ]
+      },
+      "ResourceIdentifier": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Relationship": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceIdentifier"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceIdentifier"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Relationship"
+            }
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Links": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/JsonValue"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "href"
+              ]
+            }
+          ]
+        }
+      },
+      "EmptyActionResponse": {
+        "type": "array",
+        "maxItems": 0
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "status": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "ErrorDocument": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "anyOf": [
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/ErrorObject"
+                }
+              },
+              {
+                "$ref": "#/components/schemas/ErrorObject"
+              }
+            ],
+            "description": "Exception handlers return an error array; the core non-Exception Throwable branch can emit one error object."
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "errors"
+        ]
+      },
+      "LegacyDeleteError": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "messages": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+              "code": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "code",
+              "message"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ]
+      },
+      "Form_administrator_components_com_privacy_forms_filter_consents_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Requests",
+                "description": "Search in username. Prefix with Name: to search for a name. Prefix with ID: to search for a consent ID. Prefix with UID: to search for a User ID.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_PRIVACY_FILTER_SEARCH_LABEL",
+                  "description": "COM_PRIVACY_SEARCH_IN_USERNAME",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_privacy/forms/filter_consents.xml"
+              },
+              "state": {
+                "type": [
+                  "integer",
+                  "string"
+                ],
+                "pattern": "^(?:-?[0-9]+)?$",
+                "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+                "enum": [
+                  "",
+                  1,
+                  0,
+                  -1,
+                  "1",
+                  "0",
+                  "-1"
+                ],
+                "title": "State of Consents",
+                "description": "Joomla form field state; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "state",
+                  "type": "list",
+                  "label": "COM_PRIVACY_CONSENTS_FILTER_STATE",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Status -"
+                  },
+                  {
+                    "value": "1",
+                    "label": "Valid Consent"
+                  },
+                  {
+                    "value": "0",
+                    "label": "Obsolete Consent"
+                  },
+                  {
+                    "value": "-1",
+                    "label": "Invalidated Consent"
+                  }
+                ],
+                "x-source": "administrator/components/com_privacy/forms/filter_consents.xml"
+              },
+              "subject": {
+                "type": "string",
+                "title": "Subject",
+                "description": "Joomla form field subject; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "subject",
+                  "type": "sql",
+                  "label": "COM_PRIVACY_CONSENTS_FILTER_SUBJECT",
+                  "sql_select": "subject",
+                  "sql_from": "#__privacy_consents",
+                  "sql_group": "subject",
+                  "sql_order": "subject ASC",
+                  "key_field": "subject",
+                  "translate": "true"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "All Subjects"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_privacy/forms/filter_consents.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "a.state ASC",
+                  "a.state DESC",
+                  "u.name ASC",
+                  "u.name DESC",
+                  "u.username ASC",
+                  "u.username DESC",
+                  "a.user_id ASC",
+                  "a.user_id DESC",
+                  "a.subject ASC",
+                  "a.subject DESC",
+                  "a.created ASC",
+                  "a.created DESC",
+                  "a.id ASC",
+                  "a.id DESC"
+                ],
+                "default": "a.id DESC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "a.id DESC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "a.state ASC",
+                    "label": "Status ascending"
+                  },
+                  {
+                    "value": "a.state DESC",
+                    "label": "Status descending"
+                  },
+                  {
+                    "value": "u.name ASC",
+                    "label": "Name ascending"
+                  },
+                  {
+                    "value": "u.name DESC",
+                    "label": "Name descending"
+                  },
+                  {
+                    "value": "u.username ASC",
+                    "label": "Username ascending"
+                  },
+                  {
+                    "value": "u.username DESC",
+                    "label": "Username descending"
+                  },
+                  {
+                    "value": "a.user_id ASC",
+                    "label": "User ID ascending"
+                  },
+                  {
+                    "value": "a.user_id DESC",
+                    "label": "User ID descending"
+                  },
+                  {
+                    "value": "a.subject ASC",
+                    "label": "Subject ascending"
+                  },
+                  {
+                    "value": "a.subject DESC",
+                    "label": "Subject descending"
+                  },
+                  {
+                    "value": "a.created ASC",
+                    "label": "Consented ascending"
+                  },
+                  {
+                    "value": "a.created DESC",
+                    "label": "Consented descending"
+                  },
+                  {
+                    "value": "a.id ASC",
+                    "label": "ID ascending"
+                  },
+                  {
+                    "value": "a.id DESC",
+                    "label": "ID descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_privacy/forms/filter_consents.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_privacy/forms/filter_consents.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_privacy_forms_filter_requests_xml": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "object",
+            "properties": {
+              "search": {
+                "type": "string",
+                "title": "Search Requests",
+                "description": "Search in requestor email address. Prefix with ID: to search for a request ID.",
+                "x-joomla-form": {
+                  "name": "search",
+                  "type": "text",
+                  "inputmode": "search",
+                  "label": "COM_PRIVACY_FILTER_SEARCH_LABEL",
+                  "description": "COM_PRIVACY_SEARCH_IN_EMAIL",
+                  "hint": "JSEARCH_FILTER"
+                },
+                "x-source": "administrator/components/com_privacy/forms/filter_requests.xml"
+              },
+              "status": {
+                "type": "string",
+                "title": "Status",
+                "description": "Joomla form field status; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "status",
+                  "type": "requeststatus",
+                  "label": "JSTATUS"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Status -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_privacy/forms/filter_requests.xml"
+              },
+              "request_type": {
+                "type": "string",
+                "title": "Request Type",
+                "description": "Joomla form field request_type; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "request_type",
+                  "type": "requesttype",
+                  "label": "COM_PRIVACY_HEADING_REQUEST_TYPE"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "- Select Request Type -"
+                  }
+                ],
+                "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+                "x-source": "administrator/components/com_privacy/forms/filter_requests.xml"
+              }
+            },
+            "additionalProperties": false
+          },
+          "list": {
+            "type": "object",
+            "properties": {
+              "fullordering": {
+                "type": "string",
+                "enum": [
+                  "",
+                  "a.email ASC",
+                  "a.email DESC",
+                  "a.request_type ASC",
+                  "a.request_type DESC",
+                  "a.requested_at ASC",
+                  "a.requested_at DESC",
+                  "a.id ASC",
+                  "a.id DESC"
+                ],
+                "default": "a.id DESC",
+                "title": "Sort Table By:",
+                "description": "Joomla form field fullordering; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "fullordering",
+                  "type": "list",
+                  "label": "JGLOBAL_SORT_BY",
+                  "default": "a.id DESC",
+                  "validate": "options"
+                },
+                "x-options": [
+                  {
+                    "value": "",
+                    "label": "Sort Table By:"
+                  },
+                  {
+                    "value": "a.email ASC",
+                    "label": "Email ascending"
+                  },
+                  {
+                    "value": "a.email DESC",
+                    "label": "Email descending"
+                  },
+                  {
+                    "value": "a.request_type ASC",
+                    "label": "Request Type ascending"
+                  },
+                  {
+                    "value": "a.request_type DESC",
+                    "label": "Request Type descending"
+                  },
+                  {
+                    "value": "a.requested_at ASC",
+                    "label": "Requested ascending"
+                  },
+                  {
+                    "value": "a.requested_at DESC",
+                    "label": "Requested descending"
+                  },
+                  {
+                    "value": "a.id ASC",
+                    "label": "ID ascending"
+                  },
+                  {
+                    "value": "a.id DESC",
+                    "label": "ID descending"
+                  }
+                ],
+                "x-source": "administrator/components/com_privacy/forms/filter_requests.xml"
+              },
+              "limit": {
+                "type": "string",
+                "default": "25",
+                "title": "Select number of items per page.",
+                "description": "Joomla form field limit; input is validated and filtered according to x-joomla-form.",
+                "x-joomla-form": {
+                  "name": "limit",
+                  "type": "limitbox",
+                  "label": "JGLOBAL_LIST_LIMIT",
+                  "default": "25"
+                },
+                "x-source": "administrator/components/com_privacy/forms/filter_requests.xml"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_privacy_forms_request_xml": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email",
+            "description": "The email address of the individual owning the information being requested.",
+            "x-joomla-form": {
+              "name": "email",
+              "type": "email",
+              "label": "JGLOBAL_EMAIL",
+              "description": "COM_PRIVACY_USER_FIELD_EMAIL_DESC",
+              "required": "true",
+              "validate": "email"
+            },
+            "x-source": "administrator/components/com_privacy/forms/request.xml"
+          },
+          "status": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              -1,
+              1,
+              2,
+              "0",
+              "-1",
+              "1",
+              "2"
+            ],
+            "default": "0",
+            "title": "Request Status",
+            "description": "Joomla form field status; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "status",
+              "type": "list",
+              "label": "COM_PRIVACY_FIELD_STATUS_LABEL",
+              "filter": "int",
+              "default": "0",
+              "validate": "options",
+              "readonly": "true"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Pending"
+              },
+              {
+                "value": "-1",
+                "label": "Invalid"
+              },
+              {
+                "value": "1",
+                "label": "Confirmed"
+              },
+              {
+                "value": "2",
+                "label": "Completed"
+              }
+            ],
+            "x-source": "administrator/components/com_privacy/forms/request.xml"
+          },
+          "request_type": {
+            "type": "string",
+            "enum": [
+              "export",
+              "remove"
+            ],
+            "default": "export",
+            "title": "Request Type",
+            "description": "Joomla form field request_type; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "request_type",
+              "type": "list",
+              "label": "COM_PRIVACY_FIELD_REQUEST_TYPE_LABEL",
+              "filter": "string",
+              "default": "export",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "export",
+                "label": "Export"
+              },
+              {
+                "value": "remove",
+                "label": "Remove"
+              }
+            ],
+            "x-source": "administrator/components/com_privacy/forms/request.xml"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "0",
+            "title": "ID",
+            "description": "Record number in the database.",
+            "x-joomla-form": {
+              "name": "id",
+              "type": "number",
+              "label": "JGLOBAL_FIELD_ID_LABEL",
+              "description": "JGLOBAL_FIELD_ID_DESC",
+              "default": "0",
+              "readonly": "true"
+            },
+            "x-source": "administrator/components/com_privacy/forms/request.xml"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
+      },
+      "Form_administrator_components_com_privacy_config_xml": {
+        "type": "object",
+        "properties": {
+          "notify": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "14",
+            "title": "Days To Consider Request Urgent",
+            "description": "Show a notification when there are requests older than the specified number of days.",
+            "x-joomla-form": {
+              "name": "notify",
+              "type": "integer",
+              "label": "COM_PRIVACY_NOTIFY_LABEL",
+              "description": "COM_PRIVACY_NOTIFY_DESC",
+              "first": "1",
+              "last": "29",
+              "step": "1",
+              "default": "14",
+              "filter": "int",
+              "validate": "number"
+            },
+            "x-source": "administrator/components/com_privacy/config.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "com_privacy_get_v1_privacy_requestsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "requests"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "x-sql-type": "varchar(100)",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "requested_at": {
+                      "type": "string",
+                      "x-sql-type": "datetime",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "status": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-source": "installation/sql/mysql/extensions.sql",
+                      "x-sql-type": "tinyint"
+                    },
+                    "request_type": {
+                      "type": "string",
+                      "maxLength": 25,
+                      "x-sql-type": "varchar(25)",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_privacy_get_v1_privacy_requests_idResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "requests"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "typeAlias": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "email": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "x-sql-type": "varchar(100)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "requested_at": {
+                    "type": "string",
+                    "x-sql-type": "datetime",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "status": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "tinyint"
+                  },
+                  "request_type": {
+                    "type": "string",
+                    "maxLength": 25,
+                    "x-sql-type": "varchar(25)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_privacy_get_v1_privacy_requests_export_idResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "export"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "description": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": {
+                      "$ref": "#/components/schemas/JsonValue"
+                    }
+                  }
+                ],
+                "description": "Core passes the plugin domain array as ONE Resource, not a Collection. Sequential domains serialize as an attributes array; core Domain public properties are name/description, protected items are not exported. Missing array->id emits a PHP warning; runtime error policy may turn this into an error. No guarantee of a complete personal-data export. Site plugins can alter the payload."
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_privacy_post_v1_privacy_requestsRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email",
+            "description": "The email address of the individual owning the information being requested.",
+            "x-joomla-form": {
+              "name": "email",
+              "type": "email",
+              "label": "JGLOBAL_EMAIL",
+              "description": "COM_PRIVACY_USER_FIELD_EMAIL_DESC",
+              "required": "true",
+              "validate": "email"
+            },
+            "x-source": "administrator/components/com_privacy/forms/request.xml"
+          },
+          "request_type": {
+            "type": "string",
+            "enum": [
+              "export",
+              "remove"
+            ],
+            "default": "export",
+            "title": "Request Type",
+            "description": "Joomla form field request_type; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "request_type",
+              "type": "list",
+              "label": "COM_PRIVACY_FIELD_REQUEST_TYPE_LABEL",
+              "filter": "string",
+              "default": "export",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "export",
+                "label": "Export"
+              },
+              {
+                "value": "remove",
+                "label": "Remove"
+              }
+            ],
+            "x-source": "administrator/components/com_privacy/forms/request.xml"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
+      },
+      "com_privacy_post_v1_privacy_requestsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "requests"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "typeAlias": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "email": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "x-sql-type": "varchar(100)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "requested_at": {
+                    "type": "string",
+                    "x-sql-type": "datetime",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "status": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "tinyint"
+                  },
+                  "request_type": {
+                    "type": "string",
+                    "maxLength": 25,
+                    "x-sql-type": "varchar(25)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_privacy_get_v1_privacy_consentsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "consents"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "user_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-source": "installation/sql/mysql/extensions.sql",
+                      "x-sql-type": "int"
+                    },
+                    "state": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-source": "installation/sql/mysql/extensions.sql",
+                      "x-sql-type": "int"
+                    },
+                    "created": {
+                      "type": "string",
+                      "x-sql-type": "datetime",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "subject": {
+                      "type": "string",
+                      "maxLength": 255,
+                      "x-sql-type": "varchar(255)",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "body": {
+                      "type": "string",
+                      "x-sql-type": "text",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "remind": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-source": "installation/sql/mysql/extensions.sql",
+                      "x-sql-type": "tinyint"
+                    },
+                    "token": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "x-sql-type": "varchar(100)",
+                      "x-source": "installation/sql/mysql/extensions.sql"
+                    },
+                    "username": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_privacy_get_v1_privacy_consents_idResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "consents"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "int"
+                  },
+                  "state": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "int"
+                  },
+                  "created": {
+                    "type": "string",
+                    "x-sql-type": "datetime",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "subject": {
+                    "type": "string",
+                    "maxLength": 255,
+                    "x-sql-type": "varchar(255)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "body": {
+                    "type": "string",
+                    "x-sql-type": "text",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "remind": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-source": "installation/sql/mysql/extensions.sql",
+                    "x-sql-type": "tinyint"
+                  },
+                  "token": {
+                    "type": "string",
+                    "maxLength": 100,
+                    "x-sql-type": "varchar(100)",
+                    "x-source": "installation/sql/mysql/extensions.sql"
+                  },
+                  "username": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      }
+    }
+  },
+  "x-knowledge-package": "joomla.rest-api.privacy",
+  "x-core-version": "5.4.8",
+  "x-contract-status": "archived",
+  "x-primary-core-version": "6.2.0",
+  "x-extension-parameter-schemas": {},
+  "x-menu-view-schemas": {},
+  "x-source-verification": {
+    "method": "local route registration + XML + SQL + controller/view/serializer inspection",
+    "runtime_requests": false
+  }
+}

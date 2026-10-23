@@ -1,0 +1,17 @@
+{
+  "provenance": "actual source serializer with inert dispatcher; synthetic input; not live API",
+  "resource": {
+    "type": "export",
+    "id": "",
+    "attributes": [
+      {
+        "name": "example",
+        "description": "Synthetic privacy domain"
+      }
+    ]
+  },
+  "warnings": [
+    "Attempt to read property \"id\" on array"
+  ],
+  "domain_items_in_public_json": false
+}

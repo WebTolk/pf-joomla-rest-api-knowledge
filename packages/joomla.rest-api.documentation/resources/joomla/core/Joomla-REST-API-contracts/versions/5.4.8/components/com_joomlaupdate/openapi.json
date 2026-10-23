@@ -1,0 +1,2130 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Joomla 5.4.8 com_joomlaupdate REST contract",
+    "version": "5.4.8",
+    "description": "Source-pinned API knowledge. Examples are synthetic; no runtime requests."
+  },
+  "servers": [
+    {
+      "url": "/api/index.php"
+    }
+  ],
+  "security": [
+    {
+      "JoomlaToken": []
+    }
+  ],
+  "paths": {
+    "/v1/joomlaupdate/healthcheck": {
+      "get": {
+        "operationId": "com_joomlaupdate_get_v1_joomlaupdate_healthcheck",
+        "summary": "GET /v1/joomlaupdate/healthcheck",
+        "tags": [
+          "com_joomlaupdate"
+        ],
+        "x-controller-task": "healthcheck.show",
+        "x-route-defaults": {
+          "component": "com_joomlaupdate",
+          "public": true
+        },
+        "x-source": [
+          "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+          "api/components/com_joomlaupdate/src/Controller/HealthcheckController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "X-JUpdate-Token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Private update token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_joomlaupdate_get_v1_joomlaupdate_healthcheckResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "healthcheck",
+                    "id": "Example",
+                    "attributes": {
+                      "php_version": "Example",
+                      "db_type": "Example",
+                      "db_version": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JUpdateToken": []
+          }
+        ],
+        "description": "Требуется X-JUpdate-Token и включённое автообновление с допустимыми\nupdatesource/minimum_stability. Это отдельный токен, не X-Joomla-Token.\nНеверный/пропущенный token вызывает InvalidParameterException с code=403,\nно обработчик выставляет HTTP 400. HTTP и внутренний code различаются.\nprepareUpdate требует доступную targetVersion; иначе generic Exception с code=410\nпреобразуется стандартным fallback formatter в HTTP 500 и code=500.\nfinalizeUpdate принимает fromVersion/updateFileName; имя очищается до basename.\nsuccess=false/errors при HTTP 200 означает неуспешное действие.\npassword prepareUpdate — временный секрет, в артефакты реальные значения не входят.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/joomlaupdate/getUpdate": {
+      "get": {
+        "operationId": "com_joomlaupdate_get_v1_joomlaupdate_getUpdate",
+        "summary": "GET /v1/joomlaupdate/getUpdate",
+        "tags": [
+          "com_joomlaupdate"
+        ],
+        "x-controller-task": "updates.getUpdate",
+        "x-route-defaults": {
+          "component": "com_joomlaupdate",
+          "public": true
+        },
+        "x-source": [
+          "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+          "api/components/com_joomlaupdate/src/Controller/UpdatesController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "X-JUpdate-Token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Private update token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_joomlaupdate_get_v1_joomlaupdate_getUpdateResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "updates",
+                    "id": "Example",
+                    "attributes": {
+                      "availableUpdate": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JUpdateToken": []
+          }
+        ],
+        "description": "Требуется X-JUpdate-Token и включённое автообновление с допустимыми\nupdatesource/minimum_stability. Это отдельный токен, не X-Joomla-Token.\nНеверный/пропущенный token вызывает InvalidParameterException с code=403,\nно обработчик выставляет HTTP 400. HTTP и внутренний code различаются.\nprepareUpdate требует доступную targetVersion; иначе generic Exception с code=410\nпреобразуется стандартным fallback formatter в HTTP 500 и code=500.\nfinalizeUpdate принимает fromVersion/updateFileName; имя очищается до basename.\nsuccess=false/errors при HTTP 200 означает неуспешное действие.\npassword prepareUpdate — временный секрет, в артефакты реальные значения не входят.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/joomlaupdate/prepareUpdate": {
+      "post": {
+        "operationId": "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdate",
+        "summary": "POST /v1/joomlaupdate/prepareUpdate",
+        "tags": [
+          "com_joomlaupdate"
+        ],
+        "x-controller-task": "updates.prepareUpdate",
+        "x-route-defaults": {
+          "component": "com_joomlaupdate",
+          "public": true
+        },
+        "x-source": [
+          "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+          "api/components/com_joomlaupdate/src/Controller/UpdatesController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "X-JUpdate-Token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Private update token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "updates",
+                    "id": "Example",
+                    "attributes": {
+                      "password": "Example",
+                      "filesize": 1,
+                      "filename": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JUpdateToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateRequest"
+              },
+              "example": {
+                "targetVersion": "6.1.4"
+              }
+            }
+          }
+        },
+        "x-internal-exception-code": 410,
+        "description": "Требуется X-JUpdate-Token и включённое автообновление с допустимыми\nupdatesource/minimum_stability. Это отдельный токен, не X-Joomla-Token.\nНеверный/пропущенный token вызывает InvalidParameterException с code=403,\nно обработчик выставляет HTTP 400. HTTP и внутренний code различаются.\nprepareUpdate требует доступную targetVersion; иначе generic Exception с code=410\nпреобразуется стандартным fallback formatter в HTTP 500 и code=500.\nfinalizeUpdate принимает fromVersion/updateFileName; имя очищается до basename.\nsuccess=false/errors при HTTP 200 означает неуспешное действие.\npassword prepareUpdate — временный секрет, в артефакты реальные значения не входят.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/joomlaupdate/finalizeUpdate": {
+      "post": {
+        "operationId": "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdate",
+        "summary": "POST /v1/joomlaupdate/finalizeUpdate",
+        "tags": [
+          "com_joomlaupdate"
+        ],
+        "x-controller-task": "updates.finalizeUpdate",
+        "x-route-defaults": {
+          "component": "com_joomlaupdate",
+          "public": true
+        },
+        "x-source": [
+          "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+          "api/components/com_joomlaupdate/src/Controller/UpdatesController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "X-JUpdate-Token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Private update token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "updates",
+                    "id": "Example",
+                    "attributes": {
+                      "success": false,
+                      "errors": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JUpdateToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateRequest"
+              },
+              "example": {
+                "fromVersion": "6.1.3",
+                "updateFileName": "update.zip"
+              }
+            }
+          }
+        },
+        "description": "Требуется X-JUpdate-Token и включённое автообновление с допустимыми\nupdatesource/minimum_stability. Это отдельный токен, не X-Joomla-Token.\nНеверный/пропущенный token вызывает InvalidParameterException с code=403,\nно обработчик выставляет HTTP 400. HTTP и внутренний code различаются.\nprepareUpdate требует доступную targetVersion; иначе generic Exception с code=410\nпреобразуется стандартным fallback formatter в HTTP 500 и code=500.\nfinalizeUpdate принимает fromVersion/updateFileName; имя очищается до basename.\nsuccess=false/errors при HTTP 200 означает неуспешное действие.\npassword prepareUpdate — временный секрет, в артефакты реальные значения не входят.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/joomlaupdate/notificationSuccess": {
+      "post": {
+        "operationId": "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccess",
+        "summary": "POST /v1/joomlaupdate/notificationSuccess",
+        "tags": [
+          "com_joomlaupdate"
+        ],
+        "x-controller-task": "notification.success",
+        "x-route-defaults": {
+          "component": "com_joomlaupdate",
+          "public": true
+        },
+        "x-source": [
+          "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+          "api/components/com_joomlaupdate/src/Controller/NotificationController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "X-JUpdate-Token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Private update token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "notification",
+                    "id": "Example",
+                    "attributes": {
+                      "success": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JUpdateToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessRequest"
+              },
+              "example": {
+                "fromVersion": "6.1.3",
+                "toVersion": "6.1.4"
+              }
+            }
+          }
+        },
+        "description": "Требуется X-JUpdate-Token и включённое автообновление с допустимыми\nupdatesource/minimum_stability. Это отдельный токен, не X-Joomla-Token.\nНеверный/пропущенный token вызывает InvalidParameterException с code=403,\nно обработчик выставляет HTTP 400. HTTP и внутренний code различаются.\nprepareUpdate требует доступную targetVersion; иначе generic Exception с code=410\nпреобразуется стандартным fallback formatter в HTTP 500 и code=500.\nfinalizeUpdate принимает fromVersion/updateFileName; имя очищается до basename.\nsuccess=false/errors при HTTP 200 означает неуспешное действие.\npassword prepareUpdate — временный секрет, в артефакты реальные значения не входят.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/joomlaupdate/notificationFailed": {
+      "post": {
+        "operationId": "com_joomlaupdate_post_v1_joomlaupdate_notificationFailed",
+        "summary": "POST /v1/joomlaupdate/notificationFailed",
+        "tags": [
+          "com_joomlaupdate"
+        ],
+        "x-controller-task": "notification.failed",
+        "x-route-defaults": {
+          "component": "com_joomlaupdate",
+          "public": true
+        },
+        "x-source": [
+          "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php",
+          "api/components/com_joomlaupdate/src/Controller/NotificationController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "X-JUpdate-Token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Private update token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_notificationFailedResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "notification",
+                    "id": "Example",
+                    "attributes": {
+                      "success": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JUpdateToken": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_notificationFailedRequest"
+              },
+              "example": {
+                "fromVersion": "6.1.3",
+                "toVersion": "6.1.4"
+              }
+            }
+          }
+        },
+        "description": "Требуется X-JUpdate-Token и включённое автообновление с допустимыми\nupdatesource/minimum_stability. Это отдельный токен, не X-Joomla-Token.\nНеверный/пропущенный token вызывает InvalidParameterException с code=403,\nно обработчик выставляет HTTP 400. HTTP и внутренний code различаются.\nprepareUpdate требует доступную targetVersion; иначе generic Exception с code=410\nпреобразуется стандартным fallback formatter в HTTP 500 и code=500.\nfinalizeUpdate принимает fromVersion/updateFileName; имя очищается до basename.\nsuccess=false/errors при HTTP 200 означает неуспешное действие.\npassword prepareUpdate — временный секрет, в артефакты реальные значения не входят.\nДля снимка 5.4.8 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "JoomlaToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Joomla-Token"
+      },
+      "JUpdateToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-JUpdate-Token"
+      }
+    },
+    "schemas": {
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        ]
+      },
+      "ResourceIdentifier": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Relationship": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceIdentifier"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceIdentifier"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Relationship"
+            }
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Links": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/JsonValue"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "href"
+              ]
+            }
+          ]
+        }
+      },
+      "EmptyActionResponse": {
+        "type": "array",
+        "maxItems": 0
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "status": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "ErrorDocument": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "anyOf": [
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/ErrorObject"
+                }
+              },
+              {
+                "$ref": "#/components/schemas/ErrorObject"
+              }
+            ],
+            "description": "Exception handlers return an error array; the core non-Exception Throwable branch can emit one error object."
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "errors"
+        ]
+      },
+      "LegacyDeleteError": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "messages": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+              "code": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "code",
+              "message"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ]
+      },
+      "Form_administrator_components_com_joomlaupdate_config_xml": {
+        "type": "object",
+        "properties": {
+          "updatesource": {
+            "type": "string",
+            "enum": [
+              "default",
+              "next",
+              "custom"
+            ],
+            "default": "default",
+            "title": "Update Channel",
+            "description": "Joomla form field updatesource; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "updatesource",
+              "type": "list",
+              "label": "COM_JOOMLAUPDATE_CONFIG_UPDATESOURCE_LABEL",
+              "default": "default",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "default",
+                "label": "Default"
+              },
+              {
+                "value": "next",
+                "label": "Joomla Next"
+              },
+              {
+                "value": "custom",
+                "label": "Custom URL"
+              }
+            ],
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          },
+          "minimum_stability": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "default": "4",
+            "title": "Minimum Stability",
+            "description": "The minimum stability of the Joomla updates you would like to see. Development is the least stable, Stable is production quality. If an update doesn't specify a level it is assumed to be Stable.",
+            "x-joomla-form": {
+              "name": "minimum_stability",
+              "type": "list",
+              "label": "COM_JOOMLAUPDATE_MINIMUM_STABILITY_LABEL",
+              "description": "COM_JOOMLAUPDATE_MINIMUM_STABILITY_DESC",
+              "default": "4",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Development"
+              },
+              {
+                "value": "1",
+                "label": "Alpha"
+              },
+              {
+                "value": "2",
+                "label": "Beta"
+              },
+              {
+                "value": "3",
+                "label": "Release Candidate"
+              },
+              {
+                "value": "4",
+                "label": "Stable"
+              }
+            ],
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          },
+          "customurl": {
+            "type": "string",
+            "description": "URL subject to field relative/scheme settings; empty string may clear an optional URL.",
+            "default": "",
+            "title": "Custom URL",
+            "x-joomla-form": {
+              "name": "customurl",
+              "type": "url",
+              "label": "COM_JOOMLAUPDATE_CONFIG_CUSTOMURL_LABEL",
+              "default": "",
+              "length": "50",
+              "showon": "updatesource:custom",
+              "validate": "url"
+            },
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          },
+          "versioncheck": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Potentially incompatible extensions checkbox",
+            "description": "Shows the checkbox in the pre–update check if any of the extensions installed on your site is potentially incompatible with the version of Joomla you are upgrading to. Note: the checkbox is displayed when upgrading to a new Joomla version family (minor or major version).",
+            "x-joomla-form": {
+              "name": "versioncheck",
+              "type": "radio",
+              "label": "COM_JOOMLAUPDATE_CONFIG_VERSIONCHECK_LABEL",
+              "description": "COM_JOOMLAUPDATE_CONFIG_VERSIONCHECK_DESC",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          },
+          "backupcheck": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Confirm Backup Checkbox",
+            "description": "Shows the checkbox to confirm you have taken a backup and you're ready to update in the final step before the update is actually applied.",
+            "x-joomla-form": {
+              "name": "backupcheck",
+              "type": "radio",
+              "label": "COM_JOOMLAUPDATE_CONFIG_BACKUPCHECK_LABEL",
+              "description": "COM_JOOMLAUPDATE_CONFIG_BACKUPCHECK_DESC",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          },
+          "autoupdate": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Automated Update",
+            "description": "Automatically update Joomla to the latest version when it is available.",
+            "x-joomla-form": {
+              "name": "autoupdate",
+              "type": "radio",
+              "label": "COM_JOOMLAUPDATE_CONFIG_AUTOUPDATE_LABEL",
+              "description": "COM_JOOMLAUPDATE_CONFIG_AUTOUPDATE_DESC",
+              "default": "0",
+              "showon": "updatesource:default[AND]minimum_stability:4",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          },
+          "autoupdate_status": {
+            "type": "string",
+            "title": "autoupdate_status",
+            "description": "Joomla form field autoupdate_status; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "autoupdate_status",
+              "type": "hidden"
+            },
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          },
+          "update_token": {
+            "type": "string",
+            "title": "Update Token",
+            "description": "This is the update token that this site uses to authenticate with the Joomla Automated Updates server. It is used to ensure that only your site can update itself.",
+            "x-joomla-form": {
+              "name": "update_token",
+              "type": "text",
+              "label": "COM_JOOMLAUPDATE_CONFIG_UPDATE_TOKEN_LABEL",
+              "description": "COM_JOOMLAUPDATE_CONFIG_UPDATE_TOKEN_DESC",
+              "readonly": "true",
+              "showon": "updatesource:default[AND]minimum_stability:4[AND]autoupdate:1"
+            },
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          },
+          "update_last_check": {
+            "type": "string",
+            "description": "Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input. The last time the automated updates server could reach this site. If this date is too old, something is wrong with the automated updates and you should re-initiate the process by re-saving the configuration.",
+            "title": "Last Checked",
+            "x-joomla-form": {
+              "name": "update_last_check",
+              "type": "calendar",
+              "showtime": "true",
+              "filter": "user_utc",
+              "translateformat": "true",
+              "label": "COM_JOOMLAUPDATE_CONFIG_UPDATE_LAST_CHECK_LABEL",
+              "description": "COM_JOOMLAUPDATE_CONFIG_UPDATE_LAST_CHECK_DESC",
+              "readonly": "true",
+              "showon": "updatesource:default[AND]minimum_stability:4[AND]autoupdate:1"
+            },
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          },
+          "automated_updates_email_groups": {
+            "type": "array",
+            "items": {
+              "type": [
+                "integer",
+                "string"
+              ],
+              "pattern": "^-?[0-9]+$",
+              "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent."
+            },
+            "title": "Send Email to User Groups",
+            "description": "All users in the selected groups will receive the emails. If no users are found, the emails are sent to all Super Users. Recipients MUST have the Receive System Emails option enabled.",
+            "x-joomla-form": {
+              "name": "automated_updates_email_groups",
+              "type": "usergrouplist",
+              "label": "COM_JOOMLAUPDATE_CONFIG_AUTOUPDATE_UPDATE_EMAIL_LABEL",
+              "description": "COM_JOOMLAUPDATE_CONFIG_AUTOUPDATE_UPDATE_EMAIL_DESCRIPTION",
+              "checksuperusergroup": "0",
+              "multiple": "true",
+              "showon": "updatesource:default[AND]minimum_stability:4[AND]autoupdate:1"
+            },
+            "x-source": "administrator/components/com_joomlaupdate/config.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "com_joomlaupdate_get_v1_joomlaupdate_healthcheckResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "healthcheck"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "php_version": {
+                    "type": "string"
+                  },
+                  "db_type": {
+                    "type": "string"
+                  },
+                  "db_version": {
+                    "type": "string"
+                  },
+                  "cms_version": {
+                    "type": "string"
+                  },
+                  "server_os": {
+                    "type": "string"
+                  },
+                  "update_requirement_state": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_joomlaupdate_get_v1_joomlaupdate_getUpdateResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "updates"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "availableUpdate": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "targetVersion": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "targetVersion"
+        ]
+      },
+      "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "updates"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  },
+                  "filesize": {
+                    "type": "integer"
+                  },
+                  "filename": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "fromVersion": {
+            "type": "string"
+          },
+          "updateFileName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "updates"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "success": {
+                    "type": "boolean"
+                  },
+                  "errors": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessRequest": {
+        "type": "object",
+        "properties": {
+          "fromVersion": {
+            "type": "string"
+          },
+          "toVersion": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "notification"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "success": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_joomlaupdate_post_v1_joomlaupdate_notificationFailedRequest": {
+        "type": "object",
+        "properties": {
+          "fromVersion": {
+            "type": "string"
+          },
+          "toVersion": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "com_joomlaupdate_post_v1_joomlaupdate_notificationFailedResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "notification"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "success": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      }
+    }
+  },
+  "x-knowledge-package": "joomla.rest-api.joomlaupdate",
+  "x-core-version": "5.4.8",
+  "x-contract-status": "archived",
+  "x-primary-core-version": "6.2.0",
+  "x-extension-parameter-schemas": {},
+  "x-menu-view-schemas": {},
+  "x-source-verification": {
+    "method": "local route registration + XML + SQL + controller/view/serializer inspection",
+    "runtime_requests": false
+  }
+}

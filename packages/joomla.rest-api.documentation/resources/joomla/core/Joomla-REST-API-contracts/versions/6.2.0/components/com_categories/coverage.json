@@ -1,0 +1,406 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/banners/categories",
+    "task": "categories.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/categories/{id}",
+    "task": "categories.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/banners/categories",
+    "task": "categories.add",
+    "support": "source-derived",
+    "request_schema": "com_categories_post_v1_banners_categoriesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/banners/categories/{id}",
+    "task": "categories.edit",
+    "support": "source-derived",
+    "request_schema": "com_categories_patch_v1_banners_categories_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/banners/categories/{id}",
+    "task": "categories.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts/categories",
+    "task": "categories.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts/categories/{id}",
+    "task": "categories.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/contacts/categories",
+    "task": "categories.add",
+    "support": "source-derived",
+    "request_schema": "com_categories_post_v1_contacts_categoriesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/contacts/categories/{id}",
+    "task": "categories.edit",
+    "support": "source-derived",
+    "request_schema": "com_categories_patch_v1_contacts_categories_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/contacts/categories/{id}",
+    "task": "categories.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/content/categories",
+    "task": "categories.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/content/categories/{id}",
+    "task": "categories.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/content/categories",
+    "task": "categories.add",
+    "support": "source-derived",
+    "request_schema": "com_categories_post_v1_content_categoriesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/content/categories/{id}",
+    "task": "categories.edit",
+    "support": "source-derived",
+    "request_schema": "com_categories_patch_v1_content_categories_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/content/categories/{id}",
+    "task": "categories.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/newsfeeds/categories",
+    "task": "categories.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/newsfeeds/categories/{id}",
+    "task": "categories.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/newsfeeds/categories",
+    "task": "categories.add",
+    "support": "source-derived",
+    "request_schema": "com_categories_post_v1_newsfeeds_categoriesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/newsfeeds/categories/{id}",
+    "task": "categories.edit",
+    "support": "source-derived",
+    "request_schema": "com_categories_patch_v1_newsfeeds_categories_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/newsfeeds/categories/{id}",
+    "task": "categories.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php",
+      "api/components/com_categories/src/Controller/CategoriesController.php"
+    ]
+  }
+]

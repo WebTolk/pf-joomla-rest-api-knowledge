@@ -1,0 +1,272 @@
+{
+  "core_version": "6.2.0",
+  "status": "pass",
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v1/joomlaupdate/healthcheck",
+      "task": "healthcheck.show",
+      "handler_source": "api/components/com_joomlaupdate/src/Controller/HealthcheckController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_joomlaupdate",
+        "public": true
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_joomlaupdate/src/Controller/HealthcheckController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_joomlaupdate/src/Controller/HealthcheckController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "00409305b1fe67e97686b5fc41ef6d0e7813f02b13b0dc21566b00f276018a78"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/joomlaupdate/getUpdate",
+      "task": "updates.getUpdate",
+      "handler_source": "api/components/com_joomlaupdate/src/Controller/UpdatesController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_joomlaupdate",
+        "public": true
+      },
+      "query_parameters": [],
+      "request_schema": null,
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_joomlaupdate/src/Controller/UpdatesController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_joomlaupdate/src/Controller/UpdatesController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "a80de4cbdf9a532b95bf4269a39343f48317ef2d2f21a423a0bf81ef659943ad"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/joomlaupdate/prepareUpdate",
+      "task": "updates.prepareUpdate",
+      "handler_source": "api/components/com_joomlaupdate/src/Controller/UpdatesController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_joomlaupdate",
+        "public": true
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_joomlaupdate/src/Controller/UpdatesController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_joomlaupdate/src/Controller/UpdatesController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "a80de4cbdf9a532b95bf4269a39343f48317ef2d2f21a423a0bf81ef659943ad"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/joomlaupdate/finalizeUpdate",
+      "task": "updates.finalizeUpdate",
+      "handler_source": "api/components/com_joomlaupdate/src/Controller/UpdatesController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_joomlaupdate",
+        "public": true
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_joomlaupdate/src/Controller/UpdatesController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_joomlaupdate/src/Controller/UpdatesController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "a80de4cbdf9a532b95bf4269a39343f48317ef2d2f21a423a0bf81ef659943ad"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/joomlaupdate/notificationSuccess",
+      "task": "notification.success",
+      "handler_source": "api/components/com_joomlaupdate/src/Controller/NotificationController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_joomlaupdate",
+        "public": true
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_joomlaupdate/src/Controller/NotificationController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_joomlaupdate/src/Controller/NotificationController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "4840215d1c7de1232a785c8cdb2ad7b7abe8528ab330f3ed284745ae5b0ffb7f"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/joomlaupdate/notificationFailed",
+      "task": "notification.failed",
+      "handler_source": "api/components/com_joomlaupdate/src/Controller/NotificationController.php",
+      "support": "source-derived",
+      "route_defaults": {
+        "component": "com_joomlaupdate",
+        "public": true
+      },
+      "query_parameters": [],
+      "request_schema": {
+        "$ref": "#/components/schemas/com_joomlaupdate_post_v1_joomlaupdate_notificationFailedRequest"
+      },
+      "response_statuses": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "406",
+        "500"
+      ],
+      "controller_acl_hooks": [
+        {
+          "method": "allowAdd",
+          "source": "api/components/com_joomlaupdate/src/Controller/NotificationController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowEdit",
+          "source": "api/components/com_joomlaupdate/src/Controller/NotificationController.php",
+          "permissions": []
+        },
+        {
+          "method": "allowDelete",
+          "source": "libraries/src/MVC/Controller/ApiController.php",
+          "permissions": [
+            "core.delete",
+            "core.manage"
+          ]
+        }
+      ],
+      "handler_sha256": "4840215d1c7de1232a785c8cdb2ad7b7abe8528ab330f3ed284745ae5b0ffb7f"
+    }
+  ]
+}

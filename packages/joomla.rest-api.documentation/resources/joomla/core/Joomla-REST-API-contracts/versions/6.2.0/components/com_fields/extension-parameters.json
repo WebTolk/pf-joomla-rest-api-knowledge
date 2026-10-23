@@ -1,0 +1,4219 @@
+{
+  "plugins/fields/checkboxes/checkboxes.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_NAME_LABEL"
+                      },
+                      "x-source": "plugins/fields/checkboxes/checkboxes.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/checkboxes/checkboxes.xml"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_NAME_LABEL"
+                      },
+                      "x-source": "plugins/fields/checkboxes/checkboxes.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/checkboxes/checkboxes.xml"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            ],
+            "x-subform-row-key": "Repeated form rows may be a JSON array or a row-keyed object; preserve the format of the owning field.",
+            "title": "Checkbox Values",
+            "description": "Joomla form field options; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "options",
+              "type": "subform",
+              "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_LABEL",
+              "icon": "list",
+              "multiple": "true"
+            },
+            "x-source": "plugins/fields/checkboxes/checkboxes.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/editor/editor.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "buttons": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Buttons",
+            "description": "Joomla form field buttons; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "buttons",
+              "type": "radio",
+              "label": "PLG_FIELDS_EDITOR_PARAMS_SHOW_BUTTONS_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Hide"
+              },
+              {
+                "value": "1",
+                "label": "Show"
+              }
+            ],
+            "x-source": "plugins/fields/editor/editor.xml"
+          },
+          "hide": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "Hide Buttons",
+            "description": "Joomla form field hide; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "hide",
+              "type": "plugins",
+              "label": "PLG_FIELDS_EDITOR_PARAMS_BUTTONS_HIDE_LABEL",
+              "folder": "editors-xtd",
+              "multiple": "true"
+            },
+            "x-source": "plugins/fields/editor/editor.xml"
+          },
+          "width": {
+            "type": "string",
+            "default": "100%",
+            "title": "Width",
+            "description": "Joomla form field width; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "width",
+              "type": "text",
+              "label": "PLG_FIELDS_EDITOR_PARAMS_WIDTH_LABEL",
+              "default": "100%"
+            },
+            "x-source": "plugins/fields/editor/editor.xml"
+          },
+          "height": {
+            "type": "string",
+            "default": "250px",
+            "title": "Height",
+            "description": "Joomla form field height; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "height",
+              "type": "text",
+              "label": "PLG_FIELDS_EDITOR_PARAMS_HEIGHT_LABEL",
+              "default": "250px"
+            },
+            "x-source": "plugins/fields/editor/editor.xml"
+          },
+          "filter": {
+            "type": "string",
+            "enum": [
+              "0",
+              "raw",
+              "safehtml",
+              "\\Joomla\\CMS\\Component\\ComponentHelper::filterText"
+            ],
+            "default": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+            "title": "Filter",
+            "description": "Joomla form field filter; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "filter",
+              "type": "list",
+              "label": "PLG_FIELDS_EDITOR_PARAMS_FILTER_LABEL",
+              "default": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "raw",
+                "label": "Raw"
+              },
+              {
+                "value": "safehtml",
+                "label": "Safe HTML"
+              },
+              {
+                "value": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+                "label": "Text"
+              }
+            ],
+            "x-source": "plugins/fields/editor/editor.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/imagelist/imagelist.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "default": "/",
+            "title": "Directory",
+            "description": "PLG_FIELDS_IMAGELIST_PARAMS_DIRECTORY_DESC",
+            "x-joomla-form": {
+              "name": "directory",
+              "type": "folderlist",
+              "label": "PLG_FIELDS_IMAGELIST_PARAMS_DIRECTORY_LABEL",
+              "description": "PLG_FIELDS_IMAGELIST_PARAMS_DIRECTORY_DESC",
+              "directory": "images",
+              "hide_none": "true",
+              "hide_default": "true",
+              "recursive": "true",
+              "default": "/",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "/",
+                "label": "/"
+              }
+            ],
+            "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+            "x-source": "plugins/fields/imagelist/imagelist.xml"
+          },
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "radio",
+              "label": "PLG_FIELDS_IMAGELIST_PARAMS_MULTIPLE_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/imagelist/imagelist.xml"
+          },
+          "image_class": {
+            "type": "string",
+            "title": "Image Class",
+            "description": "Joomla form field image_class; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "image_class",
+              "type": "textarea",
+              "label": "PLG_FIELDS_IMAGELIST_PARAMS_IMAGE_CLASS_LABEL",
+              "validate": "CssIdentifier"
+            },
+            "x-source": "plugins/fields/imagelist/imagelist.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/integer/integer.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "radio",
+              "label": "PLG_FIELDS_INTEGER_PARAMS_MULTIPLE_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/integer/integer.xml"
+          },
+          "form_layout": {
+            "type": "string",
+            "enum": [
+              "joomla.form.field.list",
+              "joomla.form.field.list-fancy-select"
+            ],
+            "default": "joomla.form.field.list",
+            "title": "Form Layout",
+            "description": "Joomla form field form_layout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "form_layout",
+              "type": "list",
+              "label": "JLIB_FORM_FIELD_PARAM_LAYOUT_LABEL",
+              "default": "joomla.form.field.list"
+            },
+            "x-options": [
+              {
+                "value": "joomla.form.field.list",
+                "label": "HTML Select"
+              },
+              {
+                "value": "joomla.form.field.list-fancy-select",
+                "label": "Enhanced Select"
+              }
+            ],
+            "x-source": "plugins/fields/integer/integer.xml"
+          },
+          "first": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "1",
+            "title": "First",
+            "description": "Joomla form field first; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "first",
+              "type": "number",
+              "label": "PLG_FIELDS_INTEGER_PARAMS_FIRST_LABEL",
+              "default": "1",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/integer/integer.xml"
+          },
+          "last": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "100",
+            "title": "Last",
+            "description": "Joomla form field last; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "last",
+              "type": "number",
+              "label": "PLG_FIELDS_INTEGER_PARAMS_LAST_LABEL",
+              "default": "100",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/integer/integer.xml"
+          },
+          "step": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "1",
+            "title": "Step Increment",
+            "description": "Joomla form field step; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "step",
+              "type": "number",
+              "label": "PLG_FIELDS_INTEGER_PARAMS_STEP_LABEL",
+              "default": "1",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/integer/integer.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/list/list.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "header": {
+            "type": "string",
+            "title": "Header",
+            "description": "Add a string with no value at the top of the dropdown list eg ' - Select Article - '.",
+            "x-joomla-form": {
+              "name": "header",
+              "type": "text",
+              "label": "PLG_FIELDS_LIST_PARAMS_HEADER_LABEL",
+              "description": "PLG_FIELDS_LIST_PARAMS_HEADER_DESC",
+              "filter": "string"
+            },
+            "x-source": "plugins/fields/list/list.xml"
+          },
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "radio",
+              "label": "PLG_FIELDS_LIST_PARAMS_MULTIPLE_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/list/list.xml"
+          },
+          "form_layout": {
+            "type": "string",
+            "enum": [
+              "joomla.form.field.list",
+              "joomla.form.field.list-fancy-select"
+            ],
+            "default": "joomla.form.field.list",
+            "title": "Form Layout",
+            "description": "Joomla form field form_layout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "form_layout",
+              "type": "list",
+              "label": "JLIB_FORM_FIELD_PARAM_LAYOUT_LABEL",
+              "default": "joomla.form.field.list"
+            },
+            "x-options": [
+              {
+                "value": "joomla.form.field.list",
+                "label": "HTML Select"
+              },
+              {
+                "value": "joomla.form.field.list-fancy-select",
+                "label": "Enhanced Select"
+              }
+            ],
+            "x-source": "plugins/fields/list/list.xml"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_NAME_LABEL"
+                      },
+                      "x-source": "plugins/fields/list/list.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/list/list.xml"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_NAME_LABEL"
+                      },
+                      "x-source": "plugins/fields/list/list.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/list/list.xml"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            ],
+            "x-subform-row-key": "Repeated form rows may be a JSON array or a row-keyed object; preserve the format of the owning field.",
+            "title": "List Values",
+            "description": "Joomla form field options; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "options",
+              "type": "subform",
+              "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_LABEL",
+              "icon": "list",
+              "multiple": "true"
+            },
+            "x-source": "plugins/fields/list/list.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/media/media.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "title": "Directory",
+            "description": "Joomla form field directory; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "directory",
+              "type": "media",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_DIRECTORY_LABEL",
+              "preview": "false",
+              "types": "directories"
+            },
+            "x-source": "plugins/fields/media/media.xml"
+          },
+          "preview": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ],
+            "default": "true",
+            "title": "Preview",
+            "description": "Joomla form field preview; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "preview",
+              "type": "list",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_PREVIEW_LABEL",
+              "default": "true",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "true",
+                "label": "Inline"
+              },
+              {
+                "value": "false",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/media/media.xml"
+          },
+          "image_class": {
+            "type": "string",
+            "title": "Image Class",
+            "description": "Joomla form field image_class; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "image_class",
+              "type": "textarea",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_IMAGE_CLASS_LABEL",
+              "validate": "CssIdentifier"
+            },
+            "x-source": "plugins/fields/media/media.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/note/note.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Note Heading",
+            "description": "Joomla form field label; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "label",
+              "type": "text",
+              "label": "PLG_FIELDS_NOTE_PARAMS_LABEL_LABEL"
+            },
+            "x-source": "plugins/fields/note/note.xml"
+          },
+          "description": {
+            "type": "string",
+            "title": "Note Content",
+            "description": "Joomla form field description; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "description",
+              "type": "editor",
+              "label": "PLG_FIELDS_NOTE_PARAMS_DESCRIPTION_LABEL",
+              "filter": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+              "buttons": "false"
+            },
+            "x-source": "plugins/fields/note/note.xml"
+          },
+          "class": {
+            "type": "string",
+            "default": "alert alert-info",
+            "title": "Note Class",
+            "description": "The class used on the div of the note.",
+            "x-joomla-form": {
+              "name": "class",
+              "type": "text",
+              "label": "PLG_FIELDS_NOTE_PARAMS_CLASS_LABEL",
+              "description": "PLG_FIELDS_NOTE_PARAMS_CLASS_DESC",
+              "default": "alert alert-info"
+            },
+            "x-source": "plugins/fields/note/note.xml"
+          },
+          "heading": {
+            "type": "string",
+            "enum": [
+              "h1",
+              "h2",
+              "h3",
+              "h4",
+              "h5",
+              "h6"
+            ],
+            "default": "h4",
+            "title": "Heading Tag",
+            "description": "Joomla form field heading; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "heading",
+              "type": "list",
+              "label": "PLG_FIELDS_NOTE_PARAMS_HEADING_LABEL",
+              "default": "h4"
+            },
+            "x-options": [
+              {
+                "value": "h1",
+                "label": "h1"
+              },
+              {
+                "value": "h2",
+                "label": "h2"
+              },
+              {
+                "value": "h3",
+                "label": "h3"
+              },
+              {
+                "value": "h4",
+                "label": "h4"
+              },
+              {
+                "value": "h5",
+                "label": "h5"
+              },
+              {
+                "value": "h6",
+                "label": "h6"
+              }
+            ],
+            "x-source": "plugins/fields/note/note.xml"
+          },
+          "close": {
+            "type": "string",
+            "title": "Show Close Button",
+            "description": "This field controls the display of an \"x\" to close the note. It takes a value of 'true' (for alerts) or the value for the data-dismiss of the Bootstrap close icon.",
+            "x-joomla-form": {
+              "name": "close",
+              "type": "text",
+              "label": "PLG_FIELDS_NOTE_PARAMS_CLOSE_LABEL",
+              "description": "PLG_FIELDS_NOTE_PARAMS_CLOSE_DESC"
+            },
+            "x-source": "plugins/fields/note/note.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/number/number.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "pattern": "^-?(?:[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+)$",
+            "description": "Numeric input or its decimal string representation. Minimum value that can be chosen (only limits the up/down arrows).",
+            "default": "1.0",
+            "title": "Minimum",
+            "x-joomla-form": {
+              "name": "min",
+              "type": "number",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_MIN_LABEL",
+              "description": "PLG_FIELDS_NUMBER_PARAMS_MIN_DESC",
+              "default": "1.0",
+              "filter": "float"
+            },
+            "x-source": "plugins/fields/number/number.xml"
+          },
+          "max": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "pattern": "^-?(?:[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+)$",
+            "description": "Numeric input or its decimal string representation. Maximum value that can be chosen (only limits the up/down arrows).",
+            "default": "100.0",
+            "title": "Maximum",
+            "x-joomla-form": {
+              "name": "max",
+              "type": "number",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_MAX_LABEL",
+              "description": "PLG_FIELDS_NUMBER_PARAMS_MAX_DESC",
+              "default": "100.0",
+              "filter": "float"
+            },
+            "x-source": "plugins/fields/number/number.xml"
+          },
+          "step": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "pattern": "^-?(?:[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+)$",
+            "description": "Numeric input or its decimal string representation.",
+            "default": "1.0",
+            "title": "Step Increment",
+            "x-joomla-form": {
+              "name": "step",
+              "type": "number",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_STEP_LABEL",
+              "default": "1.0",
+              "filter": "float"
+            },
+            "x-source": "plugins/fields/number/number.xml"
+          },
+          "currency": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Format as Currency",
+            "description": "Joomla form field currency; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "currency",
+              "type": "radio",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_CURRENCY_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/number/number.xml"
+          },
+          "symbol": {
+            "type": "string",
+            "title": "Currency Symbol",
+            "description": "Joomla form field symbol; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "symbol",
+              "type": "text",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_SYMBOL_LABEL",
+              "filter": "string",
+              "showon": "currency:1"
+            },
+            "x-source": "plugins/fields/number/number.xml"
+          },
+          "position": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Symbol Position",
+            "description": "Joomla form field position; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "position",
+              "type": "list",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_POSITION_LABEL",
+              "default": "0",
+              "filter": "integer",
+              "showon": "currency:1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Before"
+              },
+              {
+                "value": "1",
+                "label": "After"
+              }
+            ],
+            "x-source": "plugins/fields/number/number.xml"
+          },
+          "decimals": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "2",
+            "title": "Number of Decimals",
+            "description": "Joomla form field decimals; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "decimals",
+              "type": "int",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_DECIMALS_LABEL",
+              "min": "0",
+              "max": "10",
+              "default": "2",
+              "filter": "int",
+              "showon": "currency:1"
+            },
+            "x-source": "plugins/fields/number/number.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/radio/radio.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "form_layout": {
+            "type": "string",
+            "enum": [
+              "joomla.form.field.radio.buttons",
+              "joomla.form.field.radio.switcher"
+            ],
+            "default": "joomla.form.field.radio.buttons",
+            "title": "Form Layout",
+            "description": "Joomla form field form_layout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "form_layout",
+              "type": "list",
+              "label": "JLIB_FORM_FIELD_PARAM_LAYOUT_LABEL",
+              "default": "joomla.form.field.radio.buttons"
+            },
+            "x-options": [
+              {
+                "value": "joomla.form.field.radio.buttons",
+                "label": "Buttons"
+              },
+              {
+                "value": "joomla.form.field.radio.switcher",
+                "label": "Switcher"
+              }
+            ],
+            "x-source": "plugins/fields/radio/radio.xml"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_NAME_LABEL"
+                      },
+                      "x-source": "plugins/fields/radio/radio.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/radio/radio.xml"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_NAME_LABEL"
+                      },
+                      "x-source": "plugins/fields/radio/radio.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/radio/radio.xml"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            ],
+            "x-subform-row-key": "Repeated form rows may be a JSON array or a row-keyed object; preserve the format of the owning field.",
+            "title": "Radio Values",
+            "description": "Joomla form field options; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "options",
+              "type": "subform",
+              "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_LABEL",
+              "icon": "list",
+              "multiple": "true"
+            },
+            "x-source": "plugins/fields/radio/radio.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/sql/sql.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query",
+            "description": "PLG_FIELDS_SQL_PARAMS_QUERY_DESC",
+            "x-joomla-form": {
+              "name": "query",
+              "type": "textarea",
+              "label": "PLG_FIELDS_SQL_PARAMS_QUERY_LABEL",
+              "description": "PLG_FIELDS_SQL_PARAMS_QUERY_DESC",
+              "filter": "raw",
+              "required": "true"
+            },
+            "x-source": "plugins/fields/sql/sql.xml"
+          },
+          "header": {
+            "type": "string",
+            "title": "Header",
+            "description": "Add a string with no value at the top of the dropdown list eg ' - Select Article - '.",
+            "x-joomla-form": {
+              "name": "header",
+              "type": "text",
+              "label": "PLG_FIELDS_SQL_PARAMS_HEADER_LABEL",
+              "description": "PLG_FIELDS_SQL_PARAMS_HEADER_DESC",
+              "filter": "string"
+            },
+            "x-source": "plugins/fields/sql/sql.xml"
+          },
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "radio",
+              "default": "0",
+              "label": "PLG_FIELDS_SQL_PARAMS_MULTIPLE_LABEL",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/sql/sql.xml"
+          },
+          "form_layout": {
+            "type": "string",
+            "enum": [
+              "joomla.form.field.list",
+              "joomla.form.field.list-fancy-select"
+            ],
+            "default": "joomla.form.field.list",
+            "title": "Form Layout",
+            "description": "Joomla form field form_layout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "form_layout",
+              "type": "list",
+              "label": "JLIB_FORM_FIELD_PARAM_LAYOUT_LABEL",
+              "default": "joomla.form.field.list"
+            },
+            "x-options": [
+              {
+                "value": "joomla.form.field.list",
+                "label": "HTML Select"
+              },
+              {
+                "value": "joomla.form.field.list-fancy-select",
+                "label": "Enhanced Select"
+              }
+            ],
+            "x-source": "plugins/fields/sql/sql.xml"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/text/text.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string",
+            "enum": [
+              "0",
+              "raw",
+              "safehtml",
+              "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+              "alnum",
+              "integer",
+              "float",
+              "tel"
+            ],
+            "default": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+            "title": "Filter",
+            "description": "Joomla form field filter; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "filter",
+              "type": "list",
+              "label": "PLG_FIELDS_TEXT_PARAMS_FILTER_LABEL",
+              "default": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "raw",
+                "label": "Raw"
+              },
+              {
+                "value": "safehtml",
+                "label": "Safe HTML"
+              },
+              {
+                "value": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+                "label": "Text"
+              },
+              {
+                "value": "alnum",
+                "label": "Alpha Numeric"
+              },
+              {
+                "value": "integer",
+                "label": "Integer"
+              },
+              {
+                "value": "float",
+                "label": "Float"
+              },
+              {
+                "value": "tel",
+                "label": "Telephone"
+              }
+            ],
+            "x-source": "plugins/fields/text/text.xml"
+          },
+          "maxlength": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Maximum Length (characters)",
+            "description": "Joomla form field maxlength; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "maxlength",
+              "type": "number",
+              "label": "PLG_FIELDS_TEXT_PARAMS_MAXLENGTH_LABEL",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/text/text.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/textarea/textarea.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "rows": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "10",
+            "title": "Rows",
+            "description": "Joomla form field rows; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "rows",
+              "type": "number",
+              "label": "PLG_FIELDS_TEXTAREA_PARAMS_ROWS_LABEL",
+              "default": "10",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/textarea/textarea.xml"
+          },
+          "cols": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "10",
+            "title": "Columns",
+            "description": "Joomla form field cols; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "cols",
+              "type": "number",
+              "label": "PLG_FIELDS_TEXTAREA_PARAMS_COLS_LABEL",
+              "default": "10",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/textarea/textarea.xml"
+          },
+          "maxlength": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Maximum Length (characters)",
+            "description": "Joomla form field maxlength; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "maxlength",
+              "type": "number",
+              "label": "PLG_FIELDS_TEXTAREA_PARAMS_MAXLENGTH_LABEL",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/textarea/textarea.xml"
+          },
+          "filter": {
+            "type": "string",
+            "enum": [
+              "0",
+              "raw",
+              "safehtml",
+              "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+              "alnum",
+              "integer",
+              "float",
+              "tel"
+            ],
+            "default": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+            "title": "Filter",
+            "description": "Joomla form field filter; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "filter",
+              "type": "list",
+              "label": "PLG_FIELDS_TEXTAREA_PARAMS_FILTER_LABEL",
+              "default": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "raw",
+                "label": "Raw"
+              },
+              {
+                "value": "safehtml",
+                "label": "Safe HTML"
+              },
+              {
+                "value": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+                "label": "Text"
+              },
+              {
+                "value": "alnum",
+                "label": "Alpha Numeric"
+              },
+              {
+                "value": "integer",
+                "label": "Integer"
+              },
+              {
+                "value": "float",
+                "label": "Float"
+              },
+              {
+                "value": "tel",
+                "label": "Telephone"
+              }
+            ],
+            "x-source": "plugins/fields/textarea/textarea.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/url/url.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "schemes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "http",
+                "https",
+                "ftp",
+                "ftps",
+                "file",
+                "mailto"
+              ]
+            },
+            "title": "Schemes",
+            "description": "Joomla form field schemes; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "schemes",
+              "type": "list",
+              "label": "PLG_FIELDS_URL_PARAMS_SCHEMES_LABEL",
+              "multiple": "true",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "http",
+                "label": "HTTP"
+              },
+              {
+                "value": "https",
+                "label": "HTTPS"
+              },
+              {
+                "value": "ftp",
+                "label": "FTP"
+              },
+              {
+                "value": "ftps",
+                "label": "FTPS"
+              },
+              {
+                "value": "file",
+                "label": "FILE"
+              },
+              {
+                "value": "mailto",
+                "label": "MAILTO"
+              }
+            ],
+            "x-source": "plugins/fields/url/url.xml"
+          },
+          "relative": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Relative URLs",
+            "description": "Joomla form field relative; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "relative",
+              "type": "radio",
+              "label": "PLG_FIELDS_URL_PARAMS_RELATIVE_LABEL",
+              "default": "1",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/url/url.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/usergrouplist/usergrouplist.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "radio",
+              "label": "PLG_FIELDS_USERGROUPLIST_PARAMS_MULTIPLE_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/usergrouplist/usergrouplist.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/calendar/params/calendar.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "showtime": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Show Time",
+            "description": "If enabled, the calendar field expects a date and time and will also display the time. The formats are localised using the regular language strings.",
+            "x-joomla-form": {
+              "name": "showtime",
+              "type": "radio",
+              "label": "PLG_FIELDS_CALENDAR_PARAMS_SHOWTIME_LABEL",
+              "description": "PLG_FIELDS_CALENDAR_PARAMS_SHOWTIME_DESC",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/calendar/params/calendar.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/checkboxes/params/checkboxes.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_NAME_LABEL",
+                        "required": "true"
+                      },
+                      "x-source": "plugins/fields/checkboxes/params/checkboxes.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/checkboxes/params/checkboxes.xml"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "name"
+                  ]
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_NAME_LABEL",
+                        "required": "true"
+                      },
+                      "x-source": "plugins/fields/checkboxes/params/checkboxes.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/checkboxes/params/checkboxes.xml"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            ],
+            "x-subform-row-key": "Repeated form rows may be a JSON array or a row-keyed object; preserve the format of the owning field.",
+            "title": "Checkbox Values",
+            "description": "Joomla form field options; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "options",
+              "type": "subform",
+              "label": "PLG_FIELDS_CHECKBOXES_PARAMS_OPTIONS_LABEL",
+              "icon": "list",
+              "multiple": "true"
+            },
+            "x-source": "plugins/fields/checkboxes/params/checkboxes.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/editor/params/editor.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "buttons": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              "",
+              1,
+              0,
+              "1",
+              "0"
+            ],
+            "title": "Buttons",
+            "description": "Joomla form field buttons; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "buttons",
+              "type": "list",
+              "label": "PLG_FIELDS_EDITOR_PARAMS_SHOW_BUTTONS_LABEL",
+              "filter": "integer",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/editor/params/editor.xml"
+          },
+          "hide": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "Hide Buttons",
+            "description": "Joomla form field hide; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "hide",
+              "type": "plugins",
+              "label": "PLG_FIELDS_EDITOR_PARAMS_BUTTONS_HIDE_LABEL",
+              "folder": "editors-xtd",
+              "multiple": "true"
+            },
+            "x-source": "plugins/fields/editor/params/editor.xml"
+          },
+          "width": {
+            "type": "string",
+            "title": "Width",
+            "description": "Joomla form field width; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "width",
+              "type": "text",
+              "label": "PLG_FIELDS_EDITOR_PARAMS_WIDTH_LABEL"
+            },
+            "x-source": "plugins/fields/editor/params/editor.xml"
+          },
+          "height": {
+            "type": "string",
+            "title": "Height",
+            "description": "Joomla form field height; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "height",
+              "type": "text",
+              "label": "PLG_FIELDS_EDITOR_PARAMS_HEIGHT_LABEL"
+            },
+            "x-source": "plugins/fields/editor/params/editor.xml"
+          },
+          "filter": {
+            "type": "string",
+            "enum": [
+              "",
+              "0",
+              "raw",
+              "safehtml",
+              "\\Joomla\\CMS\\Component\\ComponentHelper::filterText"
+            ],
+            "title": "Filter",
+            "description": "Joomla form field filter; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "filter",
+              "type": "list",
+              "label": "PLG_FIELDS_TEXT_PARAMS_FILTER_LABEL",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "raw",
+                "label": "Raw"
+              },
+              {
+                "value": "safehtml",
+                "label": "Safe HTML"
+              },
+              {
+                "value": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+                "label": "Text"
+              }
+            ],
+            "x-source": "plugins/fields/editor/params/editor.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/imagelist/params/imagelist.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "title": "Directory",
+            "description": "PLG_FIELDS_IMAGELIST_PARAMS_DIRECTORY_DESC",
+            "x-joomla-form": {
+              "name": "directory",
+              "type": "folderlist",
+              "label": "PLG_FIELDS_IMAGELIST_PARAMS_DIRECTORY_LABEL",
+              "description": "PLG_FIELDS_IMAGELIST_PARAMS_DIRECTORY_DESC",
+              "directory": "images",
+              "hide_none": "true",
+              "hide_default": "true",
+              "recursive": "true",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "/",
+                "label": "/"
+              }
+            ],
+            "x-options-completeness": "Static XML options only; this field class adds dynamic instance options. These are not a closed enum.",
+            "x-source": "plugins/fields/imagelist/params/imagelist.xml"
+          },
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              "",
+              1,
+              0,
+              "1",
+              "0"
+            ],
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "list",
+              "label": "PLG_FIELDS_IMAGELIST_PARAMS_MULTIPLE_LABEL",
+              "filter": "integer",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/imagelist/params/imagelist.xml"
+          },
+          "image_class": {
+            "type": "string",
+            "title": "Image Class",
+            "description": "Joomla form field image_class; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "image_class",
+              "type": "textarea",
+              "label": "PLG_FIELDS_IMAGELIST_PARAMS_IMAGE_CLASS_LABEL",
+              "validate": "CssIdentifier"
+            },
+            "x-source": "plugins/fields/imagelist/params/imagelist.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/integer/params/integer.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              "",
+              1,
+              0,
+              "1",
+              "0"
+            ],
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "list",
+              "label": "PLG_FIELDS_INTEGER_PARAMS_MULTIPLE_LABEL",
+              "filter": "integer",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/integer/params/integer.xml"
+          },
+          "first": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "First",
+            "description": "Joomla form field first; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "first",
+              "type": "number",
+              "label": "PLG_FIELDS_INTEGER_PARAMS_FIRST_LABEL",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/integer/params/integer.xml"
+          },
+          "last": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Last",
+            "description": "Joomla form field last; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "last",
+              "type": "number",
+              "label": "PLG_FIELDS_INTEGER_PARAMS_LAST_LABEL",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/integer/params/integer.xml"
+          },
+          "step": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Step Increment",
+            "description": "Joomla form field step; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "step",
+              "type": "number",
+              "label": "PLG_FIELDS_INTEGER_PARAMS_STEP_LABEL",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/integer/params/integer.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "form_layout": {
+            "type": "string",
+            "enum": [
+              "",
+              "joomla.form.field.list",
+              "joomla.form.field.list-fancy-select"
+            ],
+            "title": "Form Layout",
+            "description": "Joomla form field form_layout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "form_layout",
+              "type": "list",
+              "label": "JLIB_FORM_FIELD_PARAM_LAYOUT_LABEL"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "joomla.form.field.list",
+                "label": "HTML Select"
+              },
+              {
+                "value": "joomla.form.field.list-fancy-select",
+                "label": "Enhanced Select"
+              }
+            ],
+            "x-source": "plugins/fields/integer/params/integer.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/list/params/list.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "header": {
+            "type": "string",
+            "title": "Header",
+            "description": "Add a string with no value at the top of the dropdown list eg ' - Select Article - '.",
+            "x-joomla-form": {
+              "name": "header",
+              "type": "text",
+              "label": "PLG_FIELDS_LIST_PARAMS_HEADER_LABEL",
+              "description": "PLG_FIELDS_LIST_PARAMS_HEADER_DESC",
+              "filter": "string"
+            },
+            "x-source": "plugins/fields/list/params/list.xml"
+          },
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              "",
+              1,
+              0,
+              "1",
+              "0"
+            ],
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "list",
+              "label": "PLG_FIELDS_LIST_PARAMS_MULTIPLE_LABEL",
+              "filter": "integer",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/list/params/list.xml"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_NAME_LABEL",
+                        "required": "true"
+                      },
+                      "x-source": "plugins/fields/list/params/list.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/list/params/list.xml"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "name"
+                  ]
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_NAME_LABEL",
+                        "required": "true"
+                      },
+                      "x-source": "plugins/fields/list/params/list.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/list/params/list.xml"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            ],
+            "x-subform-row-key": "Repeated form rows may be a JSON array or a row-keyed object; preserve the format of the owning field.",
+            "title": "List Values",
+            "description": "Joomla form field options; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "options",
+              "type": "subform",
+              "label": "PLG_FIELDS_LIST_PARAMS_OPTIONS_LABEL",
+              "icon": "list",
+              "multiple": "true"
+            },
+            "x-source": "plugins/fields/list/params/list.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "form_layout": {
+            "type": "string",
+            "enum": [
+              "",
+              "joomla.form.field.list",
+              "joomla.form.field.list-fancy-select"
+            ],
+            "title": "Form Layout",
+            "description": "Joomla form field form_layout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "form_layout",
+              "type": "list",
+              "label": "JLIB_FORM_FIELD_PARAM_LAYOUT_LABEL"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "joomla.form.field.list",
+                "label": "HTML Select"
+              },
+              {
+                "value": "joomla.form.field.list-fancy-select",
+                "label": "Enhanced Select"
+              }
+            ],
+            "x-source": "plugins/fields/list/params/list.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/media/params/audio.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "title": "Directory",
+            "description": "Joomla form field directory; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "directory",
+              "type": "media",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_DIRECTORY_LABEL",
+              "preview": "false",
+              "types": "directories"
+            },
+            "x-source": "plugins/fields/media/params/audio.xml"
+          },
+          "preview": {
+            "type": "string",
+            "enum": [
+              "",
+              "true",
+              "false"
+            ],
+            "title": "Preview",
+            "description": "Joomla form field preview; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "preview",
+              "type": "list",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_PREVIEW_LABEL",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "true",
+                "label": "Inline"
+              },
+              {
+                "value": "false",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/audio.xml"
+          },
+          "css_class": {
+            "type": "string",
+            "title": "CSS Class",
+            "description": "Joomla form field css_class; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "css_class",
+              "type": "textarea",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_CSS_CLASS_LABEL",
+              "validate": "CssIdentifier"
+            },
+            "x-source": "plugins/fields/media/params/audio.xml"
+          },
+          "types": {
+            "type": "string",
+            "default": "audios",
+            "title": "types",
+            "description": "Joomla form field types; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "hidden",
+              "name": "types",
+              "default": "audios"
+            },
+            "x-source": "plugins/fields/media/params/audio.xml"
+          },
+          "controls": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Show Controls",
+            "description": "Joomla form field controls; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "controls",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_CONTROLS_LABEL",
+              "default": "1",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/audio.xml"
+          },
+          "autoplay": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Autoplay",
+            "description": "Joomla form field autoplay; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "autoplay",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_AUTOPLAY_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/audio.xml"
+          },
+          "loop": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Loop Playback",
+            "description": "Joomla form field loop; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "loop",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_LOOP_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/audio.xml"
+          },
+          "muted": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Muted",
+            "description": "Joomla form field muted; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "muted",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_MUTED_LABEL",
+              "default": "0",
+              "filter": "integer",
+              "showon": "autoplay:1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/audio.xml"
+          },
+          "preload": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "none",
+              "metadata"
+            ],
+            "default": "auto",
+            "title": "Preload",
+            "description": "Joomla form field preload; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "list",
+              "name": "preload",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_PRELOAD_LABEL",
+              "validate": "options",
+              "default": "auto",
+              "showon": "autoplay:0"
+            },
+            "x-options": [
+              {
+                "value": "auto",
+                "label": "Preload Automatically"
+              },
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "metadata",
+                "label": "Metadata Only"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/audio.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/media/params/document.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "title": "Directory",
+            "description": "Joomla form field directory; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "directory",
+              "type": "media",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_DIRECTORY_LABEL",
+              "preview": "false",
+              "types": "directories"
+            },
+            "x-source": "plugins/fields/media/params/document.xml"
+          },
+          "preview": {
+            "type": "string",
+            "enum": [
+              "",
+              "true",
+              "false"
+            ],
+            "title": "Preview",
+            "description": "Joomla form field preview; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "preview",
+              "type": "list",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_PREVIEW_LABEL",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "true",
+                "label": "Inline"
+              },
+              {
+                "value": "false",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/document.xml"
+          },
+          "css_class": {
+            "type": "string",
+            "title": "CSS Class",
+            "description": "Joomla form field css_class; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "css_class",
+              "type": "textarea",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_CSS_CLASS_LABEL",
+              "validate": "CssIdentifier"
+            },
+            "x-source": "plugins/fields/media/params/document.xml"
+          },
+          "types": {
+            "type": "string",
+            "default": "documents",
+            "title": "types",
+            "description": "Joomla form field types; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "hidden",
+              "name": "types",
+              "default": "documents"
+            },
+            "x-source": "plugins/fields/media/params/document.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/media/params/media.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "title": "Directory",
+            "description": "Joomla form field directory; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "directory",
+              "type": "media",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_DIRECTORY_LABEL",
+              "preview": "false",
+              "types": "directories"
+            },
+            "x-source": "plugins/fields/media/params/media.xml"
+          },
+          "preview": {
+            "type": "string",
+            "enum": [
+              "",
+              "true",
+              "false"
+            ],
+            "title": "Preview",
+            "description": "Joomla form field preview; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "preview",
+              "type": "list",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_PREVIEW_LABEL",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "true",
+                "label": "Inline"
+              },
+              {
+                "value": "false",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/media.xml"
+          },
+          "image_class": {
+            "type": "string",
+            "title": "Image Class",
+            "description": "Joomla form field image_class; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "image_class",
+              "type": "textarea",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_IMAGE_CLASS_LABEL",
+              "validate": "CssIdentifier"
+            },
+            "x-source": "plugins/fields/media/params/media.xml"
+          },
+          "types": {
+            "type": "string",
+            "default": "images",
+            "title": "types",
+            "description": "Joomla form field types; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "hidden",
+              "name": "types",
+              "default": "images"
+            },
+            "x-source": "plugins/fields/media/params/media.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/media/params/video.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "title": "Directory",
+            "description": "Joomla form field directory; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "directory",
+              "type": "media",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_DIRECTORY_LABEL",
+              "preview": "false",
+              "types": "directories"
+            },
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "preview": {
+            "type": "string",
+            "enum": [
+              "",
+              "true",
+              "false"
+            ],
+            "title": "Preview",
+            "description": "Joomla form field preview; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "preview",
+              "type": "list",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_PREVIEW_LABEL",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "true",
+                "label": "Inline"
+              },
+              {
+                "value": "false",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "css_class": {
+            "type": "string",
+            "title": "CSS Class",
+            "description": "Joomla form field css_class; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "css_class",
+              "type": "textarea",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_CSS_CLASS_LABEL",
+              "validate": "CssIdentifier"
+            },
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "types": {
+            "type": "string",
+            "default": "videos",
+            "title": "types",
+            "description": "Joomla form field types; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "hidden",
+              "name": "types",
+              "default": "videos"
+            },
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "video_poster": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Poster Image",
+            "description": "Joomla form field video_poster; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "video_poster",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_VIDEO_POSTER_LABEL",
+              "default": "1",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "controls": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Show Controls",
+            "description": "Joomla form field controls; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "controls",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_CONTROLS_LABEL",
+              "default": "1",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "autoplay": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Autoplay",
+            "description": "Joomla form field autoplay; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "autoplay",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_AUTOPLAY_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "muted": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Muted",
+            "description": "Joomla form field muted; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "muted",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_MUTED_LABEL",
+              "default": "1",
+              "filter": "integer",
+              "showon": "autoplay:1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "loop": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Loop Playback",
+            "description": "Joomla form field loop; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "loop",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_LOOP_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "video_playsinline": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Play Inline",
+            "description": "Joomla form field video_playsinline; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "radio",
+              "name": "video_playsinline",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_VIDEO_PLAYSINLINE_LABEL",
+              "default": "1",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/video.xml"
+          },
+          "preload": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "none",
+              "metadata"
+            ],
+            "default": "auto",
+            "title": "Preload",
+            "description": "Joomla form field preload; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "type": "list",
+              "name": "preload",
+              "label": "PLG_FIELDS_MEDIA_PARAMS_PRELOAD_LABEL",
+              "validate": "options",
+              "default": "auto",
+              "showon": "autoplay:0"
+            },
+            "x-options": [
+              {
+                "value": "auto",
+                "label": "Preload Automatically"
+              },
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "metadata",
+                "label": "Metadata Only"
+              }
+            ],
+            "x-source": "plugins/fields/media/params/video.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/note/params/note.xml": {
+    "type": "object",
+    "properties": {
+      "params": {
+        "type": "object",
+        "properties": {
+          "display_frontend": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Display In Frontend",
+            "description": "Joomla form field display_frontend; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "display_frontend",
+              "type": "radio",
+              "label": "PLG_FIELDS_NOTE_PARAMS_DISPLAY_FRONTEND_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/note/params/note.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Note Heading",
+            "description": "Joomla form field label; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "label",
+              "type": "text",
+              "label": "PLG_FIELDS_NOTE_PARAMS_LABEL_LABEL"
+            },
+            "x-source": "plugins/fields/note/params/note.xml"
+          },
+          "description": {
+            "type": "string",
+            "title": "Note Content",
+            "description": "Joomla form field description; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "description",
+              "type": "editor",
+              "label": "PLG_FIELDS_NOTE_PARAMS_DESCRIPTION_LABEL",
+              "filter": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+              "buttons": "false"
+            },
+            "x-source": "plugins/fields/note/params/note.xml"
+          },
+          "class": {
+            "type": "string",
+            "default": "alert alert-info",
+            "title": "Note Class",
+            "description": "The class used on the div of the note.",
+            "x-joomla-form": {
+              "name": "class",
+              "type": "text",
+              "label": "PLG_FIELDS_NOTE_PARAMS_CLASS_LABEL",
+              "description": "PLG_FIELDS_NOTE_PARAMS_CLASS_DESC",
+              "default": "alert alert-info"
+            },
+            "x-source": "plugins/fields/note/params/note.xml"
+          },
+          "heading": {
+            "type": "string",
+            "enum": [
+              "h1",
+              "h2",
+              "h3",
+              "h4",
+              "h5",
+              "h6"
+            ],
+            "default": "h4",
+            "title": "Heading Tag",
+            "description": "Joomla form field heading; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "heading",
+              "type": "list",
+              "label": "PLG_FIELDS_NOTE_PARAMS_HEADING_LABEL",
+              "default": "h4"
+            },
+            "x-options": [
+              {
+                "value": "h1",
+                "label": "h1"
+              },
+              {
+                "value": "h2",
+                "label": "h2"
+              },
+              {
+                "value": "h3",
+                "label": "h3"
+              },
+              {
+                "value": "h4",
+                "label": "h4"
+              },
+              {
+                "value": "h5",
+                "label": "h5"
+              },
+              {
+                "value": "h6",
+                "label": "h6"
+              }
+            ],
+            "x-source": "plugins/fields/note/params/note.xml"
+          },
+          "close": {
+            "type": "string",
+            "default": "true",
+            "title": "Show Close Button",
+            "description": "This field controls the display of an \"x\" to close the note. It takes a value of 'true' (for alerts) or the value for the data-dismiss of the Bootstrap close icon.",
+            "x-joomla-form": {
+              "name": "close",
+              "type": "text",
+              "label": "PLG_FIELDS_NOTE_PARAMS_CLOSE_LABEL",
+              "description": "PLG_FIELDS_NOTE_PARAMS_CLOSE_DESC",
+              "default": "true"
+            },
+            "x-source": "plugins/fields/note/params/note.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/number/params/number.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "pattern": "^-?(?:[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+)$",
+            "description": "Numeric input or its decimal string representation. Minimum value that can be chosen (only limits the up/down arrows).",
+            "title": "Minimum",
+            "x-joomla-form": {
+              "name": "min",
+              "type": "number",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_MIN_LABEL",
+              "description": "PLG_FIELDS_NUMBER_PARAMS_MIN_DESC",
+              "filter": "float"
+            },
+            "x-source": "plugins/fields/number/params/number.xml"
+          },
+          "max": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "pattern": "^-?(?:[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+)$",
+            "description": "Numeric input or its decimal string representation. Maximum value that can be chosen (only limits the up/down arrows).",
+            "title": "Maximum",
+            "x-joomla-form": {
+              "name": "max",
+              "type": "number",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_MAX_LABEL",
+              "description": "PLG_FIELDS_NUMBER_PARAMS_MAX_DESC",
+              "filter": "float"
+            },
+            "x-source": "plugins/fields/number/params/number.xml"
+          },
+          "step": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "pattern": "^-?(?:[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+)$",
+            "description": "Numeric input or its decimal string representation.",
+            "default": "1.0",
+            "title": "Step Increment",
+            "x-joomla-form": {
+              "name": "step",
+              "type": "number",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_STEP_LABEL",
+              "default": "1.0",
+              "filter": "float"
+            },
+            "x-source": "plugins/fields/number/params/number.xml"
+          },
+          "currency": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Format as Currency",
+            "description": "Joomla form field currency; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "currency",
+              "type": "radio",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_CURRENCY_LABEL",
+              "default": "0",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/number/params/number.xml"
+          },
+          "symbol": {
+            "type": "string",
+            "title": "Currency Symbol",
+            "description": "Joomla form field symbol; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "symbol",
+              "type": "text",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_SYMBOL_LABEL",
+              "filter": "string",
+              "showon": "currency:1"
+            },
+            "x-source": "plugins/fields/number/params/number.xml"
+          },
+          "position": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "0",
+            "title": "Symbol Position",
+            "description": "Joomla form field position; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "position",
+              "type": "list",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_POSITION_LABEL",
+              "default": "0",
+              "filter": "integer",
+              "showon": "currency:1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "Before"
+              },
+              {
+                "value": "1",
+                "label": "After"
+              }
+            ],
+            "x-source": "plugins/fields/number/params/number.xml"
+          },
+          "decimals": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "2",
+            "title": "Number of Decimals",
+            "description": "Joomla form field decimals; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "decimals",
+              "type": "int",
+              "label": "PLG_FIELDS_NUMBER_PARAMS_DECIMALS_LABEL",
+              "default": "2",
+              "filter": "integer",
+              "showon": "currency:1",
+              "min": "0",
+              "max": "10"
+            },
+            "x-source": "plugins/fields/number/params/number.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/radio/params/radio.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_NAME_LABEL",
+                        "required": "true"
+                      },
+                      "x-source": "plugins/fields/radio/params/radio.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/radio/params/radio.xml"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "name"
+                  ]
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "title": "Text",
+                      "description": "Joomla form field name; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "name",
+                        "type": "text",
+                        "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_NAME_LABEL",
+                        "required": "true"
+                      },
+                      "x-source": "plugins/fields/radio/params/radio.xml"
+                    },
+                    "value": {
+                      "type": "string",
+                      "title": "Value",
+                      "description": "Joomla form field value; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "value",
+                        "type": "text",
+                        "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_VALUE_LABEL"
+                      },
+                      "x-source": "plugins/fields/radio/params/radio.xml"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            ],
+            "x-subform-row-key": "Repeated form rows may be a JSON array or a row-keyed object; preserve the format of the owning field.",
+            "title": "Radio Values",
+            "description": "Joomla form field options; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "options",
+              "type": "subform",
+              "label": "PLG_FIELDS_RADIO_PARAMS_OPTIONS_LABEL",
+              "icon": "list",
+              "multiple": "true"
+            },
+            "x-source": "plugins/fields/radio/params/radio.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "form_layout": {
+            "type": "string",
+            "enum": [
+              "",
+              "joomla.form.field.radio.buttons",
+              "joomla.form.field.radio.switcher"
+            ],
+            "title": "Form Layout",
+            "description": "Joomla form field form_layout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "form_layout",
+              "type": "list",
+              "label": "JLIB_FORM_FIELD_PARAM_LAYOUT_LABEL"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "joomla.form.field.radio.buttons",
+                "label": "Buttons"
+              },
+              {
+                "value": "joomla.form.field.radio.switcher",
+                "label": "Switcher"
+              }
+            ],
+            "x-source": "plugins/fields/radio/params/radio.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/sql/params/sql.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query",
+            "description": "PLG_FIELDS_SQL_PARAMS_QUERY_DESC",
+            "x-joomla-form": {
+              "name": "query",
+              "type": "textarea",
+              "label": "PLG_FIELDS_SQL_PARAMS_QUERY_LABEL",
+              "description": "PLG_FIELDS_SQL_PARAMS_QUERY_DESC",
+              "filter": "raw",
+              "required": "true"
+            },
+            "x-source": "plugins/fields/sql/params/sql.xml"
+          },
+          "header": {
+            "type": "string",
+            "title": "Header",
+            "description": "Add a string with no value at the top of the dropdown list eg ' - Select Article - '.",
+            "x-joomla-form": {
+              "name": "header",
+              "type": "text",
+              "label": "PLG_FIELDS_SQL_PARAMS_HEADER_LABEL",
+              "description": "PLG_FIELDS_SQL_PARAMS_HEADER_DESC",
+              "filter": "string"
+            },
+            "x-source": "plugins/fields/sql/params/sql.xml"
+          },
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              "",
+              1,
+              0,
+              "1",
+              "0"
+            ],
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "list",
+              "label": "PLG_FIELDS_SQL_PARAMS_MULTIPLE_LABEL",
+              "filter": "integer",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/sql/params/sql.xml"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "form_layout": {
+            "type": "string",
+            "enum": [
+              "",
+              "joomla.form.field.list",
+              "joomla.form.field.list-fancy-select"
+            ],
+            "title": "Form Layout",
+            "description": "Joomla form field form_layout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "form_layout",
+              "type": "list",
+              "label": "JLIB_FORM_FIELD_PARAM_LAYOUT_LABEL"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "joomla.form.field.list",
+                "label": "HTML Select"
+              },
+              {
+                "value": "joomla.form.field.list-fancy-select",
+                "label": "Enhanced Select"
+              }
+            ],
+            "x-source": "plugins/fields/sql/params/sql.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/subform/params/subform.xml": {
+    "type": "object",
+    "properties": {
+      "default_value": {
+        "type": "string",
+        "default": "",
+        "title": "default_value",
+        "description": "Joomla form field default_value; input is validated and filtered according to x-joomla-form.",
+        "x-joomla-form": {
+          "name": "default_value",
+          "type": "hidden",
+          "default": ""
+        },
+        "x-source": "plugins/fields/subform/params/subform.xml"
+      },
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "repeat": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Repeatable",
+            "description": "Joomla form field repeat; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "repeat",
+              "type": "radio",
+              "label": "PLG_FIELDS_SUBFORM_PARAMS_REPEAT_LABEL",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/subform/params/subform.xml"
+          },
+          "max_rows": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "default": "",
+            "title": "Maximum Rows",
+            "description": "Joomla form field max_rows; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "max_rows",
+              "type": "number",
+              "label": "PLG_FIELDS_SUBFORM_PARAMS_MAX_ROWS_LABEL",
+              "default": "",
+              "filter": "integer",
+              "showon": "repeat:1"
+            },
+            "x-source": "plugins/fields/subform/params/subform.xml"
+          },
+          "options": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "customfield": {
+                      "type": "string",
+                      "default": "",
+                      "title": "Field",
+                      "description": "Joomla form field customfield; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "context": "",
+                        "name": "customfield",
+                        "type": "subfields",
+                        "label": "PLG_FIELDS_SUBFORM_PARAMS_CUSTOMFIELD_LABEL",
+                        "default": "",
+                        "required": "true"
+                      },
+                      "x-source": "plugins/fields/subform/params/subform.xml"
+                    },
+                    "render_values": {
+                      "type": [
+                        "integer",
+                        "string"
+                      ],
+                      "pattern": "^(?:-?[0-9]+)?$",
+                      "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+                      "enum": [
+                        0,
+                        1,
+                        "0",
+                        "1"
+                      ],
+                      "default": "1",
+                      "title": "Render Values",
+                      "description": "Joomla form field render_values; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "render_values",
+                        "type": "radio",
+                        "label": "PLG_FIELDS_SUBFORM_PARAMS_RENDER_VALUES_LABEL",
+                        "default": "1"
+                      },
+                      "x-options": [
+                        {
+                          "value": "0",
+                          "label": "No"
+                        },
+                        {
+                          "value": "1",
+                          "label": "Yes"
+                        }
+                      ],
+                      "x-source": "plugins/fields/subform/params/subform.xml"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "customfield"
+                  ]
+                }
+              },
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "customfield": {
+                      "type": "string",
+                      "default": "",
+                      "title": "Field",
+                      "description": "Joomla form field customfield; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "context": "",
+                        "name": "customfield",
+                        "type": "subfields",
+                        "label": "PLG_FIELDS_SUBFORM_PARAMS_CUSTOMFIELD_LABEL",
+                        "default": "",
+                        "required": "true"
+                      },
+                      "x-source": "plugins/fields/subform/params/subform.xml"
+                    },
+                    "render_values": {
+                      "type": [
+                        "integer",
+                        "string"
+                      ],
+                      "pattern": "^(?:-?[0-9]+)?$",
+                      "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+                      "enum": [
+                        0,
+                        1,
+                        "0",
+                        "1"
+                      ],
+                      "default": "1",
+                      "title": "Render Values",
+                      "description": "Joomla form field render_values; input is validated and filtered according to x-joomla-form.",
+                      "x-joomla-form": {
+                        "name": "render_values",
+                        "type": "radio",
+                        "label": "PLG_FIELDS_SUBFORM_PARAMS_RENDER_VALUES_LABEL",
+                        "default": "1"
+                      },
+                      "x-options": [
+                        {
+                          "value": "0",
+                          "label": "No"
+                        },
+                        {
+                          "value": "1",
+                          "label": "Yes"
+                        }
+                      ],
+                      "x-source": "plugins/fields/subform/params/subform.xml"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "customfield"
+                  ]
+                }
+              }
+            ],
+            "x-subform-row-key": "Repeated form rows may be a JSON array or a row-keyed object; preserve the format of the owning field.",
+            "title": "Fields",
+            "description": "Joomla form field options; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "options",
+              "type": "subform",
+              "label": "PLG_FIELDS_SUBFORM_PARAMS_OPTIONS_LABEL",
+              "icon": "list",
+              "min": "1",
+              "multiple": "true"
+            },
+            "x-source": "plugins/fields/subform/params/subform.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "form_layout": {
+            "type": "string",
+            "enum": [
+              "",
+              "joomla.form.field.subform.repeatable",
+              "joomla.form.field.subform.repeatable-grid",
+              "joomla.form.field.subform.repeatable-table"
+            ],
+            "default": "",
+            "title": "Form Layout",
+            "description": "Joomla form field form_layout; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "form_layout",
+              "type": "list",
+              "label": "JLIB_FORM_FIELD_PARAM_LAYOUT_LABEL",
+              "default": "",
+              "showon": "repeat:1"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Default"
+              },
+              {
+                "value": "joomla.form.field.subform.repeatable",
+                "label": "Form"
+              },
+              {
+                "value": "joomla.form.field.subform.repeatable-grid",
+                "label": "Form Grid"
+              },
+              {
+                "value": "joomla.form.field.subform.repeatable-table",
+                "label": "Table"
+              }
+            ],
+            "x-source": "plugins/fields/subform/params/subform.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/text/params/text.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string",
+            "enum": [
+              "",
+              "0",
+              "raw",
+              "safehtml",
+              "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+              "alnum",
+              "integer",
+              "float",
+              "tel"
+            ],
+            "title": "Filter",
+            "description": "Joomla form field filter; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "filter",
+              "type": "list",
+              "label": "PLG_FIELDS_TEXT_PARAMS_FILTER_LABEL",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "raw",
+                "label": "Raw"
+              },
+              {
+                "value": "safehtml",
+                "label": "Safe HTML"
+              },
+              {
+                "value": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+                "label": "Text"
+              },
+              {
+                "value": "alnum",
+                "label": "Alpha Numeric"
+              },
+              {
+                "value": "integer",
+                "label": "Integer"
+              },
+              {
+                "value": "float",
+                "label": "Float"
+              },
+              {
+                "value": "tel",
+                "label": "Telephone"
+              }
+            ],
+            "x-source": "plugins/fields/text/params/text.xml"
+          },
+          "maxlength": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Maximum Length (characters)",
+            "description": "Joomla form field maxlength; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "maxlength",
+              "type": "number",
+              "label": "PLG_FIELDS_TEXT_PARAMS_MAXLENGTH_LABEL",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/text/params/text.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/textarea/params/textarea.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "rows": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Rows",
+            "description": "Joomla form field rows; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "rows",
+              "type": "number",
+              "label": "PLG_FIELDS_TEXTAREA_PARAMS_ROWS_LABEL",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/textarea/params/textarea.xml"
+          },
+          "cols": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Columns",
+            "description": "Joomla form field cols; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "cols",
+              "type": "number",
+              "label": "PLG_FIELDS_TEXTAREA_PARAMS_COLS_LABEL",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/textarea/params/textarea.xml"
+          },
+          "maxlength": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "title": "Maximum Length (characters)",
+            "description": "Joomla form field maxlength; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "maxlength",
+              "type": "number",
+              "label": "PLG_FIELDS_TEXTAREA_PARAMS_MAXLENGTH_LABEL",
+              "filter": "integer"
+            },
+            "x-source": "plugins/fields/textarea/params/textarea.xml"
+          },
+          "filter": {
+            "type": "string",
+            "enum": [
+              "",
+              "0",
+              "raw",
+              "safehtml",
+              "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+              "alnum",
+              "integer",
+              "float",
+              "tel"
+            ],
+            "title": "Filter",
+            "description": "Joomla form field filter; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "filter",
+              "type": "list",
+              "label": "PLG_FIELDS_TEXTAREA_PARAMS_FILTER_LABEL",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "raw",
+                "label": "Raw"
+              },
+              {
+                "value": "safehtml",
+                "label": "Safe HTML"
+              },
+              {
+                "value": "\\Joomla\\CMS\\Component\\ComponentHelper::filterText",
+                "label": "Text"
+              },
+              {
+                "value": "alnum",
+                "label": "Alpha Numeric"
+              },
+              {
+                "value": "integer",
+                "label": "Integer"
+              },
+              {
+                "value": "float",
+                "label": "Float"
+              },
+              {
+                "value": "tel",
+                "label": "Telephone"
+              }
+            ],
+            "x-source": "plugins/fields/textarea/params/textarea.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/url/params/url.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "schemes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "http",
+                "https",
+                "ftp",
+                "ftps",
+                "file",
+                "mailto"
+              ]
+            },
+            "title": "Schemes",
+            "description": "Joomla form field schemes; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "schemes",
+              "type": "list",
+              "label": "PLG_FIELDS_URL_PARAMS_SCHEMES_LABEL",
+              "multiple": "true",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "http",
+                "label": "HTTP"
+              },
+              {
+                "value": "https",
+                "label": "HTTPS"
+              },
+              {
+                "value": "ftp",
+                "label": "FTP"
+              },
+              {
+                "value": "ftps",
+                "label": "FTPS"
+              },
+              {
+                "value": "file",
+                "label": "FILE"
+              },
+              {
+                "value": "mailto",
+                "label": "MAILTO"
+              }
+            ],
+            "x-source": "plugins/fields/url/params/url.xml"
+          },
+          "relative": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              "",
+              1,
+              0,
+              "1",
+              "0"
+            ],
+            "title": "Relative URLs",
+            "description": "Joomla form field relative; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "relative",
+              "type": "list",
+              "label": "PLG_FIELDS_URL_PARAMS_RELATIVE_LABEL",
+              "filter": "integer",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/url/params/url.xml"
+          },
+          "show_url": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Show URL",
+            "description": "Joomla form field show_url; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "show_url",
+              "type": "radio",
+              "label": "PLG_FIELDS_URL_PARAMS_SHOW_URL",
+              "default": "1",
+              "filter": "integer"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "plugins/fields/url/params/url.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/user/params/user.xml": {
+    "type": "object",
+    "properties": {
+      "default_value": {
+        "type": [
+          "integer",
+          "string"
+        ],
+        "pattern": "^(?:-?[0-9]+)?$",
+        "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+        "title": "Default User",
+        "description": "Joomla form field default_value; input is validated and filtered according to x-joomla-form.",
+        "x-joomla-form": {
+          "name": "default_value",
+          "type": "user",
+          "label": "PLG_FIELDS_USER_DEFAULT_VALUE_LABEL",
+          "validate": "UserId"
+        },
+        "x-source": "plugins/fields/user/params/user.xml"
+      },
+      "params": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "plugins/fields/usergrouplist/params/usergrouplist.xml": {
+    "type": "object",
+    "properties": {
+      "fieldparams": {
+        "type": "object",
+        "properties": {
+          "multiple": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              "",
+              1,
+              0,
+              "1",
+              "0"
+            ],
+            "title": "Multiple",
+            "description": "Joomla form field multiple; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "multiple",
+              "type": "list",
+              "label": "PLG_FIELDS_USERGROUPLIST_PARAMS_MULTIPLE_LABEL",
+              "filter": "integer",
+              "validate": "options"
+            },
+            "x-options": [
+              {
+                "value": "",
+                "label": "Use settings from Plugin"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              },
+              {
+                "value": "0",
+                "label": "No"
+              }
+            ],
+            "x-source": "plugins/fields/usergrouplist/params/usergrouplist.xml"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+}

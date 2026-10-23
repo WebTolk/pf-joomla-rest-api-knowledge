@@ -1,0 +1,204 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/banners",
+    "task": "banners.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/BannersController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/{id}",
+    "task": "banners.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/BannersController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/banners",
+    "task": "banners.add",
+    "support": "source-derived",
+    "request_schema": "com_banners_post_v1_bannersRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/BannersController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/banners/{id}",
+    "task": "banners.edit",
+    "support": "source-derived",
+    "request_schema": "com_banners_patch_v1_banners_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/BannersController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/banners/{id}",
+    "task": "banners.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/BannersController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/clients",
+    "task": "clients.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/ClientsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/clients/{id}",
+    "task": "clients.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/ClientsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/banners/clients",
+    "task": "clients.add",
+    "support": "source-derived",
+    "request_schema": "com_banners_post_v1_banners_clientsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/ClientsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/banners/clients/{id}",
+    "task": "clients.edit",
+    "support": "source-derived",
+    "request_schema": "com_banners_patch_v1_banners_clients_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/ClientsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/banners/clients/{id}",
+    "task": "clients.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/banners/src/Extension/Banners.php",
+      "api/components/com_banners/src/Controller/ClientsController.php"
+    ]
+  }
+]

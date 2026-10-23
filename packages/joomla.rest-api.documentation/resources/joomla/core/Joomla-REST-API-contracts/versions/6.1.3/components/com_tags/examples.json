@@ -1,0 +1,96 @@
+[
+  {
+    "operationId": "com_tags_get_v1_tags",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_tags_get_v1_tagsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "tags",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "alias": "Example",
+            "note": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_tags_get_v1_tags_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_tags_get_v1_tags_idResponse",
+    "value": {
+      "data": {
+        "type": "tags",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_tags_post_v1_tags",
+    "direction": "request",
+    "schema": "com_tags_post_v1_tagsRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_tags_post_v1_tags",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_tags_post_v1_tagsResponse",
+    "value": {
+      "data": {
+        "type": "tags",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_tags_patch_v1_tags_id",
+    "direction": "request",
+    "schema": "com_tags_patch_v1_tags_idRequest",
+    "value": {
+      "parent_id": 1,
+      "title": "Example",
+      "note": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_tags_patch_v1_tags_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_tags_patch_v1_tags_idResponse",
+    "value": {
+      "data": {
+        "type": "tags",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

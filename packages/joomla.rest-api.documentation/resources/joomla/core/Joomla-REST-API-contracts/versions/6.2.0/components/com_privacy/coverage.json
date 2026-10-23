@@ -1,0 +1,122 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/privacy/requests",
+    "task": "requests.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/privacy/src/Extension/Privacy.php",
+      "api/components/com_privacy/src/Controller/RequestsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/privacy/requests/{id}",
+    "task": "requests.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/privacy/src/Extension/Privacy.php",
+      "api/components/com_privacy/src/Controller/RequestsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/privacy/requests/export/{id}",
+    "task": "requests.export",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/privacy/src/Extension/Privacy.php",
+      "api/components/com_privacy/src/Controller/RequestsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/privacy/requests",
+    "task": "requests.add",
+    "support": "source-derived",
+    "request_schema": "com_privacy_post_v1_privacy_requestsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/privacy/src/Extension/Privacy.php",
+      "api/components/com_privacy/src/Controller/RequestsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/privacy/consents",
+    "task": "consents.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/privacy/src/Extension/Privacy.php",
+      "api/components/com_privacy/src/Controller/ConsentsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/privacy/consents/{id}",
+    "task": "consents.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/privacy/src/Extension/Privacy.php",
+      "api/components/com_privacy/src/Controller/ConsentsController.php"
+    ]
+  }
+]

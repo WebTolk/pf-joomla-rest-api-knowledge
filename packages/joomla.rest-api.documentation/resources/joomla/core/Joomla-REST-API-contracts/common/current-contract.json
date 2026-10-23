@@ -1,0 +1,36 @@
+{
+  "core_version": "6.2.0",
+  "source_resource": "joomla.core.source.6:release-6-2-0",
+  "common_resource": "joomla.rest-api.common:common-contract",
+  "overview_resource": "joomla.rest-api.documentation:rest-api-docs",
+  "component_resources": {
+    "joomla.rest-api.associations": "contract-6-2-0",
+    "joomla.rest-api.banners": "contract-6-2-0",
+    "joomla.rest-api.categories": "contract-6-2-0",
+    "joomla.rest-api.config": "contract-6-2-0",
+    "joomla.rest-api.contact": "contract-6-2-0",
+    "joomla.rest-api.content": "contract-6-2-0",
+    "joomla.rest-api.contenthistory": "contract-6-2-0",
+    "joomla.rest-api.fields": "contract-6-2-0",
+    "joomla.rest-api.finder": "contract-6-2-0",
+    "joomla.rest-api.installer": "contract-6-2-0",
+    "joomla.rest-api.joomlaupdate": "contract-6-2-0",
+    "joomla.rest-api.languages": "contract-6-2-0",
+    "joomla.rest-api.media": "contract-6-2-0",
+    "joomla.rest-api.menus": "contract-6-2-0",
+    "joomla.rest-api.messages": "contract-6-2-0",
+    "joomla.rest-api.modules": "contract-6-2-0",
+    "joomla.rest-api.newsfeeds": "contract-6-2-0",
+    "joomla.rest-api.plugins": "contract-6-2-0",
+    "joomla.rest-api.privacy": "contract-6-2-0",
+    "joomla.rest-api.redirect": "contract-6-2-0",
+    "joomla.rest-api.tags": "contract-6-2-0",
+    "joomla.rest-api.templates": "contract-6-2-0",
+    "joomla.rest-api.users": "contract-6-2-0"
+  },
+  "archived_core_versions": [
+    "5.4.8",
+    "6.1.3"
+  ],
+  "policy": "Use the 6.2.0 contract for new work. XML inventory is not the writable REST schema. Bind actual site IDs, ACL and extension schemas through the site profile."
+}

@@ -1,0 +1,103 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/messages",
+    "task": "messages.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/messages/src/Extension/Messages.php",
+      "api/components/com_messages/src/Controller/MessagesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/messages/{id}",
+    "task": "messages.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/messages/src/Extension/Messages.php",
+      "api/components/com_messages/src/Controller/MessagesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/messages",
+    "task": "messages.add",
+    "support": "source-derived",
+    "request_schema": "com_messages_post_v1_messagesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/messages/src/Extension/Messages.php",
+      "api/components/com_messages/src/Controller/MessagesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/messages/{id}",
+    "task": "messages.edit",
+    "support": "source-derived",
+    "request_schema": "com_messages_patch_v1_messages_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/messages/src/Extension/Messages.php",
+      "api/components/com_messages/src/Controller/MessagesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/messages/{id}",
+    "task": "messages.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/messages/src/Extension/Messages.php",
+      "api/components/com_messages/src/Controller/MessagesController.php"
+    ]
+  }
+]

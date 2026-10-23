@@ -1,0 +1,3135 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/banners",
+    "task": "banners.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/{id}",
+    "task": "banners.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/banners",
+    "task": "banners.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/banners/{id}",
+    "task": "banners.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/banners/{id}",
+    "task": "banners.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/clients",
+    "task": "clients.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/clients/{id}",
+    "task": "clients.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/banners/clients",
+    "task": "clients.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/banners/clients/{id}",
+    "task": "clients.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/banners/clients/{id}",
+    "task": "clients.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/categories",
+    "task": "categories.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_categories",
+      "extension": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/categories/{id}",
+    "task": "categories.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_categories",
+      "extension": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/banners/categories",
+    "task": "categories.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/banners/categories/{id}",
+    "task": "categories.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/banners/categories/{id}",
+    "task": "categories.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_banners"
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/banners/{id}/contenthistory",
+    "task": "history.displayList",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_contenthistory",
+      "type_alias": "com_banners.banner",
+      "type_id": 9
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/banners/{id}/contenthistory/keep",
+    "task": "history.keep",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_contenthistory",
+      "type_alias": "com_banners.banner",
+      "type_id": 9
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/banners/{id}/contenthistory",
+    "task": "history.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_contenthistory",
+      "type_alias": "com_banners.banner",
+      "type_id": 9
+    },
+    "plugin": "banners",
+    "source": "plugins/webservices/banners/src/Extension/Banners.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/config/application",
+    "task": "application.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_config"
+    },
+    "plugin": "config",
+    "source": "plugins/webservices/config/src/Extension/Config.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/config/application",
+    "task": "application.edit",
+    "patterns": [],
+    "defaults": {
+      "component": "com_config"
+    },
+    "plugin": "config",
+    "source": "plugins/webservices/config/src/Extension/Config.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/config/{component_name}",
+    "task": "component.displayList",
+    "patterns": {
+      "component_name": "([A-Za-z0-9_]+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_config"
+    },
+    "plugin": "config",
+    "source": "plugins/webservices/config/src/Extension/Config.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/config/{component_name}",
+    "task": "component.edit",
+    "patterns": {
+      "component_name": "([A-Za-z0-9_]+)"
+    },
+    "defaults": {
+      "component": "com_config"
+    },
+    "plugin": "config",
+    "source": "plugins/webservices/config/src/Extension/Config.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/contacts/form/{id}",
+    "task": "contact.submitForm",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts",
+    "task": "contact.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts/{id}",
+    "task": "contact.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/contacts",
+    "task": "contact.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/contacts/{id}",
+    "task": "contact.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/contacts/{id}",
+    "task": "contact.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts/categories",
+    "task": "categories.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_categories",
+      "extension": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts/categories/{id}",
+    "task": "categories.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_categories",
+      "extension": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/contacts/categories",
+    "task": "categories.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/contacts/categories/{id}",
+    "task": "categories.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/contacts/categories/{id}",
+    "task": "categories.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/contact",
+    "task": "fields.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/contact/{id}",
+    "task": "fields.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/contacts/contact",
+    "task": "fields.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/contacts/contact/{id}",
+    "task": "fields.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/contacts/contact/{id}",
+    "task": "fields.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/mail",
+    "task": "fields.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/mail/{id}",
+    "task": "fields.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/contacts/mail",
+    "task": "fields.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/contacts/mail/{id}",
+    "task": "fields.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/contacts/mail/{id}",
+    "task": "fields.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/categories",
+    "task": "fields.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/categories/{id}",
+    "task": "fields.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/contacts/categories",
+    "task": "fields.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/contacts/categories/{id}",
+    "task": "fields.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/contacts/categories/{id}",
+    "task": "fields.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/contact",
+    "task": "groups.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/contact/{id}",
+    "task": "groups.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/contacts/contact",
+    "task": "groups.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/contacts/contact/{id}",
+    "task": "groups.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/contacts/contact/{id}",
+    "task": "groups.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.contact"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/mail",
+    "task": "groups.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/mail/{id}",
+    "task": "groups.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/contacts/mail",
+    "task": "groups.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/contacts/mail/{id}",
+    "task": "groups.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/contacts/mail/{id}",
+    "task": "groups.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.mail"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/categories",
+    "task": "groups.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/categories/{id}",
+    "task": "groups.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/contacts/categories",
+    "task": "groups.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/contacts/categories/{id}",
+    "task": "groups.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/contacts/categories/{id}",
+    "task": "groups.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_contact.categories"
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/contacts/{id}/contenthistory",
+    "task": "history.displayList",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_contenthistory",
+      "type_alias": "com_contact.contact",
+      "type_id": 2
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/contacts/{id}/contenthistory/keep",
+    "task": "history.keep",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_contenthistory",
+      "type_alias": "com_contact.contact",
+      "type_id": 2
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/contacts/{id}/contenthistory",
+    "task": "history.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_contenthistory",
+      "type_alias": "com_contact.contact",
+      "type_id": 2
+    },
+    "plugin": "contact",
+    "source": "plugins/webservices/contact/src/Extension/Contact.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/content/articles",
+    "task": "articles.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/content/articles/{id}",
+    "task": "articles.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/content/articles",
+    "task": "articles.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/content/articles/{id}",
+    "task": "articles.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/content/articles/{id}",
+    "task": "articles.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/content/categories",
+    "task": "categories.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_categories",
+      "extension": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/content/categories/{id}",
+    "task": "categories.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_categories",
+      "extension": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/content/categories",
+    "task": "categories.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/content/categories/{id}",
+    "task": "categories.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/content/categories/{id}",
+    "task": "categories.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_content"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/content/articles",
+    "task": "fields.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/content/articles/{id}",
+    "task": "fields.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/content/articles",
+    "task": "fields.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/content/articles/{id}",
+    "task": "fields.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/content/articles/{id}",
+    "task": "fields.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/content/categories",
+    "task": "fields.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/content/categories/{id}",
+    "task": "fields.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/content/categories",
+    "task": "fields.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/content/categories/{id}",
+    "task": "fields.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/content/categories/{id}",
+    "task": "fields.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/content/articles",
+    "task": "groups.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/content/articles/{id}",
+    "task": "groups.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/content/articles",
+    "task": "groups.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/content/articles/{id}",
+    "task": "groups.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/content/articles/{id}",
+    "task": "groups.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.article"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/content/categories",
+    "task": "groups.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/content/categories/{id}",
+    "task": "groups.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/content/categories",
+    "task": "groups.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/content/categories/{id}",
+    "task": "groups.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/content/categories/{id}",
+    "task": "groups.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_content.categories"
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/content/articles/{id}/contenthistory",
+    "task": "history.displayList",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_contenthistory",
+      "type_alias": "com_content.article",
+      "type_id": 1
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/content/articles/{id}/contenthistory/keep",
+    "task": "history.keep",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_contenthistory",
+      "type_alias": "com_content.article",
+      "type_id": 1
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/content/articles/{id}/contenthistory",
+    "task": "history.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_contenthistory",
+      "type_alias": "com_content.article",
+      "type_id": 1
+    },
+    "plugin": "content",
+    "source": "plugins/webservices/content/src/Extension/Content.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/extensions",
+    "task": "manage.displayList",
+    "patterns": [],
+    "defaults": {
+      "component": "com_installer",
+      "public": false
+    },
+    "plugin": "installer",
+    "source": "plugins/webservices/installer/src/Extension/Installer.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/joomlaupdate/healthcheck",
+    "task": "healthcheck.show",
+    "patterns": [],
+    "defaults": {
+      "component": "com_joomlaupdate",
+      "public": true
+    },
+    "plugin": "joomlaupdate",
+    "source": "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/joomlaupdate/getUpdate",
+    "task": "updates.getUpdate",
+    "patterns": [],
+    "defaults": {
+      "component": "com_joomlaupdate",
+      "public": true
+    },
+    "plugin": "joomlaupdate",
+    "source": "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/joomlaupdate/prepareUpdate",
+    "task": "updates.prepareUpdate",
+    "patterns": [],
+    "defaults": {
+      "component": "com_joomlaupdate",
+      "public": true
+    },
+    "plugin": "joomlaupdate",
+    "source": "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/joomlaupdate/finalizeUpdate",
+    "task": "updates.finalizeUpdate",
+    "patterns": [],
+    "defaults": {
+      "component": "com_joomlaupdate",
+      "public": true
+    },
+    "plugin": "joomlaupdate",
+    "source": "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/joomlaupdate/notificationSuccess",
+    "task": "notification.success",
+    "patterns": [],
+    "defaults": {
+      "component": "com_joomlaupdate",
+      "public": true
+    },
+    "plugin": "joomlaupdate",
+    "source": "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/joomlaupdate/notificationFailed",
+    "task": "notification.failed",
+    "patterns": [],
+    "defaults": {
+      "component": "com_joomlaupdate",
+      "public": true
+    },
+    "plugin": "joomlaupdate",
+    "source": "plugins/webservices/joomlaupdate/src/Extension/Joomlaupdate.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/content",
+    "task": "languages.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_languages"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/content/{id}",
+    "task": "languages.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_languages"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/content",
+    "task": "languages.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_languages"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/languages/content/{id}",
+    "task": "languages.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_languages"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/languages/content/{id}",
+    "task": "languages.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_languages"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/overrides/search",
+    "task": "strings.search",
+    "patterns": [],
+    "defaults": {
+      "component": "com_languages"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/overrides/search/cache/refresh",
+    "task": "strings.refresh",
+    "patterns": [],
+    "defaults": {
+      "component": "com_languages"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/overrides/site/{lang_code}",
+    "task": "overrides.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "site"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/overrides/site/{lang_code}/{id}",
+    "task": "overrides.displayItem",
+    "patterns": {
+      "id": "([A-Z0-9_]+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "site"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/overrides/site/{lang_code}",
+    "task": "overrides.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "site"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/languages/overrides/site/{lang_code}/{id}",
+    "task": "overrides.edit",
+    "patterns": {
+      "id": "([A-Z0-9_]+)"
+    },
+    "defaults": {
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "site"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/languages/overrides/site/{lang_code}/{id}",
+    "task": "overrides.delete",
+    "patterns": {
+      "id": "([A-Z0-9_]+)"
+    },
+    "defaults": {
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "site"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/overrides/administrator/{lang_code}",
+    "task": "overrides.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "administrator"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/overrides/administrator/{lang_code}/{id}",
+    "task": "overrides.displayItem",
+    "patterns": {
+      "id": "([A-Z0-9_]+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "administrator"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/overrides/administrator/{lang_code}",
+    "task": "overrides.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "administrator"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/languages/overrides/administrator/{lang_code}/{id}",
+    "task": "overrides.edit",
+    "patterns": {
+      "id": "([A-Z0-9_]+)"
+    },
+    "defaults": {
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "administrator"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/languages/overrides/administrator/{lang_code}/{id}",
+    "task": "overrides.delete",
+    "patterns": {
+      "id": "([A-Z0-9_]+)"
+    },
+    "defaults": {
+      "component": "com_languages",
+      "lang_code": "{lang_code}",
+      "app": "administrator"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages",
+    "task": "languages.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_installer"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages",
+    "task": "languages.install",
+    "patterns": [],
+    "defaults": {
+      "component": "com_installer"
+    },
+    "plugin": "languages",
+    "source": "plugins/webservices/languages/src/Extension/Languages.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/media/adapters",
+    "task": "adapters.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_media"
+    },
+    "plugin": "media",
+    "source": "plugins/webservices/media/src/Extension/Media.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/media/adapters/{id}",
+    "task": "adapters.displayItem",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_media"
+    },
+    "plugin": "media",
+    "source": "plugins/webservices/media/src/Extension/Media.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/media/files",
+    "task": "media.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_media"
+    },
+    "plugin": "media",
+    "source": "plugins/webservices/media/src/Extension/Media.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/media/files/{path}/",
+    "task": "media.displayList",
+    "patterns": {
+      "path": ".*\\/"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_media"
+    },
+    "plugin": "media",
+    "source": "plugins/webservices/media/src/Extension/Media.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/media/files/{path}",
+    "task": "media.displayItem",
+    "patterns": {
+      "path": ".*"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_media"
+    },
+    "plugin": "media",
+    "source": "plugins/webservices/media/src/Extension/Media.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/media/files",
+    "task": "media.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_media"
+    },
+    "plugin": "media",
+    "source": "plugins/webservices/media/src/Extension/Media.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/media/files/{path}",
+    "task": "media.edit",
+    "patterns": {
+      "path": ".*"
+    },
+    "defaults": {
+      "component": "com_media"
+    },
+    "plugin": "media",
+    "source": "plugins/webservices/media/src/Extension/Media.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/media/files/{path}",
+    "task": "media.delete",
+    "patterns": {
+      "path": ".*"
+    },
+    "defaults": {
+      "component": "com_media"
+    },
+    "plugin": "media",
+    "source": "plugins/webservices/media/src/Extension/Media.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/site",
+    "task": "menus.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/site/{id}",
+    "task": "menus.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/menus/site",
+    "task": "menus.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/menus/site/{id}",
+    "task": "menus.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/menus/site/{id}",
+    "task": "menus.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator",
+    "task": "menus.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator/{id}",
+    "task": "menus.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/menus/administrator",
+    "task": "menus.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/menus/administrator/{id}",
+    "task": "menus.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/menus/administrator/{id}",
+    "task": "menus.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/site/items",
+    "task": "items.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/site/items/{id}",
+    "task": "items.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/menus/site/items",
+    "task": "items.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/menus/site/items/{id}",
+    "task": "items.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/menus/site/items/{id}",
+    "task": "items.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator/items",
+    "task": "items.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator/items/{id}",
+    "task": "items.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/menus/administrator/items",
+    "task": "items.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/menus/administrator/items/{id}",
+    "task": "items.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/menus/administrator/items/{id}",
+    "task": "items.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/site/items/types",
+    "task": "items.getTypes",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 0
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/menus/administrator/items/types",
+    "task": "items.getTypes",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_menus",
+      "client_id": 1
+    },
+    "plugin": "menus",
+    "source": "plugins/webservices/menus/src/Extension/Menus.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/messages",
+    "task": "messages.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_messages"
+    },
+    "plugin": "messages",
+    "source": "plugins/webservices/messages/src/Extension/Messages.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/messages/{id}",
+    "task": "messages.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_messages"
+    },
+    "plugin": "messages",
+    "source": "plugins/webservices/messages/src/Extension/Messages.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/messages",
+    "task": "messages.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_messages"
+    },
+    "plugin": "messages",
+    "source": "plugins/webservices/messages/src/Extension/Messages.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/messages/{id}",
+    "task": "messages.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_messages"
+    },
+    "plugin": "messages",
+    "source": "plugins/webservices/messages/src/Extension/Messages.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/messages/{id}",
+    "task": "messages.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_messages"
+    },
+    "plugin": "messages",
+    "source": "plugins/webservices/messages/src/Extension/Messages.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/types/site",
+    "task": "modules.getTypes",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_modules",
+      "client_id": 0
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/types/administrator",
+    "task": "modules.getTypes",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_modules",
+      "client_id": 1
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/site",
+    "task": "modules.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_modules",
+      "client_id": 0
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/site/{id}",
+    "task": "modules.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_modules",
+      "client_id": 0
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/modules/site",
+    "task": "modules.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_modules",
+      "client_id": 0
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/modules/site/{id}",
+    "task": "modules.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_modules",
+      "client_id": 0
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/modules/site/{id}",
+    "task": "modules.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_modules",
+      "client_id": 0
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/administrator",
+    "task": "modules.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_modules",
+      "client_id": 1
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/modules/administrator/{id}",
+    "task": "modules.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_modules",
+      "client_id": 1
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/modules/administrator",
+    "task": "modules.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_modules",
+      "client_id": 1
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/modules/administrator/{id}",
+    "task": "modules.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_modules",
+      "client_id": 1
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/modules/administrator/{id}",
+    "task": "modules.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_modules",
+      "client_id": 1
+    },
+    "plugin": "modules",
+    "source": "plugins/webservices/modules/src/Extension/Modules.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/newsfeeds/feeds",
+    "task": "feeds.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/newsfeeds/feeds/{id}",
+    "task": "feeds.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/newsfeeds/feeds",
+    "task": "feeds.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/newsfeeds/feeds/{id}",
+    "task": "feeds.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/newsfeeds/feeds/{id}",
+    "task": "feeds.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/newsfeeds/categories",
+    "task": "categories.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_categories",
+      "extension": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/newsfeeds/categories/{id}",
+    "task": "categories.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_categories",
+      "extension": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/newsfeeds/categories",
+    "task": "categories.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/newsfeeds/categories/{id}",
+    "task": "categories.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/newsfeeds/categories/{id}",
+    "task": "categories.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_categories",
+      "extension": "com_newsfeeds"
+    },
+    "plugin": "newsfeeds",
+    "source": "plugins/webservices/newsfeeds/src/Extension/Newsfeeds.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/plugins",
+    "task": "plugins.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_plugins"
+    },
+    "plugin": "plugins",
+    "source": "plugins/webservices/plugins/src/Extension/Plugins.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/plugins/{id}",
+    "task": "plugins.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_plugins"
+    },
+    "plugin": "plugins",
+    "source": "plugins/webservices/plugins/src/Extension/Plugins.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/plugins/{id}",
+    "task": "plugins.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_plugins"
+    },
+    "plugin": "plugins",
+    "source": "plugins/webservices/plugins/src/Extension/Plugins.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/privacy/requests",
+    "task": "requests.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_privacy"
+    },
+    "plugin": "privacy",
+    "source": "plugins/webservices/privacy/src/Extension/Privacy.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/privacy/requests/{id}",
+    "task": "requests.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_privacy"
+    },
+    "plugin": "privacy",
+    "source": "plugins/webservices/privacy/src/Extension/Privacy.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/privacy/requests/export/{id}",
+    "task": "requests.export",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_privacy"
+    },
+    "plugin": "privacy",
+    "source": "plugins/webservices/privacy/src/Extension/Privacy.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/privacy/requests",
+    "task": "requests.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_privacy"
+    },
+    "plugin": "privacy",
+    "source": "plugins/webservices/privacy/src/Extension/Privacy.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/privacy/consents",
+    "task": "consents.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_privacy"
+    },
+    "plugin": "privacy",
+    "source": "plugins/webservices/privacy/src/Extension/Privacy.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/privacy/consents/{id}",
+    "task": "consents.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_privacy"
+    },
+    "plugin": "privacy",
+    "source": "plugins/webservices/privacy/src/Extension/Privacy.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/redirects",
+    "task": "redirect.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_redirect"
+    },
+    "plugin": "redirect",
+    "source": "plugins/webservices/redirect/src/Extension/Redirect.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/redirects/{id}",
+    "task": "redirect.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_redirect"
+    },
+    "plugin": "redirect",
+    "source": "plugins/webservices/redirect/src/Extension/Redirect.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/redirects",
+    "task": "redirect.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_redirect"
+    },
+    "plugin": "redirect",
+    "source": "plugins/webservices/redirect/src/Extension/Redirect.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/redirects/{id}",
+    "task": "redirect.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_redirect"
+    },
+    "plugin": "redirect",
+    "source": "plugins/webservices/redirect/src/Extension/Redirect.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/redirects/{id}",
+    "task": "redirect.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_redirect"
+    },
+    "plugin": "redirect",
+    "source": "plugins/webservices/redirect/src/Extension/Redirect.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/tags",
+    "task": "tags.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_tags"
+    },
+    "plugin": "tags",
+    "source": "plugins/webservices/tags/src/Extension/Tags.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/tags/{id}",
+    "task": "tags.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_tags"
+    },
+    "plugin": "tags",
+    "source": "plugins/webservices/tags/src/Extension/Tags.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/tags",
+    "task": "tags.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_tags"
+    },
+    "plugin": "tags",
+    "source": "plugins/webservices/tags/src/Extension/Tags.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/tags/{id}",
+    "task": "tags.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_tags"
+    },
+    "plugin": "tags",
+    "source": "plugins/webservices/tags/src/Extension/Tags.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/tags/{id}",
+    "task": "tags.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_tags"
+    },
+    "plugin": "tags",
+    "source": "plugins/webservices/tags/src/Extension/Tags.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/templates/styles/site",
+    "task": "styles.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_templates",
+      "client_id": 0
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/templates/styles/site/{id}",
+    "task": "styles.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_templates",
+      "client_id": 0
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/templates/styles/site",
+    "task": "styles.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_templates",
+      "client_id": 0
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/templates/styles/site/{id}",
+    "task": "styles.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_templates",
+      "client_id": 0
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/templates/styles/site/{id}",
+    "task": "styles.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_templates",
+      "client_id": 0
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/templates/styles/administrator",
+    "task": "styles.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_templates",
+      "client_id": 1
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/templates/styles/administrator/{id}",
+    "task": "styles.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_templates",
+      "client_id": 1
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/templates/styles/administrator",
+    "task": "styles.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_templates",
+      "client_id": 1
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/templates/styles/administrator/{id}",
+    "task": "styles.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_templates",
+      "client_id": 1
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/templates/styles/administrator/{id}",
+    "task": "styles.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_templates",
+      "client_id": 1
+    },
+    "plugin": "templates",
+    "source": "plugins/webservices/templates/src/Extension/Templates.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users",
+    "task": "users.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/{id}",
+    "task": "users.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/users",
+    "task": "users.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/users/{id}",
+    "task": "users.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/users/{id}",
+    "task": "users.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/users",
+    "task": "fields.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/users/{id}",
+    "task": "fields.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/users",
+    "task": "fields.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/users/{id}",
+    "task": "fields.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/users/{id}",
+    "task": "fields.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/users",
+    "task": "groups.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/users/{id}",
+    "task": "groups.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/users",
+    "task": "groups.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/users/{id}",
+    "task": "groups.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/users/{id}",
+    "task": "groups.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_fields",
+      "context": "com_users.user"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/groups",
+    "task": "groups.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/groups/{id}",
+    "task": "groups.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/users/groups",
+    "task": "groups.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/users/groups/{id}",
+    "task": "groups.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/users/groups/{id}",
+    "task": "groups.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/levels",
+    "task": "levels.displayList",
+    "patterns": [],
+    "defaults": {
+      "public": false,
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "GET",
+    "path": "/v1/users/levels/{id}",
+    "task": "levels.displayItem",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "public": false,
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "POST",
+    "path": "/v1/users/levels",
+    "task": "levels.add",
+    "patterns": [],
+    "defaults": {
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/users/levels/{id}",
+    "task": "levels.edit",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/users/levels/{id}",
+    "task": "levels.delete",
+    "patterns": {
+      "id": "(\\d+)"
+    },
+    "defaults": {
+      "component": "com_users"
+    },
+    "plugin": "users",
+    "source": "plugins/webservices/users/src/Extension/Users.php"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/plugins",
+    "task": "plugins.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/plugins/src/Extension/Plugins.php",
+      "api/components/com_plugins/src/Controller/PluginsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/plugins/{id}",
+    "task": "plugins.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/plugins/src/Extension/Plugins.php",
+      "api/components/com_plugins/src/Controller/PluginsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/plugins/{id}",
+    "task": "plugins.edit",
+    "support": "source-derived",
+    "request_schema": "com_plugins_patch_v1_plugins_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/plugins/src/Extension/Plugins.php",
+      "api/components/com_plugins/src/Controller/PluginsController.php"
+    ]
+  }
+]

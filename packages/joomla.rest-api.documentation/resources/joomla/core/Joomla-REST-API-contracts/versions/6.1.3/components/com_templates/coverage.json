@@ -1,0 +1,204 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/templates/styles/site",
+    "task": "styles.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/templates/styles/site/{id}",
+    "task": "styles.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/templates/styles/site",
+    "task": "styles.add",
+    "support": "source-derived",
+    "request_schema": "com_templates_post_v1_templates_styles_siteRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/templates/styles/site/{id}",
+    "task": "styles.edit",
+    "support": "source-derived",
+    "request_schema": "com_templates_patch_v1_templates_styles_site_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/templates/styles/site/{id}",
+    "task": "styles.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/templates/styles/administrator",
+    "task": "styles.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/templates/styles/administrator/{id}",
+    "task": "styles.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/templates/styles/administrator",
+    "task": "styles.add",
+    "support": "source-derived",
+    "request_schema": "com_templates_post_v1_templates_styles_administratorRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/templates/styles/administrator/{id}",
+    "task": "styles.edit",
+    "support": "source-derived",
+    "request_schema": "com_templates_patch_v1_templates_styles_administrator_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/templates/styles/administrator/{id}",
+    "task": "styles.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/templates/src/Extension/Templates.php",
+      "api/components/com_templates/src/Controller/StylesController.php"
+    ]
+  }
+]

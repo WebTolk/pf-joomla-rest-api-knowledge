@@ -1,0 +1,174 @@
+[
+  {
+    "path": "administrator/components/com_media/config.xml",
+    "sha256": "3a136a396d90e460b1cef1d9c6caecec5a92615a954be4d74f4b26187eecf2bd"
+  },
+  {
+    "path": "administrator/components/com_media/forms/file.xml",
+    "sha256": "9ab0b26192cdb86cd8906a87bb31d691a4f0e934ecd5490fb498be3d522fef9f"
+  },
+  {
+    "path": "administrator/components/com_media/src/Model/ApiModel.php",
+    "sha256": "a030fb441591a986246e14ef24afd806b7067441ad7535590264fd56f363eb41"
+  },
+  {
+    "path": "administrator/components/com_media/src/Model/FileModel.php",
+    "sha256": "47059b53f78bb8ede72bf087b4dfaf575eed232106a7d969623cb0e334b24e04"
+  },
+  {
+    "path": "administrator/components/com_media/src/Model/MediaModel.php",
+    "sha256": "3ff8bd87f5979c3dc30db282e7389f760a36ffef5cd6f19c20d099f97b9a835c"
+  },
+  {
+    "path": "api/components/com_media/src/Controller/AdaptersController.php",
+    "sha256": "bbf1f6d12ddad1f3b4ae8ff8cd7b940d98ca7e333ac7666b94b082666752b429"
+  },
+  {
+    "path": "api/components/com_media/src/Controller/MediaController.php",
+    "sha256": "cb9a8c2910a278adb9184c63024e417c317ac8050b7f48859d703a0fb3bf1af7"
+  },
+  {
+    "path": "api/components/com_media/src/Model/AdapterModel.php",
+    "sha256": "cc27972d2c175afd87a12786e456b7ba80f5928f12db71e8fc7ea087f521be73"
+  },
+  {
+    "path": "api/components/com_media/src/Model/AdaptersModel.php",
+    "sha256": "03caad849adebc662923fefe6d6362657a0dc1bfa696f2158a9cfccbc2d135ce"
+  },
+  {
+    "path": "api/components/com_media/src/Model/MediaModel.php",
+    "sha256": "fa66d47f06ed0814b96fb8e1bf6e5d9d18f206390e281da5804e7e426e884f3e"
+  },
+  {
+    "path": "api/components/com_media/src/Model/MediumModel.php",
+    "sha256": "a87ea46a7b13f13447562e7c106e8ce3d4c8fdafa64b82eb6754ccb940529871"
+  },
+  {
+    "path": "api/components/com_media/src/View/Adapters/JsonapiView.php",
+    "sha256": "9be77f8dcb6e154109c9517355dd5b066e6503bf83889151c251a6775578c91a"
+  },
+  {
+    "path": "api/components/com_media/src/View/Media/JsonapiView.php",
+    "sha256": "d9bac1760c69270db16f84275b9d31e266ed924adad88b785af643cbdd447b6c"
+  },
+  {
+    "path": "installation/sql/mysql/base.sql",
+    "sha256": "1c0d2c577b3366788c2b8886ad28069ce2cd6600c8a9401c28b92d6c95f63e32"
+  },
+  {
+    "path": "installation/sql/mysql/extensions.sql",
+    "sha256": "2e61aee2b71b1096833636af57fba466fa5333938555cbff24e06b72f7f81373"
+  },
+  {
+    "path": "installation/sql/mysql/supports.sql",
+    "sha256": "98028bb4f71274f16849862cb82e76731ec06ca5aee7d80d1952c094568d2b36"
+  },
+  {
+    "path": "libraries/src/Application/ApiApplication.php",
+    "sha256": "6cd464672bc6183e6c938b4090fe237112bfb0627af7f3555817320b286ddc58"
+  },
+  {
+    "path": "libraries/src/Document/JsonapiDocument.php",
+    "sha256": "3834b35620d5bd0a95c597d6c5fd591a4457c19d6e00f412c12449092138eb65"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/AuthenticationFailedExceptionHandler.php",
+    "sha256": "0e7758e0a410bb59d8dfcae38f3d5c149433beb5d9a25496ac7ea862d16f0a5f"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/CheckinCheckoutExceptionHandler.php",
+    "sha256": "b5b2fbd5e8e3f97cead8139bc90ae9a2f927fdc0f24171e9300e0855623850e8"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/InvalidParameterExceptionHandler.php",
+    "sha256": "0a0dfa581620208a4f0562b6cc07974cd25a4160248b98d1a162c3428ae5f313"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/InvalidRouteExceptionHandler.php",
+    "sha256": "c38d245bc20c881b2ca0dbe6a9a2560103c6b8ab8b116312fd2d9af0fd1f65ab"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/NotAcceptableExceptionHandler.php",
+    "sha256": "4f2a4daafca74548399538c2315d191b98ae494bb3b295d33c2fb9dda9f1afce"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/NotAllowedExceptionHandler.php",
+    "sha256": "ba8dfad4d1689e6df9e71696b54df46a6854ddfca886214c74dfae9ec5ee4678"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/ResourceNotFoundExceptionHandler.php",
+    "sha256": "f0d81b839e6d6ab4ee6acf69751d939b4684b3f024881e0c47c07fe17cc928d9"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/SaveExceptionHandler.php",
+    "sha256": "9246051703dc8c26ebed1b617782237c8c2985ffa109c9cab098545ebc73551d"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/SendEmailExceptionHandler.php",
+    "sha256": "c23ec173aee2c1c45fcb8405c1e8af9e26eb9f6a2ce90079256b5442014a2433"
+  },
+  {
+    "path": "libraries/src/Error/Renderer/JsonapiRenderer.php",
+    "sha256": "5395fb46bf48de86a169b3a7d3095c5c3fc47585ee2748e2e90895a9242b1dac"
+  },
+  {
+    "path": "libraries/src/Form/Field/CalendarField.php",
+    "sha256": "afd6228096cf639fcef5d718b8e2f1841a4c2960e46a20334a1799e32fa6422a"
+  },
+  {
+    "path": "libraries/src/Form/Field/ListField.php",
+    "sha256": "cffc2e87a3a2eae581e1997f1fda356866a956d4dcb0758aa0498cc25cceda82"
+  },
+  {
+    "path": "libraries/src/Form/Field/SqlField.php",
+    "sha256": "2fca11da5b4abf2c26246b6f42d6a8bd96f29b25fc7cbde7b8a118bd139f86c4"
+  },
+  {
+    "path": "libraries/src/Helper/TagsHelper.php",
+    "sha256": "6abde5ed7adedc886f5f35fcb9e2d70644e39595a4d1e43e5918138385ba62d1"
+  },
+  {
+    "path": "libraries/src/MVC/Controller/ApiController.php",
+    "sha256": "9a512d57771232c8c5c7b8cb8d74ded812220a802d17920f16b5a6402211c39c"
+  },
+  {
+    "path": "libraries/src/MVC/Controller/BaseController.php",
+    "sha256": "1dbb8b5118dd80192e9a2023b132c8810bed83643fde781be7e3ba35fbf2722a"
+  },
+  {
+    "path": "libraries/src/MVC/Model/AdminModel.php",
+    "sha256": "1174662aca92fb95327f9e041cddba74e708ccaa1d1fc6f6cdff3ff04121f49c"
+  },
+  {
+    "path": "libraries/src/MVC/View/JsonApiView.php",
+    "sha256": "c5d44ebea6b4c4ff430f55f2e79257e04b609bfa9d34d4960ce0ba1a8b82cdbb"
+  },
+  {
+    "path": "libraries/src/MVC/View/JsonView.php",
+    "sha256": "6f2db5d07650eb46adde0c02f1070f48d24d6ecf9768702645b3d8b43ac56e10"
+  },
+  {
+    "path": "libraries/src/Router/ApiRouter.php",
+    "sha256": "50fd1afd08ddb9818e2daa7066512e2acd5f321cd103575cda964942dedbe538"
+  },
+  {
+    "path": "libraries/src/Serializer/JoomlaSerializer.php",
+    "sha256": "fb182dfe5dc9ae328fb362782642116afb6028cb367450fd82aa686b13fa2921"
+  },
+  {
+    "path": "libraries/src/Version.php",
+    "sha256": "2bae169f88d476990a1590c1e0987cb4c5991b1c71217892a187de4ed3b10d29"
+  },
+  {
+    "path": "libraries/vendor/tobscure/json-api/src/AbstractSerializer.php",
+    "sha256": "92bde84b0654d29178233ce71bfb57197a8ff7761ab1286b2dadb9139b8f2b45"
+  },
+  {
+    "path": "libraries/vendor/tobscure/json-api/src/Resource.php",
+    "sha256": "8322d679b2a04ff29ed76c3a90e0d3ca738e475bb9425a6fef96ea9710a59bed"
+  },
+  {
+    "path": "plugins/webservices/media/src/Extension/Media.php",
+    "sha256": "0975a0e6646e496a71863b7dc74ea48c213c2d485159652ba83c6a53d70f51d5"
+  }
+]

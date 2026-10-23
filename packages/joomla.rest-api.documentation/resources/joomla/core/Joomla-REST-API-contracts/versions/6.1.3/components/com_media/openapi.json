@@ -1,0 +1,3242 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Joomla 6.1.3 com_media REST contract",
+    "version": "6.1.3",
+    "description": "Source-pinned API knowledge. Examples are synthetic; no runtime requests."
+  },
+  "servers": [
+    {
+      "url": "/api/index.php"
+    }
+  ],
+  "security": [
+    {
+      "JoomlaToken": []
+    }
+  ],
+  "paths": {
+    "/v1/media/adapters": {
+      "get": {
+        "operationId": "com_media_get_v1_media_adapters",
+        "summary": "GET /v1/media/adapters",
+        "tags": [
+          "com_media"
+        ],
+        "x-controller-task": "adapters.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_media"
+        },
+        "x-source": [
+          "plugins/webservices/media/src/Extension/Media.php",
+          "api/components/com_media/src/Controller/AdaptersController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_media_get_v1_media_adaptersResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "adapters",
+                      "id": "Example",
+                      "attributes": {
+                        "provider_id": "Example",
+                        "name": "Example",
+                        "path": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
+        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/media/adapters/{id}": {
+      "get": {
+        "operationId": "com_media_get_v1_media_adapters_id",
+        "summary": "GET /v1/media/adapters/{id}",
+        "tags": [
+          "com_media"
+        ],
+        "x-controller-task": "adapters.displayItem",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_media"
+        },
+        "x-source": [
+          "plugins/webservices/media/src/Extension/Media.php",
+          "api/components/com_media/src/Controller/AdaptersController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_media_get_v1_media_adapters_idResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "adapters",
+                    "id": "Example",
+                    "attributes": {
+                      "provider_id": "Example",
+                      "name": "Example",
+                      "path": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
+        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/media/files": {
+      "get": {
+        "operationId": "com_media_get_v1_media_files",
+        "summary": "GET /v1/media/files",
+        "tags": [
+          "com_media"
+        ],
+        "x-controller-task": "media.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_media"
+        },
+        "x-source": [
+          "plugins/webservices/media/src/Extension/Media.php",
+          "api/components/com_media/src/Controller/MediaController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "filter[search]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "temp",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "search_recursive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "description": "Used only with filter[search]."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_media_get_v1_media_filesResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "media",
+                      "id": "Example",
+                      "attributes": {
+                        "type": "Example",
+                        "name": "Example",
+                        "path": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
+        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      },
+      "post": {
+        "operationId": "com_media_post_v1_media_files",
+        "summary": "POST /v1/media/files",
+        "tags": [
+          "com_media"
+        ],
+        "x-controller-task": "media.add",
+        "x-route-defaults": {
+          "component": "com_media"
+        },
+        "x-source": [
+          "plugins/webservices/media/src/Extension/Media.php",
+          "api/components/com_media/src/Controller/MediaController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_media_post_v1_media_filesResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "media",
+                    "id": "Example",
+                    "attributes": {
+                      "type": "Example",
+                      "name": "Example",
+                      "path": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com_media_post_v1_media_filesRequest"
+              },
+              "example": {
+                "path": "local-images:/example.txt",
+                "content": "RXhhbXBsZQ==",
+                "override": false
+              }
+            }
+          }
+        },
+        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/media/files/{path}/": {
+      "get": {
+        "operationId": "com_media_get_v1_media_files_path_directory",
+        "summary": "GET /v1/media/files/{path}/",
+        "tags": [
+          "com_media"
+        ],
+        "x-controller-task": "media.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_media"
+        },
+        "x-source": [
+          "plugins/webservices/media/src/Extension/Media.php",
+          "api/components/com_media/src/Controller/MediaController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^.*\\/$"
+            }
+          },
+          {
+            "name": "filter[search]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "temp",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "search_recursive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "description": "Used only with filter[search]."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_media_get_v1_media_files_path_directoryResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "media",
+                      "id": "Example",
+                      "attributes": {
+                        "type": "Example",
+                        "name": "Example",
+                        "path": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
+        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/media/files/{path}": {
+      "get": {
+        "operationId": "com_media_get_v1_media_files_path",
+        "summary": "GET /v1/media/files/{path}",
+        "tags": [
+          "com_media"
+        ],
+        "x-controller-task": "media.displayItem",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_media"
+        },
+        "x-source": [
+          "plugins/webservices/media/src/Extension/Media.php",
+          "api/components/com_media/src/Controller/MediaController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^.*$"
+            }
+          },
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "temp",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_media_get_v1_media_files_pathResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "media",
+                    "id": "Example",
+                    "attributes": {
+                      "type": "Example",
+                      "name": "Example",
+                      "path": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
+        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      },
+      "patch": {
+        "operationId": "com_media_patch_v1_media_files_path",
+        "summary": "PATCH /v1/media/files/{path}",
+        "tags": [
+          "com_media"
+        ],
+        "x-controller-task": "media.edit",
+        "x-route-defaults": {
+          "component": "com_media"
+        },
+        "x-source": [
+          "plugins/webservices/media/src/Extension/Media.php",
+          "api/components/com_media/src/Controller/MediaController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^.*$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_media_patch_v1_media_files_pathResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "media",
+                    "id": "Example",
+                    "attributes": {
+                      "type": "Example",
+                      "name": "Example",
+                      "path": "Example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/com_media_patch_v1_media_files_pathRequest"
+              },
+              "example": {
+                "path": "local-images:/example.txt",
+                "content": "RXhhbXBsZQ==",
+                "override": false
+              }
+            }
+          }
+        },
+        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+      },
+      "delete": {
+        "operationId": "com_media_delete_v1_media_files_path",
+        "summary": "DELETE /v1/media/files/{path}",
+        "tags": [
+          "com_media"
+        ],
+        "x-controller-task": "media.delete",
+        "x-route-defaults": {
+          "component": "com_media"
+        },
+        "x-source": [
+          "plugins/webservices/media/src/Extension/Media.php",
+          "api/components/com_media/src/Controller/MediaController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^.*$"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Удалено; обязательное тело отсутствует."
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
+        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "JoomlaToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Joomla-Token"
+      },
+      "JUpdateToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-JUpdate-Token"
+      }
+    },
+    "schemas": {
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        ]
+      },
+      "ResourceIdentifier": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Relationship": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceIdentifier"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceIdentifier"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Relationship"
+            }
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Links": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/JsonValue"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "href"
+              ]
+            }
+          ]
+        }
+      },
+      "EmptyActionResponse": {
+        "type": "array",
+        "maxItems": 0
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "status": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "ErrorDocument": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "anyOf": [
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/ErrorObject"
+                }
+              },
+              {
+                "$ref": "#/components/schemas/ErrorObject"
+              }
+            ],
+            "description": "Exception handlers return an error array; the core non-Exception Throwable branch can emit one error object."
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "errors"
+        ]
+      },
+      "LegacyDeleteError": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "messages": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+              "code": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "code",
+              "message"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ]
+      },
+      "Form_administrator_components_com_media_forms_file_xml": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "Form_administrator_components_com_media_config_xml": {
+        "type": "object",
+        "properties": {
+          "upload_maxsize": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "minimum": 0.0,
+            "default": "10",
+            "title": "Maximum Size (in MB)",
+            "description": "Use zero for no limit. Note: your server has a maximum limit.",
+            "x-joomla-form": {
+              "name": "upload_maxsize",
+              "type": "number",
+              "label": "COM_MEDIA_FIELD_MAXIMUM_SIZE_LABEL",
+              "description": "COM_MEDIA_FIELD_MAXIMUM_SIZE_DESC",
+              "validate": "number",
+              "min": "0",
+              "default": "10"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "file_path": {
+            "type": "string",
+            "default": "files",
+            "title": "Path to Files Folder",
+            "description": "Enter the path to the files folder relative to the root of your webspace. Warning! Changing to another path than the default 'images' may break your links. Note: Do not start the path with a slash!",
+            "x-joomla-form": {
+              "name": "file_path",
+              "type": "text",
+              "label": "COM_MEDIA_FIELD_PATH_FILE_FOLDER_LABEL",
+              "description": "COM_MEDIA_FIELD_PATH_FILE_FOLDER_DESC",
+              "default": "files",
+              "validate": "folderPathExists",
+              "exclude": "administrator|api|cache|cli|components|includes|language|layouts|libraries|media|modules|plugins|templates|tmp"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "image_path": {
+            "type": "string",
+            "default": "images",
+            "title": "Path to Images Folder",
+            "description": "Enter the path to the images folder relative to the root of your webspace. This path <strong>has to be the same as path to files (default) or to a subfolder of the path to file folder.</strong> Note: Do not start the path with a slash!",
+            "x-joomla-form": {
+              "name": "image_path",
+              "type": "text",
+              "label": "COM_MEDIA_FIELD_PATH_IMAGE_FOLDER_LABEL",
+              "description": "COM_MEDIA_FIELD_PATH_IMAGE_FOLDER_DESC",
+              "default": "images",
+              "validate": "folderPathExists",
+              "exclude": "administrator|api|cache|cli|components|includes|language|layouts|libraries|modules|plugins|templates|tmp"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "restrict_uploads": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Restrict Uploads",
+            "description": "Restrict uploads for lower than manager users to images if Fileinfo or MIME Magic isn't installed.",
+            "x-joomla-form": {
+              "name": "restrict_uploads",
+              "type": "radio",
+              "label": "COM_MEDIA_FIELD_RESTRICT_UPLOADS_LABEL",
+              "description": "COM_MEDIA_FIELD_RESTRICT_UPLOADS_DESC",
+              "default": "1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "restrict_uploads_extensions": {
+            "type": "string",
+            "default": "bmp,gif,jpg,jpeg,png,webp,avif,ico,mp3,mp4,odg,odp,ods,odt,pdf,ppt,txt,xcf,xls,csv",
+            "title": "Allowed Extensions",
+            "description": "Restrict uploads for lower than manager users to files in the list.",
+            "x-joomla-form": {
+              "name": "restrict_uploads_extensions",
+              "type": "textarea",
+              "label": "COM_MEDIA_FIELD_RESTRICT_UPLOADS_EXTENSIONS_LABEL",
+              "description": "COM_MEDIA_FIELD_RESTRICT_UPLOADS_EXTENSIONS_DESC",
+              "default": "bmp,gif,jpg,jpeg,png,webp,avif,ico,mp3,mp4,odg,odp,ods,odt,pdf,ppt,txt,xcf,xls,csv",
+              "showon": "restrict_uploads:1"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "check_mime": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "pattern": "^(?:-?[0-9]+)?$",
+            "x-input-normalization": "Joomla form accepts integer or decimal integer string; optional empty string is form-filter dependent.",
+            "enum": [
+              0,
+              1,
+              "0",
+              "1"
+            ],
+            "default": "1",
+            "title": "Check MIME Types",
+            "description": "Use MIME Magic or Fileinfo to attempt to verify files. Try disabling this if you get invalid mime type errors.",
+            "x-joomla-form": {
+              "name": "check_mime",
+              "type": "radio",
+              "label": "COM_MEDIA_FIELD_CHECK_MIME_LABEL",
+              "description": "COM_MEDIA_FIELD_CHECK_MIME_DESC",
+              "default": "1",
+              "showon": "restrict_uploads:1"
+            },
+            "x-options": [
+              {
+                "value": "0",
+                "label": "No"
+              },
+              {
+                "value": "1",
+                "label": "Yes"
+              }
+            ],
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "image_extensions": {
+            "type": "string",
+            "default": "bmp,gif,jpg,jpeg,png,webp,avif",
+            "title": "Legal Image Extensions (File Types)",
+            "description": "Image extensions (file types) you are allowed to upload (comma separated). These are used to check for valid image headers.",
+            "x-joomla-form": {
+              "name": "image_extensions",
+              "type": "textarea",
+              "label": "COM_MEDIA_FIELD_LEGAL_IMAGE_EXTENSIONS_LABEL",
+              "description": "COM_MEDIA_FIELD_LEGAL_IMAGE_EXTENSIONS_DESC",
+              "default": "bmp,gif,jpg,jpeg,png,webp,avif"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "audio_extensions": {
+            "type": "string",
+            "default": "mp3,m4a,mp4a,ogg",
+            "title": "Legal Audio Extensions (File Types)",
+            "description": "Audio extensions (file types) you are allowed to upload (comma separated). These are used to check for valid audio headers.",
+            "x-joomla-form": {
+              "name": "audio_extensions",
+              "type": "textarea",
+              "label": "COM_MEDIA_FIELD_LEGAL_AUDIO_EXTENSIONS_LABEL",
+              "description": "COM_MEDIA_FIELD_LEGAL_AUDIO_EXTENSIONS_DESC",
+              "default": "mp3,m4a,mp4a,ogg"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "video_extensions": {
+            "type": "string",
+            "default": "mp4,mp4v,mpeg,mov,webm",
+            "title": "Legal Video Extensions (File Types)",
+            "description": "Video extensions (file types) you are allowed to upload (comma separated). These are used to check for valid video headers.",
+            "x-joomla-form": {
+              "name": "video_extensions",
+              "type": "textarea",
+              "label": "COM_MEDIA_FIELD_LEGAL_VIDEO_EXTENSIONS_LABEL",
+              "description": "COM_MEDIA_FIELD_LEGAL_VIDEO_EXTENSIONS_DESC",
+              "default": "mp4,mp4v,mpeg,mov,webm"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "doc_extensions": {
+            "type": "string",
+            "default": "doc,odg,odp,ods,odt,pdf,ppt,txt,xcf,xls,csv",
+            "title": "Legal Document Extensions (File Types)",
+            "description": "Document extensions (file types) you are allowed to upload (comma separated). These are used to check for valid document headers.",
+            "x-joomla-form": {
+              "name": "doc_extensions",
+              "type": "textarea",
+              "label": "COM_MEDIA_FIELD_LEGAL_DOCUMENT_EXTENSIONS_LABEL",
+              "description": "COM_MEDIA_FIELD_LEGAL_DOCUMENT_EXTENSIONS_DESC",
+              "default": "doc,odg,odp,ods,odt,pdf,ppt,txt,xcf,xls,csv"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "ignore_extensions": {
+            "type": "string",
+            "title": "Ignored Extensions",
+            "description": "Ignored file extensions for MIME type checking and restricted uploads.",
+            "x-joomla-form": {
+              "name": "ignore_extensions",
+              "type": "textarea",
+              "label": "COM_MEDIA_FIELD_IGNORED_EXTENSIONS_LABEL",
+              "description": "COM_MEDIA_FIELD_IGNORED_EXTENSIONS_DESC"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "upload_mime": {
+            "type": "string",
+            "default": "image/jpeg,image/gif,image/png,image/bmp,image/webp,image/avif,audio/ogg,audio/mpeg,audio/mp4,video/mp4,video/mpeg,video/quicktime,video/webm,application/msword,application/excel,application/pdf,application/powerpoint,text/plain,application/x-zip",
+            "title": "Legal MIME Types",
+            "description": "A comma separated list of legal MIME types to upload.",
+            "x-joomla-form": {
+              "name": "upload_mime",
+              "type": "textarea",
+              "label": "COM_MEDIA_FIELD_LEGAL_MIME_TYPES_LABEL",
+              "description": "COM_MEDIA_FIELD_LEGAL_MIME_TYPES_DESC",
+              "default": "image/jpeg,image/gif,image/png,image/bmp,image/webp,image/avif,audio/ogg,audio/mpeg,audio/mp4,video/mp4,video/mpeg,video/quicktime,video/webm,application/msword,application/excel,application/pdf,application/powerpoint,text/plain,application/x-zip",
+              "showon": "restrict_uploads:1"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          },
+          "rules": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {
+                "type": [
+                  "integer",
+                  "boolean",
+                  "string"
+                ]
+              }
+            },
+            "title": "Permissions",
+            "description": "Joomla form field rules; input is validated and filtered according to x-joomla-form.",
+            "x-joomla-form": {
+              "name": "rules",
+              "type": "rules",
+              "label": "JCONFIG_PERMISSIONS_LABEL",
+              "filter": "rules",
+              "validate": "rules",
+              "component": "com_media",
+              "section": "component"
+            },
+            "x-source": "administrator/components/com_media/config.xml"
+          }
+        },
+        "additionalProperties": false
+      },
+      "com_media_get_v1_media_adaptersResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "adapters"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "provider_id": {
+                      "type": "string",
+                      "x-type-origin": "provider machine ID or localized module assignment summary; not a numeric ID/count"
+                    },
+                    "name": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "path": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_media_get_v1_media_adapters_idResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "adapters"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "provider_id": {
+                    "type": "string",
+                    "x-type-origin": "provider machine ID or localized module assignment summary; not a numeric ID/count"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_media_get_v1_media_filesResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "media"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "name": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "path": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "extension": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "size": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "mime_type": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "width": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "height": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "create_date": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "create_date_formatted": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "modified_date": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "modified_date_formatted": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "thumb_path": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "adapter": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "content": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "tempUrl": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_media_get_v1_media_files_path_directoryResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "media"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "name": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "path": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "extension": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "size": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "mime_type": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "width": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "height": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "create_date": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "create_date_formatted": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "modified_date": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "modified_date_formatted": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "thumb_path": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "adapter": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "content": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "tempUrl": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_media_get_v1_media_files_pathResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "media"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "extension": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "size": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-type-origin": "numeric model/view alias"
+                  },
+                  "mime_type": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "width": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-type-origin": "numeric model/view alias"
+                  },
+                  "height": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-type-origin": "numeric model/view alias"
+                  },
+                  "create_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "create_date_formatted": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "modified_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "modified_date_formatted": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "thumb_path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "adapter": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "content": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "tempUrl": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_media_post_v1_media_filesRequest": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Adapter-prefixed path"
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1,
+            "contentEncoding": "base64",
+            "description": "Nonempty base64-encoded file content. Empty/false decoded content is treated as a folder; zero-byte uploads and decoded string '0' are not reliable file creation."
+          },
+          "override": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "path"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "path": {
+                  "pattern": "\\."
+                }
+              },
+              "required": [
+                "path"
+              ]
+            },
+            "then": {
+              "required": [
+                "content"
+              ]
+            }
+          }
+        ]
+      },
+      "com_media_post_v1_media_filesResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "media"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "extension": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "size": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-type-origin": "numeric model/view alias"
+                  },
+                  "mime_type": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "width": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-type-origin": "numeric model/view alias"
+                  },
+                  "height": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-type-origin": "numeric model/view alias"
+                  },
+                  "create_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "create_date_formatted": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "modified_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "modified_date_formatted": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "thumb_path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "adapter": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "content": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "tempUrl": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_media_patch_v1_media_files_pathRequest": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Adapter-prefixed path"
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1,
+            "contentEncoding": "base64",
+            "description": "Nonempty base64-encoded file content. Empty/false decoded content is treated as a folder; zero-byte uploads and decoded string '0' are not reliable file creation."
+          },
+          "override": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "anyOf": [
+          {
+            "required": [
+              "path"
+            ]
+          },
+          {
+            "required": [
+              "content"
+            ]
+          }
+        ]
+      },
+      "com_media_patch_v1_media_files_pathResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "media"
+              },
+              "id": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "extension": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "size": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-type-origin": "numeric model/view alias"
+                  },
+                  "mime_type": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "width": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-type-origin": "numeric model/view alias"
+                  },
+                  "height": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^-?[0-9]+$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "x-type-origin": "numeric model/view alias"
+                  },
+                  "create_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "create_date_formatted": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "modified_date": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "modified_date_formatted": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "thumb_path": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "adapter": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "content": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  },
+                  "tempUrl": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "x-type-origin": "textual joined/view attribute"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "id"
+            ]
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      }
+    }
+  },
+  "x-knowledge-package": "joomla.rest-api.media",
+  "x-core-version": "6.1.3",
+  "x-contract-status": "archived",
+  "x-primary-core-version": "6.2.0",
+  "x-extension-parameter-schemas": {},
+  "x-menu-view-schemas": {},
+  "x-source-verification": {
+    "method": "local route registration + XML + SQL + controller/view/serializer inspection",
+    "runtime_requests": false
+  }
+}

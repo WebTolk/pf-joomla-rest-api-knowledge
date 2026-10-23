@@ -1,0 +1,86 @@
+[
+  {
+    "operationId": "com_contenthistory_get_v1_banners_id_contenthistory",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contenthistory_get_v1_banners_id_contenthistoryResponse",
+    "value": {
+      "data": [
+        {
+          "type": "history",
+          "id": "Example",
+          "attributes": {
+            "ucm_item_id": 1,
+            "ucm_type_id": 1,
+            "version_note": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contenthistory_patch_v1_banners_id_contenthistory_keep",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contenthistory_patch_v1_banners_id_contenthistory_keepResponse",
+    "value": [],
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contenthistory_get_v1_contacts_id_contenthistory",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contenthistory_get_v1_contacts_id_contenthistoryResponse",
+    "value": {
+      "data": [
+        {
+          "type": "history",
+          "id": "Example",
+          "attributes": {
+            "ucm_item_id": 1,
+            "ucm_type_id": 1,
+            "version_note": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contenthistory_patch_v1_contacts_id_contenthistory_keep",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contenthistory_patch_v1_contacts_id_contenthistory_keepResponse",
+    "value": [],
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contenthistory_get_v1_content_articles_id_contenthistory",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contenthistory_get_v1_content_articles_id_contenthistoryResponse",
+    "value": {
+      "data": [
+        {
+          "type": "history",
+          "id": "Example",
+          "attributes": {
+            "ucm_item_id": 1,
+            "ucm_type_id": 1,
+            "version_note": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_contenthistory_patch_v1_content_articles_id_contenthistory_keep",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_contenthistory_patch_v1_content_articles_id_contenthistory_keepResponse",
+    "value": [],
+    "provenance": "synthetic"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "operationId": "com_plugins_get_v1_plugins",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_plugins_get_v1_pluginsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "plugins",
+          "id": "Example",
+          "attributes": {
+            "name": "Example",
+            "element": "Example",
+            "folder": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_plugins_get_v1_plugins_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_plugins_get_v1_plugins_idResponse",
+    "value": {
+      "data": {
+        "type": "plugins",
+        "id": "Example",
+        "attributes": {
+          "name": "Example",
+          "type": "Example",
+          "element": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_plugins_patch_v1_plugins_id",
+    "direction": "request",
+    "schema": "com_plugins_patch_v1_plugins_idRequest",
+    "value": {
+      "enabled": 1
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_plugins_patch_v1_plugins_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_plugins_patch_v1_plugins_idResponse",
+    "value": {
+      "data": {
+        "type": "plugins",
+        "id": "Example",
+        "attributes": {
+          "name": "Example",
+          "type": "Example",
+          "element": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

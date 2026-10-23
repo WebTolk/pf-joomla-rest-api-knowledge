@@ -1,0 +1,146 @@
+schema_version: 1
+id: joomla.rest-api.categories
+name: joomla.rest-api.categories
+title: joomla.rest-api.categories
+kind: documentation
+scope: workplace
+version: 1.1.0
+status: released
+description: Versioned Joomla REST schemas, field semantics, responses, errors and
+  browser fallback. Knowledge only; no tools or MCP.
+visibility: workplace
+load_policy: on_demand
+resources:
+- id: contract-5-4-8
+  kind: documentation
+  title: Joomla 5.4.8 com_categories REST contract
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 5.4.8
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/versions/5.4.8/components/com_categories
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.categories
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+- id: contract-6-1-3
+  kind: documentation
+  title: Joomla 6.1.3 com_categories REST contract
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 6.1.3
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/versions/6.1.3/components/com_categories
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.categories
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+- id: contract-6-2-0
+  kind: documentation
+  title: Joomla 6.2.0 com_categories REST contract
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 6.2.0
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/versions/6.2.0/components/com_categories
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.categories
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+indexes:
+  resource_index: indexes/resource-index.yaml
+tags:
+- documentation
+- knowledge
+package_root: global
+type: knowledge_package
+dependencies:
+- joomla.rest-api.documentation
+- joomla.rest-api.common
+update_sites:
+- id: webtolk-joomla-rest-stable
+  enabled: true
+  manifest_url: https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/main/updates/joomla-rest-api.json
+  changelog_url: https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/main/CHANGELOG.md
+  channel: stable
+  priority: 10
+  trust:
+    require_https: true
+    require_sha256: true
+    allow_unsigned: true
+    signature_required: false
+  policy:
+    check_interval_hours: 24
+    auto_check: true
+    auto_stage: false
+    auto_apply: false
+    notify_operator: true
+    allow_stage: true
+    allow_apply: true
+    backup_before_apply: true

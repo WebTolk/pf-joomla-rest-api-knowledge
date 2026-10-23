@@ -1,0 +1,162 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/media/adapters",
+    "task": "adapters.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/media/src/Extension/Media.php",
+      "api/components/com_media/src/Controller/AdaptersController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/media/adapters/{id}",
+    "task": "adapters.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/media/src/Extension/Media.php",
+      "api/components/com_media/src/Controller/AdaptersController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/media/files",
+    "task": "media.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/media/src/Extension/Media.php",
+      "api/components/com_media/src/Controller/MediaController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/media/files/{path}/",
+    "task": "media.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/media/src/Extension/Media.php",
+      "api/components/com_media/src/Controller/MediaController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/media/files/{path}",
+    "task": "media.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/media/src/Extension/Media.php",
+      "api/components/com_media/src/Controller/MediaController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/media/files",
+    "task": "media.add",
+    "support": "source-derived",
+    "request_schema": "com_media_post_v1_media_filesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/media/src/Extension/Media.php",
+      "api/components/com_media/src/Controller/MediaController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/media/files/{path}",
+    "task": "media.edit",
+    "support": "source-derived",
+    "request_schema": "com_media_patch_v1_media_files_pathRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/media/src/Extension/Media.php",
+      "api/components/com_media/src/Controller/MediaController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/media/files/{path}",
+    "task": "media.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/media/src/Extension/Media.php",
+      "api/components/com_media/src/Controller/MediaController.php"
+    ]
+  }
+]

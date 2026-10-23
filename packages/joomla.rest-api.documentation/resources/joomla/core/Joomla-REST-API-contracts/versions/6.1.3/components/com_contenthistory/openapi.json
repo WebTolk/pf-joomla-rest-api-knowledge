@@ -1,0 +1,2383 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Joomla 6.1.3 com_contenthistory REST contract",
+    "version": "6.1.3",
+    "description": "Source-pinned API knowledge. Examples are synthetic; no runtime requests."
+  },
+  "servers": [
+    {
+      "url": "/api/index.php"
+    }
+  ],
+  "security": [
+    {
+      "JoomlaToken": []
+    }
+  ],
+  "paths": {
+    "/v1/banners/{id}/contenthistory": {
+      "get": {
+        "operationId": "com_contenthistory_get_v1_banners_id_contenthistory",
+        "summary": "GET /v1/banners/{id}/contenthistory",
+        "tags": [
+          "com_contenthistory"
+        ],
+        "x-controller-task": "history.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_contenthistory",
+          "type_alias": "com_banners.banner",
+          "type_id": 9
+        },
+        "x-source": [
+          "plugins/webservices/banners/src/Extension/Banners.php",
+          "api/components/com_contenthistory/src/Controller/HistoryController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "page[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "page[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_contenthistory_get_v1_banners_id_contenthistoryResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "history",
+                      "id": "Example",
+                      "attributes": {
+                        "ucm_item_id": 1,
+                        "ucm_type_id": 1,
+                        "version_note": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      },
+      "delete": {
+        "operationId": "com_contenthistory_delete_v1_banners_id_contenthistory",
+        "summary": "DELETE /v1/banners/{id}/contenthistory",
+        "tags": [
+          "com_contenthistory"
+        ],
+        "x-controller-task": "history.delete",
+        "x-route-defaults": {
+          "component": "com_contenthistory",
+          "type_alias": "com_banners.banner",
+          "type_id": 9
+        },
+        "x-source": [
+          "plugins/webservices/banners/src/Extension/Banners.php",
+          "api/components/com_contenthistory/src/Controller/HistoryController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Удалено; обязательное тело отсутствует."
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи; AdminModel session flag can instead produce legacy application/json envelope.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                },
+                "example": {
+                  "success": true,
+                  "message": null,
+                  "messages": null,
+                  "data": {
+                    "status": "not found",
+                    "code": 404,
+                    "message": "Resource not found"
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Запись нельзя удалить в текущем состоянии",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                },
+                "example": {
+                  "success": true,
+                  "message": null,
+                  "messages": null,
+                  "data": {
+                    "status": "Conflict",
+                    "code": 409,
+                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/banners/{id}/contenthistory/keep": {
+      "patch": {
+        "operationId": "com_contenthistory_patch_v1_banners_id_contenthistory_keep",
+        "summary": "PATCH /v1/banners/{id}/contenthistory/keep",
+        "tags": [
+          "com_contenthistory"
+        ],
+        "x-controller-task": "history.keep",
+        "x-route-defaults": {
+          "component": "com_contenthistory",
+          "type_alias": "com_banners.banner",
+          "type_id": 9
+        },
+        "x-source": [
+          "plugins/webservices/banners/src/Extension/Banners.php",
+          "api/components/com_contenthistory/src/Controller/HistoryController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_contenthistory_patch_v1_banners_id_contenthistory_keepResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+      }
+    },
+    "/v1/contacts/{id}/contenthistory": {
+      "get": {
+        "operationId": "com_contenthistory_get_v1_contacts_id_contenthistory",
+        "summary": "GET /v1/contacts/{id}/contenthistory",
+        "tags": [
+          "com_contenthistory"
+        ],
+        "x-controller-task": "history.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_contenthistory",
+          "type_alias": "com_contact.contact",
+          "type_id": 2
+        },
+        "x-source": [
+          "plugins/webservices/contact/src/Extension/Contact.php",
+          "api/components/com_contenthistory/src/Controller/HistoryController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "page[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "page[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_contenthistory_get_v1_contacts_id_contenthistoryResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "history",
+                      "id": "Example",
+                      "attributes": {
+                        "ucm_item_id": 1,
+                        "ucm_type_id": 1,
+                        "version_note": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      },
+      "delete": {
+        "operationId": "com_contenthistory_delete_v1_contacts_id_contenthistory",
+        "summary": "DELETE /v1/contacts/{id}/contenthistory",
+        "tags": [
+          "com_contenthistory"
+        ],
+        "x-controller-task": "history.delete",
+        "x-route-defaults": {
+          "component": "com_contenthistory",
+          "type_alias": "com_contact.contact",
+          "type_id": 2
+        },
+        "x-source": [
+          "plugins/webservices/contact/src/Extension/Contact.php",
+          "api/components/com_contenthistory/src/Controller/HistoryController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Удалено; обязательное тело отсутствует."
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи; AdminModel session flag can instead produce legacy application/json envelope.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                },
+                "example": {
+                  "success": true,
+                  "message": null,
+                  "messages": null,
+                  "data": {
+                    "status": "not found",
+                    "code": 404,
+                    "message": "Resource not found"
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Запись нельзя удалить в текущем состоянии",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                },
+                "example": {
+                  "success": true,
+                  "message": null,
+                  "messages": null,
+                  "data": {
+                    "status": "Conflict",
+                    "code": 409,
+                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/contacts/{id}/contenthistory/keep": {
+      "patch": {
+        "operationId": "com_contenthistory_patch_v1_contacts_id_contenthistory_keep",
+        "summary": "PATCH /v1/contacts/{id}/contenthistory/keep",
+        "tags": [
+          "com_contenthistory"
+        ],
+        "x-controller-task": "history.keep",
+        "x-route-defaults": {
+          "component": "com_contenthistory",
+          "type_alias": "com_contact.contact",
+          "type_id": 2
+        },
+        "x-source": [
+          "plugins/webservices/contact/src/Extension/Contact.php",
+          "api/components/com_contenthistory/src/Controller/HistoryController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_contenthistory_patch_v1_contacts_id_contenthistory_keepResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+      }
+    },
+    "/v1/content/articles/{id}/contenthistory": {
+      "get": {
+        "operationId": "com_contenthistory_get_v1_content_articles_id_contenthistory",
+        "summary": "GET /v1/content/articles/{id}/contenthistory",
+        "tags": [
+          "com_contenthistory"
+        ],
+        "x-controller-task": "history.displayList",
+        "x-route-defaults": {
+          "public": false,
+          "component": "com_contenthistory",
+          "type_alias": "com_content.article",
+          "type_id": 1
+        },
+        "x-source": [
+          "plugins/webservices/content/src/Extension/Content.php",
+          "api/components/com_contenthistory/src/Controller/HistoryController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "page[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          {
+            "name": "page[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_contenthistory_get_v1_content_articles_id_contenthistoryResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "type": "history",
+                      "id": "Example",
+                      "attributes": {
+                        "ucm_item_id": 1,
+                        "ucm_type_id": 1,
+                        "version_note": "Example"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      },
+      "delete": {
+        "operationId": "com_contenthistory_delete_v1_content_articles_id_contenthistory",
+        "summary": "DELETE /v1/content/articles/{id}/contenthistory",
+        "tags": [
+          "com_contenthistory"
+        ],
+        "x-controller-task": "history.delete",
+        "x-route-defaults": {
+          "component": "com_contenthistory",
+          "type_alias": "com_content.article",
+          "type_id": 1
+        },
+        "x-source": [
+          "plugins/webservices/content/src/Extension/Content.php",
+          "api/components/com_contenthistory/src/Controller/HistoryController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Удалено; обязательное тело отсутствует."
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи; AdminModel session flag can instead produce legacy application/json envelope.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                },
+                "example": {
+                  "success": true,
+                  "message": null,
+                  "messages": null,
+                  "data": {
+                    "status": "not found",
+                    "code": 404,
+                    "message": "Resource not found"
+                  }
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Запись нельзя удалить в текущем состоянии",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                },
+                "example": {
+                  "success": true,
+                  "message": null,
+                  "messages": null,
+                  "data": {
+                    "status": "Conflict",
+                    "code": 409,
+                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\n"
+      }
+    },
+    "/v1/content/articles/{id}/contenthistory/keep": {
+      "patch": {
+        "operationId": "com_contenthistory_patch_v1_content_articles_id_contenthistory_keep",
+        "summary": "PATCH /v1/content/articles/{id}/contenthistory/keep",
+        "tags": [
+          "com_contenthistory"
+        ],
+        "x-controller-task": "history.keep",
+        "x-route-defaults": {
+          "component": "com_contenthistory",
+          "type_alias": "com_content.article",
+          "type_id": 1
+        },
+        "x-source": [
+          "plugins/webservices/content/src/Extension/Content.php",
+          "api/components/com_contenthistory/src/Controller/HistoryController.php"
+        ],
+        "x-support": "source-derived",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com_contenthistory_patch_v1_content_articles_id_contenthistory_keepResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "Ошибка параметров, формы или сохранения",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Invalid field: Title"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Нет допустимой API-аутентификации",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Forbidden"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Действие запрещено ACL",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Access Denied",
+                      "code": 403
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Нет маршрута, записи или задачи",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Resource not found",
+                      "code": 404
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Недопустимый Accept",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Not Acceptable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Ошибка модели или сервера",
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
+                },
+                "example": {
+                  "errors": [
+                    {
+                      "title": "Internal server error",
+                      "code": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nДля снимка 6.1.3 не переносить правила PATCH/ACL и новые поля из 6.2.0. Пропущенные календарные колонки могут повторно пройти UTC-фильтр; после записи сравнивать даты.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "JoomlaToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Joomla-Token"
+      },
+      "JUpdateToken": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-JUpdate-Token"
+      }
+    },
+    "schemas": {
+      "JsonValue": {
+        "anyOf": [
+          {
+            "type": [
+              "string",
+              "number",
+              "boolean",
+              "null"
+            ]
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        ]
+      },
+      "ResourceIdentifier": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Relationship": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResourceIdentifier"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ResourceIdentifier"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "relationships": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Relationship"
+            }
+          },
+          "links": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "href": {
+                      "type": "string"
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": {
+                        "$ref": "#/components/schemas/JsonValue"
+                      }
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "href"
+                  ]
+                }
+              ]
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "Links": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "href": {
+                  "type": "string"
+                },
+                "meta": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/JsonValue"
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "href"
+              ]
+            }
+          ]
+        }
+      },
+      "EmptyActionResponse": {
+        "type": "array",
+        "maxItems": 0
+      },
+      "ErrorObject": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "code": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "status": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "source": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "ErrorDocument": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "anyOf": [
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/ErrorObject"
+                }
+              },
+              {
+                "$ref": "#/components/schemas/ErrorObject"
+              }
+            ],
+            "description": "Exception handlers return an error array; the core non-Exception Throwable branch can emit one error object."
+          }
+        },
+        "additionalProperties": {
+          "$ref": "#/components/schemas/JsonValue"
+        },
+        "required": [
+          "errors"
+        ]
+      },
+      "LegacyDeleteError": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "messages": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JsonValue"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+              "code": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "code",
+              "message"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "success",
+          "data"
+        ]
+      },
+      "com_contenthistory_get_v1_banners_id_contenthistoryResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "history"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "ucm_item_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "ucm_type_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "version_note": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "save_date": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "editor_user_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "character_count": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "sha1_hash": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "version_data": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "keep_forever": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "editor": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_contenthistory_patch_v1_banners_id_contenthistory_keepResponse": {
+        "$ref": "#/components/schemas/EmptyActionResponse"
+      },
+      "com_contenthistory_get_v1_contacts_id_contenthistoryResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "history"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "ucm_item_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "ucm_type_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "version_note": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "save_date": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "editor_user_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "character_count": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "sha1_hash": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "version_data": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "keep_forever": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "editor": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_contenthistory_patch_v1_contacts_id_contenthistory_keepResponse": {
+        "$ref": "#/components/schemas/EmptyActionResponse"
+      },
+      "com_contenthistory_get_v1_content_articles_id_contenthistoryResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "const": "history"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "attributes": {
+                  "type": "object",
+                  "properties": {
+                    "ucm_item_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "ucm_type_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "version_note": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "save_date": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "editor_user_id": {
+                      "anyOf": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^-?[0-9]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ],
+                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "x-type-origin": "numeric model/view alias"
+                    },
+                    "character_count": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "sha1_hash": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "version_data": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "keep_forever": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    },
+                    "editor": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "x-type-origin": "textual joined/view attribute"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "id"
+              ]
+            }
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            }
+          },
+          "jsonapi": {
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonValue"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
+      },
+      "com_contenthistory_patch_v1_content_articles_id_contenthistory_keepResponse": {
+        "$ref": "#/components/schemas/EmptyActionResponse"
+      }
+    }
+  },
+  "x-knowledge-package": "joomla.rest-api.contenthistory",
+  "x-core-version": "6.1.3",
+  "x-contract-status": "archived",
+  "x-primary-core-version": "6.2.0",
+  "x-extension-parameter-schemas": {},
+  "x-menu-view-schemas": {},
+  "x-source-verification": {
+    "method": "local route registration + XML + SQL + controller/view/serializer inspection",
+    "runtime_requests": false
+  }
+}

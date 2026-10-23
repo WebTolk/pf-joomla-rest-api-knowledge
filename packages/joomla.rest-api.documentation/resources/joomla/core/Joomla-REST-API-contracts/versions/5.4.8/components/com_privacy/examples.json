@@ -1,0 +1,124 @@
+[
+  {
+    "operationId": "com_privacy_get_v1_privacy_requests",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_privacy_get_v1_privacy_requestsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "requests",
+          "id": "Example",
+          "attributes": {
+            "email": "Example",
+            "requested_at": "Example",
+            "status": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_privacy_get_v1_privacy_requests_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_privacy_get_v1_privacy_requests_idResponse",
+    "value": {
+      "data": {
+        "type": "requests",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "email": "Example",
+          "requested_at": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_privacy_get_v1_privacy_requests_export_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_privacy_get_v1_privacy_requests_export_idResponse",
+    "value": {
+      "data": {
+        "type": "export",
+        "id": "",
+        "attributes": [
+          {
+            "name": "example",
+            "description": "Synthetic privacy domain"
+          }
+        ]
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_privacy_post_v1_privacy_requests",
+    "direction": "request",
+    "schema": "com_privacy_post_v1_privacy_requestsRequest",
+    "value": {
+      "email": "example@example.invalid"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_privacy_post_v1_privacy_requests",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_privacy_post_v1_privacy_requestsResponse",
+    "value": {
+      "data": {
+        "type": "requests",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "email": "Example",
+          "requested_at": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_privacy_get_v1_privacy_consents",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_privacy_get_v1_privacy_consentsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "consents",
+          "id": "Example",
+          "attributes": {
+            "user_id": 1,
+            "state": 1,
+            "created": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_privacy_get_v1_privacy_consents_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_privacy_get_v1_privacy_consents_idResponse",
+    "value": {
+      "data": {
+        "type": "consents",
+        "id": "Example",
+        "attributes": {
+          "user_id": 1,
+          "state": 1,
+          "created": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "counts": {
+    "openapi_documents": 69,
+    "schema_definitions": 2482,
+    "source_hashes": 3556,
+    "operations": 708,
+    "response_examples": 5073,
+    "fixtures": 843
+  },
+  "versions": [
+    {
+      "version": "5.4.8",
+      "expected_routes": 236,
+      "documented_routes": 236
+    },
+    {
+      "version": "6.1.3",
+      "expected_routes": 236,
+      "documented_routes": 236
+    },
+    {
+      "version": "6.2.0",
+      "expected_routes": 236,
+      "documented_routes": 236
+    }
+  ],
+  "errors": []
+}

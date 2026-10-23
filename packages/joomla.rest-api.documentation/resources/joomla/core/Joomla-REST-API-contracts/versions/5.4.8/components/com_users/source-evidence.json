@@ -1,0 +1,262 @@
+[
+  {
+    "path": "administrator/components/com_users/config.xml",
+    "sha256": "70ad5ec433eccd949f1adb0c3b2055a9cc583471b06098bdb61a5d4b15b3e7a6"
+  },
+  {
+    "path": "administrator/components/com_users/forms/category.xml",
+    "sha256": "3d332a70c3f69306e4f5b1f6094e6eb22629bebb57c62a0e644c1c22e295228c"
+  },
+  {
+    "path": "administrator/components/com_users/forms/config_domain.xml",
+    "sha256": "6d5d12f120f8650f50b6c3bd1b2219c019a08da9f67ff80c9e244efee5bbb94c"
+  },
+  {
+    "path": "administrator/components/com_users/forms/filter_debuggroup.xml",
+    "sha256": "e75acfd225ed71b5e5028fb732a8f25777fb456f54851cee845c4cc66fc0a09b"
+  },
+  {
+    "path": "administrator/components/com_users/forms/filter_debuguser.xml",
+    "sha256": "79db17633b5c807389c58246e6f9f7833e9e625792bfedc1b414a2a9c790cd79"
+  },
+  {
+    "path": "administrator/components/com_users/forms/filter_groups.xml",
+    "sha256": "618add3b553e550d83dc3bbe9710821faf81108fdc6b7c34376fbaa626175bf4"
+  },
+  {
+    "path": "administrator/components/com_users/forms/filter_levels.xml",
+    "sha256": "e0d655ab71a539e9693b940f0bbdf048b2857f1dd871ba28d0bac6879ed76283"
+  },
+  {
+    "path": "administrator/components/com_users/forms/filter_notes.xml",
+    "sha256": "7423428f9b3fbb9346779038f7e59ff7c8593d73a798ae70a9453a67adb25bd1"
+  },
+  {
+    "path": "administrator/components/com_users/forms/filter_users.xml",
+    "sha256": "4e67565bbbf87d483c339d3dc182d2c2a4669a967f2c94b418e1376b6283f905"
+  },
+  {
+    "path": "administrator/components/com_users/forms/group.xml",
+    "sha256": "8f0c8b1a8a44a62ed6ff0072e1ef3c6bfb826cb6223bac9b29105600ee85f304"
+  },
+  {
+    "path": "administrator/components/com_users/forms/level.xml",
+    "sha256": "8b961b369e5f77d89d368bbf24f6d35ab9558620b95524cf161a18218dbd4d9e"
+  },
+  {
+    "path": "administrator/components/com_users/forms/mail.xml",
+    "sha256": "f63f12260c4ee38e876ccf81f107fca11bfd10ecc6d1e2ad55588422fc1094cb"
+  },
+  {
+    "path": "administrator/components/com_users/forms/note.xml",
+    "sha256": "94169b5596d753d32567ece5d3a1e8330db3766dc20cb2682eabfc9d8adaf834"
+  },
+  {
+    "path": "administrator/components/com_users/forms/user.xml",
+    "sha256": "6bd67b1cf67f33709ec677c369ef68d8517df2f881900db982fd334eb1ac9c5f"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/BackupcodesModel.php",
+    "sha256": "e1c723c0a0aa3fa9d1fe5f6c9b99ca66bf5e99f147507d7ca448fe5c8f542d57"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/CaptiveModel.php",
+    "sha256": "ba17bdc45ea97dc2219964f613d93e3e61b8721ea5c6a408d580d46984b8de39"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/DebuggroupModel.php",
+    "sha256": "9c42c956c9c96cb4314f6500451d92ea4b52a4b4ba0b7cf0979cbee6ee13964f"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/DebuguserModel.php",
+    "sha256": "4154bb0d5282d714666a1d8f082d0edbb1d7dcdc659526068ae4ac13783cf5a7"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/GroupModel.php",
+    "sha256": "d080b012ba5ddf9f8a985c89db3b4582c153e63a698d6a736be3c4e9c5e0f522"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/GroupsModel.php",
+    "sha256": "9ed9da3c24e05d4593b47eafbf0fc43d826c586e13d248cb2bda7d536cc746c4"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/LevelModel.php",
+    "sha256": "95157de58cb99770c4f7b7353930c732f0852eb95e2899872b9393acfabe7b01"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/LevelsModel.php",
+    "sha256": "2aa56ad3b0cadc44a815d1122aa7bd97e091b506dde60d0c6ca725959d6fdf88"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/MailModel.php",
+    "sha256": "41201e567dbda1f27ecd7235edcd011fcad61347c8c112b3daf8b3a343f14d64"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/MethodModel.php",
+    "sha256": "e817ceead0599db1d4d7fe0cf6957b0330ae3c2836252ea3e042580ac645c55b"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/MethodsModel.php",
+    "sha256": "2513184e7781ee47ba9c0f73d2cb82428d94c487edb6c9e6ef0ac1e8a003caa3"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/NoteModel.php",
+    "sha256": "18eb03a889fd34f1f9645e9b9ce7098d932b06a1b45a4ee562c66dfc66a3e72d"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/NotesModel.php",
+    "sha256": "c435514b0ca361bf326ae38e97dc7b1fe65821d5f2e25c3756e4be923bf1e045"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/UserModel.php",
+    "sha256": "7cc4d52bf7983566c8345d4af56f9d282b45a1c8378edaac7afdaf11f0539d6e"
+  },
+  {
+    "path": "administrator/components/com_users/src/Model/UsersModel.php",
+    "sha256": "8ebdefd116645e76a44f7e2399bf15e948730815fe4cff99e1faab143b5d24fa"
+  },
+  {
+    "path": "api/components/com_users/src/Controller/GroupsController.php",
+    "sha256": "44c671fa483c963684b153f478cbace11ce90c9002c14d94b94c521ecc0576e5"
+  },
+  {
+    "path": "api/components/com_users/src/Controller/LevelsController.php",
+    "sha256": "eec24bb2a0d2260aef9364ba4328da0056feef9012e22b01e5aa6f52214e3bde"
+  },
+  {
+    "path": "api/components/com_users/src/Controller/UsersController.php",
+    "sha256": "3e5e5047d88b8aea89aa26e28018180dd5b42d7525e995c2a6d0246c1a03dc4c"
+  },
+  {
+    "path": "api/components/com_users/src/View/Groups/JsonapiView.php",
+    "sha256": "8f9d0743fa8f14f8ae684f29422b0d7120c0840a1d9bc48381462dc2ef17942c"
+  },
+  {
+    "path": "api/components/com_users/src/View/Levels/JsonapiView.php",
+    "sha256": "8144a2639ab213bb291b97ad29dd4971860ca7c05c2e5c28c3a4638831b4ac9a"
+  },
+  {
+    "path": "api/components/com_users/src/View/Users/JsonapiView.php",
+    "sha256": "d56e6174d9592090c2ed4f1858cc9e0bb839895da8ac74ba2bfd05f4dffbe4dc"
+  },
+  {
+    "path": "installation/sql/mysql/base.sql",
+    "sha256": "ca26b617e7f5beec54b2f2b5157676823a892ccda6017df64f2cc188b0461a9c"
+  },
+  {
+    "path": "installation/sql/mysql/extensions.sql",
+    "sha256": "2e61aee2b71b1096833636af57fba466fa5333938555cbff24e06b72f7f81373"
+  },
+  {
+    "path": "installation/sql/mysql/supports.sql",
+    "sha256": "769f58a1b8954e82f5eb8b928ead7e7a020c5c8290f45f729d7c4e515049b95b"
+  },
+  {
+    "path": "libraries/src/Application/ApiApplication.php",
+    "sha256": "7c0fa120b6d546046b0ef6b86e9940a381e47c8c4370ba8f24f927749f275693"
+  },
+  {
+    "path": "libraries/src/Document/JsonapiDocument.php",
+    "sha256": "3834b35620d5bd0a95c597d6c5fd591a4457c19d6e00f412c12449092138eb65"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/AuthenticationFailedExceptionHandler.php",
+    "sha256": "0e7758e0a410bb59d8dfcae38f3d5c149433beb5d9a25496ac7ea862d16f0a5f"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/CheckinCheckoutExceptionHandler.php",
+    "sha256": "b5b2fbd5e8e3f97cead8139bc90ae9a2f927fdc0f24171e9300e0855623850e8"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/InvalidParameterExceptionHandler.php",
+    "sha256": "0a0dfa581620208a4f0562b6cc07974cd25a4160248b98d1a162c3428ae5f313"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/InvalidRouteExceptionHandler.php",
+    "sha256": "c38d245bc20c881b2ca0dbe6a9a2560103c6b8ab8b116312fd2d9af0fd1f65ab"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/NotAcceptableExceptionHandler.php",
+    "sha256": "4f2a4daafca74548399538c2315d191b98ae494bb3b295d33c2fb9dda9f1afce"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/NotAllowedExceptionHandler.php",
+    "sha256": "ba8dfad4d1689e6df9e71696b54df46a6854ddfca886214c74dfae9ec5ee4678"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/ResourceNotFoundExceptionHandler.php",
+    "sha256": "f0d81b839e6d6ab4ee6acf69751d939b4684b3f024881e0c47c07fe17cc928d9"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/SaveExceptionHandler.php",
+    "sha256": "9246051703dc8c26ebed1b617782237c8c2985ffa109c9cab098545ebc73551d"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/SendEmailExceptionHandler.php",
+    "sha256": "c23ec173aee2c1c45fcb8405c1e8af9e26eb9f6a2ce90079256b5442014a2433"
+  },
+  {
+    "path": "libraries/src/Error/Renderer/JsonapiRenderer.php",
+    "sha256": "5395fb46bf48de86a169b3a7d3095c5c3fc47585ee2748e2e90895a9242b1dac"
+  },
+  {
+    "path": "libraries/src/Form/Field/CalendarField.php",
+    "sha256": "3b9313268c30b235135cc08b8675e30031931450e9e02a216b469d775f006fcc"
+  },
+  {
+    "path": "libraries/src/Form/Field/ListField.php",
+    "sha256": "cffc2e87a3a2eae581e1997f1fda356866a956d4dcb0758aa0498cc25cceda82"
+  },
+  {
+    "path": "libraries/src/Form/Field/SqlField.php",
+    "sha256": "95997276ea561cb4bae326d1a9cc5486e6769dcc05b56c3c0985f6e131045b48"
+  },
+  {
+    "path": "libraries/src/Helper/TagsHelper.php",
+    "sha256": "9706d807520d53dfd27652e17bb2a9a89c3d405f135a6e6c4be5eb4efab7674c"
+  },
+  {
+    "path": "libraries/src/MVC/Controller/ApiController.php",
+    "sha256": "c24cdec55dff28eafbebfae7532d232606457ef6c382f51b6e31156a51f8ef36"
+  },
+  {
+    "path": "libraries/src/MVC/Controller/BaseController.php",
+    "sha256": "9b722dcdaa686fbd9e0930db556675daa020497ef010cf2961562d06d8762e47"
+  },
+  {
+    "path": "libraries/src/MVC/Model/AdminModel.php",
+    "sha256": "868ee99778759043627a75835d9198189c843f80cc1dbdc9a64bdef83fb00959"
+  },
+  {
+    "path": "libraries/src/MVC/View/JsonApiView.php",
+    "sha256": "c5d44ebea6b4c4ff430f55f2e79257e04b609bfa9d34d4960ce0ba1a8b82cdbb"
+  },
+  {
+    "path": "libraries/src/MVC/View/JsonView.php",
+    "sha256": "6f2db5d07650eb46adde0c02f1070f48d24d6ecf9768702645b3d8b43ac56e10"
+  },
+  {
+    "path": "libraries/src/Router/ApiRouter.php",
+    "sha256": "50fd1afd08ddb9818e2daa7066512e2acd5f321cd103575cda964942dedbe538"
+  },
+  {
+    "path": "libraries/src/Serializer/JoomlaSerializer.php",
+    "sha256": "fb182dfe5dc9ae328fb362782642116afb6028cb367450fd82aa686b13fa2921"
+  },
+  {
+    "path": "libraries/src/Version.php",
+    "sha256": "6c9c2d65ea8a77fbef1dd5c5b7d6207f4dc5cc3d613be1e051bbdb54f882af3e"
+  },
+  {
+    "path": "libraries/vendor/tobscure/json-api/src/AbstractSerializer.php",
+    "sha256": "92bde84b0654d29178233ce71bfb57197a8ff7761ab1286b2dadb9139b8f2b45"
+  },
+  {
+    "path": "libraries/vendor/tobscure/json-api/src/Resource.php",
+    "sha256": "8322d679b2a04ff29ed76c3a90e0d3ca738e475bb9425a6fef96ea9710a59bed"
+  },
+  {
+    "path": "plugins/webservices/users/src/Extension/Users.php",
+    "sha256": "4f86ce00db25f63483b5725543e925f47b4cfc1b0a81acab427b9973e2bf1bc4"
+  }
+]

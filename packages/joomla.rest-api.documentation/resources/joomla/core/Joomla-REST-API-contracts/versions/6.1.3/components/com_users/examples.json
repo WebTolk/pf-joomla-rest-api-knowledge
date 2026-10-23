@@ -1,0 +1,285 @@
+[
+  {
+    "operationId": "com_users_get_v1_users",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_get_v1_usersResponse",
+    "value": {
+      "data": [
+        {
+          "type": "users",
+          "id": "Example",
+          "attributes": {
+            "name": "Example",
+            "username": "Example",
+            "email": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_get_v1_users_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_get_v1_users_idResponse",
+    "value": {
+      "data": {
+        "type": "users",
+        "id": "Example",
+        "attributes": {
+          "groups": [],
+          "name": "Example",
+          "username": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_post_v1_users",
+    "direction": "request",
+    "schema": "com_users_post_v1_usersRequest",
+    "value": {
+      "name": "Example",
+      "username": "Example",
+      "email": "example@example.invalid"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_post_v1_users",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_post_v1_usersResponse",
+    "value": {
+      "data": {
+        "type": "users",
+        "id": "Example",
+        "attributes": {
+          "groups": [],
+          "name": "Example",
+          "username": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_patch_v1_users_id",
+    "direction": "request",
+    "schema": "com_users_patch_v1_users_idRequest",
+    "value": {
+      "name": "Example",
+      "username": "Example",
+      "password": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_patch_v1_users_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_patch_v1_users_idResponse",
+    "value": {
+      "data": {
+        "type": "users",
+        "id": "Example",
+        "attributes": {
+          "groups": [],
+          "name": "Example",
+          "username": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_get_v1_users_groups",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_get_v1_users_groupsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "groups",
+          "id": "Example",
+          "attributes": {
+            "parent_id": 1,
+            "lft": 1,
+            "rgt": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_get_v1_users_groups_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_get_v1_users_groups_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "lft": 1,
+          "rgt": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_post_v1_users_groups",
+    "direction": "request",
+    "schema": "com_users_post_v1_users_groupsRequest",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_post_v1_users_groups",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_post_v1_users_groupsResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "lft": 1,
+          "rgt": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_patch_v1_users_groups_id",
+    "direction": "request",
+    "schema": "com_users_patch_v1_users_groups_idRequest",
+    "value": {
+      "title": "Example",
+      "parent_id": 1,
+      "actions": []
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_patch_v1_users_groups_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_patch_v1_users_groups_idResponse",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "lft": 1,
+          "rgt": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_get_v1_users_levels",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_get_v1_users_levelsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "levels",
+          "id": "Example",
+          "attributes": {
+            "title": "Example",
+            "rules": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_get_v1_users_levels_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_get_v1_users_levels_idResponse",
+    "value": {
+      "data": {
+        "type": "levels",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "rules": []
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_post_v1_users_levels",
+    "direction": "request",
+    "schema": "com_users_post_v1_users_levelsRequest",
+    "value": {
+      "title": "API example",
+      "rules": [
+        2,
+        3
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_post_v1_users_levels",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_post_v1_users_levelsResponse",
+    "value": {
+      "data": {
+        "type": "levels",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "rules": []
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_patch_v1_users_levels_id",
+    "direction": "request",
+    "schema": "com_users_patch_v1_users_levels_idRequest",
+    "value": {
+      "title": "API example",
+      "rules": "[2,3]"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_users_patch_v1_users_levels_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_users_patch_v1_users_levels_idResponse",
+    "value": {
+      "data": {
+        "type": "levels",
+        "id": "Example",
+        "attributes": {
+          "title": "Example",
+          "rules": []
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

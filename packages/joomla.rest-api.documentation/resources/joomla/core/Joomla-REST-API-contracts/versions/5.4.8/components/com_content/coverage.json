@@ -1,0 +1,103 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/content/articles",
+    "task": "articles.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_content/src/Controller/ArticlesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/content/articles/{id}",
+    "task": "articles.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_content/src/Controller/ArticlesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/content/articles",
+    "task": "articles.add",
+    "support": "source-derived",
+    "request_schema": "com_content_post_v1_content_articlesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_content/src/Controller/ArticlesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/content/articles/{id}",
+    "task": "articles.edit",
+    "support": "source-derived",
+    "request_schema": "com_content_patch_v1_content_articles_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_content/src/Controller/ArticlesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/content/articles/{id}",
+    "task": "articles.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_content/src/Controller/ArticlesController.php"
+    ]
+  }
+]

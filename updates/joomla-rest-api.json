@@ -1,0 +1,1548 @@
+{
+  "schema_version": 1,
+  "product": {
+    "id": "webtolk.joomla-rest-api-knowledge"
+  },
+  "generated_at": "2026-10-23T10:08:25.912299Z",
+  "channels": {
+    "stable": {
+      "latest": "1.1.0"
+    }
+  },
+  "subjects": [
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.documentation",
+      "name": "Joomla REST API documentation",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.documentation-1.1.0.zip",
+              "sha256": "8515d4653ad8ed4f1bb6b5f7104ba729d1a814b82b54f4a19aa0cbddfe90409e",
+              "size": 3524369
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.associations",
+      "name": "joomla.rest-api.associations",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.associations-1.1.0.zip",
+              "sha256": "235701d901357d5228dcdb881e6fb55fcc5b1e9d992fbddcd7c90b4a41d466e3",
+              "size": 10774
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.banners",
+      "name": "joomla.rest-api.banners",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.banners-1.1.0.zip",
+              "sha256": "29f02049924ebe36d5a82d66724075d96d0423d54d7d3a85a26bc5cb579ec9e9",
+              "size": 10772
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.categories",
+      "name": "joomla.rest-api.categories",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.categories-1.1.0.zip",
+              "sha256": "fac3027aa01db8e0c55d72d6430af3798dae989204b5e3455dab1147e529e08a",
+              "size": 10776
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.common",
+      "name": "Joomla REST API common contract",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.common-1.1.0.zip",
+              "sha256": "d005bc57ffd72b17fd0b2c9c5446c2403f5753703a75613c30e5d0e637d1be38",
+              "size": 10722
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.config",
+      "name": "joomla.rest-api.config",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.config-1.1.0.zip",
+              "sha256": "9f690b1522f177364eaa66082ef26c1da19ccfc54053ef370ed9556e85a2573d",
+              "size": 10772
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.contact",
+      "name": "joomla.rest-api.contact",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.contact-1.1.0.zip",
+              "sha256": "8b1662dfb8c90d30659610e1c42fc918d10b9d8efd046155b7ae3efb92ada2e0",
+              "size": 10768
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.content",
+      "name": "joomla.rest-api.content",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.content-1.1.0.zip",
+              "sha256": "e4c46ea7cad1c5f3475577bdf8d2cada5e567fc1fd37042e90b7e59d34461565",
+              "size": 10764
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.contenthistory",
+      "name": "joomla.rest-api.contenthistory",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.contenthistory-1.1.0.zip",
+              "sha256": "5adbf13c23d95cecfe00674551e8744299fd69653094cacffaa55dbfe49ab962",
+              "size": 10780
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.fields",
+      "name": "joomla.rest-api.fields",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.fields-1.1.0.zip",
+              "sha256": "6bdf0dc2bd7da837c7b5b551f09787ca9851dc1d1ef15710e9b7d06eb38e1409",
+              "size": 10763
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.finder",
+      "name": "joomla.rest-api.finder",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.finder-1.1.0.zip",
+              "sha256": "6e495693a987657741e82f4ff79948e5fae78548815486d9d4b2ed17c0f806e5",
+              "size": 10769
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.installer",
+      "name": "joomla.rest-api.installer",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.installer-1.1.0.zip",
+              "sha256": "d61eb956f0c5826983c72f3846f04c821436515483fcff8b032b2487e2487caa",
+              "size": 10775
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.joomlaupdate",
+      "name": "joomla.rest-api.joomlaupdate",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.joomlaupdate-1.1.0.zip",
+              "sha256": "1a041929d90093c7d5c7786f9e58c0352fba191116a2b8044d9cbbb315a9b6fe",
+              "size": 10767
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.languages",
+      "name": "joomla.rest-api.languages",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.languages-1.1.0.zip",
+              "sha256": "089326be697df5dc15772ca1612fd0b49b88434cfcdb934f48eb279a08fb04b0",
+              "size": 10777
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.media",
+      "name": "joomla.rest-api.media",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.media-1.1.0.zip",
+              "sha256": "f846be7c3b44e057bf853e6d323ba7eb76d83897e71eeeb885cb5e349249a13c",
+              "size": 10765
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.menus",
+      "name": "joomla.rest-api.menus",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.menus-1.1.0.zip",
+              "sha256": "1d7ce31e80771b9597c5d8b31d8343b66fbd4416620516d00e03912ccb3d215a",
+              "size": 10764
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.messages",
+      "name": "joomla.rest-api.messages",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.messages-1.1.0.zip",
+              "sha256": "c151a6c57b9288ba61ef4f6d29a2624e5bfbd60e6539a8db38d288dd0965478a",
+              "size": 10774
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.modules",
+      "name": "joomla.rest-api.modules",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.modules-1.1.0.zip",
+              "sha256": "5de0df2c6660e18ef23501c1b5ce1b10a77c28fde850a3b549a576716aac6cc3",
+              "size": 10772
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.newsfeeds",
+      "name": "joomla.rest-api.newsfeeds",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.newsfeeds-1.1.0.zip",
+              "sha256": "17597a3e3c5764a7e3a9748d00361eb9740f0fb49215656698416c2f61457a90",
+              "size": 10775
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.plugins",
+      "name": "joomla.rest-api.plugins",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.plugins-1.1.0.zip",
+              "sha256": "e6a6a17f1445c4d8e3c2f28c607ad5686be5062fae5a6b2dab1b14166c469edf",
+              "size": 10773
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.privacy",
+      "name": "joomla.rest-api.privacy",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.privacy-1.1.0.zip",
+              "sha256": "15c28871802e266c696738da4c17a69c69e617b433222bb0212e58ecbf8fe1f7",
+              "size": 10774
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.redirect",
+      "name": "joomla.rest-api.redirect",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.redirect-1.1.0.zip",
+              "sha256": "cd4f2f2f8242d64a39e2a72e1ff0b0e31cc456488cc3f32fd9d07ac8f665de20",
+              "size": 10774
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.tags",
+      "name": "joomla.rest-api.tags",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.tags-1.1.0.zip",
+              "sha256": "312be838d8cbb135f982a72d05f79a9b7dbffb736201be51c9e69008376d7438",
+              "size": 10763
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.templates",
+      "name": "joomla.rest-api.templates",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.templates-1.1.0.zip",
+              "sha256": "45997662adbcdc3d2fc69f0389c68920923c127e4d159ec6c4950a1b0f2548a4",
+              "size": 10768
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "knowledge_package",
+      "id": "joomla.rest-api.users",
+      "name": "joomla.rest-api.users",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-10-23T10:08:25.912299Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.1.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.1.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.2.0",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.1.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.1.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.users-1.1.0.zip",
+              "sha256": "617e62d8f6ce9476be5747c3cf38cae2af1dc81ed4ea2cc72a25b6bbd69dbb0e",
+              "size": 10763
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ]
+}

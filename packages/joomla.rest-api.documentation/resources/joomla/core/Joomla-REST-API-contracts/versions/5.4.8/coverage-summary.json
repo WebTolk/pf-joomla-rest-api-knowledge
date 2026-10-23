@@ -1,0 +1,209 @@
+[
+  {
+    "component": "com_associations",
+    "operations": 0,
+    "schemas": 12,
+    "examples": 0,
+    "source_files": 34,
+    "form_fields": 16,
+    "unsupported": 0
+  },
+  {
+    "component": "com_banners",
+    "operations": 10,
+    "schemas": 29,
+    "examples": 12,
+    "source_files": 48,
+    "form_fields": 86,
+    "unsupported": 0
+  },
+  {
+    "component": "com_categories",
+    "operations": 20,
+    "schemas": 35,
+    "examples": 24,
+    "source_files": 39,
+    "form_fields": 38,
+    "unsupported": 0
+  },
+  {
+    "component": "com_config",
+    "operations": 4,
+    "schemas": 44,
+    "examples": 6,
+    "source_files": 38,
+    "form_fields": 104,
+    "unsupported": 0
+  },
+  {
+    "component": "com_contact",
+    "operations": 6,
+    "schemas": 21,
+    "examples": 8,
+    "source_files": 39,
+    "form_fields": 180,
+    "unsupported": 0
+  },
+  {
+    "component": "com_content",
+    "operations": 5,
+    "schemas": 20,
+    "examples": 6,
+    "source_files": 43,
+    "form_fields": 201,
+    "unsupported": 0
+  },
+  {
+    "component": "com_contenthistory",
+    "operations": 9,
+    "schemas": 15,
+    "examples": 6,
+    "source_files": 37,
+    "form_fields": 0,
+    "unsupported": 0
+  },
+  {
+    "component": "com_fields",
+    "operations": 60,
+    "schemas": 112,
+    "examples": 72,
+    "source_files": 71,
+    "form_fields": 72,
+    "unsupported": 0
+  },
+  {
+    "component": "com_finder",
+    "operations": 0,
+    "schemas": 16,
+    "examples": 0,
+    "source_files": 44,
+    "form_fields": 80,
+    "unsupported": 0
+  },
+  {
+    "component": "com_installer",
+    "operations": 3,
+    "schemas": 19,
+    "examples": 2,
+    "source_files": 53,
+    "form_fields": 60,
+    "unsupported": 1
+  },
+  {
+    "component": "com_joomlaupdate",
+    "operations": 6,
+    "schemas": 20,
+    "examples": 10,
+    "source_files": 40,
+    "form_fields": 10,
+    "unsupported": 0
+  },
+  {
+    "component": "com_languages",
+    "operations": 17,
+    "schemas": 36,
+    "examples": 21,
+    "source_files": 48,
+    "form_fields": 39,
+    "unsupported": 0
+  },
+  {
+    "component": "com_media",
+    "operations": 8,
+    "schemas": 20,
+    "examples": 9,
+    "source_files": 43,
+    "form_fields": 13,
+    "unsupported": 0
+  },
+  {
+    "component": "com_menus",
+    "operations": 22,
+    "schemas": 85,
+    "examples": 26,
+    "source_files": 89,
+    "form_fields": 174,
+    "unsupported": 0
+  },
+  {
+    "component": "com_messages",
+    "operations": 5,
+    "schemas": 19,
+    "examples": 6,
+    "source_files": 39,
+    "form_fields": 13,
+    "unsupported": 0
+  },
+  {
+    "component": "com_modules",
+    "operations": 12,
+    "schemas": 78,
+    "examples": 14,
+    "source_files": 91,
+    "form_fields": 66,
+    "unsupported": 0
+  },
+  {
+    "component": "com_newsfeeds",
+    "operations": 5,
+    "schemas": 19,
+    "examples": 6,
+    "source_files": 39,
+    "form_fields": 89,
+    "unsupported": 0
+  },
+  {
+    "component": "com_plugins",
+    "operations": 3,
+    "schemas": 93,
+    "examples": 4,
+    "source_files": 114,
+    "form_fields": 18,
+    "unsupported": 0
+  },
+  {
+    "component": "com_privacy",
+    "operations": 6,
+    "schemas": 20,
+    "examples": 7,
+    "source_files": 45,
+    "form_fields": 19,
+    "unsupported": 0
+  },
+  {
+    "component": "com_redirect",
+    "operations": 5,
+    "schemas": 18,
+    "examples": 6,
+    "source_files": 37,
+    "form_fields": 20,
+    "unsupported": 0
+  },
+  {
+    "component": "com_tags",
+    "operations": 5,
+    "schemas": 18,
+    "examples": 6,
+    "source_files": 37,
+    "form_fields": 76,
+    "unsupported": 0
+  },
+  {
+    "component": "com_templates",
+    "operations": 10,
+    "schemas": 30,
+    "examples": 12,
+    "source_files": 45,
+    "form_fields": 37,
+    "unsupported": 0
+  },
+  {
+    "component": "com_users",
+    "operations": 15,
+    "schemas": 41,
+    "examples": 18,
+    "source_files": 65,
+    "form_fields": 134,
+    "unsupported": 0
+  }
+]

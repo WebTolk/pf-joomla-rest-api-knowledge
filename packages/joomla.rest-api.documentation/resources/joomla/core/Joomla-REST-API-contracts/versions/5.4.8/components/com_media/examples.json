@@ -1,0 +1,156 @@
+[
+  {
+    "operationId": "com_media_get_v1_media_adapters",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_media_get_v1_media_adaptersResponse",
+    "value": {
+      "data": [
+        {
+          "type": "adapters",
+          "id": "Example",
+          "attributes": {
+            "provider_id": "Example",
+            "name": "Example",
+            "path": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_media_get_v1_media_adapters_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_media_get_v1_media_adapters_idResponse",
+    "value": {
+      "data": {
+        "type": "adapters",
+        "id": "Example",
+        "attributes": {
+          "provider_id": "Example",
+          "name": "Example",
+          "path": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_media_get_v1_media_files",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_media_get_v1_media_filesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "media",
+          "id": "Example",
+          "attributes": {
+            "type": "Example",
+            "name": "Example",
+            "path": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_media_get_v1_media_files_path_directory",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_media_get_v1_media_files_path_directoryResponse",
+    "value": {
+      "data": [
+        {
+          "type": "media",
+          "id": "Example",
+          "attributes": {
+            "type": "Example",
+            "name": "Example",
+            "path": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_media_get_v1_media_files_path",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_media_get_v1_media_files_pathResponse",
+    "value": {
+      "data": {
+        "type": "media",
+        "id": "Example",
+        "attributes": {
+          "type": "Example",
+          "name": "Example",
+          "path": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_media_post_v1_media_files",
+    "direction": "request",
+    "schema": "com_media_post_v1_media_filesRequest",
+    "value": {
+      "path": "local-images:/example.txt",
+      "content": "RXhhbXBsZQ==",
+      "override": false
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_media_post_v1_media_files",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_media_post_v1_media_filesResponse",
+    "value": {
+      "data": {
+        "type": "media",
+        "id": "Example",
+        "attributes": {
+          "type": "Example",
+          "name": "Example",
+          "path": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_media_patch_v1_media_files_path",
+    "direction": "request",
+    "schema": "com_media_patch_v1_media_files_pathRequest",
+    "value": {
+      "path": "local-images:/example.txt",
+      "content": "RXhhbXBsZQ==",
+      "override": false
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_media_patch_v1_media_files_path",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_media_patch_v1_media_files_pathResponse",
+    "value": {
+      "data": {
+        "type": "media",
+        "id": "Example",
+        "attributes": {
+          "type": "Example",
+          "name": "Example",
+          "path": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

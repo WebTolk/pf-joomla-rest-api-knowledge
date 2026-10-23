@@ -1,0 +1,345 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/languages/content",
+    "task": "languages.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/LanguagesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/content/{id}",
+    "task": "languages.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/LanguagesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/content",
+    "task": "languages.add",
+    "support": "source-derived",
+    "request_schema": "com_languages_post_v1_languages_contentRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/LanguagesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/languages/content/{id}",
+    "task": "languages.edit",
+    "support": "source-derived",
+    "request_schema": "com_languages_patch_v1_languages_content_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/LanguagesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/languages/content/{id}",
+    "task": "languages.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/LanguagesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/overrides/search",
+    "task": "strings.search",
+    "support": "source-derived",
+    "request_schema": "com_languages_post_v1_languages_overrides_searchRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/StringsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/overrides/search/cache/refresh",
+    "task": "strings.refresh",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/StringsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/overrides/site/{lang_code}",
+    "task": "overrides.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/overrides/site/{lang_code}/{id}",
+    "task": "overrides.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/overrides/site/{lang_code}",
+    "task": "overrides.add",
+    "support": "source-derived",
+    "request_schema": "com_languages_post_v1_languages_overrides_site_lang_codeRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/languages/overrides/site/{lang_code}/{id}",
+    "task": "overrides.edit",
+    "support": "source-derived",
+    "request_schema": "com_languages_patch_v1_languages_overrides_site_lang_code_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/languages/overrides/site/{lang_code}/{id}",
+    "task": "overrides.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/overrides/administrator/{lang_code}",
+    "task": "overrides.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/languages/overrides/administrator/{lang_code}/{id}",
+    "task": "overrides.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/languages/overrides/administrator/{lang_code}",
+    "task": "overrides.add",
+    "support": "source-derived",
+    "request_schema": "com_languages_post_v1_languages_overrides_administrator_lang_codeRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/languages/overrides/administrator/{lang_code}/{id}",
+    "task": "overrides.edit",
+    "support": "source-derived",
+    "request_schema": "com_languages_patch_v1_languages_overrides_administrator_lang_code_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/languages/overrides/administrator/{lang_code}/{id}",
+    "task": "overrides.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/languages/src/Extension/Languages.php",
+      "api/components/com_languages/src/Controller/OverridesController.php"
+    ]
+  }
+]

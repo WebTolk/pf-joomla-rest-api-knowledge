@@ -1,0 +1,103 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/redirects",
+    "task": "redirect.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/redirect/src/Extension/Redirect.php",
+      "api/components/com_redirect/src/Controller/RedirectController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/redirects/{id}",
+    "task": "redirect.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/redirect/src/Extension/Redirect.php",
+      "api/components/com_redirect/src/Controller/RedirectController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/redirects",
+    "task": "redirect.add",
+    "support": "source-derived",
+    "request_schema": "com_redirect_post_v1_redirectsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/redirect/src/Extension/Redirect.php",
+      "api/components/com_redirect/src/Controller/RedirectController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/redirects/{id}",
+    "task": "redirect.edit",
+    "support": "source-derived",
+    "request_schema": "com_redirect_patch_v1_redirects_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/redirect/src/Extension/Redirect.php",
+      "api/components/com_redirect/src/Controller/RedirectController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/redirects/{id}",
+    "task": "redirect.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/redirect/src/Extension/Redirect.php",
+      "api/components/com_redirect/src/Controller/RedirectController.php"
+    ]
+  }
+]

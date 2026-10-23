@@ -1,0 +1,214 @@
+[
+  {
+    "path": "administrator/components/com_installer/config.xml",
+    "sha256": "3c2da20df889e11b156db13ecde1f87c1ee4d4a0f62950dd390f0e740802eb0f"
+  },
+  {
+    "path": "administrator/components/com_installer/forms/filter_database.xml",
+    "sha256": "18f665c7c1235c5ba8b2e0ef38ba52d4c77fc1d0cbe6c7601833632f5b89167f"
+  },
+  {
+    "path": "administrator/components/com_installer/forms/filter_discover.xml",
+    "sha256": "7c3ea6a1950a2d357d51d0887613258a53042c39116dd8caf79deaf27ed6de49"
+  },
+  {
+    "path": "administrator/components/com_installer/forms/filter_languages.xml",
+    "sha256": "e307f28b9461adee74a2bb9bab1ad40e0c98f565a439513f975bd38cee1ee839"
+  },
+  {
+    "path": "administrator/components/com_installer/forms/filter_manage.xml",
+    "sha256": "6a802df79fe89d10fb63412e4dbb0bb7170a3b8b1abee0036448c82c9948cebf"
+  },
+  {
+    "path": "administrator/components/com_installer/forms/filter_update.xml",
+    "sha256": "df72e66fdb1b0ccab356fe2589592abc680e2fb9b8bf1a7a085136ce2cbbd90d"
+  },
+  {
+    "path": "administrator/components/com_installer/forms/filter_updatesites.xml",
+    "sha256": "289e78343c7755db7e35a9466fe70de4dd5eac4a2e775f465b8084a18594c130"
+  },
+  {
+    "path": "administrator/components/com_installer/forms/updatesite.xml",
+    "sha256": "cdca652ab864140e00e1d83613ebd18e8e5619a0e3933f309e1d4ded293eacd4"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/DatabaseModel.php",
+    "sha256": "0cd434987a6334db5c7180a56d9a7d27fbe323475af004791a2e67bc6e38dbab"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/DiscoverModel.php",
+    "sha256": "426dfce8a0ebb21a76d9b28e445820e9db695ac069980c3e556cd42abf0d40c2"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/InstallModel.php",
+    "sha256": "614dfdba1a942e1d5633b18e5fb55d1aa515247da8d5245594d7fd3835decc17"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/InstallerModel.php",
+    "sha256": "d025626435e2b8f26cd86595be3638e74bac068ea832b0b68840c81e44c9f161"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/LanguagesModel.php",
+    "sha256": "c62635d61f0132f97c5b57599765d8e1a6dcfc3b28ee1b105fb729f97311a66d"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/ManageModel.php",
+    "sha256": "bd77f21ad71cbd7dee64e5d5a467742c33ec084040388d820d0f3b1264e0b73e"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/UpdateModel.php",
+    "sha256": "e85b3e292c045df5ed676c9046944d0f437f54e9501564323312c18893cb6131"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/UpdatesiteModel.php",
+    "sha256": "8933388fbf16b2e0e517c5d978a9e0f5c60778f15816b8601b83b28b4cc00ba9"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/UpdatesitesModel.php",
+    "sha256": "0d008fd16b68882f36492d2adf7c0cfb2a92af96b897481cb942e3bbd4a53abc"
+  },
+  {
+    "path": "administrator/components/com_installer/src/Model/WarningsModel.php",
+    "sha256": "dad7a16c2099dcb541ec41e84ab09c436f3524c52d7e9dc135cf62ce98836908"
+  },
+  {
+    "path": "api/components/com_installer/src/Controller/LanguagesController.php",
+    "sha256": "701ce1d4eaf54832957a04306e18cabe9587f8e5b8f8f45f9fe47f491034031f"
+  },
+  {
+    "path": "api/components/com_installer/src/Controller/ManageController.php",
+    "sha256": "b4213f6f67723b50aa89757f861d8b38a9ce8af77e39ebe959120330d25e22ba"
+  },
+  {
+    "path": "api/components/com_installer/src/View/Languages/JsonapiView.php",
+    "sha256": "33b9f14163bd9f0f53781f87286d3f92e615235b9698ff289dd7ebe7649aa2d6"
+  },
+  {
+    "path": "api/components/com_installer/src/View/Manage/JsonapiView.php",
+    "sha256": "f8780e3577b24e4cfd1cc37c788b714acc9c0df3b7696024e2f418056d35df17"
+  },
+  {
+    "path": "installation/sql/mysql/base.sql",
+    "sha256": "d4935e398b4f660f7fa59d92e7fd5b2f487c6669544d8e77e72794a508afd842"
+  },
+  {
+    "path": "installation/sql/mysql/extensions.sql",
+    "sha256": "2e61aee2b71b1096833636af57fba466fa5333938555cbff24e06b72f7f81373"
+  },
+  {
+    "path": "installation/sql/mysql/supports.sql",
+    "sha256": "98028bb4f71274f16849862cb82e76731ec06ca5aee7d80d1952c094568d2b36"
+  },
+  {
+    "path": "libraries/src/Application/ApiApplication.php",
+    "sha256": "03540b0cfc0d9beb8827298215004ac74b4c9f0f581d5d3e68f2a50c58ae932d"
+  },
+  {
+    "path": "libraries/src/Document/JsonapiDocument.php",
+    "sha256": "3834b35620d5bd0a95c597d6c5fd591a4457c19d6e00f412c12449092138eb65"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/AuthenticationFailedExceptionHandler.php",
+    "sha256": "0e7758e0a410bb59d8dfcae38f3d5c149433beb5d9a25496ac7ea862d16f0a5f"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/CheckinCheckoutExceptionHandler.php",
+    "sha256": "b5b2fbd5e8e3f97cead8139bc90ae9a2f927fdc0f24171e9300e0855623850e8"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/InvalidParameterExceptionHandler.php",
+    "sha256": "0a0dfa581620208a4f0562b6cc07974cd25a4160248b98d1a162c3428ae5f313"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/InvalidRouteExceptionHandler.php",
+    "sha256": "c38d245bc20c881b2ca0dbe6a9a2560103c6b8ab8b116312fd2d9af0fd1f65ab"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/NotAcceptableExceptionHandler.php",
+    "sha256": "4f2a4daafca74548399538c2315d191b98ae494bb3b295d33c2fb9dda9f1afce"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/NotAllowedExceptionHandler.php",
+    "sha256": "ba8dfad4d1689e6df9e71696b54df46a6854ddfca886214c74dfae9ec5ee4678"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/ResourceNotFoundExceptionHandler.php",
+    "sha256": "f0d81b839e6d6ab4ee6acf69751d939b4684b3f024881e0c47c07fe17cc928d9"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/SaveExceptionHandler.php",
+    "sha256": "9246051703dc8c26ebed1b617782237c8c2985ffa109c9cab098545ebc73551d"
+  },
+  {
+    "path": "libraries/src/Error/JsonApi/SendEmailExceptionHandler.php",
+    "sha256": "c23ec173aee2c1c45fcb8405c1e8af9e26eb9f6a2ce90079256b5442014a2433"
+  },
+  {
+    "path": "libraries/src/Error/Renderer/JsonapiRenderer.php",
+    "sha256": "5395fb46bf48de86a169b3a7d3095c5c3fc47585ee2748e2e90895a9242b1dac"
+  },
+  {
+    "path": "libraries/src/Form/Field/CalendarField.php",
+    "sha256": "afd6228096cf639fcef5d718b8e2f1841a4c2960e46a20334a1799e32fa6422a"
+  },
+  {
+    "path": "libraries/src/Form/Field/ListField.php",
+    "sha256": "cffc2e87a3a2eae581e1997f1fda356866a956d4dcb0758aa0498cc25cceda82"
+  },
+  {
+    "path": "libraries/src/Form/Field/SqlField.php",
+    "sha256": "2fca11da5b4abf2c26246b6f42d6a8bd96f29b25fc7cbde7b8a118bd139f86c4"
+  },
+  {
+    "path": "libraries/src/Helper/TagsHelper.php",
+    "sha256": "aac1aed3c7cf5e08aebd19026bebd585a25a24a5cf3cb337c5d1f4cc87245420"
+  },
+  {
+    "path": "libraries/src/MVC/Controller/ApiController.php",
+    "sha256": "b489ad74237b1d07a1224ad9a411b9f145a9a33eed10f522decbeeac971b4031"
+  },
+  {
+    "path": "libraries/src/MVC/Controller/BaseController.php",
+    "sha256": "d194ba52c7628082c34f23fd422ab3b866c24363e84bc7b781f3d85971546a7e"
+  },
+  {
+    "path": "libraries/src/MVC/Model/AdminModel.php",
+    "sha256": "1174662aca92fb95327f9e041cddba74e708ccaa1d1fc6f6cdff3ff04121f49c"
+  },
+  {
+    "path": "libraries/src/MVC/View/JsonApiView.php",
+    "sha256": "c5d44ebea6b4c4ff430f55f2e79257e04b609bfa9d34d4960ce0ba1a8b82cdbb"
+  },
+  {
+    "path": "libraries/src/MVC/View/JsonView.php",
+    "sha256": "6f2db5d07650eb46adde0c02f1070f48d24d6ecf9768702645b3d8b43ac56e10"
+  },
+  {
+    "path": "libraries/src/Router/ApiRouter.php",
+    "sha256": "50fd1afd08ddb9818e2daa7066512e2acd5f321cd103575cda964942dedbe538"
+  },
+  {
+    "path": "libraries/src/Serializer/JoomlaSerializer.php",
+    "sha256": "fb182dfe5dc9ae328fb362782642116afb6028cb367450fd82aa686b13fa2921"
+  },
+  {
+    "path": "libraries/src/Version.php",
+    "sha256": "65af30575ae02e9f3cffdaf2b5a382beaacd1c0e5bb7cd90ac0449b79398eee5"
+  },
+  {
+    "path": "libraries/vendor/tobscure/json-api/src/AbstractSerializer.php",
+    "sha256": "92bde84b0654d29178233ce71bfb57197a8ff7761ab1286b2dadb9139b8f2b45"
+  },
+  {
+    "path": "libraries/vendor/tobscure/json-api/src/Resource.php",
+    "sha256": "8322d679b2a04ff29ed76c3a90e0d3ca738e475bb9425a6fef96ea9710a59bed"
+  },
+  {
+    "path": "plugins/webservices/installer/src/Extension/Installer.php",
+    "sha256": "c820937705426bb8a5ded452dfd5fa6e7f349c7d41df8d8f84134dd412c27c86"
+  },
+  {
+    "path": "plugins/webservices/languages/src/Extension/Languages.php",
+    "sha256": "0f32f6571ecbdff1cf9d12df78f75f9759a19084ae8f1a82319259db709b352b"
+  }
+]

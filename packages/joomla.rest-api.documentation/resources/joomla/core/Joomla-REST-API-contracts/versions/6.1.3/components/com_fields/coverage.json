@@ -1,0 +1,1214 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/contact",
+    "task": "fields.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/contact/{id}",
+    "task": "fields.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/contacts/contact",
+    "task": "fields.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_contacts_contactRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/contacts/contact/{id}",
+    "task": "fields.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_contacts_contact_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/contacts/contact/{id}",
+    "task": "fields.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/mail",
+    "task": "fields.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/mail/{id}",
+    "task": "fields.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/contacts/mail",
+    "task": "fields.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_contacts_mailRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/contacts/mail/{id}",
+    "task": "fields.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_contacts_mail_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/contacts/mail/{id}",
+    "task": "fields.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/categories",
+    "task": "fields.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/contacts/categories/{id}",
+    "task": "fields.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/contacts/categories",
+    "task": "fields.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_contacts_categoriesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/contacts/categories/{id}",
+    "task": "fields.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_contacts_categories_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/contacts/categories/{id}",
+    "task": "fields.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/contact",
+    "task": "groups.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/contact/{id}",
+    "task": "groups.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/contacts/contact",
+    "task": "groups.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_groups_contacts_contactRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/contacts/contact/{id}",
+    "task": "groups.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_groups_contacts_contact_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/contacts/contact/{id}",
+    "task": "groups.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/mail",
+    "task": "groups.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/mail/{id}",
+    "task": "groups.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/contacts/mail",
+    "task": "groups.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_groups_contacts_mailRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/contacts/mail/{id}",
+    "task": "groups.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_groups_contacts_mail_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/contacts/mail/{id}",
+    "task": "groups.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/categories",
+    "task": "groups.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/contacts/categories/{id}",
+    "task": "groups.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/contacts/categories",
+    "task": "groups.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_groups_contacts_categoriesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/contacts/categories/{id}",
+    "task": "groups.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_groups_contacts_categories_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/contacts/categories/{id}",
+    "task": "groups.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/contact/src/Extension/Contact.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/content/articles",
+    "task": "fields.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/content/articles/{id}",
+    "task": "fields.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/content/articles",
+    "task": "fields.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_content_articlesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/content/articles/{id}",
+    "task": "fields.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_content_articles_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/content/articles/{id}",
+    "task": "fields.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/content/categories",
+    "task": "fields.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/content/categories/{id}",
+    "task": "fields.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/content/categories",
+    "task": "fields.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_content_categoriesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/content/categories/{id}",
+    "task": "fields.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_content_categories_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/content/categories/{id}",
+    "task": "fields.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/content/articles",
+    "task": "groups.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/content/articles/{id}",
+    "task": "groups.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/content/articles",
+    "task": "groups.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_groups_content_articlesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/content/articles/{id}",
+    "task": "groups.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_groups_content_articles_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/content/articles/{id}",
+    "task": "groups.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/content/categories",
+    "task": "groups.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/content/categories/{id}",
+    "task": "groups.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/content/categories",
+    "task": "groups.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_groups_content_categoriesRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/content/categories/{id}",
+    "task": "groups.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_groups_content_categories_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/content/categories/{id}",
+    "task": "groups.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/content/src/Extension/Content.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/users",
+    "task": "fields.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/users/{id}",
+    "task": "fields.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/users",
+    "task": "fields.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_usersRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/users/{id}",
+    "task": "fields.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_users_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/users/{id}",
+    "task": "fields.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/FieldsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/users",
+    "task": "groups.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/fields/groups/users/{id}",
+    "task": "groups.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/fields/groups/users",
+    "task": "groups.add",
+    "support": "source-derived",
+    "request_schema": "com_fields_post_v1_fields_groups_usersRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/fields/groups/users/{id}",
+    "task": "groups.edit",
+    "support": "source-derived",
+    "request_schema": "com_fields_patch_v1_fields_groups_users_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/fields/groups/users/{id}",
+    "task": "groups.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/users/src/Extension/Users.php",
+      "api/components/com_fields/src/Controller/GroupsController.php"
+    ]
+  }
+]

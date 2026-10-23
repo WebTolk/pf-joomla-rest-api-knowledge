@@ -1,0 +1,74 @@
+[
+  {
+    "operationId": "com_config_get_v1_config_application",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_config_get_v1_config_applicationResponse",
+    "value": {
+      "data": [
+        {
+          "type": "application",
+          "id": "Example",
+          "attributes": {
+            "caching": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_config_patch_v1_config_application",
+    "direction": "request",
+    "schema": "com_config_patch_v1_config_applicationRequest",
+    "value": {
+      "caching": 0,
+      "cache_handler": "Example",
+      "cache_platformprefix": false
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_config_patch_v1_config_application",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_config_patch_v1_config_applicationResponse",
+    "value": [],
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_config_get_v1_config_component_name",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_config_get_v1_config_component_nameResponse",
+    "value": {
+      "data": [
+        {
+          "type": "component",
+          "id": "Example",
+          "attributes": {
+            "lock": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_config_patch_v1_config_component_name",
+    "direction": "request",
+    "schema": "com_config_patch_v1_config_component_nameRequest",
+    "value": {
+      "show_title": 1
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_config_patch_v1_config_component_name",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_config_patch_v1_config_component_nameResponse",
+    "value": [],
+    "provenance": "synthetic"
+  }
+]

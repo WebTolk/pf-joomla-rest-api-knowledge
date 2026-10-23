@@ -1,0 +1,113 @@
+schema_version: 1
+package:
+  id: joomla.rest-api.common
+  version: 1.1.0
+  package_root: global
+generated_at: '2026-10-23T10:08:24Z'
+load_policy:
+  default: on_demand
+  heavy_resources: index_only_until_requested
+  do_not_load_full_content: true
+resources:
+- id: common-contract
+  kind: documentation
+  title: Joomla REST common contract
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 1.0.0
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/common
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.common
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+- id: contracts-catalog
+  kind: documentation
+  title: Joomla REST component contract catalog
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 1.0.0
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/README.md
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.common
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+- id: validation
+  kind: documentation
+  title: Joomla REST contract validation
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 1.0.0
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/validation.json
+  path_status: available
+  load_policy: on_demand
+  index_policy: metadata_only
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.common
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.

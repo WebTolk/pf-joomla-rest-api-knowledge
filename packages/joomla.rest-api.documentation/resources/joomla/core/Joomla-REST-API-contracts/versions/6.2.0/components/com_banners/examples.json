@@ -1,0 +1,192 @@
+[
+  {
+    "operationId": "com_banners_get_v1_banners",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_banners_get_v1_bannersResponse",
+    "value": {
+      "data": [
+        {
+          "type": "banners",
+          "id": "Example",
+          "attributes": {
+            "name": "Example",
+            "alias": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_get_v1_banners_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_banners_get_v1_banners_idResponse",
+    "value": {
+      "data": {
+        "type": "banners",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "cid": 1,
+          "type": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_post_v1_banners",
+    "direction": "request",
+    "schema": "com_banners_post_v1_bannersRequest",
+    "value": {
+      "name": "Example",
+      "catid": 1
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_post_v1_banners",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_banners_post_v1_bannersResponse",
+    "value": {
+      "data": {
+        "type": "banners",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "cid": 1,
+          "type": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_patch_v1_banners_id",
+    "direction": "request",
+    "schema": "com_banners_patch_v1_banners_idRequest",
+    "value": {
+      "name": "Example",
+      "alias": "Example",
+      "catid": 1
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_patch_v1_banners_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_banners_patch_v1_banners_idResponse",
+    "value": {
+      "data": {
+        "type": "banners",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "cid": 1,
+          "type": 1
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_get_v1_banners_clients",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_banners_get_v1_banners_clientsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "clients",
+          "id": "Example",
+          "attributes": {
+            "name": "Example",
+            "contact": "Example",
+            "checked_out": 1
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_get_v1_banners_clients_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_banners_get_v1_banners_clients_idResponse",
+    "value": {
+      "data": {
+        "type": "clients",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "checked_out_time": "Example",
+          "name": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_post_v1_banners_clients",
+    "direction": "request",
+    "schema": "com_banners_post_v1_banners_clientsRequest",
+    "value": {
+      "name": "Example",
+      "contact": "Example"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_post_v1_banners_clients",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_banners_post_v1_banners_clientsResponse",
+    "value": {
+      "data": {
+        "type": "clients",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "checked_out_time": "Example",
+          "name": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_patch_v1_banners_clients_id",
+    "direction": "request",
+    "schema": "com_banners_patch_v1_banners_clients_idRequest",
+    "value": {
+      "name": "Example",
+      "contact": "Example",
+      "email": "example@example.invalid"
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_banners_patch_v1_banners_clients_id",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_banners_patch_v1_banners_clients_idResponse",
+    "value": {
+      "data": {
+        "type": "clients",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "checked_out_time": "Example",
+          "name": "Example"
+        }
+      }
+    },
+    "provenance": "synthetic"
+  }
+]

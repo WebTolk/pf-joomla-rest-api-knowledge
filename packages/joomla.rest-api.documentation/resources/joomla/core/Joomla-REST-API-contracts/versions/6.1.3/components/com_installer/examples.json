@@ -1,0 +1,42 @@
+[
+  {
+    "operationId": "com_installer_get_v1_extensions",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_installer_get_v1_extensionsResponse",
+    "value": {
+      "data": [
+        {
+          "type": "manage",
+          "id": "Example",
+          "attributes": {
+            "name": "Example",
+            "type": "Example",
+            "version": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  },
+  {
+    "operationId": "com_installer_get_v1_languages",
+    "direction": "response",
+    "status": 200,
+    "schema": "com_installer_get_v1_languagesResponse",
+    "value": {
+      "data": [
+        {
+          "type": "languages",
+          "id": "Example",
+          "attributes": {
+            "name": "Example",
+            "element": "Example",
+            "version": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "synthetic"
+  }
+]

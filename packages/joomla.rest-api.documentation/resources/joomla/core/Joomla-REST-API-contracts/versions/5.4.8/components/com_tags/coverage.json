@@ -1,0 +1,103 @@
+[
+  {
+    "method": "GET",
+    "path": "/v1/tags",
+    "task": "tags.displayList",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/tags/src/Extension/Tags.php",
+      "api/components/com_tags/src/Controller/TagsController.php"
+    ]
+  },
+  {
+    "method": "GET",
+    "path": "/v1/tags/{id}",
+    "task": "tags.displayItem",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/tags/src/Extension/Tags.php",
+      "api/components/com_tags/src/Controller/TagsController.php"
+    ]
+  },
+  {
+    "method": "POST",
+    "path": "/v1/tags",
+    "task": "tags.add",
+    "support": "source-derived",
+    "request_schema": "com_tags_post_v1_tagsRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/tags/src/Extension/Tags.php",
+      "api/components/com_tags/src/Controller/TagsController.php"
+    ]
+  },
+  {
+    "method": "PATCH",
+    "path": "/v1/tags/{id}",
+    "task": "tags.edit",
+    "support": "source-derived",
+    "request_schema": "com_tags_patch_v1_tags_idRequest",
+    "response_statuses": [
+      "200",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500"
+    ],
+    "source": [
+      "plugins/webservices/tags/src/Extension/Tags.php",
+      "api/components/com_tags/src/Controller/TagsController.php"
+    ]
+  },
+  {
+    "method": "DELETE",
+    "path": "/v1/tags/{id}",
+    "task": "tags.delete",
+    "support": "source-derived",
+    "request_schema": null,
+    "response_statuses": [
+      "204",
+      "400",
+      "401",
+      "403",
+      "404",
+      "406",
+      "500",
+      "409"
+    ],
+    "source": [
+      "plugins/webservices/tags/src/Extension/Tags.php",
+      "api/components/com_tags/src/Controller/TagsController.php"
+    ]
+  }
+]

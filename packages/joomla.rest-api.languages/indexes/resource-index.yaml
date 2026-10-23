@@ -1,0 +1,113 @@
+schema_version: 1
+package:
+  id: joomla.rest-api.languages
+  version: 1.1.0
+  package_root: global
+generated_at: '2026-10-23T10:08:25Z'
+load_policy:
+  default: on_demand
+  heavy_resources: index_only_until_requested
+  do_not_load_full_content: true
+resources:
+- id: contract-5-4-8
+  kind: documentation
+  title: Joomla 5.4.8 com_languages REST contract
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 5.4.8
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/versions/5.4.8/components/com_languages
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.languages
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+- id: contract-6-1-3
+  kind: documentation
+  title: Joomla 6.1.3 com_languages REST contract
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 6.1.3
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/versions/6.1.3/components/com_languages
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.languages
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+- id: contract-6-2-0
+  kind: documentation
+  title: Joomla 6.2.0 com_languages REST contract
+  description: 'REST API knowledge: request/response schemas, field types, examples,
+    errors and browser fallback.'
+  version: 6.2.0
+  path_ref:
+    registry: package_roots
+    id: global
+    relative_path: joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/versions/6.2.0/components/com_languages
+  path_status: available
+  load_policy: on_demand
+  index_policy: fulltext
+  source:
+    kind: local_mirror
+    root: global
+  update_policy:
+    mode: manual_refresh
+  versioning:
+    mode: multi_version
+    version_field: version
+    instance_id_template: '{id}@{version}'
+  retention:
+    policy: keep_versions
+    keep_last_n: null
+  snapshot_behavior:
+    on_new_version: notify_only
+    on_current_generation_changed: notify_only
+    on_instance_missing: broken
+    reproducibility: exact
+  package: joomla.rest-api.languages
+  license:
+    id: GPL-2.0-or-later
+    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.

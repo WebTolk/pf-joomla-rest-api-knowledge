@@ -1,0 +1,23 @@
+[
+  {
+    "version": "6.2.0",
+    "operations": 236,
+    "components": 23,
+    "schemas": 831,
+    "examples": 281
+  },
+  {
+    "version": "5.4.8",
+    "operations": 236,
+    "components": 23,
+    "schemas": 820,
+    "examples": 281
+  },
+  {
+    "version": "6.1.3",
+    "operations": 236,
+    "components": 23,
+    "schemas": 831,
+    "examples": 281
+  }
+]
