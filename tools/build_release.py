@@ -8,7 +8,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def zip_files(output,base,files):
  with zipfile.ZipFile(output,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
   for f in files:
-   info=zipfile.ZipInfo(f.relative_to(base).as_posix(),date_time=(2026,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16
+   info=zipfile.ZipInfo(f.relative_to(base).as_posix(),date_time=(2026,1,1,0,0,0));info.create_system=3;info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16
    data=f.read_bytes()
    if f.suffix in {'.md','.json','.yaml','.yml','.py','.txt'} or f.name in {'LICENSE','SHA256SUMS'}:data=data.replace(b'\r\n',b'\n')
    z.writestr(info,data)

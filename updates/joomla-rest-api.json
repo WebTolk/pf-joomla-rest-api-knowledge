@@ -45,7 +45,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.documentation-1.1.0.zip",
-              "sha256": "8515d4653ad8ed4f1bb6b5f7104ba729d1a814b82b54f4a19aa0cbddfe90409e",
+              "sha256": "78a78aa52d6a477f564e777449bd05e6c1b818d30fd7a748f5952a41368740b5",
               "size": 3524369
             }
           ],
@@ -107,7 +107,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.associations-1.1.0.zip",
-              "sha256": "235701d901357d5228dcdb881e6fb55fcc5b1e9d992fbddcd7c90b4a41d466e3",
+              "sha256": "79e8cfa1e2d980945a732a490bcb0f9ede714efb282ad9b8a25ee3bb8a1b4c38",
               "size": 10774
             }
           ],
@@ -169,7 +169,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.banners-1.1.0.zip",
-              "sha256": "29f02049924ebe36d5a82d66724075d96d0423d54d7d3a85a26bc5cb579ec9e9",
+              "sha256": "92c481cd116fa075ce18e988ba1728fdfd346953e5b2772779169f20e0f1a09d",
               "size": 10772
             }
           ],
@@ -231,7 +231,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.categories-1.1.0.zip",
-              "sha256": "fac3027aa01db8e0c55d72d6430af3798dae989204b5e3455dab1147e529e08a",
+              "sha256": "b94c312a81b338a853b62e0296e2e62f3f0475a4ef3be480e4ebca00b9568b38",
               "size": 10776
             }
           ],
@@ -288,7 +288,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.common-1.1.0.zip",
-              "sha256": "d005bc57ffd72b17fd0b2c9c5446c2403f5753703a75613c30e5d0e637d1be38",
+              "sha256": "15ce18013e570c2638bac6b2804537d6662d305d29ba936a2f2c25d45d62c03f",
               "size": 10722
             }
           ],
@@ -350,7 +350,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.config-1.1.0.zip",
-              "sha256": "9f690b1522f177364eaa66082ef26c1da19ccfc54053ef370ed9556e85a2573d",
+              "sha256": "1003acce69e464e8fa50f56bae5b3ea1cfa81fc3eb1a95c442e84a8e010be741",
               "size": 10772
             }
           ],
@@ -412,7 +412,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.contact-1.1.0.zip",
-              "sha256": "8b1662dfb8c90d30659610e1c42fc918d10b9d8efd046155b7ae3efb92ada2e0",
+              "sha256": "b2efc196cc11c11c07c57dd281655b231858e3b89e948e5385b20117116a3de4",
               "size": 10768
             }
           ],
@@ -474,7 +474,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.content-1.1.0.zip",
-              "sha256": "e4c46ea7cad1c5f3475577bdf8d2cada5e567fc1fd37042e90b7e59d34461565",
+              "sha256": "74fdebe67e418f0b68389e89ed3d978fcb3daa6274266bd4bf9352b926e6850f",
               "size": 10764
             }
           ],
@@ -536,7 +536,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.contenthistory-1.1.0.zip",
-              "sha256": "5adbf13c23d95cecfe00674551e8744299fd69653094cacffaa55dbfe49ab962",
+              "sha256": "f72addbcd20e49069312e884c4d6db7bf893250ae47ecf2f41912e73ca3ae46b",
               "size": 10780
             }
           ],
@@ -598,7 +598,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.fields-1.1.0.zip",
-              "sha256": "6bdf0dc2bd7da837c7b5b551f09787ca9851dc1d1ef15710e9b7d06eb38e1409",
+              "sha256": "921f720fd397a3ef9aa8eed07c3c400902159bee3515bcc0ae593e2b91096745",
               "size": 10763
             }
           ],
@@ -660,7 +660,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.finder-1.1.0.zip",
-              "sha256": "6e495693a987657741e82f4ff79948e5fae78548815486d9d4b2ed17c0f806e5",
+              "sha256": "99f771f30739f178712edefff7a6d30e4d981f2f682bbfea5d51320551c79495",
               "size": 10769
             }
           ],
@@ -722,7 +722,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.installer-1.1.0.zip",
-              "sha256": "d61eb956f0c5826983c72f3846f04c821436515483fcff8b032b2487e2487caa",
+              "sha256": "94b31cbb5533e23c78edae15a48013de42224311bbcf7f521e3c40d84273ccdb",
               "size": 10775
             }
           ],
@@ -784,7 +784,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.joomlaupdate-1.1.0.zip",
-              "sha256": "1a041929d90093c7d5c7786f9e58c0352fba191116a2b8044d9cbbb315a9b6fe",
+              "sha256": "0de4b18e9f9b207ce9621ba753f6b4a2d350b675637d474174e0980b22e6f43e",
               "size": 10767
             }
           ],
@@ -846,7 +846,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.languages-1.1.0.zip",
-              "sha256": "089326be697df5dc15772ca1612fd0b49b88434cfcdb934f48eb279a08fb04b0",
+              "sha256": "ebe4449936c6713755ff27ca47aee15465755fb28fb7e3b7e2ab5bae0537f6bb",
               "size": 10777
             }
           ],
@@ -908,7 +908,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.media-1.1.0.zip",
-              "sha256": "f846be7c3b44e057bf853e6d323ba7eb76d83897e71eeeb885cb5e349249a13c",
+              "sha256": "32d49636be5faa5645c65e87af3fc5154637632dec93a6c2739b0afafd89ad74",
               "size": 10765
             }
           ],
@@ -970,7 +970,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.menus-1.1.0.zip",
-              "sha256": "1d7ce31e80771b9597c5d8b31d8343b66fbd4416620516d00e03912ccb3d215a",
+              "sha256": "6ac27b6b4a10ceef2d7e0597c2dcf5c0da85a8bf11a67332fdd6ced493a45ec3",
               "size": 10764
             }
           ],
@@ -1032,7 +1032,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.messages-1.1.0.zip",
-              "sha256": "c151a6c57b9288ba61ef4f6d29a2624e5bfbd60e6539a8db38d288dd0965478a",
+              "sha256": "3162781e766d32033706a06d728235086b9f68e05a2d755fd8d45f0e319bb56e",
               "size": 10774
             }
           ],
@@ -1094,7 +1094,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.modules-1.1.0.zip",
-              "sha256": "5de0df2c6660e18ef23501c1b5ce1b10a77c28fde850a3b549a576716aac6cc3",
+              "sha256": "244031250e7f32fac355ea453725940d8851ef8ed342a087b525b3850ee8a919",
               "size": 10772
             }
           ],
@@ -1156,7 +1156,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.newsfeeds-1.1.0.zip",
-              "sha256": "17597a3e3c5764a7e3a9748d00361eb9740f0fb49215656698416c2f61457a90",
+              "sha256": "b65828bb719774642d76a3383267daa5e69ad5c54a82095e5a98657b70f032d2",
               "size": 10775
             }
           ],
@@ -1218,7 +1218,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.plugins-1.1.0.zip",
-              "sha256": "e6a6a17f1445c4d8e3c2f28c607ad5686be5062fae5a6b2dab1b14166c469edf",
+              "sha256": "bf3a3d433d072236d9d5aeb8d456ef1c725ca9efb18dc631c8fb790f4293db2a",
               "size": 10773
             }
           ],
@@ -1280,7 +1280,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.privacy-1.1.0.zip",
-              "sha256": "15c28871802e266c696738da4c17a69c69e617b433222bb0212e58ecbf8fe1f7",
+              "sha256": "024ce304bf9fcae5c3803e87c7c9e54c7cd62ea67e68c658734272649a59d47f",
               "size": 10774
             }
           ],
@@ -1342,7 +1342,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.redirect-1.1.0.zip",
-              "sha256": "cd4f2f2f8242d64a39e2a72e1ff0b0e31cc456488cc3f32fd9d07ac8f665de20",
+              "sha256": "8cb058b54d99572bef9d85e4c8bd21a42c918a1f9a38708286eb8f9e9796e5e4",
               "size": 10774
             }
           ],
@@ -1404,7 +1404,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.tags-1.1.0.zip",
-              "sha256": "312be838d8cbb135f982a72d05f79a9b7dbffb736201be51c9e69008376d7438",
+              "sha256": "6983c8937a78a8df26e30e04626492308b594dc3fd2f87e5585367d3cb7790aa",
               "size": 10763
             }
           ],
@@ -1466,7 +1466,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.templates-1.1.0.zip",
-              "sha256": "45997662adbcdc3d2fc69f0389c68920923c127e4d159ec6c4950a1b0f2548a4",
+              "sha256": "5366f5ccccae4c0a1d4a50274dd268b53c7888bd482537e652dd1cbf2c61ad45",
               "size": 10768
             }
           ],
@@ -1528,7 +1528,7 @@
               "type": "knowledge_package",
               "format": "zip",
               "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.1.0/joomla.rest-api.users-1.1.0.zip",
-              "sha256": "617e62d8f6ce9476be5747c3cf38cae2af1dc81ed4ea2cc72a25b6bbd69dbb0e",
+              "sha256": "d649a461ef69fe05ac8ba22d510af938614e5bc5222bb01bf708531cec374c73",
               "size": 10763
             }
           ],
