@@ -2,85 +2,237 @@
   {
     "operationId": "com_contenthistory_get_v1_banners_id_contenthistory",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contenthistory_get_v1_banners_id_contenthistoryResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners/1/contenthistory"
+      },
       "data": [
         {
           "type": "history",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "ucm_item_id": 1,
-            "ucm_type_id": 1,
-            "version_note": "Example"
+            "version_note": "",
+            "save_date": "2026-10-29 21:03:32",
+            "editor_user_id": 361,
+            "character_count": 683,
+            "sha1_hash": "ba64c4c433651fe3677f6a9b19fdd51ef6b92376",
+            "version_data": {
+              "name": "Name for this Banner",
+              "catid": 3,
+              "description": "Some description of this Banner.",
+              "custombannercode": "",
+              "clicks": 0,
+              "metakey": "some keywords",
+              "params": "{\"imageurl\":\"images\\/banners\\/banner.jpg\",\"width\":640,\"height\":480,\"alt\":\"Managed user-facing alliance\"}",
+              "tags": [],
+              "typeAlias": "com_banners.banner",
+              "id": 1,
+              "cid": 0,
+              "type": 0,
+              "alias": "name-for-this-banner",
+              "imptotal": 0,
+              "impmade": 0,
+              "clickurl": "",
+              "state": 0,
+              "sticky": 0,
+              "ordering": 1,
+              "own_prefix": 0,
+              "metakey_prefix": "",
+              "purchase_type": -1,
+              "track_clicks": -1,
+              "track_impressions": -1,
+              "publish_up": null,
+              "publish_down": null,
+              "reset": null,
+              "created": "2026-10-29 21:03:32",
+              "language": "",
+              "created_by": 361,
+              "created_by_alias": ""
+            },
+            "keep_forever": 0,
+            "editor": "Admin",
+            "id": 1
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contenthistory_get_v1_banners_id_contenthistoryResponse"
   },
   {
     "operationId": "com_contenthistory_patch_v1_banners_id_contenthistory_keep",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contenthistory_patch_v1_banners_id_contenthistory_keepResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": [],
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contenthistory_patch_v1_banners_id_contenthistory_keepResponse"
   },
   {
     "operationId": "com_contenthistory_get_v1_contacts_id_contenthistory",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contenthistory_get_v1_contacts_id_contenthistoryResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/contacts/1/contenthistory"
+      },
       "data": [
         {
           "type": "history",
-          "id": "Example",
+          "id": "8",
           "attributes": {
-            "ucm_item_id": 1,
-            "ucm_type_id": 1,
-            "version_note": "Example"
+            "version_note": "",
+            "save_date": "2026-10-29 21:03:34",
+            "editor_user_id": 361,
+            "character_count": 603,
+            "sha1_hash": "2544253f485a64b59ef749ff9a2e57749009f384",
+            "version_data": {
+              "name": "Someones Name",
+              "alias": "someones-name",
+              "catid": 4,
+              "language": "*",
+              "tags": [],
+              "typeAlias": "com_contact.contact",
+              "id": 1,
+              "con_position": null,
+              "address": null,
+              "suburb": null,
+              "state": null,
+              "country": null,
+              "postcode": null,
+              "telephone": null,
+              "fax": null,
+              "misc": null,
+              "image": null,
+              "email_to": null,
+              "default_con": 0,
+              "published": 0,
+              "ordering": 1,
+              "params": "{}",
+              "user_id": 0,
+              "access": 1,
+              "mobile": "",
+              "webpage": "",
+              "sortname1": "",
+              "sortname2": "",
+              "sortname3": "",
+              "created": "2026-10-29 21:03:34",
+              "created_by": 361,
+              "created_by_alias": "",
+              "metakey": null,
+              "metadesc": "",
+              "metadata": "{}",
+              "featured": 0,
+              "publish_up": null,
+              "publish_down": null
+            },
+            "keep_forever": 0,
+            "editor": "Admin",
+            "id": 8
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contenthistory_get_v1_contacts_id_contenthistoryResponse"
   },
   {
     "operationId": "com_contenthistory_patch_v1_contacts_id_contenthistory_keep",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contenthistory_patch_v1_contacts_id_contenthistory_keepResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": [],
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contenthistory_patch_v1_contacts_id_contenthistory_keepResponse"
   },
   {
     "operationId": "com_contenthistory_get_v1_content_articles_id_contenthistory",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contenthistory_get_v1_content_articles_id_contenthistoryResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/content/articles/1/contenthistory"
+      },
       "data": [
         {
           "type": "history",
-          "id": "Example",
+          "id": "10",
           "attributes": {
-            "ucm_item_id": 1,
-            "ucm_type_id": 1,
-            "version_note": "Example"
+            "version_note": "",
+            "save_date": "2026-10-29 21:03:35",
+            "editor_user_id": 361,
+            "character_count": 428,
+            "sha1_hash": "ce86d1ce38c571ae80798c91c2b2758e0b5c6881",
+            "version_data": {
+              "title": "Here's an article",
+              "alias": "my-article",
+              "catid": 12,
+              "metakey": "",
+              "metadesc": "",
+              "language": "*",
+              "tags": [],
+              "typeAlias": "com_content.article",
+              "id": 1,
+              "asset_id": 105,
+              "introtext": "My text",
+              "fulltext": "",
+              "state": 0,
+              "created": "2026-10-29 21:03:35",
+              "created_by": 361,
+              "created_by_alias": "",
+              "publish_up": null,
+              "publish_down": null,
+              "images": "{}",
+              "urls": "{}",
+              "attribs": "{}",
+              "ordering": 0,
+              "access": 1,
+              "metadata": "{}",
+              "featured": 0,
+              "note": ""
+            },
+            "keep_forever": 0,
+            "editor": "Admin",
+            "id": 10
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contenthistory_get_v1_content_articles_id_contenthistoryResponse"
   },
   {
     "operationId": "com_contenthistory_patch_v1_content_articles_id_contenthistory_keep",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contenthistory_patch_v1_content_articles_id_contenthistory_keepResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": [],
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contenthistory_patch_v1_content_articles_id_contenthistory_keepResponse"
   }
 ]

@@ -1,7 +1,7 @@
 schema_version: 1
 id: joomla.rest-api.documentation
 name: Joomla REST API documentation
-version: 1.1.0
+version: 1.2.0
 kind: documentation
 scope: workplace
 package_root: global
@@ -39,8 +39,9 @@ resources:
     reproducibility: exact
   package: joomla.rest-api.documentation
   license:
-    id: GPL-2.0-or-later
-    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+    id: GPL-2.0-or-later AND LicenseRef-JEDL-1.0
+    notice: 'CMS-derived data: GPL-2.0-or-later; Joomla Manual additions: JEDL 1.0.
+      See LICENSE, JEDL-LICENSE.md and NOTICE.md.'
 type: knowledge_package
 status: released
 dependencies: []

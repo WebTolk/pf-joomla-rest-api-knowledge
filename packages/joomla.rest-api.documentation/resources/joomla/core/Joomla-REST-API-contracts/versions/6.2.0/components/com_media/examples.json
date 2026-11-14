@@ -2,115 +2,194 @@
   {
     "operationId": "com_media_get_v1_media_adapters",
     "direction": "response",
-    "status": 200,
-    "schema": "com_media_get_v1_media_adaptersResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/media/adapters"
+      },
       "data": [
         {
           "type": "adapters",
-          "id": "Example",
+          "id": "local-images",
           "attributes": {
-            "provider_id": "Example",
-            "name": "Example",
-            "path": "Example"
+            "provider_id": "local",
+            "name": "images",
+            "path": "local-images:/"
+          }
+        },
+        {
+          "type": "adapters",
+          "id": "local-files",
+          "attributes": {
+            "provider_id": "local",
+            "name": "files",
+            "path": "local-files:/"
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_media_get_v1_media_adaptersResponse"
   },
   {
     "operationId": "com_media_get_v1_media_adapters_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_media_get_v1_media_adapters_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/media/adapters/local-images"
+      },
       "data": {
         "type": "adapters",
-        "id": "Example",
+        "id": "local-images",
         "attributes": {
-          "provider_id": "Example",
-          "name": "Example",
-          "path": "Example"
+          "provider_id": "local",
+          "name": "images",
+          "path": "local-images:/"
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_media_get_v1_media_adapters_idResponse"
   },
   {
     "operationId": "com_media_get_v1_media_files",
     "direction": "response",
-    "status": 200,
-    "schema": "com_media_get_v1_media_filesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "media",
-          "id": "Example",
-          "attributes": {
-            "type": "Example",
-            "name": "Example",
-            "path": "Example"
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/media/files"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": null
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_media_get_v1_media_filesResponse"
   },
   {
-    "operationId": "com_media_get_v1_media_files_path_directory",
-    "direction": "response",
-    "status": 200,
-    "schema": "com_media_get_v1_media_files_path_directoryResponse",
+    "operationId": "com_media_post_v1_media_files",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
-      "data": [
-        {
-          "type": "media",
-          "id": "Example",
-          "attributes": {
-            "type": "Example",
-            "name": "Example",
-            "path": "Example"
-          }
-        }
-      ]
+      "path": "local-images:/example.txt",
+      "content": "RXhhbXBsZQ==",
+      "override": false
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_media_post_v1_media_filesRequest"
+  },
+  {
+    "operationId": "com_media_post_v1_media_files",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "media",
+        "id": "Example",
+        "attributes": {
+          "type": "Example",
+          "name": "Example",
+          "path": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_media_post_v1_media_filesResponse"
   },
   {
     "operationId": "com_media_get_v1_media_files_path",
     "direction": "response",
-    "status": 200,
-    "schema": "com_media_get_v1_media_files_pathResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "file",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/media/files/local-images:/joomla_black.png"
+      },
       "data": {
         "type": "media",
-        "id": "Example",
+        "id": "0",
         "attributes": {
-          "type": "Example",
-          "name": "Example",
-          "path": "Example"
+          "type": "file",
+          "name": "joomla_black.png",
+          "path": "local-images:/joomla_black.png",
+          "extension": "png",
+          "size": 4979,
+          "mime_type": "image/png",
+          "width": 225,
+          "height": 50,
+          "create_date": "2026-10-29T21:02:51+00:00",
+          "create_date_formatted": "2026-10-29 21:02",
+          "modified_date": "2026-10-12T16:01:12+00:00",
+          "modified_date_formatted": "2026-10-12 16:01",
+          "thumb_path": "https://example.com/images/joomla_black.png",
+          "adapter": "local-images"
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200
   },
   {
-    "operationId": "com_media_post_v1_media_files",
+    "operationId": "com_media_get_v1_media_files_path",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "folder",
+    "value": {
+      "data": [
+        {
+          "type": "media",
+          "id": "Example",
+          "attributes": {
+            "type": "Example",
+            "name": "Example",
+            "path": "Example"
+          }
+        }
+      ]
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200
+  },
+  {
+    "operationId": "com_media_patch_v1_media_files_path",
     "direction": "request",
-    "schema": "com_media_post_v1_media_filesRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "path": "local-images:/example.txt",
       "content": "RXhhbXBsZQ==",
       "override": false
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_media_patch_v1_media_files_pathRequest"
   },
   {
-    "operationId": "com_media_post_v1_media_files",
+    "operationId": "com_media_patch_v1_media_files_path",
     "direction": "response",
-    "status": 200,
-    "schema": "com_media_post_v1_media_filesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "media",
@@ -122,35 +201,9 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_media_patch_v1_media_files_path",
-    "direction": "request",
-    "schema": "com_media_patch_v1_media_files_pathRequest",
-    "value": {
-      "path": "local-images:/example.txt",
-      "content": "RXhhbXBsZQ==",
-      "override": false
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_media_patch_v1_media_files_path",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_media_patch_v1_media_files_pathResponse",
-    "value": {
-      "data": {
-        "type": "media",
-        "id": "Example",
-        "attributes": {
-          "type": "Example",
-          "name": "Example",
-          "path": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_media_patch_v1_media_files_pathResponse"
   }
 ]

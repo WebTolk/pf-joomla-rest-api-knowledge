@@ -2,8 +2,8 @@
   {
     "operationId": "com_templates_get_v1_templates_styles_site",
     "direction": "response",
-    "status": 200,
-    "schema": "com_templates_get_v1_templates_styles_siteResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": [
         {
@@ -17,70 +17,401 @@
         }
       ]
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_templates_get_v1_templates_styles_siteResponse"
+  },
+  {
+    "operationId": "com_templates_post_v1_templates_styles_site",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "template": "cassiopeia",
+      "title": "Example style",
+      "params": {
+        "brand": "1"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_templates_post_v1_templates_styles_siteRequest"
+  },
+  {
+    "operationId": "com_templates_post_v1_templates_styles_site",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "styles",
+        "id": "Example",
+        "attributes": {
+          "template": "Example",
+          "client_id": 1,
+          "home": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_templates_post_v1_templates_styles_siteResponse"
   },
   {
     "operationId": "com_templates_get_v1_templates_styles_site_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_templates_get_v1_templates_styles_site_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/templates/styles/site/11"
+      },
       "data": {
         "type": "styles",
-        "id": "Example",
+        "id": "11",
         "attributes": {
-          "template": "Example",
-          "client_id": 1,
-          "home": "Example"
+          "id": 11,
+          "template": "cassiopeia",
+          "client_id": 0,
+          "home": "1",
+          "title": "Cassiopeia - Default",
+          "params": {
+            "brand": "1",
+            "logoFile": "",
+            "siteTitle": "",
+            "siteDescription": "",
+            "useFontScheme": "0",
+            "colorName": "colors_standard",
+            "fluidContainer": "0",
+            "stickyHeader": 0,
+            "backTop": 0
+          },
+          "xml": {
+            "@attributes": {
+              "type": "template",
+              "client": "site"
+            },
+            "name": "cassiopeia",
+            "version": "1.0",
+            "creationDate": "2017-02",
+            "author": "Joomla! Project",
+            "authorEmail": "admin@joomla.org",
+            "copyright": "(C) 2017 Open Source Matters, Inc.",
+            "description": "TPL_CASSIOPEIA_XML_DESCRIPTION",
+            "inheritable": "1",
+            "files": {
+              "filename": [
+                "component.php",
+                "error.php",
+                "index.php",
+                "joomla.asset.json",
+                "offline.php",
+                "templateDetails.xml"
+              ],
+              "folder": "html"
+            },
+            "media": {
+              "@attributes": {
+                "destination": "templates/site/cassiopeia",
+                "folder": "media"
+              },
+              "folder": [
+                "js",
+                "css",
+                "scss",
+                "images"
+              ]
+            },
+            "positions": {
+              "position": [
+                "topbar",
+                "below-top",
+                "menu",
+                "search",
+                "banner",
+                "top-a",
+                "top-b",
+                "main-top",
+                "main-bottom",
+                "breadcrumbs",
+                "sidebar-left",
+                "sidebar-right",
+                "bottom-a",
+                "bottom-b",
+                "footer",
+                "debug",
+                "error-403",
+                "error-404"
+              ],
+              "comment": {}
+            },
+            "languages": {
+              "@attributes": {
+                "folder": "language"
+              },
+              "language": [
+                "en-GB/tpl_cassiopeia.ini",
+                "en-GB/tpl_cassiopeia.sys.ini"
+              ]
+            },
+            "config": {
+              "fields": {
+                "@attributes": {
+                  "name": "params"
+                },
+                "fieldset": {
+                  "@attributes": {
+                    "name": "advanced"
+                  },
+                  "field": [
+                    {
+                      "@attributes": {
+                        "name": "brand",
+                        "type": "radio",
+                        "label": "TPL_CASSIOPEIA_BRAND_LABEL",
+                        "default": "1",
+                        "layout": "joomla.form.field.radio.switcher",
+                        "filter": "options"
+                      },
+                      "option": [
+                        "JNO",
+                        "JYES"
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "logoFile",
+                        "type": "media",
+                        "schemes": "http,https,ftp,ftps,data,file",
+                        "validate": "url",
+                        "relative": "true",
+                        "default": "",
+                        "label": "TPL_CASSIOPEIA_LOGO_LABEL",
+                        "showon": "brand:1"
+                      }
+                    },
+                    {
+                      "@attributes": {
+                        "name": "siteTitle",
+                        "type": "text",
+                        "default": "",
+                        "label": "TPL_CASSIOPEIA_TITLE",
+                        "filter": "string",
+                        "showon": "brand:1"
+                      }
+                    },
+                    {
+                      "@attributes": {
+                        "name": "siteDescription",
+                        "type": "text",
+                        "default": "",
+                        "label": "TPL_CASSIOPEIA_TAGLINE_LABEL",
+                        "description": "TPL_CASSIOPEIA_TAGLINE_DESC",
+                        "filter": "string",
+                        "showon": "brand:1"
+                      }
+                    },
+                    {
+                      "@attributes": {
+                        "name": "useFontScheme",
+                        "type": "groupedlist",
+                        "label": "TPL_CASSIOPEIA_FONT_LABEL",
+                        "default": "0"
+                      },
+                      "option": "JNONE",
+                      "group": [
+                        {
+                          "@attributes": {
+                            "label": "TPL_CASSIOPEIA_FONT_SYSTEM"
+                          },
+                          "option": "TPL_CASSIOPEIA_FONT_SYSTEM_SELECT"
+                        },
+                        {
+                          "@attributes": {
+                            "label": "TPL_CASSIOPEIA_FONT_GROUP_LOCAL"
+                          },
+                          "option": "Roboto (local)"
+                        },
+                        {
+                          "@attributes": {
+                            "label": "TPL_CASSIOPEIA_FONT_GROUP_WEB"
+                          },
+                          "option": [
+                            "Fira Sans (web)",
+                            "Roboto + Noto Sans (web)"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "systemFontBody",
+                        "type": "list",
+                        "label": "TPL_CASSIOPEIA_FONT_SYSTEM_BODY",
+                        "default": "",
+                        "validate": "options",
+                        "showon": "useFontScheme:system"
+                      },
+                      "option": [
+                        "JSELECT",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_TRANSITIONAL",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_OLDSTYLE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_HUMANIST",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_GEOMETRIC",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_CLASSICAL",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_GROTESQUE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_MONOSPACE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_CODE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_INDUSTRIAL",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_ROUNDED",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_SLAB",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_ANTIQUE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_DIDONE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_HANDWRITTEN"
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "systemFontHeading",
+                        "type": "list",
+                        "label": "TPL_CASSIOPEIA_FONT_SYSTEM_HEADING",
+                        "default": "",
+                        "validate": "options",
+                        "showon": "useFontScheme:system"
+                      },
+                      "option": [
+                        "JSELECT",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_TRANSITIONAL",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_OLDSTYLE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_HUMANIST",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_GEOMETRIC",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_CLASSICAL",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_GROTESQUE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_MONOSPACE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_CODE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_INDUSTRIAL",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_ROUNDED",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_SLAB",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_ANTIQUE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_DIDONE",
+                        "TPL_CASSIOPEIA_FONT_SYSTEM_STACK_SYSTEM_HANDWRITTEN"
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "noteFontScheme",
+                        "type": "note",
+                        "description": "TPL_CASSIOPEIA_FONT_NOTE_TEXT",
+                        "class": "alert alert-warning"
+                      }
+                    },
+                    {
+                      "@attributes": {
+                        "name": "colorName",
+                        "type": "filelist",
+                        "label": "TPL_CASSIOPEIA_COLOR_NAME_LABEL",
+                        "default": "colors_standard",
+                        "fileFilter": "^custom.+[^min]\\.css$",
+                        "exclude": "^colors.+",
+                        "stripext": "true",
+                        "hide_none": "true",
+                        "hide_default": "true",
+                        "directory": "media/templates/site/cassiopeia/css/global/",
+                        "validate": "options"
+                      },
+                      "option": [
+                        "TPL_CASSIOPEIA_COLOR_NAME_STANDARD",
+                        "TPL_CASSIOPEIA_COLOR_NAME_ALTERNATIVE"
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "fluidContainer",
+                        "type": "radio",
+                        "layout": "joomla.form.field.radio.switcher",
+                        "default": "0",
+                        "label": "TPL_CASSIOPEIA_FLUID_LABEL"
+                      },
+                      "option": [
+                        "TPL_CASSIOPEIA_STATIC",
+                        "TPL_CASSIOPEIA_FLUID"
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "stickyHeader",
+                        "type": "radio",
+                        "label": "TPL_CASSIOPEIA_STICKY_LABEL",
+                        "layout": "joomla.form.field.radio.switcher",
+                        "default": "0",
+                        "filter": "integer"
+                      },
+                      "option": [
+                        "JNO",
+                        "JYES"
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "backTop",
+                        "type": "radio",
+                        "label": "TPL_CASSIOPEIA_BACKTOTOP_LABEL",
+                        "layout": "joomla.form.field.radio.switcher",
+                        "default": "0",
+                        "filter": "integer"
+                      },
+                      "option": [
+                        "JNO",
+                        "JYES"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_templates_post_v1_templates_styles_site",
-    "direction": "request",
-    "schema": "com_templates_post_v1_templates_styles_siteRequest",
-    "value": {
-      "title": "API example",
-      "template": "cassiopeia"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_templates_post_v1_templates_styles_site",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_templates_post_v1_templates_styles_siteResponse",
-    "value": {
-      "data": {
-        "type": "styles",
-        "id": "Example",
-        "attributes": {
-          "template": "Example",
-          "client_id": 1,
-          "home": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_templates_get_v1_templates_styles_site_idResponse"
   },
   {
     "operationId": "com_templates_patch_v1_templates_styles_site_id",
     "direction": "request",
-    "schema": "com_templates_patch_v1_templates_styles_site_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "Example",
       "assigned": "Example",
       "home": 1
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_templates_patch_v1_templates_styles_site_idRequest"
+  },
+  {
+    "operationId": "com_templates_patch_v1_templates_styles_site_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "template": "cassiopeia",
+      "title": "new cassiopeia - Default"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_templates_patch_v1_templates_styles_site_idRequest"
   },
   {
     "operationId": "com_templates_patch_v1_templates_styles_site_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_templates_patch_v1_templates_styles_site_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "styles",
@@ -92,13 +423,16 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_templates_patch_v1_templates_styles_site_idResponse"
   },
   {
     "operationId": "com_templates_get_v1_templates_styles_administrator",
     "direction": "response",
-    "status": 200,
-    "schema": "com_templates_get_v1_templates_styles_administratorResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": [
         {
@@ -112,70 +446,412 @@
         }
       ]
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_templates_get_v1_templates_styles_administratorResponse"
+  },
+  {
+    "operationId": "com_templates_post_v1_templates_styles_administrator",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "template": "atum",
+      "title": "Example style",
+      "params": {
+        "hue": "hsl(214, 63%, 20%)"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_templates_post_v1_templates_styles_administratorRequest"
+  },
+  {
+    "operationId": "com_templates_post_v1_templates_styles_administrator",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "styles",
+        "id": "Example",
+        "attributes": {
+          "template": "Example",
+          "client_id": 1,
+          "home": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_templates_post_v1_templates_styles_administratorResponse"
   },
   {
     "operationId": "com_templates_get_v1_templates_styles_administrator_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_templates_get_v1_templates_styles_administrator_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/templates/styles/administrator/10"
+      },
       "data": {
         "type": "styles",
-        "id": "Example",
+        "id": "10",
         "attributes": {
-          "template": "Example",
+          "id": 10,
+          "template": "atum",
           "client_id": 1,
-          "home": "Example"
+          "home": "1",
+          "title": "Atum - Default",
+          "params": {
+            "hue": "hsl(214, 63%, 20%)",
+            "bg-light": "#f0f4fb",
+            "text-dark": "#495057",
+            "text-light": "#ffffff",
+            "link-color": "#2a69b8",
+            "special-color": "#001b4c",
+            "colorScheme": "os",
+            "monochrome": "0",
+            "loginLogo": "",
+            "loginLogoAlt": "",
+            "logoBrandLarge": "",
+            "logoBrandLargeAlt": "",
+            "logoBrandSmall": "",
+            "logoBrandSmallAlt": ""
+          },
+          "xml": {
+            "@attributes": {
+              "type": "template",
+              "client": "administrator"
+            },
+            "name": "atum",
+            "version": "1.0",
+            "creationDate": "2016-09",
+            "author": "Joomla! Project",
+            "authorEmail": "admin@joomla.org",
+            "copyright": "(C) 2016 Open Source Matters, Inc.",
+            "description": "TPL_ATUM_XML_DESCRIPTION",
+            "inheritable": "1",
+            "files": {
+              "filename": [
+                "component.php",
+                "cpanel.php",
+                "error.php",
+                "error_full.php",
+                "error_login.php",
+                "index.php",
+                "joomla.asset.json",
+                "login.php",
+                "templateDetails.xml"
+              ],
+              "folder": "html"
+            },
+            "media": {
+              "@attributes": {
+                "destination": "templates/administrator/atum",
+                "folder": "media"
+              },
+              "folder": [
+                "js",
+                "css",
+                "scss",
+                "images"
+              ]
+            },
+            "positions": {
+              "comment": [
+                {},
+                {}
+              ],
+              "position": [
+                "bottom",
+                "debug",
+                "menu",
+                "sidebar",
+                "status",
+                "title",
+                "top",
+                "toolbar",
+                "cpanel",
+                "icon",
+                "login",
+                "customtop"
+              ]
+            },
+            "languages": {
+              "@attributes": {
+                "folder": "language"
+              },
+              "language": [
+                "en-GB/tpl_atum.ini",
+                "en-GB/tpl_atum.sys.ini"
+              ]
+            },
+            "config": {
+              "fields": {
+                "@attributes": {
+                  "name": "params"
+                },
+                "fieldset": [
+                  {
+                    "@attributes": {
+                      "name": "colors",
+                      "label": "TPL_ATUM_COLORS_SETTINGS_LABEL"
+                    },
+                    "field": [
+                      {
+                        "@attributes": {
+                          "name": "hue",
+                          "type": "color",
+                          "label": "TPL_ATUM_COLORS_HUE",
+                          "format": "hue",
+                          "control": "slider",
+                          "preview": "true",
+                          "saveFormat": "hsl",
+                          "default": "hsl(214,63%,20%)"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "bg-light",
+                          "type": "color",
+                          "label": "TPL_ATUM_COLORS_SETTINGS_BG_LIGHT_LABEL",
+                          "default": "#f0f4fb",
+                          "filter": "color"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "text-dark",
+                          "type": "color",
+                          "label": "TPL_ATUM_COLORS_SETTINGS_TEXT_DARK_LABEL",
+                          "default": "#495057",
+                          "filter": "color"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "text-light",
+                          "type": "color",
+                          "label": "TPL_ATUM_COLORS_SETTINGS_TEXT_LIGHT_LABEL",
+                          "default": "#ffffff",
+                          "filter": "color"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "link-color",
+                          "type": "color",
+                          "label": "TPL_ATUM_COLORS_SETTINGS_LINK_COLOR_LABEL",
+                          "default": "#2a69b8",
+                          "filter": "color"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "link-color-dark",
+                          "type": "color",
+                          "label": "TPL_ATUM_COLORS_SETTINGS_LINK_COLOR_DARK_LABEL",
+                          "default": "#6fbfdb",
+                          "filter": "color"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "special-color",
+                          "type": "color",
+                          "label": "TPL_ATUM_COLORS_SETTINGS_SPECIAL_COLOR_LABEL",
+                          "default": "#001B4C",
+                          "filter": "color"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "monochrome",
+                          "type": "radio",
+                          "label": "TPL_ATUM_COLORS_SETTINGS_MONOCHROME_LABEL",
+                          "layout": "joomla.form.field.radio.switcher",
+                          "default": "0"
+                        },
+                        "option": [
+                          "JNO",
+                          "JYES"
+                        ]
+                      },
+                      {
+                        "@attributes": {
+                          "name": "colorScheme",
+                          "type": "list",
+                          "label": "TPL_ATUM_COLORSCHEME_LABEL",
+                          "default": "os",
+                          "validate": "options"
+                        },
+                        "option": [
+                          "JDISABLED",
+                          "TPL_ATUM_COLORSCHEME_OPTION_FOLLOW_OS",
+                          "TPL_ATUM_COLORSCHEME_OPTION_LIGHT",
+                          "TPL_ATUM_COLORSCHEME_OPTION_DARK"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "@attributes": {
+                      "name": "images",
+                      "label": "TPL_ATUM_IMAGE_SETTINGS_LABEL"
+                    },
+                    "fieldset": [
+                      {
+                        "@attributes": {
+                          "name": "loginLogo",
+                          "label": "TPL_ATUM_LOGIN_LOGO_LABEL",
+                          "description": "TPL_ATUM_LOGIN_LOGO_DESCRIPTION"
+                        },
+                        "field": [
+                          {
+                            "@attributes": {
+                              "name": "loginLogo",
+                              "type": "media",
+                              "schemes": "http,https,ftp,ftps,data,file",
+                              "validate": "url",
+                              "relative": "true",
+                              "label": "TPL_ATUM_IMAGE_LABEL"
+                            }
+                          },
+                          {
+                            "@attributes": {
+                              "name": "loginLogoAlt",
+                              "type": "text",
+                              "label": "TPL_ATUM_LOGO_ALT_LABEL"
+                            }
+                          },
+                          {
+                            "@attributes": {
+                              "name": "emptyLoginLogoAlt",
+                              "type": "checkbox",
+                              "label": "TPL_ATUM_LOGO_ALT_EMPTY_LABEL",
+                              "description": "TPL_ATUM_LOGO_ALT_EMPTY_DESC"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "@attributes": {
+                          "name": "logoBrandLarge",
+                          "label": "TPL_ATUM_SITE_LOGO_LABEL",
+                          "description": "TPL_ATUM_SITE_LOGO_DESCRIPTION"
+                        },
+                        "field": [
+                          {
+                            "@attributes": {
+                              "name": "logoBrandLarge",
+                              "type": "media",
+                              "schemes": "http,https,ftp,ftps,data,file",
+                              "validate": "url",
+                              "relative": "true",
+                              "label": "TPL_ATUM_IMAGE_LABEL"
+                            }
+                          },
+                          {
+                            "@attributes": {
+                              "name": "logoBrandLargeAlt",
+                              "type": "text",
+                              "label": "TPL_ATUM_LOGO_ALT_LABEL"
+                            }
+                          },
+                          {
+                            "@attributes": {
+                              "name": "emptyLogoBrandLargeAlt",
+                              "type": "checkbox",
+                              "label": "TPL_ATUM_LOGO_ALT_EMPTY_LABEL",
+                              "description": "TPL_ATUM_LOGO_ALT_EMPTY_DESC"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "@attributes": {
+                          "name": "logoBrandSmall",
+                          "label": "TPL_ATUM_SITE_LOGO_SMALL_LABEL",
+                          "description": "TPL_ATUM_SITE_LOGO_SMALL_DESCRIPTION"
+                        },
+                        "field": [
+                          {
+                            "@attributes": {
+                              "name": "logoBrandSmall",
+                              "type": "media",
+                              "schemes": "http,https,ftp,ftps,data,file",
+                              "validate": "url",
+                              "relative": "true",
+                              "label": "TPL_ATUM_IMAGE_LABEL"
+                            }
+                          },
+                          {
+                            "@attributes": {
+                              "name": "logoBrandSmallAlt",
+                              "type": "text",
+                              "label": "TPL_ATUM_LOGO_ALT_LABEL"
+                            }
+                          },
+                          {
+                            "@attributes": {
+                              "name": "emptyLogoBrandSmallAlt",
+                              "type": "checkbox",
+                              "label": "TPL_ATUM_LOGO_ALT_EMPTY_LABEL",
+                              "description": "TPL_ATUM_LOGO_ALT_EMPTY_DESC"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_templates_post_v1_templates_styles_administrator",
-    "direction": "request",
-    "schema": "com_templates_post_v1_templates_styles_administratorRequest",
-    "value": {
-      "title": "API example",
-      "template": "atum"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_templates_post_v1_templates_styles_administrator",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_templates_post_v1_templates_styles_administratorResponse",
-    "value": {
-      "data": {
-        "type": "styles",
-        "id": "Example",
-        "attributes": {
-          "template": "Example",
-          "client_id": 1,
-          "home": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_templates_get_v1_templates_styles_administrator_idResponse"
   },
   {
     "operationId": "com_templates_patch_v1_templates_styles_administrator_id",
     "direction": "request",
-    "schema": "com_templates_patch_v1_templates_styles_administrator_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "Example",
       "assigned": "Example",
       "home": 0
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_templates_patch_v1_templates_styles_administrator_idRequest"
+  },
+  {
+    "operationId": "com_templates_patch_v1_templates_styles_administrator_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "template": "cassiopeia",
+      "title": "new cassiopeia - Default"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_templates_patch_v1_templates_styles_administrator_idRequest"
   },
   {
     "operationId": "com_templates_patch_v1_templates_styles_administrator_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_templates_patch_v1_templates_styles_administrator_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "styles",
@@ -187,6 +863,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_templates_patch_v1_templates_styles_administrator_idResponse"
   }
 ]

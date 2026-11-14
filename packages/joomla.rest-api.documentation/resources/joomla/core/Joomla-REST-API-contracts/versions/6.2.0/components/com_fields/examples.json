@@ -2,85 +2,345 @@
   {
     "operationId": "com_fields_get_v1_fields_contacts_contact",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_contacts_contactResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/contacts/contact"
+      },
       "data": [
         {
           "type": "fields",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
+            "id": 1,
+            "title": "contact field",
+            "name": "contact-field",
+            "checked_out": null,
+            "checked_out_time": null,
+            "note": "",
+            "state": 1,
+            "access": 1,
+            "created_time": "2026-10-29 21:03:35",
+            "created_user_id": 361,
+            "ordering": 0,
+            "language": "*",
+            "fieldparams": {},
+            "params": {
+              "hint": "",
+              "class": "",
+              "label_class": "",
+              "show_on": "",
+              "render_class": "",
+              "showlabel": "1",
+              "label_render_class": "",
+              "display": "2",
+              "prefix": "",
+              "suffix": "",
+              "layout": "",
+              "display_readonly": "2"
+            },
+            "type": "text",
+            "default_value": "",
+            "context": "com_contact.contact",
+            "group_id": 0,
+            "label": "contact field",
+            "description": "",
+            "required": 0,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "group_title": null,
+            "group_access": null,
+            "group_state": null,
+            "group_note": null
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_contacts_contactResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_contact",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "title": "Example field com_contact.contact",
+      "type": "text",
+      "context": "com_contact.contact",
+      "description": "",
+      "params": {
+        "display": "2"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_contacts_contactRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_contact",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite1",
+    "value": {
+      "access": 1,
+      "context": "com_contact.contact",
+      "default_value": "",
+      "description": "",
+      "group_id": 0,
+      "label": "contact field",
+      "language": "*",
+      "name": "contact-field",
+      "note": "",
+      "params": {
+        "class": "",
+        "display": "2",
+        "display_readonly": "2",
+        "hint": "",
+        "label_class": "",
+        "label_render_class": "",
+        "layout": "",
+        "prefix": "",
+        "render_class": "",
+        "show_on": "",
+        "showlabel": "1",
+        "suffix": ""
+      },
+      "required": 0,
+      "state": 1,
+      "title": "contact field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_contacts_contactRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_contact",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite2",
+    "value": {
+      "access": 1,
+      "context": "com_contact.contact",
+      "default_value": "",
+      "description": "",
+      "group_id": 0,
+      "label": "contact field",
+      "language": "*",
+      "name": "contact-field",
+      "note": "",
+      "params": {
+        "class": "",
+        "display": "2",
+        "display_readonly": "2",
+        "hint": "",
+        "label_class": "",
+        "label_render_class": "",
+        "layout": "",
+        "prefix": "",
+        "render_class": "",
+        "show_on": "",
+        "showlabel": "1",
+        "suffix": ""
+      },
+      "required": 0,
+      "state": 1,
+      "title": "contact field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_contacts_contactRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_contact",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/contacts/contact"
+      },
+      "data": {
+        "type": "fields",
+        "id": "1",
+        "attributes": {
+          "typeAlias": null,
+          "id": 1,
+          "asset_id": 106,
+          "context": "com_contact.contact",
+          "group_id": 0,
+          "title": "contact field",
+          "name": "contact-field",
+          "label": "contact field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": [],
+          "language": "*",
+          "created_time": "2026-10-29 21:03:35",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:35",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_contacts_contactResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_contacts_contact_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_contacts_contact_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/contacts/contact/1"
+      },
       "data": {
         "type": "fields",
-        "id": "Example",
+        "id": "1",
         "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
+          "typeAlias": null,
+          "id": 1,
+          "asset_id": 106,
+          "context": "com_contact.contact",
+          "group_id": 0,
+          "title": "contact field",
+          "name": "contact-field",
+          "label": "contact field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": [],
+          "language": "*",
+          "created_time": "2026-10-29 21:03:35",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:35",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_contacts_contact",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_contacts_contactRequest",
-    "value": {
-      "title": "Example",
-      "type": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_contacts_contact",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_contacts_contactResponse",
-    "value": {
-      "data": {
-        "type": "fields",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_contacts_contact_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_contacts_contact_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_contacts_contact_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "context": "Example",
       "group_id": 1,
       "assigned_cat_ids": []
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_contacts_contact_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_contacts_contact_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite1",
+    "value": {
+      "default_value": "",
+      "description": "Some New Text",
+      "label": "contact field",
+      "name": "contact-field",
+      "note": "",
+      "title": "new contact field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_contacts_contact_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_contacts_contact_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite2",
+    "value": {
+      "default_value": "",
+      "description": "Some New Text",
+      "label": "contact field",
+      "name": "contact-field",
+      "note": "",
+      "title": "new contact field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_contacts_contact_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_contacts_contact_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_contacts_contact_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "fields",
@@ -92,33 +352,74 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_contacts_contact_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_contacts_mail",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_contacts_mailResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "fields",
-          "id": "Example",
-          "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/contacts/mail"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_contacts_mailResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_mail",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example field com_contact.mail",
+      "type": "text",
+      "context": "com_contact.mail",
+      "description": "",
+      "params": {
+        "display": "2"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_contacts_mailRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_mail",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "fields",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_contacts_mailResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_contacts_mail_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_contacts_mail_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "fields",
@@ -130,52 +431,30 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_contacts_mail",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_contacts_mailRequest",
-    "value": {
-      "title": "Example",
-      "type": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_contacts_mail",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_contacts_mailResponse",
-    "value": {
-      "data": {
-        "type": "fields",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_contacts_mail_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_contacts_mail_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_contacts_mail_idRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "context": "Example",
       "group_id": 1,
       "assigned_cat_ids": []
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_contacts_mail_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_contacts_mail_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_contacts_mail_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "fields",
@@ -187,90 +466,297 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_contacts_mail_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_contacts_categories",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_contacts_categoriesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/contacts/categories"
+      },
       "data": [
         {
           "type": "fields",
-          "id": "Example",
+          "id": "2",
           "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
+            "id": 2,
+            "title": "contact category field",
+            "name": "contact-category-field",
+            "checked_out": null,
+            "checked_out_time": null,
+            "note": "",
+            "state": 1,
+            "access": 1,
+            "created_time": "2026-10-29 21:03:36",
+            "created_user_id": 361,
+            "ordering": 0,
+            "language": "*",
+            "fieldparams": {},
+            "params": {
+              "hint": "",
+              "class": "",
+              "label_class": "",
+              "show_on": "",
+              "render_class": "",
+              "showlabel": "1",
+              "label_render_class": "",
+              "display": "2",
+              "prefix": "",
+              "suffix": "",
+              "layout": "",
+              "display_readonly": "2"
+            },
+            "type": "text",
+            "default_value": "",
+            "context": "com_contact.categories",
+            "group_id": 0,
+            "label": "contact category field",
+            "description": "",
+            "required": 0,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "group_title": null,
+            "group_access": null,
+            "group_state": null,
+            "group_note": null
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_contacts_categoriesResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "title": "Example field com_contact.categories",
+      "type": "text",
+      "context": "com_contact.categories",
+      "description": "",
+      "params": {
+        "display": "2"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_contacts_categoriesRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "access": 1,
+      "context": "com_contact.categories",
+      "default_value": "",
+      "description": "",
+      "group_id": 0,
+      "label": "contact category field",
+      "language": "*",
+      "name": "contact-category-field",
+      "note": "",
+      "params": {
+        "class": "",
+        "display": "2",
+        "display_readonly": "2",
+        "hint": "",
+        "label_class": "",
+        "label_render_class": "",
+        "layout": "",
+        "prefix": "",
+        "render_class": "",
+        "show_on": "",
+        "showlabel": "1",
+        "suffix": ""
+      },
+      "required": 0,
+      "state": 1,
+      "title": "contact category field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_contacts_categoriesRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_contacts_categories",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/contacts/categories"
+      },
+      "data": {
+        "type": "fields",
+        "id": "2",
+        "attributes": {
+          "typeAlias": null,
+          "id": 2,
+          "asset_id": 108,
+          "context": "com_contact.categories",
+          "group_id": 0,
+          "title": "contact category field",
+          "name": "contact-category-field",
+          "label": "contact category field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": [],
+          "language": "*",
+          "created_time": "2026-10-29 21:03:36",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:36",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_contacts_categoriesResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_contacts_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_contacts_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/contacts/categories/2"
+      },
       "data": {
         "type": "fields",
-        "id": "Example",
+        "id": "2",
         "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
+          "typeAlias": null,
+          "id": 2,
+          "asset_id": 108,
+          "context": "com_contact.categories",
+          "group_id": 0,
+          "title": "contact category field",
+          "name": "contact-category-field",
+          "label": "contact category field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": [],
+          "language": "*",
+          "created_time": "2026-10-29 21:03:36",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:36",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_contacts_categories",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_contacts_categoriesRequest",
-    "value": {
-      "title": "Example",
-      "type": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_contacts_categories",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_contacts_categoriesResponse",
-    "value": {
-      "data": {
-        "type": "fields",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_contacts_categories_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_contacts_categories_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_contacts_categories_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "context": "Example",
       "group_id": 1,
       "assigned_cat_ids": []
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_contacts_categories_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_contacts_categories_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "default_value": "",
+      "description": "Some New Text",
+      "label": "contact category field",
+      "name": "contact-category-field",
+      "note": "",
+      "title": "new contact category field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_contacts_categories_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_contacts_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_contacts_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "fields",
@@ -282,33 +768,70 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_contacts_categories_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_contacts_contact",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_contacts_contactResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "groups",
-          "id": "Example",
-          "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/groups/contacts/contact"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_contacts_contactResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_contact",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example group",
+      "context": "com_contact.contact",
+      "description": ""
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_groups_contacts_contactRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_contact",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_contacts_contactResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_contacts_contact_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_contacts_contact_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -320,51 +843,72 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_contacts_contact",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_groups_contacts_contactRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_contacts_contact",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_groups_contacts_contactResponse",
-    "value": {
-      "data": {
-        "type": "groups",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_groups_contacts_contact_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_contacts_contact_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_groups_contacts_contact_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "Example",
       "state": 1,
       "created": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_contacts_contact_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_contacts_contact_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite1",
+    "value": {
+      "description": "new description",
+      "note": "",
+      "title": "new contact group"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_contacts_contact_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_contacts_contact_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite2",
+    "value": {
+      "description": "new description",
+      "note": "",
+      "title": "new contact group"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_contacts_contact_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_contacts_contact_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite3",
+    "value": {
+      "description": "new description",
+      "note": "",
+      "title": "new contact group"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_contacts_contact_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_contacts_contact_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_groups_contacts_contact_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -376,33 +920,70 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_contacts_contact_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_contacts_mail",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_contacts_mailResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "groups",
-          "id": "Example",
-          "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/groups/contacts/mail"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_contacts_mailResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_mail",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example group",
+      "context": "com_contact.mail",
+      "description": ""
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_groups_contacts_mailRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_mail",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_contacts_mailResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_contacts_mail_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_contacts_mail_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -414,51 +995,30 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_contacts_mail",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_groups_contacts_mailRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_contacts_mail",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_groups_contacts_mailResponse",
-    "value": {
-      "data": {
-        "type": "groups",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_groups_contacts_mail_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_contacts_mail_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_groups_contacts_mail_idRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "title": "Example",
       "state": 1,
       "created": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_contacts_mail_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_contacts_mail_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_groups_contacts_mail_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -470,33 +1030,70 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_contacts_mail_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_contacts_categories",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_contacts_categoriesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "groups",
-          "id": "Example",
-          "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/groups/contacts/categories"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_contacts_categoriesResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example group",
+      "context": "com_contact.categories",
+      "description": ""
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_groups_contacts_categoriesRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_contacts_categories",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_contacts_categoriesResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_contacts_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_contacts_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -508,51 +1105,30 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_contacts_categories",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_groups_contacts_categoriesRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_contacts_categories",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_groups_contacts_categoriesResponse",
-    "value": {
-      "data": {
-        "type": "groups",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_groups_contacts_categories_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_contacts_categories_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_groups_contacts_categories_idRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "title": "Example",
       "state": 1,
       "created": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_contacts_categories_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_contacts_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_groups_contacts_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -564,90 +1140,310 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_contacts_categories_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_content_articles",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_content_articlesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/content/articles"
+      },
       "data": [
         {
           "type": "fields",
-          "id": "Example",
+          "id": "3",
           "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
+            "id": 3,
+            "title": "article field",
+            "name": "article-field",
+            "checked_out": null,
+            "checked_out_time": null,
+            "note": "",
+            "state": 1,
+            "access": 1,
+            "created_time": "2026-10-29 21:03:37",
+            "created_user_id": 361,
+            "ordering": 0,
+            "language": "*",
+            "fieldparams": {
+              "filter": "alnum",
+              "maxlength": 40
+            },
+            "params": {
+              "hint": "",
+              "class": "",
+              "label_class": "",
+              "show_on": "",
+              "render_class": "",
+              "showlabel": "1",
+              "label_render_class": "",
+              "display": "2",
+              "prefix": "",
+              "suffix": "",
+              "layout": "",
+              "display_readonly": "2"
+            },
+            "type": "text",
+            "default_value": "",
+            "context": "com_content.article",
+            "group_id": 0,
+            "label": "article field",
+            "description": "",
+            "required": 0,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "group_title": null,
+            "group_access": null,
+            "group_state": null,
+            "group_note": null
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_content_articlesResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_articles",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "title": "Example field com_content.article",
+      "type": "text",
+      "context": "com_content.article",
+      "description": "",
+      "params": {
+        "display": "2"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_content_articlesRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_articles",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "access": 1,
+      "context": "com_content.article",
+      "default_value": "",
+      "description": "",
+      "fieldparams": {
+        "filter": "alnum",
+        "maxlength": 40
+      },
+      "group_id": 0,
+      "label": "article field",
+      "language": "*",
+      "name": "article-field",
+      "note": "",
+      "params": {
+        "class": "",
+        "display": "2",
+        "display_readonly": "2",
+        "hint": "",
+        "label_class": "",
+        "label_render_class": "",
+        "layout": "",
+        "prefix": "",
+        "render_class": "",
+        "show_on": "",
+        "showlabel": "1",
+        "suffix": ""
+      },
+      "required": 0,
+      "state": 1,
+      "title": "article field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_content_articlesRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_articles",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/content/articles"
+      },
+      "data": {
+        "type": "fields",
+        "id": "3",
+        "attributes": {
+          "typeAlias": null,
+          "id": 3,
+          "asset_id": 110,
+          "context": "com_content.article",
+          "group_id": 0,
+          "title": "article field",
+          "name": "article-field",
+          "label": "article field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": {
+            "filter": "alnum",
+            "maxlength": 40
+          },
+          "language": "*",
+          "created_time": "2026-10-29 21:03:37",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:37",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_content_articlesResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_content_articles_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_content_articles_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/content/articles/3"
+      },
       "data": {
         "type": "fields",
-        "id": "Example",
+        "id": "3",
         "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
+          "typeAlias": null,
+          "id": 3,
+          "asset_id": 110,
+          "context": "com_content.article",
+          "group_id": 0,
+          "title": "article field",
+          "name": "article-field",
+          "label": "article field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": {
+            "filter": "alnum",
+            "maxlength": 40
+          },
+          "language": "*",
+          "created_time": "2026-10-29 21:03:37",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:37",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_content_articles",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_content_articlesRequest",
-    "value": {
-      "title": "Example",
-      "type": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_content_articles",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_content_articlesResponse",
-    "value": {
-      "data": {
-        "type": "fields",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_content_articles_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_content_articles_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_content_articles_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "context": "Example",
       "group_id": 1,
       "assigned_cat_ids": []
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_content_articles_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_content_articles_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "default_value": "",
+      "description": "Some New Text",
+      "label": "article field",
+      "name": "article-field",
+      "note": "",
+      "title": "new article field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_content_articles_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_content_articles_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_content_articles_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "fields",
@@ -659,90 +1455,310 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_content_articles_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_content_categories",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_content_categoriesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/content/categories"
+      },
       "data": [
         {
           "type": "fields",
-          "id": "Example",
+          "id": "4",
           "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
+            "id": 4,
+            "title": "content category field",
+            "name": "content-category-field",
+            "checked_out": null,
+            "checked_out_time": null,
+            "note": "",
+            "state": 1,
+            "access": 1,
+            "created_time": "2026-10-29 21:03:37",
+            "created_user_id": 361,
+            "ordering": 0,
+            "language": "*",
+            "fieldparams": {
+              "filter": "alnum",
+              "maxlength": 40
+            },
+            "params": {
+              "hint": "",
+              "class": "",
+              "label_class": "",
+              "show_on": "",
+              "render_class": "",
+              "showlabel": "1",
+              "label_render_class": "",
+              "display": "2",
+              "prefix": "",
+              "suffix": "",
+              "layout": "",
+              "display_readonly": "2"
+            },
+            "type": "text",
+            "default_value": "",
+            "context": "com_content.categories",
+            "group_id": 0,
+            "label": "content category field",
+            "description": "",
+            "required": 0,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "group_title": null,
+            "group_access": null,
+            "group_state": null,
+            "group_note": null
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_content_categoriesResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "title": "Example field com_content.categories",
+      "type": "text",
+      "context": "com_content.categories",
+      "description": "",
+      "params": {
+        "display": "2"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_content_categoriesRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "access": 1,
+      "context": "com_content.categories",
+      "default_value": "",
+      "description": "",
+      "fieldparams": {
+        "filter": "alnum",
+        "maxlength": 40
+      },
+      "group_id": 0,
+      "label": "content category field",
+      "language": "*",
+      "name": "content-category-field",
+      "note": "",
+      "params": {
+        "class": "",
+        "display": "2",
+        "display_readonly": "2",
+        "hint": "",
+        "label_class": "",
+        "label_render_class": "",
+        "layout": "",
+        "prefix": "",
+        "render_class": "",
+        "show_on": "",
+        "showlabel": "1",
+        "suffix": ""
+      },
+      "required": 0,
+      "state": 1,
+      "title": "content category field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_content_categoriesRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_content_categories",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/content/categories"
+      },
+      "data": {
+        "type": "fields",
+        "id": "4",
+        "attributes": {
+          "typeAlias": null,
+          "id": 4,
+          "asset_id": 111,
+          "context": "com_content.categories",
+          "group_id": 0,
+          "title": "content category field",
+          "name": "content-category-field",
+          "label": "content category field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": {
+            "filter": "alnum",
+            "maxlength": 40
+          },
+          "language": "*",
+          "created_time": "2026-10-29 21:03:37",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:37",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_content_categoriesResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_content_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_content_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/content/categories/4"
+      },
       "data": {
         "type": "fields",
-        "id": "Example",
+        "id": "4",
         "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
+          "typeAlias": null,
+          "id": 4,
+          "asset_id": 111,
+          "context": "com_content.categories",
+          "group_id": 0,
+          "title": "content category field",
+          "name": "content-category-field",
+          "label": "content category field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": {
+            "filter": "alnum",
+            "maxlength": 40
+          },
+          "language": "*",
+          "created_time": "2026-10-29 21:03:37",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:37",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_content_categories",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_content_categoriesRequest",
-    "value": {
-      "title": "Example",
-      "type": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_content_categories",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_content_categoriesResponse",
-    "value": {
-      "data": {
-        "type": "fields",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_content_categories_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_content_categories_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_content_categories_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "context": "Example",
       "group_id": 1,
       "assigned_cat_ids": []
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_content_categories_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_content_categories_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "default_value": "",
+      "description": "Some New Text",
+      "label": "content category field",
+      "name": "content-category-field",
+      "note": "",
+      "title": "new content category field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_content_categories_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_content_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_content_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "fields",
@@ -754,33 +1770,70 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_content_categories_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_content_articles",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_content_articlesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "groups",
-          "id": "Example",
-          "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/groups/content/articles"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_content_articlesResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_content_articles",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example group",
+      "context": "com_content.article",
+      "description": ""
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_groups_content_articlesRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_content_articles",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_content_articlesResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_content_articles_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_content_articles_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -792,51 +1845,44 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_content_articles",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_groups_content_articlesRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_content_articles",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_groups_content_articlesResponse",
-    "value": {
-      "data": {
-        "type": "groups",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_groups_content_articles_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_content_articles_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_groups_content_articles_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "Example",
       "state": 1,
       "created": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_content_articles_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_content_articles_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "description": "new description",
+      "note": "",
+      "title": "new article group"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_content_articles_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_content_articles_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_groups_content_articles_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -848,33 +1894,70 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_content_articles_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_content_categories",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_content_categoriesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "groups",
-          "id": "Example",
-          "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/groups/content/categories"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_content_categoriesResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_content_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example group",
+      "context": "com_content.categories",
+      "description": ""
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_groups_content_categoriesRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_content_categories",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_content_categoriesResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_content_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_content_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -886,51 +1969,30 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_content_categories",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_groups_content_categoriesRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_content_categories",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_groups_content_categoriesResponse",
-    "value": {
-      "data": {
-        "type": "groups",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_groups_content_categories_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_content_categories_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_groups_content_categories_idRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "title": "Example",
       "state": 1,
       "created": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_content_categories_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_content_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_groups_content_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -942,90 +2004,310 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_content_categories_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_users",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_usersResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/users"
+      },
       "data": [
         {
           "type": "fields",
-          "id": "Example",
+          "id": "5",
           "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
+            "id": 5,
+            "title": "user field",
+            "name": "user-field",
+            "checked_out": null,
+            "checked_out_time": null,
+            "note": "",
+            "state": 1,
+            "access": 1,
+            "created_time": "2026-10-29 21:03:37",
+            "created_user_id": 361,
+            "ordering": 0,
+            "language": "*",
+            "fieldparams": {
+              "filter": "alnum",
+              "maxlength": 40
+            },
+            "params": {
+              "hint": "",
+              "class": "",
+              "label_class": "",
+              "show_on": "",
+              "render_class": "",
+              "showlabel": "1",
+              "label_render_class": "",
+              "display": "2",
+              "prefix": "",
+              "suffix": "",
+              "layout": "",
+              "display_readonly": "2"
+            },
+            "type": "text",
+            "default_value": "",
+            "context": "com_users.user",
+            "group_id": 0,
+            "label": "user field",
+            "description": "",
+            "required": 0,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "group_title": null,
+            "group_access": null,
+            "group_state": null,
+            "group_note": null
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_usersResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_users",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "title": "Example field com_users.user",
+      "type": "text",
+      "context": "com_users.user",
+      "description": "",
+      "params": {
+        "display": "2"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_usersRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_users",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "access": 1,
+      "context": "com_users.user",
+      "default_value": "",
+      "description": "",
+      "fieldparams": {
+        "filter": "alnum",
+        "maxlength": 40
+      },
+      "group_id": 0,
+      "label": "user field",
+      "language": "*",
+      "name": "user-field",
+      "note": "",
+      "params": {
+        "class": "",
+        "display": "2",
+        "display_readonly": "2",
+        "hint": "",
+        "label_class": "",
+        "label_render_class": "",
+        "layout": "",
+        "prefix": "",
+        "render_class": "",
+        "show_on": "",
+        "showlabel": "1",
+        "suffix": ""
+      },
+      "required": 0,
+      "state": 1,
+      "title": "user field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_usersRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_users",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/users"
+      },
+      "data": {
+        "type": "fields",
+        "id": "5",
+        "attributes": {
+          "typeAlias": null,
+          "id": 5,
+          "asset_id": 112,
+          "context": "com_users.user",
+          "group_id": 0,
+          "title": "user field",
+          "name": "user-field",
+          "label": "user field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": {
+            "filter": "alnum",
+            "maxlength": 40
+          },
+          "language": "*",
+          "created_time": "2026-10-29 21:03:37",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:37",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_usersResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_users_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_users_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/users/5"
+      },
       "data": {
         "type": "fields",
-        "id": "Example",
+        "id": "5",
         "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
+          "typeAlias": null,
+          "id": 5,
+          "asset_id": 112,
+          "context": "com_users.user",
+          "group_id": 0,
+          "title": "user field",
+          "name": "user-field",
+          "label": "user field",
+          "default_value": "",
+          "type": "text",
+          "note": "",
+          "description": "",
+          "state": 1,
+          "required": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "ordering": 0,
+          "params": {
+            "hint": "",
+            "class": "",
+            "label_class": "",
+            "show_on": "",
+            "render_class": "",
+            "showlabel": "1",
+            "label_render_class": "",
+            "display": "2",
+            "prefix": "",
+            "suffix": "",
+            "layout": "",
+            "display_readonly": "2"
+          },
+          "fieldparams": {
+            "filter": "alnum",
+            "maxlength": 40
+          },
+          "language": "*",
+          "created_time": "2026-10-29 21:03:37",
+          "created_user_id": 361,
+          "modified_time": "2026-10-29 21:03:37",
+          "modified_by": 361,
+          "access": 1,
+          "assigned_cat_ids": [
+            0
+          ]
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_users",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_usersRequest",
-    "value": {
-      "title": "Example",
-      "type": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_users",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_usersResponse",
-    "value": {
-      "data": {
-        "type": "fields",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_users_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_users_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_users_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "context": "Example",
       "group_id": 1,
       "assigned_cat_ids": []
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_users_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_users_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "default_value": "",
+      "description": "Some New Text",
+      "label": "user field",
+      "name": "user-field",
+      "note": "",
+      "title": "new user field",
+      "type": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_users_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_users_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_users_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "fields",
@@ -1037,33 +2319,70 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_users_idResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_users",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_usersResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "groups",
-          "id": "Example",
-          "attributes": {
-            "title": "Example",
-            "name": "Example",
-            "checked_out": 1
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/fields/groups/users"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_get_v1_fields_groups_usersResponse"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_users",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example group",
+      "context": "com_users.user",
+      "description": ""
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_post_v1_fields_groups_usersRequest"
+  },
+  {
+    "operationId": "com_fields_post_v1_fields_groups_users",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "groups",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "context": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_post_v1_fields_groups_usersResponse"
   },
   {
     "operationId": "com_fields_get_v1_fields_groups_users_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_get_v1_fields_groups_users_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -1075,51 +2394,44 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_users",
-    "direction": "request",
-    "schema": "com_fields_post_v1_fields_groups_usersRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_fields_post_v1_fields_groups_users",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_fields_post_v1_fields_groups_usersResponse",
-    "value": {
-      "data": {
-        "type": "groups",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "context": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_fields_get_v1_fields_groups_users_idResponse"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_users_id",
     "direction": "request",
-    "schema": "com_fields_patch_v1_fields_groups_users_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "Example",
       "state": 1,
       "created": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_users_idRequest"
+  },
+  {
+    "operationId": "com_fields_patch_v1_fields_groups_users_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "description": "new description",
+      "note": "",
+      "title": "new user group"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_fields_patch_v1_fields_groups_users_idRequest"
   },
   {
     "operationId": "com_fields_patch_v1_fields_groups_users_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_fields_patch_v1_fields_groups_users_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "groups",
@@ -1131,6 +2443,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_fields_patch_v1_fields_groups_users_idResponse"
   }
 ]

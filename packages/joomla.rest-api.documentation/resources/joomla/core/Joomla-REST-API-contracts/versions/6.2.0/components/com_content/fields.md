@@ -13,6 +13,8 @@ created_by и metadata.author различаются; API-пользовател
 В 6.2.0 list/item содержат introtext и fulltext. text помечен deprecated с удалением в 8.0; для нового клиента выбирать отдельные поля. onContentPrepare всё ещё может изменять объект статьи: это не гарантия неизменённых БД-байтов.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST статьи явно передавать language, например "*": API не получает этот default из формы.
+
 ## Приоритет схем
 
 Точный requestBody операции — допустимое тело REST. Инвентарь XML ниже содержит также поля UI и read-only данные; он не разрешает автоматически отправлять их в API. Условные варианты params выбираются по x-extension-parameter-schemas.
@@ -40,7 +42,7 @@ created_by и metadata.author различаются; API-пользовател
 |metakey|"string"|нет|""|Keywords: Joomla form field metakey; input is validated and filtered according to x-joomla-form.||
 |metadesc|"string"|нет|""|Meta Description: Joomla form field metadesc; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
-|language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
+|language|"string"|да|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |featured|["integer", "string"]|нет|[0, 1, "0", "1"]|Featured: Joomla form field featured; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |schema|"string"|нет|""|schema: Joomla form field schema; input is validated and filtered according to x-joomla-form.||
@@ -105,6 +107,7 @@ created_by и metadata.author различаются; API-пользовател
 |fulltext|"string"|нет|""|Full text: Joomla form field fulltext; input is validated and filtered according to x-joomla-form.||
 |com_fields|"object"|нет|""|com_fields: ||
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
+
 ## REST PATCH /v1/content/articles/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -284,12 +287,14 @@ created_by и metadata.author различаются; API-пользовател
 |metadata.rights|"string"|нет|""|Content Rights: Joomla form field rights; input is validated and filtered according to x-joomla-form.||
 |introtext|"string"|нет|""|Intro Text: Joomla form field introtext; input is validated and filtered according to x-joomla-form.||
 |fulltext|"string"|нет|""|Full text: Joomla form field fulltext; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_content/forms/category.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |params|"object"|нет|""|params: ||
 |params.workflow_id|["integer", "string"]|да|"use_default"|Workflows: SQL selector returns numeric IDs; explicit inheritance/default tokens may also be strings.||
+
 ## administrator/components/com_content/forms/filter_articles.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -309,6 +314,7 @@ created_by и metadata.author различаются; API-пользовател
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "ws.title ASC", "ws.title DESC", "a.featured ASC", "a.featured DESC", "a.state ASC", "a.state DESC", "a.title ASC", "a.title DESC", "category_title ASC", "category_title DESC", "a.access ASC", "a.access DESC", "a.created_by ASC", "a.created_by DESC", "association ASC", "association DESC", "language ASC", "language DESC", "a.created ASC", "a.created DESC", "a.modified ASC", "a.modified DESC", "a.publish_up ASC", "a.publish_up DESC", "a.publish_down ASC", "a.publish_down DESC", "a.hits ASC", "a.hits DESC", "rating_count ASC", "rating_count DESC", "rating ASC", "rating DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_content/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

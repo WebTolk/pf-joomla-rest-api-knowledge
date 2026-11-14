@@ -1,6 +1,9 @@
 # com_modules: заполнение полей, Joomla 6.2.0
 
-Маршруты site/administrator задают client_id=0/1. module — машинное имя mod_*.
+Маршруты site/administrator выбирают client_id=0/1 для чтения. При POST модуля
+administrator явно передавать client_id: 1: без него сохраняется модуль сайта,
+а ответ может быть 404. При создании также нужны language и непустой params.
+module — машинное имя mod_*.
 params выбирается по module и client_id, а не только ID экземпляра.
 assignment/assigned задают назначение на меню; пустой набор нельзя автоматически
 считать «везде». position — позиция установленного шаблона.
@@ -28,12 +31,13 @@ GET types возвращает типы, а не экземпляры; отве�
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |content|"string"|нет|""|Text: Joomla form field content; input is validated and filtered according to x-joomla-form.||
-|language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
+|language|"string"|да|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |assignment|["integer", "string"]|нет|[0, 1, -1, "0", "1", "-1", "-"]|assignment: 0 all pages, 1 included IDs, -1 excluded IDs, '-' none.||
 |assigned|"array"|нет|""|assigned: Menu item IDs consumed by ModuleModel. Hidden XML widget does not imply a scalar string.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |client_id|["integer", "string"]|нет|[0, "0"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
+
 ## REST PATCH /v1/modules/site/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -56,6 +60,7 @@ GET types возвращает типы, а не экземпляры; отве�
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |client_id|["integer", "string"]|нет|[0, "0"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
+
 ## REST POST /v1/modules/administrator
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -71,13 +76,14 @@ GET types возвращает типы, а не экземпляры; отве�
 |position|"string"|нет|""|Position: Joomla form field position; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
-|language|"string"|нет|"*"|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
+|language|"string"|да|"*"|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |content|"string"|нет|""|Text: Joomla form field content; input is validated and filtered according to x-joomla-form.||
 |assignment|"string"|нет|""|assignment: Joomla form field assignment; input is validated and filtered according to x-joomla-form.||
 |assigned|"string"|нет|""|assigned: Joomla form field assigned; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
-|client_id|["integer", "string"]|нет|[1, "1"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
+|params|"object"|да|""|params: ||
+|client_id|["integer", "string"]|да|[1, "1"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
+
 ## REST PATCH /v1/modules/administrator/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -113,6 +119,7 @@ GET types возвращает типы, а не экземпляры; отве�
 |params.header_tag|"string"|нет|"h3"|Header Tag: Joomla form field header_tag; input is validated and filtered according to x-joomla-form.||
 |params.header_class|"string"|нет|""|Header Class: Joomla form field header_class; input is validated and filtered according to x-joomla-form.||
 |params.style|"string"|нет|""|Module Style: Joomla form field style; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_modules/forms/filter_modules.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -129,6 +136,7 @@ GET types возвращает типы, а не экземпляры; отве�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.published ASC", "a.published DESC", "a.title ASC", "a.title DESC", "a.position ASC", "a.position DESC", "name ASC", "name DESC", "pages ASC", "pages DESC", "ag.title ASC", "ag.title DESC", "association ASC", "association DESC", "l.title ASC", "l.title DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_modules/forms/filter_modulesadmin.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -144,6 +152,7 @@ GET types возвращает типы, а не экземпляры; отве�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.published ASC", "a.published DESC", "a.title ASC", "a.title DESC", "a.position ASC", "a.position DESC", "name ASC", "name DESC", "ag.title ASC", "ag.title DESC", "a.language ASC", "a.language DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_modules/forms/module.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -166,6 +175,7 @@ GET types возвращает типы, а не экземпляры; отве�
 |assigned|"array"|нет|""|assigned: Menu item IDs consumed by ModuleModel. Hidden XML widget does not imply a scalar string.||
 |id|["integer", "string"]|нет|""|id: Joomla form field id; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_modules/forms/moduleadmin.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -188,6 +198,7 @@ GET types возвращает типы, а не экземпляры; отве�
 |assigned|"string"|нет|""|assigned: Joomla form field assigned; input is validated and filtered according to x-joomla-form.||
 |id|"string"|нет|""|id: Joomla form field id; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_modules/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

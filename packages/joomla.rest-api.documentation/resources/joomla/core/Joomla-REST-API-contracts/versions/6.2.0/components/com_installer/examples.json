@@ -2,41 +2,117 @@
   {
     "operationId": "com_installer_get_v1_extensions",
     "direction": "response",
-    "status": 200,
-    "schema": "com_installer_get_v1_extensionsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/extensions",
+        "next": "https://example.com/api/index.php/v1/extensions?page%5Boffset%5D=20&page%5Blimit%5D=20",
+        "last": "https://example.com/api/index.php/v1/extensions?page%5Boffset%5D=240&page%5Blimit%5D=20"
+      },
       "data": [
         {
           "type": "manage",
-          "id": "Example",
+          "id": "88",
           "attributes": {
-            "name": "Example",
-            "type": "Example",
-            "version": "Example"
+            "name": "Action Log - Joomla",
+            "type": "plugin",
+            "folder": "actionlog",
+            "client_id": 0,
+            "status": 1,
+            "version": "3.9.0",
+            "id": 88
+          }
+        },
+        {
+          "type": "manage",
+          "id": "83",
+          "attributes": {
+            "name": "Action Logs - Latest",
+            "type": "module",
+            "folder": "",
+            "client_id": 1,
+            "status": 1,
+            "version": "3.9.0",
+            "id": 83
+          }
+        },
+        {
+          "type": "manage",
+          "id": "85",
+          "attributes": {
+            "name": "Administrator Dashboard Menu",
+            "type": "module",
+            "folder": "",
+            "client_id": 1,
+            "status": 1,
+            "version": "3.0.0",
+            "id": 85
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 13
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_installer_get_v1_extensionsResponse"
   },
   {
     "operationId": "com_installer_get_v1_languages",
     "direction": "response",
-    "status": 200,
-    "schema": "com_installer_get_v1_languagesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/languages",
+        "next": "https://example.com/api/index.php/v1/languages?page%5Boffset%5D=20&page%5Blimit%5D=20",
+        "last": "https://example.com/api/index.php/v1/languages?page%5Boffset%5D=40&page%5Blimit%5D=20"
+      },
       "data": [
         {
           "type": "languages",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "name": "Example",
-            "element": "Example",
-            "version": "Example"
+            "name": "Afrikaans",
+            "element": "pkg_af-ZA",
+            "type": "package",
+            "version": "6.2.1.1",
+            "detailsurl": "https://update.joomla.org/language/details6/af-ZA_details.xml"
+          }
+        },
+        {
+          "type": "languages",
+          "id": "2",
+          "attributes": {
+            "name": "Arabic Unitag",
+            "element": "pkg_ar-AA",
+            "type": "package",
+            "version": "6.1.4.1",
+            "detailsurl": "https://update.joomla.org/language/details6/ar-AA_details.xml"
+          }
+        },
+        {
+          "type": "languages",
+          "id": "3",
+          "attributes": {
+            "name": "Basque",
+            "element": "pkg_eu-ES",
+            "type": "package",
+            "version": "6.1.4.1",
+            "detailsurl": "https://update.joomla.org/language/details6/eu-ES_details.xml"
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 3
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_installer_get_v1_languagesResponse"
   }
 ]

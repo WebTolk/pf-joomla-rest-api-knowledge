@@ -3,7 +3,10 @@
 Пакет joomla.rest-api.media. Версия ядра: 6.2.0.
 
 path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.
-GET files/{path}/ с завершающим / возвращает список, без / — элемент.
+GET files/{path} описывает файл и каталог: завершающий / в path выбирает список.
+В URL-пути не кодировать разделители / как %2F: Apache может вернуть 404 до Joomla.
+Для чтения также доступен GET files?path=...; в query закодированные слеши допустимы.
+Без query path список GET files пуст. Размер каталога в ответе может быть пустой строкой.
 POST требует path; для файла нужен base64 content, для папки content отсутствует.
 POST override по умолчанию false; PATCH override по умолчанию true: для запрета
 перезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.
@@ -17,12 +20,14 @@ POST override по умолчанию false; PATCH override по умолчан�
 - [openapi.json](openapi.json): схемы запросов/ответов, параметры, коды и примеры.
 - [fields.md](fields.md): типы, обязательность, enum/default, правила форм/showon.
 - [extension-parameters.json](extension-parameters.json): параметры штатных расширений.
-- [examples.json](examples.json): синтетические request/response fixtures.
+- [examples.json](examples.json): примеры запросов/ответов с указанным происхождением.
 - [errors.md](errors.md), [browser-fallback.md](browser-fallback.md).
 - [coverage.json](coverage.json), [source-evidence.json](source-evidence.json): покрытие/SHA-256.
 - [Общие правила](../../../../common/README.md).
 
 ## Маршруты
+
+Таблица ниже сохраняет 8 исходных регистраций маршрутов. В OpenAPI их представляют 7 операций: каталоговый GET объединён с файловым через завершающий / в path.
 
 | Метод | Путь | Действие | Поддержка |
 |---|---|---|---|

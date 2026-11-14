@@ -5,12 +5,14 @@
 См. форму и схему ответа endpoint.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST тега нужны parent_id, description и language. Для нового тега верхнего уровня parent_id: 1 — корень; описание может быть пустой строкой.
+
 ## Состав
 
 - [openapi.json](openapi.json): схемы запросов/ответов, параметры, коды и примеры.
 - [fields.md](fields.md): типы, обязательность, enum/default, правила форм/showon.
 - [extension-parameters.json](extension-parameters.json): параметры штатных расширений.
-- [examples.json](examples.json): синтетические request/response fixtures.
+- [examples.json](examples.json): примеры запросов/ответов с указанным происхождением.
 - [errors.md](errors.md), [browser-fallback.md](browser-fallback.md).
 - [coverage.json](coverage.json), [source-evidence.json](source-evidence.json): покрытие/SHA-256.
 - [Общие правила](../../../../common/README.md).

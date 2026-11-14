@@ -5,8 +5,12 @@
 Основная версия Joomla — **6.2.0**; контракты 5.4.8 и 6.1.3 сохранены как архивные.
 Код сайта и MCP-сервер для использования знаний не требуются.
 
-Версия дистрибутива знаний: **1.1.0**. Она меняется независимо от версии Joomla
+Версия дистрибутива знаний: **1.2.0**. Она меняется независимо от версии Joomla
 и выпуска ядра PF. В составе 25 пакетов и 73 ресурса.
+
+В 1.2.0 перенесены исправления из принятого Joomla Manual PR #724 и связанных PR:
+обязательные поля POST, context/client_id, Bearer, Media и схемы ответов.
+[Подробности и закреплённый источник](packages/joomla.rest-api.documentation/resources/joomla/core/Joomla-REST-API-contracts/common/manual-corrections.md).
 
 ## Что читать
 
@@ -98,7 +102,7 @@ evidence/
 штатных REST-маршрутов и доступные операции владельцев/config/UI.
 
 Пакеты содержат схемы ядра. ID, ACL, включённые языки/плагины, адаптеры и схемы
-сторонних расширений задаются профилем конкретного сайта. Примеры синтетические;
+сторонних расширений задаются профилем конкретного сайта. У примеров указано происхождение;
 после записи на сайт требуется независимая проверка результата.
 
 ## Обновления
@@ -136,8 +140,9 @@ common, компоненты; штатный rollback сохраняется. П
 
 ```bash
 python -m pip install -r requirements.txt
-python tools/check_bundle.py
-python tools/build_release.py
+python tools/check_contracts.py
+python tools/build_release.py --validation-build --output .dist/validation
+python tools/check_bundle.py --artifact-manifest .dist/validation/joomla-rest-api.json --artifact-dir .dist/validation
 ```
 
 Обновить знания, поднять версии пакетов и `bundle.json`, описать изменение в
@@ -148,10 +153,15 @@ ZIP в GitHub Release. Затем обновить основной манифе
 
 ## Происхождение и лицензия
 
-Схемы подготовлены по локальным снимкам Joomla с контрольными суммами исходников;
-сопоставление с Postman включено как дополнительная проверка.
+Схемы подготовлены по локальным снимкам Joomla с контрольными суммами исходников
+и обновлены по закреплённому снимку Joomla Manual. Сопоставление с Postman включено
+как дополнительная проверка.
 [Доказательства](evidence/) описывают статическую и локальную проверку, а не
-live acceptance сайта. [Лицензия GPL-2.0-or-later](LICENSE), [атрибуция](NOTICE.md).
+live acceptance сайта. Данные, полученные из CMS: [GPL-2.0-or-later](LICENSE);
+дополнения Joomla Manual: [JEDL 1.0](JEDL-LICENSE.md). [Атрибуция](NOTICE.md).
 
-Нативный апдейтер также проверен на опубликованных HTTPS-артефактах:
-[результат проверки](evidence/native-updater-public.json).
+Нативный апдейтер также проверен на HTTPS-артефактах предыдущего комплекта 1.1.0:
+[результат проверки](evidence/native-updater-public.json). Для 1.2.0 выполнены
+[проверка контрактов](evidence/manual-sync-validation.json) и
+[локальный цикл PF](evidence/native-updater-local.json); workflow публикации
+сверяет скачанные ZIP перед переключением указателя.

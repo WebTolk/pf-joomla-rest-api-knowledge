@@ -3,6 +3,8 @@
 См. форму и схему ответа endpoint.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST тега нужны parent_id, description и language. Для нового тега верхнего уровня parent_id: 1 — корень; описание может быть пустой строкой.
+
 ## Приоритет схем
 
 Точный requestBody операции — допустимое тело REST. Инвентарь XML ниже содержит также поля UI и read-only данные; он не разрешает автоматически отправлять их в API. Условные варианты params выбираются по x-extension-parameter-schemas.
@@ -11,10 +13,10 @@
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
-|parent_id|["integer", "string"]|нет|""|Parent: Joomla form field parent_id; input is validated and filtered according to x-joomla-form.||
+|parent_id|["integer", "string"]|да|""|Parent: Joomla form field parent_id; input is validated and filtered according to x-joomla-form.||
 |title|"string"|да|""|Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |published|["integer", "string"]|нет|[1, 0, 2, -2, "1", "0", "2", "-2"]|Status: Joomla form field published; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |metadesc|"string"|нет|""|Meta Description: Joomla form field metadesc; input is validated and filtered according to x-joomla-form.||
@@ -22,7 +24,7 @@
 |alias|"string"|нет|""|Alias: The Alias will be used as part of the URL.||
 |created_user_id|["integer", "string"]|нет|""|Created By: Joomla form field created_user_id; input is validated and filtered according to x-joomla-form.||
 |created_by_alias|"string"|нет|""|Created by Alias: Joomla form field created_by_alias; input is validated and filtered according to x-joomla-form.||
-|language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
+|language|"string"|да|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |version_note|"string"|нет|""|Version Note: Joomla form field version_note; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.tag_layout|"string"|нет|""|Layout: Joomla form field tag_layout; input is validated and filtered according to x-joomla-form.||
@@ -39,6 +41,7 @@
 |metadata|"object"|нет|""|metadata: ||
 |metadata.author|"string"|нет|""|Author: Joomla form field author; input is validated and filtered according to x-joomla-form.||
 |metadata.robots|"string"|нет|["", "index, follow", "noindex, follow", "index, nofollow", "noindex, nofollow"]|Robots: Joomla form field robots; input is validated and filtered according to x-joomla-form.||
+
 ## REST PATCH /v1/tags/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -88,6 +91,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.lft ASC", "a.lft DESC", "a.published ASC", "a.published DESC", "a.title ASC", "a.title DESC", "a.access ASC", "a.access DESC", "a.language ASC", "a.language DESC", "countTaggedItems ASC", "countTaggedItems DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_tags/forms/tag.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -124,6 +128,7 @@
 |metadata|"object"|нет|""|metadata: ||
 |metadata.author|"string"|нет|""|Author: Joomla form field author; input is validated and filtered according to x-joomla-form.||
 |metadata.robots|"string"|нет|["", "index, follow", "noindex, follow", "index, nofollow", "noindex, nofollow"]|Robots: Joomla form field robots; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_tags/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

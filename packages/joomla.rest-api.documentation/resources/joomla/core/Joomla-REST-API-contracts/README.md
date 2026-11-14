@@ -4,6 +4,10 @@
 
 Начать с [общих правил](common/README.md). Параметры стандартных расширений включены; сторонние требуют своего профиля/пакета. Пакеты содержат знания о REST и формах, не требуют MCP или backend.
 
+[Исправления по принятому Joomla Manual PR #724 и связанным PR](common/manual-corrections.md).
+[Закреплённая официальная OpenAPI 6.2.0](versions/6.2.0/openapi.json) содержит 235 операций;
+236 исходных регистраций маршрутов сохранены отдельно. Архивные версии не изменены.
+
 ## Подключение
 
 Общий ресурс: joomla.rest-api.common:common-contract. Пример точного компонентного ресурса: joomla.rest-api.content:contract-6-2-0. Выбирать версию ядра, а не произвольный newest. Версионный контракт имеет приоритет над типовыми примерами общего обзора.
@@ -34,7 +38,7 @@
 |joomla.rest-api.templates|com_templates|[Контракт](versions/6.2.0/components/com_templates/README.md)|[Контракт](versions/5.4.8/components/com_templates/README.md)|[Контракт](versions/6.1.3/components/com_templates/README.md)|
 |joomla.rest-api.users|com_users|[Контракт](versions/6.2.0/components/com_users/README.md)|[Контракт](versions/5.4.8/components/com_users/README.md)|[Контракт](versions/6.1.3/components/com_users/README.md)|
 
-[Машинная валидация](validation.json). Инвентарь получен без базы, сетевых вызовов и загрузки CMS. Примеры синтетические. Проверка данных сайта/ACL/результата записи обязательна и не является выяснением стандартной схемы.
+[Исходная машинная валидация](validation.json). Инвентарь получен без базы, сетевых вызовов и загрузки CMS. После обновления Manual примеры содержат также upstream-ответы с указанным происхождением. Проверка данных сайта/ACL/результата записи обязательна и не является выяснением стандартной схемы.
 
 ## Основной контракт 6.2.0
 

@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "scope": "OpenAPI 3.1, JSON Schema, embedded examples and fixtures; no live Joomla requests",
+  "manual_ref": "ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec",
+  "counts": {
+    "openapi_documents": 70,
+    "operations": 942,
+    "local_references": 14920,
+    "schema_definitions": 3115,
+    "embedded_examples": 7210,
+    "fixtures": 896,
+    "field_table_rows": 3868,
+    "upstream_captured_fixtures": 101,
+    "omission_regressions": 38,
+    "manual_operations_matched": 235
+  },
+  "errors": []
+}

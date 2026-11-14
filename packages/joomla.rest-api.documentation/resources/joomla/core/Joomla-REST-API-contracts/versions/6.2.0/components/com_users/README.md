@@ -14,12 +14,14 @@ PATCH с пропущенным password сохраняет пароль. Про
 В 6.2.0 создание, изменение и удаление viewlevels требует core.admin на com_users. Права групп также проверяются через core.admin.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST пользователя передавать непустой groups; при POST группы пользователей — parent_id.
+
 ## Состав
 
 - [openapi.json](openapi.json): схемы запросов/ответов, параметры, коды и примеры.
 - [fields.md](fields.md): типы, обязательность, enum/default, правила форм/showon.
 - [extension-parameters.json](extension-parameters.json): параметры штатных расширений.
-- [examples.json](examples.json): синтетические request/response fixtures.
+- [examples.json](examples.json): примеры запросов/ответов с указанным происхождением.
 - [errors.md](errors.md), [browser-fallback.md](browser-fallback.md).
 - [coverage.json](coverage.json), [source-evidence.json](source-evidence.json): покрытие/SHA-256.
 - [Общие правила](../../../../common/README.md).

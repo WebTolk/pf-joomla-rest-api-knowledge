@@ -26,6 +26,7 @@ registered-unimplemented: успешный ответ не выдумывает�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "name ASC", "name DESC", "client_translated ASC", "client_translated DESC", "type_translated ASC", "type_translated DESC", "folder_translated ASC", "folder_translated DESC", "extension_id ASC", "extension_id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"2"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_installer/forms/filter_discover.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -38,6 +39,7 @@ registered-unimplemented: успешный ответ не выдумывает�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "name ASC", "name DESC", "client_translated ASC", "client_translated DESC", "type_translated ASC", "type_translated DESC", "folder_translated ASC", "folder_translated DESC", "extension_id ASC", "extension_id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_installer/forms/filter_languages.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -47,6 +49,7 @@ registered-unimplemented: успешный ответ не выдумывает�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "name ASC", "name DESC", "element ASC", "element DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_installer/forms/filter_manage.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -62,6 +65,7 @@ registered-unimplemented: успешный ответ не выдумывает�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "status ASC", "status DESC", "name ASC", "name DESC", "client_translated ASC", "client_translated DESC", "type_translated ASC", "type_translated DESC", "creationDate ASC", "creationDate DESC", "folder_translated ASC", "folder_translated DESC", "package_id ASC", "package_id DESC", "extension_id ASC", "extension_id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_installer/forms/filter_update.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -74,6 +78,7 @@ registered-unimplemented: успешный ответ не выдумывает�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "u.name ASC", "u.name DESC", "client_translated ASC", "client_translated DESC", "type_translated ASC", "type_translated DESC", "folder_translated ASC", "folder_translated DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_installer/forms/filter_updatesites.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -88,6 +93,7 @@ registered-unimplemented: успешный ответ не выдумывает�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "enabled ASC", "enabled DESC", "update_site_name ASC", "update_site_name DESC", "name ASC", "name DESC", "client_translated ASC", "client_translated DESC", "type_translated ASC", "type_translated DESC", "folder_translated ASC", "folder_translated DESC", "update_site_id ASC", "update_site_id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_installer/forms/updatesite.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -99,6 +105,7 @@ registered-unimplemented: успешный ответ не выдумывает�
 |extra_query|"string"|нет|""|Download Key: This extension restricts updates. Typically this means it is an extension with paid downloads. You need to obtain a Download Key from its developer and enter it here to unlock updates for it. You may need to make a payment to the developer to obtain or activate the download key.||
 |downloadIdPrefix|"string"|нет|""|downloadIdPrefix: Joomla form field downloadIdPrefix; input is validated and filtered according to x-joomla-form.||
 |downloadIdSuffix|"string"|нет|""|downloadIdSuffix: Joomla form field downloadIdSuffix; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_installer/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

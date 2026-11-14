@@ -30,6 +30,7 @@
 |itemlanguage|"string"|нет|""|Select Target Language: Joomla form field itemlanguage; input is validated and filtered according to x-joomla-form.||
 |modalassociation|["integer", "string"]|нет|""|modalassociation: Joomla form field modalassociation; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
+
 ## administrator/components/com_associations/forms/filter_associations.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -46,6 +47,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "state ASC", "state DESC", "title ASC", "title DESC", "access_level ASC", "access_level DESC", "id ASC", "id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_associations/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

@@ -4,7 +4,7 @@ name: joomla.rest-api.messages
 title: joomla.rest-api.messages
 kind: documentation
 scope: workplace
-version: 1.1.0
+version: 1.2.0
 status: released
 description: Versioned Joomla REST schemas, field semantics, responses, errors and
   browser fallback. Knowledge only; no tools or MCP.
@@ -111,8 +111,9 @@ resources:
     reproducibility: exact
   package: joomla.rest-api.messages
   license:
-    id: GPL-2.0-or-later
-    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+    id: GPL-2.0-or-later AND LicenseRef-JEDL-1.0
+    notice: 'CMS-derived data: GPL-2.0-or-later; Joomla Manual additions: JEDL 1.0.
+      See LICENSE, JEDL-LICENSE.md and NOTICE.md.'
 indexes:
   resource_index: indexes/resource-index.yaml
 tags:

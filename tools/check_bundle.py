@@ -9,8 +9,9 @@ def main(args=None):
  owner=bundle['payload_owner'];count=0;consumer_files=0;links=0
  for entry in bundle['packages']:
   folder=ROOT/entry['path'];m=yaml.safe_load((folder/'package.yaml').read_text(encoding='utf-8'));index=yaml.safe_load((folder/'indexes/resource-index.yaml').read_text(encoding='utf-8'))
-  assert m['id']==entry['id'] and m['version']==bundle['version'] and m['type']=='knowledge_package'
-  assert (folder/'README.md').is_file() and (folder/'LICENSE').is_file()
+  assert m['id']==entry['id'] and m['version']==entry['version']==bundle['version'] and m['type']=='knowledge_package'
+  assert index['package']['id']==m['id'] and index['package']['version']==m['version']
+  assert (folder/'README.md').is_file() and (folder/'LICENSE').is_file() and (folder/'JEDL-LICENSE.md').is_file()
   assert set(m.get('dependencies',[]))<=ids
   assert {r['id'] for r in index['resources']}=={r['id'] for r in m['resources']}
   for r in m['resources']:

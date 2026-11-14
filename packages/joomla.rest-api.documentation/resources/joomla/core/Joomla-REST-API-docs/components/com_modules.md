@@ -2,7 +2,10 @@
 
 Пакет joomla.rest-api.modules. Версия ядра: 6.2.0.
 
-Маршруты site/administrator задают client_id=0/1. module — машинное имя mod_*.
+Маршруты site/administrator выбирают client_id=0/1 для чтения. При POST модуля
+administrator явно передавать client_id: 1: без него сохраняется модуль сайта,
+а ответ может быть 404. При создании также нужны language и непустой params.
+module — машинное имя mod_*.
 params выбирается по module и client_id, а не только ID экземпляра.
 assignment/assigned задают назначение на меню; пустой набор нельзя автоматически
 считать «везде». position — позиция установленного шаблона.

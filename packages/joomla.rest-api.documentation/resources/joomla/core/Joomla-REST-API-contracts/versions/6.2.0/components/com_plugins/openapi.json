@@ -7,21 +7,46 @@
   },
   "servers": [
     {
-      "url": "/api/index.php"
+      "url": "{scheme}://{site}/api/index.php",
+      "description": "Your Joomla site",
+      "variables": {
+        "scheme": {
+          "default": "https",
+          "enum": [
+            "https",
+            "http"
+          ],
+          "description": "Use http only for a local test site"
+        },
+        "site": {
+          "default": "example.com",
+          "description": "Domain of the Joomla site, plus its folder if Joomla is installed in a folder"
+        }
+      }
+    },
+    {
+      "url": "/api/index.php",
+      "description": "Relative to the site that serves this specification"
     }
   ],
   "security": [
     {
+      "BearerAuth": []
+    },
+    {
       "JoomlaToken": []
+    },
+    {
+      "BasicAuth": []
     }
   ],
   "paths": {
     "/v1/plugins": {
       "get": {
         "operationId": "com_plugins_get_v1_plugins",
-        "summary": "GET /v1/plugins",
+        "summary": "List Plugins",
         "tags": [
-          "com_plugins"
+          "Plugins"
         ],
         "x-controller-task": "plugins.displayList",
         "x-route-defaults": {
@@ -35,21 +60,21 @@
         "x-support": "source-derived",
         "parameters": [
           {
-            "name": "page[offset]",
             "in": "query",
+            "name": "page[offset]",
             "schema": {
-              "type": "integer",
+              "default": 0,
               "minimum": 0,
-              "default": 0
+              "type": "integer"
             }
           },
           {
-            "name": "page[limit]",
             "in": "query",
+            "name": "page[limit]",
             "schema": {
-              "type": "integer",
+              "default": 20,
               "minimum": 1,
-              "default": 20
+              "type": "integer"
             }
           },
           {
@@ -67,8 +92,8 @@
             }
           },
           {
-            "name": "filter[search]",
             "in": "query",
+            "name": "filter[search]",
             "schema": {
               "type": "string"
             }
@@ -83,143 +108,198 @@
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "A list of Plugins.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/com_plugins_get_v1_pluginsResponse"
                 },
-                "example": {
-                  "data": [
-                    {
-                      "type": "plugins",
-                      "id": "Example",
-                      "attributes": {
-                        "name": "Example",
-                        "element": "Example",
-                        "folder": "Example"
+                "examples": {
+                  "captured": {
+                    "summary": "Response of a Joomla 6.2.0 test site, shortened to the first 3 items",
+                    "value": {
+                      "links": {
+                        "self": "https://example.com/api/index.php/v1/plugins",
+                        "next": "https://example.com/api/index.php/v1/plugins?page%5Boffset%5D=20&page%5Blimit%5D=20",
+                        "last": "https://example.com/api/index.php/v1/plugins?page%5Boffset%5D=140&page%5Blimit%5D=20"
+                      },
+                      "data": [
+                        {
+                          "type": "plugins",
+                          "id": "88",
+                          "attributes": {
+                            "name": "Action Log - Joomla",
+                            "element": "joomla",
+                            "folder": "actionlog",
+                            "checked_out": null,
+                            "checked_out_time": null,
+                            "enabled": 1,
+                            "access": 1,
+                            "ordering": 1,
+                            "editor": null,
+                            "access_level": "Public",
+                            "id": 88
+                          }
+                        },
+                        {
+                          "type": "plugins",
+                          "id": "89",
+                          "attributes": {
+                            "name": "API Authentication - Web Services Basic Auth",
+                            "element": "basic",
+                            "folder": "api-authentication",
+                            "checked_out": null,
+                            "checked_out_time": null,
+                            "enabled": 0,
+                            "access": 1,
+                            "ordering": 1,
+                            "editor": null,
+                            "access_level": "Public",
+                            "id": 89
+                          }
+                        },
+                        {
+                          "type": "plugins",
+                          "id": "90",
+                          "attributes": {
+                            "name": "API Authentication - Web Services Joomla Token",
+                            "element": "token",
+                            "folder": "api-authentication",
+                            "checked_out": null,
+                            "checked_out_time": null,
+                            "enabled": 1,
+                            "access": 1,
+                            "ordering": 2,
+                            "editor": null,
+                            "access_level": "Public",
+                            "id": 90
+                          }
+                        }
+                      ],
+                      "meta": {
+                        "total-pages": 8
                       }
                     }
-                  ]
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
-        "description": "Штатные операции: GET список, GET запись, PATCH запись. POST/DELETE для установки\nи удаления плагинов отсутствуют. id — extension_id; folder+element определяют тип.\nPATCH принимает ТОЛЬКО enabled, access, ordering. PluginsController проверяет\nсырой плоский JSON; params, folder, element, name и любой другой ключ вызывают\nInvalidParameterException, HTTP 400. Обёртка data здесь также не принимается.\nСхемы параметров из XML включены для заполнения UI и повторного использования\nзнаний, но не разрешают запись params через этот REST endpoint.\nВ JsonapiView params не входит в fieldsToRenderItem: GET не даёт полного снимка\nпараметров. Их чтение и изменение выполняются в штатной форме UI.\nenabled, ordering и access имеют различную семантику.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Get a list of Plugins in the Joomla site.\n\nOnly GET collection, GET item and PATCH item are registered. There is no plugin POST or DELETE route.\n\nPATCH accepts only enabled, access and ordering in a flat JSON object. The controller checks the raw input: params, folder, element, name, a data wrapper or any other key causes HTTP 400. For example, {\"enabled\":1} is a supported state change; {\"params\":{\"example\":1}} is not.\n\nThe item response omits params, and the API cannot change them. Plugin parameter schemas describe the administrator form and do not grant write support to this endpoint. Read and change plugin options through that form. Changing authentication or web-services plugins can remove access needed for later requests. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     },
     "/v1/plugins/{id}": {
       "get": {
         "operationId": "com_plugins_get_v1_plugins_id",
-        "summary": "GET /v1/plugins/{id}",
+        "summary": "Get Plugin",
         "tags": [
-          "com_plugins"
+          "Plugins"
         ],
         "x-controller-task": "plugins.displayItem",
         "x-route-defaults": {
@@ -233,31 +313,50 @@
         "x-support": "source-derived",
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "minimum": 1
+              "minimum": 1,
+              "type": "integer"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "The Plugin.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/com_plugins_get_v1_plugins_idResponse"
                 },
-                "example": {
-                  "data": {
-                    "type": "plugins",
-                    "id": "Example",
-                    "attributes": {
-                      "name": "Example",
-                      "type": "Example",
-                      "element": "Example"
+                "examples": {
+                  "captured": {
+                    "summary": "Response of a Joomla 6.2.0 test site",
+                    "value": {
+                      "links": {
+                        "self": "https://example.com/api/index.php/v1/plugins/88"
+                      },
+                      "data": {
+                        "type": "plugins",
+                        "id": "88",
+                        "attributes": {
+                          "name": "plg_actionlog_joomla",
+                          "type": "plugin",
+                          "element": "joomla",
+                          "changelogurl": "",
+                          "folder": "actionlog",
+                          "client_id": 0,
+                          "enabled": 1,
+                          "access": 1,
+                          "protected": 0,
+                          "checked_out": null,
+                          "checked_out_time": null,
+                          "ordering": 1,
+                          "state": 0,
+                          "id": 88
+                        }
+                      }
                     }
                   }
                 }
@@ -265,118 +364,118 @@
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
-        "description": "Штатные операции: GET список, GET запись, PATCH запись. POST/DELETE для установки\nи удаления плагинов отсутствуют. id — extension_id; folder+element определяют тип.\nPATCH принимает ТОЛЬКО enabled, access, ordering. PluginsController проверяет\nсырой плоский JSON; params, folder, element, name и любой другой ключ вызывают\nInvalidParameterException, HTTP 400. Обёртка data здесь также не принимается.\nСхемы параметров из XML включены для заполнения UI и повторного использования\nзнаний, но не разрешают запись params через этот REST endpoint.\nВ JsonapiView params не входит в fieldsToRenderItem: GET не даёт полного снимка\nпараметров. Их чтение и изменение выполняются в штатной форме UI.\nenabled, ordering и access имеют различную семантику.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Get the Plugin with a specific ID.\n\nOnly GET collection, GET item and PATCH item are registered. There is no plugin POST or DELETE route.\n\nPATCH accepts only enabled, access and ordering in a flat JSON object. The controller checks the raw input: params, folder, element, name, a data wrapper or any other key causes HTTP 400. For example, {\"enabled\":1} is a supported state change; {\"params\":{\"example\":1}} is not.\n\nThe item response omits params, and the API cannot change them. Plugin parameter schemas describe the administrator form and do not grant write support to this endpoint. Read and change plugin options through that form. Changing authentication or web-services plugins can remove access needed for later requests. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       },
       "patch": {
         "operationId": "com_plugins_patch_v1_plugins_id",
-        "summary": "PATCH /v1/plugins/{id}",
+        "summary": "Update Plugin",
         "tags": [
-          "com_plugins"
+          "Plugins"
         ],
         "x-controller-task": "plugins.edit",
         "x-route-defaults": {
@@ -389,18 +488,18 @@
         "x-support": "source-derived",
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "minimum": 1
+              "minimum": 1,
+              "type": "integer"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "The updated Plugin.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
@@ -421,7 +520,7 @@
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
+            "description": "Invalid parameters, form validation or save failure.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
@@ -439,92 +538,92 @@
             }
           },
           "401": {
-            "description": "Нет допустимой API-аутентификации",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
         "requestBody": {
@@ -534,8 +633,21 @@
               "schema": {
                 "$ref": "#/components/schemas/com_plugins_patch_v1_plugins_idRequest"
               },
-              "example": {
-                "enabled": 1
+              "examples": {
+                "minimal": {
+                  "summary": "Minimal request",
+                  "value": {
+                    "enabled": 1
+                  }
+                },
+                "joomlaSite": {
+                  "summary": "Request with realistic values",
+                  "value": {
+                    "access": 1,
+                    "enabled": 1,
+                    "ordering": -9999
+                  }
+                }
               }
             }
           }
@@ -545,21 +657,33 @@
             "example": 1
           }
         },
-        "description": "Штатные операции: GET список, GET запись, PATCH запись. POST/DELETE для установки\nи удаления плагинов отсутствуют. id — extension_id; folder+element определяют тип.\nPATCH принимает ТОЛЬКО enabled, access, ordering. PluginsController проверяет\nсырой плоский JSON; params, folder, element, name и любой другой ключ вызывают\nInvalidParameterException, HTTP 400. Обёртка data здесь также не принимается.\nСхемы параметров из XML включены для заполнения UI и повторного использования\nзнаний, но не разрешают запись params через этот REST endpoint.\nВ JsonapiView params не входит в fieldsToRenderItem: GET не даёт полного снимка\nпараметров. Их чтение и изменение выполняются в штатной форме UI.\nenabled, ordering и access имеют различную семантику.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+        "description": "Update the Plugin with a specific ID.\n\nOnly GET collection, GET item and PATCH item are registered. There is no plugin POST or DELETE route.\n\nPATCH accepts only enabled, access and ordering in a flat JSON object. The controller checks the raw input: params, folder, element, name, a data wrapper or any other key causes HTTP 400. For example, {\"enabled\":1} is a supported state change; {\"params\":{\"example\":1}} is not.\n\nThe item response omits params, and the API cannot change them. Plugin parameter schemas describe the administrator form and do not grant write support to this endpoint. Read and change plugin options through that form. Changing authentication or web-services plugins can remove access needed for later requests. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     }
   },
   "components": {
     "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Joomla API token of a user, sent as `Authorization: Bearer <token>`. Users get their token on the Joomla API Token tab of their profile. The plugins \"API Authentication - Web Services Joomla Token\" and \"User - Joomla API Token\" must be enabled."
+      },
       "JoomlaToken": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-Joomla-Token"
+        "name": "X-Joomla-Token",
+        "description": "The same API token in the `X-Joomla-Token` header. Joomla tries to extract a Bearer token first and reads this header when the extracted token is empty. A non-empty Bearer token takes precedence even when authentication fails."
+      },
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Username and password of a user. Only works when the plugin \"API Authentication - Web Services Basic Auth\" is enabled, which it is not by default."
       },
       "JUpdateToken": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-JUpdate-Token"
+        "name": "X-JUpdate-Token",
+        "description": "Update token of the Joomla Automated Updates service, set in the options of Joomla Update. Only used by the `/v1/joomlaupdate` endpoints."
       }
     },
     "schemas": {
@@ -10870,7 +10994,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-source": "installation/sql/mysql/base.sql",
                       "x-sql-type": "int"
                     },
@@ -10895,7 +11019,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-source": "installation/sql/mysql/base.sql",
                       "x-sql-type": "tinyint"
                     },
@@ -10912,7 +11036,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-source": "installation/sql/mysql/base.sql",
                       "x-sql-type": "int"
                     },
@@ -10929,7 +11053,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-source": "installation/sql/mysql/base.sql",
                       "x-sql-type": "int"
                     },
@@ -10946,6 +11070,9 @@
                         "null"
                       ],
                       "x-type-origin": "textual joined/view attribute"
+                    },
+                    "id": {
+                      "type": "integer"
                     }
                   },
                   "additionalProperties": false
@@ -11048,7 +11175,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "tinyint"
                   },
@@ -11065,7 +11192,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "tinyint"
                   },
@@ -11082,7 +11209,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "int"
                   },
@@ -11099,7 +11226,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "tinyint"
                   },
@@ -11116,7 +11243,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "int"
                   },
@@ -11141,7 +11268,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "int"
                   },
@@ -11158,9 +11285,12 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "int"
+                  },
+                  "id": {
+                    "type": "integer"
                   }
                 },
                 "additionalProperties": false
@@ -11338,7 +11468,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "tinyint"
                   },
@@ -11355,7 +11485,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "tinyint"
                   },
@@ -11372,7 +11502,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "int"
                   },
@@ -11389,7 +11519,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "tinyint"
                   },
@@ -11406,7 +11536,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "int"
                   },
@@ -11431,7 +11561,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "int"
                   },
@@ -11448,7 +11578,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-source": "installation/sql/mysql/base.sql",
                     "x-sql-type": "int"
                   }
@@ -11746,5 +11876,16 @@
   "x-source-verification": {
     "method": "local route registration + XML + SQL + controller/view/serializer inspection",
     "runtime_requests": false
+  },
+  "tags": [
+    {
+      "name": "Plugins",
+      "description": "List, inspect and update plugins with com_plugins. Installation and removal are outside these routes."
+    }
+  ],
+  "x-documentation-source": {
+    "url": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "pull_request": 724,
+    "guide_corrections": "context and client_id on create, from merged fork PRs #1 and #2"
   }
 }

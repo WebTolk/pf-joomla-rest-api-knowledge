@@ -8,6 +8,8 @@ contact_name/contact_email/contact_subject/contact_message/contact_email_copy.
 отправить письмо повторно; успешный ответ операции не является карточкой контакта.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST контакта явно передавать language, например "*" для всех языков.
+
 ## Приоритет схем
 
 Точный requestBody операции — допустимое тело REST. Инвентарь XML ниже содержит также поля UI и read-only данные; он не разрешает автоматически отправлять их в API. Условные варианты params выбираются по x-extension-parameter-schemas.
@@ -23,6 +25,7 @@ contact_name/contact_email/contact_subject/contact_message/contact_email_copy.
 |contact_email_copy|"string"|нет|""|Send a copy to yourself: Joomla form field contact_email_copy; input is validated and filtered according to x-joomla-form.||
 |captcha|"string"|нет|""|Captcha: Joomla form field captcha; input is validated and filtered according to x-joomla-form.||
 |com_fields|"object"|нет|""|com_fields: ||
+
 ## REST POST /v1/contacts
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -43,7 +46,7 @@ contact_name/contact_email/contact_subject/contact_message/contact_email_copy.
 |publish_down|"string"|нет|""|Finish Publishing: Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.||
 |metakey|"string"|нет|""|Keywords: Joomla form field metakey; input is validated and filtered according to x-joomla-form.||
 |metadesc|"string"|нет|""|Meta Description: Joomla form field metadesc; input is validated and filtered according to x-joomla-form.||
-|language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
+|language|"string"|да|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |featured|["integer", "string"]|нет|[0, 1, "0", "1"]|Featured: Joomla form field featured; input is validated and filtered according to x-joomla-form.||
 |tags|"array"|нет|""|Tags: Full tag ID list; #new#Title creates a tag only with core.create on com_tags. Omitted tags are restored by ArticlesController, but generic ApiController supplies [] for absent tags; other owners can clear tag relations.||
 |schema|"string"|нет|""|schema: Joomla form field schema; input is validated and filtered according to x-joomla-form.||
@@ -109,6 +112,7 @@ contact_name/contact_email/contact_subject/contact_message/contact_email_copy.
 |metadata.rights|"string"|нет|""|Rights: Joomla form field rights; input is validated and filtered according to x-joomla-form.||
 |com_fields|"object"|нет|""|com_fields: ||
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
+
 ## REST PATCH /v1/contacts/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -202,6 +206,7 @@ contact_name/contact_email/contact_subject/contact_message/contact_email_copy.
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## administrator/components/com_contact/forms/contact.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -288,6 +293,7 @@ contact_name/contact_email/contact_subject/contact_message/contact_email_copy.
 |metadata|"object"|нет|""|metadata: ||
 |metadata.robots|"string"|нет|["", "index, follow", "noindex, follow", "index, nofollow", "noindex, nofollow"]|Robots: Joomla form field robots; input is validated and filtered according to x-joomla-form.||
 |metadata.rights|"string"|нет|""|Rights: Joomla form field rights; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_contact/forms/filter_contacts.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -304,6 +310,7 @@ contact_name/contact_email/contact_subject/contact_message/contact_email_copy.
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.featured ASC", "a.featured DESC", "a.published ASC", "a.published DESC", "a.name ASC", "a.name DESC", "category_title ASC", "category_title DESC", "ul.name ASC", "ul.name DESC", "access_level ASC", "access_level DESC", "association ASC", "association DESC", "language_title ASC", "language_title DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_contact/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

@@ -2,85 +2,168 @@
   {
     "operationId": "com_menus_get_v1_menus_site",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_siteResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/site"
+      },
       "data": [
         {
           "type": "menus",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "asset_id": 1,
-            "menutype": "Example",
-            "title": "Example"
+            "id": 1,
+            "menutype": "mainmenu",
+            "title": "Main Menu",
+            "description": "The main menu for the site",
+            "client_id": 0
+          }
+        },
+        {
+          "type": "menus",
+          "id": "2",
+          "attributes": {
+            "id": 2,
+            "menutype": "menu",
+            "title": "Menu",
+            "description": "The menu for the site",
+            "client_id": 0
+          }
+        },
+        {
+          "type": "menus",
+          "id": "3",
+          "attributes": {
+            "id": 3,
+            "menutype": "example",
+            "title": "Example",
+            "description": "",
+            "client_id": 0
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_siteResponse"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "menutype": "Example",
+      "title": "Example"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_post_v1_menus_siteRequest"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "client_id": 0,
+      "description": "The menu for the site",
+      "menutype": "menu",
+      "title": "Menu"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_post_v1_menus_siteRequest"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/site"
+      },
+      "data": {
+        "type": "menus",
+        "id": "2",
+        "attributes": {
+          "id": 2,
+          "menutype": "menu",
+          "title": "Menu",
+          "description": "The menu for the site",
+          "client_id": 0
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_post_v1_menus_siteResponse"
   },
   {
     "operationId": "com_menus_get_v1_menus_site_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_site_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/site/2"
+      },
       "data": {
         "type": "menus",
-        "id": "Example",
+        "id": "2",
         "attributes": {
-          "menutype": "Example",
-          "title": "Example",
-          "description": "Example"
+          "id": 2,
+          "menutype": "menu",
+          "title": "Menu",
+          "description": "The menu for the site",
+          "client_id": 0
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_menus_post_v1_menus_site",
-    "direction": "request",
-    "schema": "com_menus_post_v1_menus_siteRequest",
-    "value": {
-      "menutype": "Example",
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_menus_post_v1_menus_site",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_menus_post_v1_menus_siteResponse",
-    "value": {
-      "data": {
-        "type": "menus",
-        "id": "Example",
-        "attributes": {
-          "menutype": "Example",
-          "title": "Example",
-          "description": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_menus_get_v1_menus_site_idResponse"
   },
   {
     "operationId": "com_menus_patch_v1_menus_site_id",
     "direction": "request",
-    "schema": "com_menus_patch_v1_menus_site_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "menutype": "Example",
       "title": "Example",
       "description": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_patch_v1_menus_site_idRequest"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_site_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "menutype": "menu",
+      "title": "New Menu"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_patch_v1_menus_site_idRequest"
   },
   {
     "operationId": "com_menus_patch_v1_menus_site_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_patch_v1_menus_site_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "menus",
@@ -92,90 +175,163 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_patch_v1_menus_site_idResponse"
   },
   {
     "operationId": "com_menus_get_v1_menus_administrator",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_administratorResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/administrator"
+      },
       "data": [
         {
           "type": "menus",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "asset_id": 1,
-            "menutype": "Example",
-            "title": "Example"
+            "id": 1,
+            "menutype": "mainmenu",
+            "title": "Main Menu",
+            "description": "The main menu for the site",
+            "client_id": 0
+          }
+        },
+        {
+          "type": "menus",
+          "id": "2",
+          "attributes": {
+            "id": 2,
+            "menutype": "menu",
+            "title": "Menu",
+            "description": "The menu for the site",
+            "client_id": 0
+          }
+        },
+        {
+          "type": "menus",
+          "id": "3",
+          "attributes": {
+            "id": 3,
+            "menutype": "example",
+            "title": "Example",
+            "description": "",
+            "client_id": 0
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_administratorResponse"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_administrator",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example admin menu",
+      "menutype": "example-admin",
+      "description": "",
+      "client_id": 1
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_post_v1_menus_administratorRequest"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_administrator",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/administrator"
+      },
+      "data": {
+        "type": "menus",
+        "id": "3",
+        "attributes": {
+          "id": 3,
+          "menutype": "example",
+          "title": "Example",
+          "description": "",
+          "client_id": 0
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_post_v1_menus_administratorResponse"
   },
   {
     "operationId": "com_menus_get_v1_menus_administrator_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_administrator_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/administrator/3"
+      },
       "data": {
         "type": "menus",
-        "id": "Example",
+        "id": "3",
         "attributes": {
-          "menutype": "Example",
+          "id": 3,
+          "menutype": "example",
           "title": "Example",
-          "description": "Example"
+          "description": "",
+          "client_id": 0
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_menus_post_v1_menus_administrator",
-    "direction": "request",
-    "schema": "com_menus_post_v1_menus_administratorRequest",
-    "value": {
-      "menutype": "Example",
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_menus_post_v1_menus_administrator",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_menus_post_v1_menus_administratorResponse",
-    "value": {
-      "data": {
-        "type": "menus",
-        "id": "Example",
-        "attributes": {
-          "menutype": "Example",
-          "title": "Example",
-          "description": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_menus_get_v1_menus_administrator_idResponse"
   },
   {
     "operationId": "com_menus_patch_v1_menus_administrator_id",
     "direction": "request",
-    "schema": "com_menus_patch_v1_menus_administrator_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "menutype": "Example",
       "title": "Example",
       "description": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_patch_v1_menus_administrator_idRequest"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_administrator_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "menutype": "menu",
+      "title": "New Menu"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_patch_v1_menus_administrator_idRequest"
   },
   {
     "operationId": "com_menus_patch_v1_menus_administrator_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_patch_v1_menus_administrator_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "menus",
@@ -187,13 +343,16 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_patch_v1_menus_administrator_idResponse"
   },
   {
     "operationId": "com_menus_get_v1_menus_site_items",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_site_itemsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": [
         {
@@ -207,13 +366,106 @@
         }
       ]
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_site_itemsResponse"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site_items",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "title": "Example item",
+      "alias": "example-item",
+      "menutype": "mainmenu",
+      "type": "url",
+      "link": "https://example.org"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_post_v1_menus_site_itemsRequest"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site_items",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "access": "1",
+      "alias": "",
+      "associations": {
+        "en-GB": "",
+        "fr-FR": ""
+      },
+      "browserNav": "0",
+      "component_id": "20",
+      "home": "0",
+      "language": "*",
+      "link": "index.php?option=com_content&view=form&layout=edit",
+      "menutype": "mainmenu",
+      "note": "",
+      "params": {
+        "cancel_redirect_menuitem": "",
+        "catid": "",
+        "custom_cancel_redirect": "0",
+        "enable_category": "0",
+        "menu-anchor_css": "",
+        "menu-anchor_title": "",
+        "menu-meta_description": "",
+        "menu-meta_keywords": "",
+        "menu_image": "",
+        "menu_image_css": "",
+        "menu_show": "1",
+        "menu_text": "1",
+        "page_heading": "",
+        "page_title": "",
+        "pageclass_sfx": "",
+        "redirect_menuitem": "",
+        "robots": "",
+        "show_page_heading": ""
+      },
+      "parent_id": "1",
+      "publish_down": "",
+      "publish_up": "",
+      "published": "1",
+      "template_style_id": "0",
+      "title": "title",
+      "toggle_modules_assigned": "1",
+      "toggle_modules_published": "1",
+      "type": "component"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_post_v1_menus_site_itemsRequest"
+  },
+  {
+    "operationId": "com_menus_post_v1_menus_site_items",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "items",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_post_v1_menus_site_itemsResponse"
   },
   {
     "operationId": "com_menus_get_v1_menus_site_items_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_site_items_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "items",
@@ -225,53 +477,48 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_menus_post_v1_menus_site_items",
-    "direction": "request",
-    "schema": "com_menus_post_v1_menus_site_itemsRequest",
-    "value": {
-      "title": "Example",
-      "menutype": "Example",
-      "type": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_menus_post_v1_menus_site_items",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_menus_post_v1_menus_site_itemsResponse",
-    "value": {
-      "data": {
-        "type": "items",
-        "id": "Example",
-        "attributes": {
-          "parent_id": 1,
-          "level": 1,
-          "lft": 1
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_menus_get_v1_menus_site_items_idResponse"
   },
   {
     "operationId": "com_menus_patch_v1_menus_site_items_id",
     "direction": "request",
-    "schema": "com_menus_patch_v1_menus_site_items_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "Example",
       "alias": "Example",
       "note": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_patch_v1_menus_site_items_idRequest"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_site_items_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "component_id": "20",
+      "language": "*",
+      "link": "index.php?option=com_content&view=form&layout=edit",
+      "menutype": "mainmenu",
+      "note": "",
+      "title": "new title",
+      "type": "component"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_patch_v1_menus_site_items_idRequest"
   },
   {
     "operationId": "com_menus_patch_v1_menus_site_items_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_patch_v1_menus_site_items_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "items",
@@ -283,62 +530,49 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_patch_v1_menus_site_items_idResponse"
   },
   {
     "operationId": "com_menus_get_v1_menus_administrator_items",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_administrator_itemsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "items",
-          "id": "Example",
-          "attributes": {
-            "menutype": "Example",
-            "title": "Example",
-            "alias": "Example"
-          }
-        }
-      ]
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_menus_get_v1_menus_administrator_items_id",
-    "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_administrator_items_idResponse",
-    "value": {
-      "data": {
-        "type": "items",
-        "id": "Example",
-        "attributes": {
-          "parent_id": 1,
-          "level": 1,
-          "lft": 1
-        }
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/administrator/items"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_administrator_itemsResponse"
   },
   {
     "operationId": "com_menus_post_v1_menus_administrator_items",
     "direction": "request",
-    "schema": "com_menus_post_v1_menus_administrator_itemsRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "title": "Example",
       "menutype": "Example",
       "type": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_post_v1_menus_administrator_itemsRequest"
   },
   {
     "operationId": "com_menus_post_v1_menus_administrator_items",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_post_v1_menus_administrator_itemsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "items",
@@ -350,24 +584,98 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_post_v1_menus_administrator_itemsResponse"
+  },
+  {
+    "operationId": "com_menus_get_v1_menus_administrator_items_id",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/administrator/items/1"
+      },
+      "data": {
+        "type": "items",
+        "id": "1",
+        "attributes": {
+          "typeAlias": null,
+          "parent_id": 0,
+          "level": 0,
+          "lft": 0,
+          "rgt": 45,
+          "alias": "root",
+          "id": 1,
+          "menutype": "",
+          "title": "Menu_Item_Root",
+          "note": "",
+          "path": "",
+          "link": "",
+          "type": "component",
+          "published": 1,
+          "component_id": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "browserNav": 0,
+          "access": 0,
+          "img": "",
+          "template_style_id": 0,
+          "params": [],
+          "home": 0,
+          "language": "*",
+          "client_id": 0,
+          "publish_up": null,
+          "publish_down": null,
+          "request": [],
+          "menuordering": 1
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_administrator_items_idResponse"
   },
   {
     "operationId": "com_menus_patch_v1_menus_administrator_items_id",
     "direction": "request",
-    "schema": "com_menus_patch_v1_menus_administrator_items_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "Example",
       "alias": "Example",
       "note": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_patch_v1_menus_administrator_items_idRequest"
+  },
+  {
+    "operationId": "com_menus_patch_v1_menus_administrator_items_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "component_id": "20",
+      "language": "*",
+      "link": "index.php?option=com_content&view=form&layout=edit",
+      "menutype": "mainmenu",
+      "note": "",
+      "title": "new title",
+      "type": "component"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_menus_patch_v1_menus_administrator_items_idRequest"
   },
   {
     "operationId": "com_menus_patch_v1_menus_administrator_items_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_patch_v1_menus_administrator_items_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "items",
@@ -379,46 +687,141 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_patch_v1_menus_administrator_items_idResponse"
   },
   {
     "operationId": "com_menus_get_v1_menus_site_items_types",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_site_items_typesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/site/items/types",
+        "first": "https://example.com/api/index.php/v1/menus/site/items/types?page[offset]=0&page[limit]=20",
+        "next": "https://example.com/api/index.php/v1/menus/site/items/types?page[offset]=20&page[limit]=20",
+        "previous": "https://example.com/api/index.php/v1/menus/site/items/types?page[offset]=0&page[limit]=20",
+        "last": "https://example.com/api/index.php/v1/menus/site/items/types?page[offset]=-18&page[limit]=20"
+      },
       "data": [
         {
           "type": "menutypes",
-          "id": "Example",
+          "id": "com_config/config",
           "attributes": {
-            "title": "Example",
-            "description": "Example",
-            "group": "Example"
+            "title": "Site Configuration Options",
+            "description": "Displays global site configuration options.",
+            "request": {
+              "option": "com_config",
+              "view": "config"
+            },
+            "id": "com_config/config",
+            "group": "Configuration"
+          }
+        },
+        {
+          "type": "menutypes",
+          "id": "com_config/templates",
+          "attributes": {
+            "title": "Display Template Options",
+            "description": "Displays template parameter options if the template allows this.",
+            "request": {
+              "option": "com_config",
+              "view": "templates"
+            },
+            "id": "com_config/templates",
+            "group": "Configuration"
+          }
+        },
+        {
+          "type": "menutypes",
+          "id": "com_contact/categories",
+          "attributes": {
+            "title": "List All Categories in a Contact Category Tree",
+            "description": "Shows a list of categories within a contact category tree.",
+            "request": {
+              "option": "com_contact",
+              "view": "categories"
+            },
+            "id": "com_contact/categories",
+            "group": "Contacts"
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 2
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_site_items_typesResponse"
   },
   {
     "operationId": "com_menus_get_v1_menus_administrator_items_types",
     "direction": "response",
-    "status": 200,
-    "schema": "com_menus_get_v1_menus_administrator_items_typesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/menus/administrator/items/types",
+        "first": "https://example.com/api/index.php/v1/menus/administrator/items/types?page[offset]=0&page[limit]=20",
+        "next": "https://example.com/api/index.php/v1/menus/administrator/items/types?page[offset]=20&page[limit]=20",
+        "previous": "https://example.com/api/index.php/v1/menus/administrator/items/types?page[offset]=0&page[limit]=20",
+        "last": "https://example.com/api/index.php/v1/menus/administrator/items/types?page[offset]=-16&page[limit]=20"
+      },
       "data": [
         {
           "type": "menutypes",
-          "id": "Example",
+          "id": "com_actionlogs/actionlogs",
           "attributes": {
-            "title": "Example",
-            "description": "Example",
-            "group": "Example"
+            "title": "User Action Log",
+            "description": "Shows a list of user actions.",
+            "request": {
+              "option": "com_actionlogs",
+              "view": "actionlogs"
+            },
+            "id": "com_actionlogs/actionlogs",
+            "group": "User Actions Log"
+          }
+        },
+        {
+          "type": "menutypes",
+          "id": "com_admin/help",
+          "attributes": {
+            "title": "Joomla! Help",
+            "description": "Get help on various pages in your Joomla administrator interface.",
+            "request": {
+              "option": "com_admin",
+              "view": "help"
+            },
+            "id": "com_admin/help",
+            "group": "System Information"
+          }
+        },
+        {
+          "type": "menutypes",
+          "id": "com_admin/sysinfo",
+          "attributes": {
+            "title": "System Information",
+            "description": "View detailed information about your Joomla site and server configuration settings.",
+            "request": {
+              "option": "com_admin",
+              "view": "sysinfo"
+            },
+            "id": "com_admin/sysinfo",
+            "group": "System Information"
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 4
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_menus_get_v1_menus_administrator_items_typesResponse"
   }
 ]

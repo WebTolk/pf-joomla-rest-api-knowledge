@@ -2,11 +2,14 @@
 
 Документация обновлена по фактическим webservices-маршрутам, контроллерам, моделям, XML-формам и JSON:API-представлениям зарегистрированного исходника Joomla 6.2.0. Это основной выпуск; старые контракты доступны отдельно в [каталоге версий](../Joomla-REST-API-contracts/README.md).
 
-База: `/api/index.php`. Accept: `application/vnd.api+json`; Content-Type записи JSON: `application/json`. Основной заголовок авторизации: `X-Joomla-Token`; Basic зависит от включённого API-плагина. Bearer не является универсальным способом аутентификации Joomla. Автообновление использует отдельный `X-JUpdate-Token`.
+База: `/api/index.php`. Accept: `application/vnd.api+json`; Content-Type записи JSON: `application/json`. При включённых токен-плагинах один токен принимается через `Authorization: Bearer` и `X-Joomla-Token`. Непустой Bearer имеет приоритет; fallback к `X-Joomla-Token` происходит только при пустом извлечённом Bearer. Basic зависит от включённого API-плагина. Автообновление использует отдельный `X-JUpdate-Token`.
 
 Обычный CRUD принимает плоское тело; POST/PATCH обычно возвращают 200, DELETE — 204. Специальные обработчики могут ограничивать ключи и формат тела. Общая XML-форма админки не равна writable-схеме REST.
 
 [Общие правила и границы применения](../Joomla-REST-API-contracts/common/README.md). [Полная машинная валидация](../Joomla-REST-API-contracts/validation.json).
+
+[Исправления по принятому PR Joomla Manual #724 и связанным PR](../Joomla-REST-API-contracts/common/manual-corrections.md).
+[Официальная OpenAPI Joomla 6.2.0](../Joomla-REST-API-contracts/versions/6.2.0/openapi.json).
 
 | Компонент | Операции | Документация |
 |---|---|---|
@@ -22,7 +25,7 @@
 |com_installer|3|[Контракт](components/com_installer.md)|
 |com_joomlaupdate|6|[Контракт](components/com_joomlaupdate.md)|
 |com_languages|17|[Контракт](components/com_languages.md)|
-|com_media|8|[Контракт](components/com_media.md)|
+|com_media|7|[Контракт](components/com_media.md)|
 |com_menus|22|[Контракт](components/com_menus.md)|
 |com_messages|5|[Контракт](components/com_messages.md)|
 |com_modules|12|[Контракт](components/com_modules.md)|
@@ -34,6 +37,9 @@
 |com_templates|10|[Контракт](components/com_templates.md)|
 |com_users|15|[Контракт](components/com_users.md)|
 
-Всего: **236 зарегистрированных операций**; 21 компонент-владелец REST и 2 дополнительных пакета без вымышленных endpoints.
+Всего: **235 операций OpenAPI**, соответствующих 236 зарегистрированным маршрутам;
+файловый и каталоговый GET Media объединены в одной операции. 21 компонент-владелец
+REST и 2 дополнительных пакета без самостоятельных endpoints.
 
-[Сверка с экспортом Postman](POSTMAN-CHECK-REPORT.md). Примеры не являются live acceptance.
+[Сверка с экспортом Postman](POSTMAN-CHECK-REPORT.md). У примеров сохранено происхождение;
+ответы из Manual не означают новую live acceptance этого пакета.

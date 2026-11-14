@@ -12,6 +12,8 @@ PATCH с пропущенным password сохраняет пароль. Про
 В 6.2.0 создание, изменение и удаление viewlevels требует core.admin на com_users. Права групп также проверяются через core.admin.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST пользователя передавать непустой groups; при POST группы пользователей — parent_id.
+
 ## Приоритет схем
 
 Точный requestBody операции — допустимое тело REST. Инвентарь XML ниже содержит также поля UI и read-only данные; он не разрешает автоматически отправлять их в API. Условные варианты params выбираются по x-extension-parameter-schemas.
@@ -27,7 +29,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |sendEmail|["integer", "string"]|нет|[0, 1, "0", "1"]|Receive System Emails: Joomla form field sendEmail; input is validated and filtered according to x-joomla-form.||
 |block|["integer", "string"]|нет|[1, 0, "1", "0"]|User Status: Joomla form field block; input is validated and filtered according to x-joomla-form.||
 |requireReset|["integer", "string"]|нет|[0, 1, "0", "1"]|Require Password Reset: Joomla form field requireReset; input is validated and filtered according to x-joomla-form.||
-|groups|"array"|нет|""|groups: User group IDs. UserModel consumes an array although the XML widget is hidden.||
+|groups|"array"|да|""|groups: User group IDs. UserModel consumes an array although the XML widget is hidden.||
 |params|"object"|нет|""|params: ||
 |params.admin_style|["integer", "string"]|нет|""|Backend Template Style: Joomla form field admin_style; input is validated and filtered according to x-joomla-form.||
 |params.colorScheme|"string"|нет|["", "os", "light", "dark"]|Dark Mode: Joomla form field colorScheme; input is validated and filtered according to x-joomla-form.||
@@ -41,6 +43,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |params.a11y_highlight|"string"|нет|["0", "highlight"]|Highlight Links: Joomla form field a11y_highlight; input is validated and filtered according to x-joomla-form.||
 |params.a11y_font|"string"|нет|["0", "fontsize"]|Increase Font Size: Joomla form field a11y_font; input is validated and filtered according to x-joomla-form.||
 |com_fields|"object"|нет|""|com_fields: ||
+
 ## REST PATCH /v1/users/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -66,14 +69,16 @@ PATCH с пропущенным password сохраняет пароль. Про
 |params.a11y_highlight|"string"|нет|["0", "highlight"]|Highlight Links: Joomla form field a11y_highlight; input is validated and filtered according to x-joomla-form.||
 |params.a11y_font|"string"|нет|["0", "fontsize"]|Increase Font Size: Joomla form field a11y_font; input is validated and filtered according to x-joomla-form.||
 |com_fields|"object"|нет|""|com_fields: ||
+
 ## REST POST /v1/users/groups
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |title|"string"|да|""|Group Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
-|parent_id|["integer", "string"]|нет|""|Group Parent: Joomla form field parent_id; input is validated and filtered according to x-joomla-form.||
+|parent_id|["integer", "string"]|да|""|Group Parent: Joomla form field parent_id; input is validated and filtered according to x-joomla-form.||
 |actions|"array"|нет|""|actions: Joomla form field actions; input is validated and filtered according to x-joomla-form.||
 |com_fields|"object"|нет|""|com_fields: ||
+
 ## REST PATCH /v1/users/groups/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -82,6 +87,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |parent_id|["integer", "string"]|нет|""|Group Parent: Joomla form field parent_id; input is validated and filtered according to x-joomla-form.||
 |actions|"array"|нет|""|actions: Joomla form field actions; input is validated and filtered according to x-joomla-form.||
 |com_fields|"object"|нет|""|com_fields: ||
+
 ## REST POST /v1/users/levels
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -90,6 +96,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |ordering|["integer", "string"]|нет|"0"|Ordering: Select the ordering.||
 |rules|"array"|нет|""|rules: ||
 |com_fields|"object"|нет|""|com_fields: ||
+
 ## REST PATCH /v1/users/levels/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -105,12 +112,14 @@ PATCH с пропущенным password сохраняет пароль. Про
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## administrator/components/com_users/forms/config_domain.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |name|"string"|да|""|Domain Name: Enter a domain name. Wildcards (*) are supported. For example:<br><strong>*</strong> allows or disallows all domains;<br><strong>*.com</strong> allows or disallows all .com domains;<br><strong>*.joomla.org</strong> allows or disallows all joomla.org subdomains.||
 |rule|["integer", "string"]|да|[0, 1, "0", "1"]|Rule: Select whether to allow or disallow the domain.||
+
 ## administrator/components/com_users/forms/filter_debuggroup.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -123,6 +132,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.title ASC", "a.title DESC", "a.name ASC", "a.name DESC", "a.lft ASC", "a.lft DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/filter_debuguser.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -135,6 +145,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.title ASC", "a.title DESC", "a.name ASC", "a.name DESC", "a.lft ASC", "a.lft DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/filter_groups.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -144,6 +155,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.lft ASC", "a.lft DESC", "a.title ASC", "a.title DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/filter_levels.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -153,6 +165,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.title ASC", "a.title DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/filter_notes.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -165,6 +178,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.state ASC", "a.state DESC", "a.subject ASC", "a.subject DESC", "c.title ASC", "c.title DESC", "u.name ASC", "u.name DESC", "a.review_time ASC", "a.review_time DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/filter_users.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -180,6 +194,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.name ASC", "a.name DESC", "a.username ASC", "a.username DESC", "a.block ASC", "a.block DESC", "a.activation ASC", "a.activation DESC", "a.email ASC", "a.email DESC", "a.lastvisitDate ASC", "a.lastvisitDate DESC", "a.registerDate ASC", "a.registerDate DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/group.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -188,6 +203,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |title|"string"|да|""|Group Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
 |parent_id|["integer", "string"]|нет|""|Group Parent: Joomla form field parent_id; input is validated and filtered according to x-joomla-form.||
 |actions|"array"|нет|""|actions: Joomla form field actions; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/level.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -196,6 +212,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |title|"string"|да|""|Level Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|"0"|Ordering: Select the ordering.||
 |rules|"string"|нет|""|rules: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/mail.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -207,6 +224,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |bcc|"string"|нет|"1"|Recipients as BCC: Joomla form field bcc; input is validated and filtered according to x-joomla-form.||
 |subject|"string"|да|""|Subject: Joomla form field subject; input is validated and filtered according to x-joomla-form.||
 |message|"string"|да|""|Message: Joomla form field message; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/note.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -221,6 +239,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |publish_up|"string"|нет|""|Start Publishing: Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.||
 |publish_down|"string"|нет|""|Finish Publishing: Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.||
 |version_note|"string"|нет|""|Version Note: Joomla form field version_note; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/forms/user.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -251,6 +270,7 @@ PATCH с пропущенным password сохраняет пароль. Про
 |params.a11y_contrast|"string"|нет|["0", "high_contrast"]|High Contrast: Joomla form field a11y_contrast; input is validated and filtered according to x-joomla-form.||
 |params.a11y_highlight|"string"|нет|["0", "highlight"]|Highlight Links: Joomla form field a11y_highlight; input is validated and filtered according to x-joomla-form.||
 |params.a11y_font|"string"|нет|["0", "fontsize"]|Increase Font Size: Joomla form field a11y_font; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_users/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

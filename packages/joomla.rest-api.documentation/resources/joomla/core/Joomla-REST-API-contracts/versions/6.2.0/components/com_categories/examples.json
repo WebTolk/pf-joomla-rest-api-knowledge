@@ -2,84 +2,208 @@
   {
     "operationId": "com_categories_get_v1_banners_categories",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_get_v1_banners_categoriesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners/categories"
+      },
       "data": [
         {
           "type": "categories",
-          "id": "Example",
+          "id": "3",
           "attributes": {
+            "id": 3,
+            "title": "Uncategorised",
+            "alias": "uncategorised",
+            "note": "",
+            "published": 1,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 3,
+            "rgt": 4,
+            "language": "*",
+            "description": "",
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 1,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
+          }
+        },
+        {
+          "type": "categories",
+          "id": "8",
+          "attributes": {
+            "id": 8,
             "title": "Example",
-            "alias": "Example",
-            "note": "Example"
+            "alias": "example",
+            "note": "",
+            "published": 0,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 11,
+            "rgt": 12,
+            "language": "",
+            "description": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 0,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_get_v1_banners_categoriesResponse"
+  },
+  {
+    "operationId": "com_categories_post_v1_banners_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_post_v1_banners_categoriesRequest"
+  },
+  {
+    "operationId": "com_categories_post_v1_banners_categories",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners/categories"
+      },
+      "data": {
+        "type": "categories",
+        "id": "8",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 11,
+          "rgt": 12,
+          "alias": "example",
+          "id": 8,
+          "extension": "com_banners",
+          "title": "Example",
+          "note": "",
+          "description": null,
+          "published": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "access": 1,
+          "params": [],
+          "created_user_id": 361,
+          "language": ""
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_post_v1_banners_categoriesResponse"
   },
   {
     "operationId": "com_categories_get_v1_banners_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_get_v1_banners_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners/categories/8"
+      },
       "data": {
         "type": "categories",
-        "id": "Example",
+        "id": "8",
         "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 11,
+          "rgt": 12,
+          "alias": "example",
+          "id": 8,
+          "extension": "com_banners",
           "title": "Example",
-          "alias": "Example",
-          "note": "Example"
+          "note": "",
+          "description": null,
+          "published": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "access": 1,
+          "params": [],
+          "created_user_id": 361,
+          "language": "",
+          "content-category-field": ""
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_categories_post_v1_banners_categories",
-    "direction": "request",
-    "schema": "com_categories_post_v1_banners_categoriesRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_categories_post_v1_banners_categories",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_categories_post_v1_banners_categoriesResponse",
-    "value": {
-      "data": {
-        "type": "categories",
-        "id": "Example",
-        "attributes": {
-          "title": "Example",
-          "alias": "Example",
-          "note": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_categories_get_v1_banners_categories_idResponse"
   },
   {
     "operationId": "com_categories_patch_v1_banners_categories_id",
     "direction": "request",
-    "schema": "com_categories_patch_v1_banners_categories_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "parent_id": 1,
       "extension": "Example",
       "title": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_patch_v1_banners_categories_idRequest"
+  },
+  {
+    "operationId": "com_categories_patch_v1_banners_categories_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "alias": "updated-category",
+      "note": "Updated note for this category.",
+      "parent_id": 1,
+      "title": "Updated Category name"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_patch_v1_banners_categories_idRequest"
   },
   {
     "operationId": "com_categories_patch_v1_banners_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_patch_v1_banners_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "categories",
@@ -91,89 +215,216 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_patch_v1_banners_categories_idResponse"
   },
   {
     "operationId": "com_categories_get_v1_contacts_categories",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_get_v1_contacts_categoriesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/contacts/categories"
+      },
       "data": [
         {
           "type": "categories",
-          "id": "Example",
+          "id": "4",
           "attributes": {
+            "id": 4,
+            "title": "Uncategorised",
+            "alias": "uncategorised",
+            "note": "",
+            "published": 1,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 5,
+            "rgt": 6,
+            "language": "*",
+            "description": "",
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 1,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
+          }
+        },
+        {
+          "type": "categories",
+          "id": "9",
+          "attributes": {
+            "id": 9,
             "title": "Example",
-            "alias": "Example",
-            "note": "Example"
+            "alias": "example",
+            "note": "",
+            "published": 0,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 13,
+            "rgt": 14,
+            "language": "",
+            "description": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 0,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_get_v1_contacts_categoriesResponse"
+  },
+  {
+    "operationId": "com_categories_post_v1_contacts_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_post_v1_contacts_categoriesRequest"
+  },
+  {
+    "operationId": "com_categories_post_v1_contacts_categories",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/contacts/categories"
+      },
+      "data": {
+        "type": "categories",
+        "id": "9",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 13,
+          "rgt": 14,
+          "alias": "example",
+          "id": 9,
+          "extension": "com_contact",
+          "title": "Example",
+          "note": "",
+          "description": null,
+          "published": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "access": 1,
+          "params": [],
+          "created_user_id": 361,
+          "language": ""
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_post_v1_contacts_categoriesResponse"
   },
   {
     "operationId": "com_categories_get_v1_contacts_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_get_v1_contacts_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/contacts/categories/9"
+      },
       "data": {
         "type": "categories",
-        "id": "Example",
+        "id": "9",
         "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 13,
+          "rgt": 14,
+          "alias": "example",
+          "id": 9,
+          "extension": "com_contact",
           "title": "Example",
-          "alias": "Example",
-          "note": "Example"
+          "note": "",
+          "description": null,
+          "published": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "access": 1,
+          "params": [],
+          "created_user_id": 361,
+          "language": "",
+          "content-category-field": ""
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_categories_post_v1_contacts_categories",
-    "direction": "request",
-    "schema": "com_categories_post_v1_contacts_categoriesRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_categories_post_v1_contacts_categories",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_categories_post_v1_contacts_categoriesResponse",
-    "value": {
-      "data": {
-        "type": "categories",
-        "id": "Example",
-        "attributes": {
-          "title": "Example",
-          "alias": "Example",
-          "note": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_categories_get_v1_contacts_categories_idResponse"
   },
   {
     "operationId": "com_categories_patch_v1_contacts_categories_id",
     "direction": "request",
-    "schema": "com_categories_patch_v1_contacts_categories_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "parent_id": 1,
       "extension": "Example",
       "title": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_patch_v1_contacts_categories_idRequest"
+  },
+  {
+    "operationId": "com_categories_patch_v1_contacts_categories_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "alias": "54031ae9-241c-4fc7-8a74-595547e4a1e3",
+      "note": "Esse voluptate consequatur et ad repellendus mollitia maiores.",
+      "parent_id": 1,
+      "title": "Incredible Cotton Car"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_patch_v1_contacts_categories_idRequest"
   },
   {
     "operationId": "com_categories_patch_v1_contacts_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_patch_v1_contacts_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "categories",
@@ -185,89 +436,269 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_patch_v1_contacts_categories_idResponse"
   },
   {
     "operationId": "com_categories_get_v1_content_categories",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_get_v1_content_categoriesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/content/categories"
+      },
       "data": [
         {
           "type": "categories",
-          "id": "Example",
+          "id": "2",
           "attributes": {
-            "title": "Example",
-            "alias": "Example",
-            "note": "Example"
+            "id": 2,
+            "title": "Uncategorised",
+            "alias": "uncategorised",
+            "note": "",
+            "published": 1,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 1,
+            "rgt": 2,
+            "language": "*",
+            "description": "",
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 0,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
+          }
+        },
+        {
+          "type": "categories",
+          "id": "10",
+          "attributes": {
+            "id": 10,
+            "title": "Dynamic Brand Consultant",
+            "alias": "8c3c6268-b662-44b6-b9ab-47aa67ef3701",
+            "note": "",
+            "published": 1,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 15,
+            "rgt": 16,
+            "language": "*",
+            "description": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 0,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
+          }
+        },
+        {
+          "type": "categories",
+          "id": "12",
+          "attributes": {
+            "id": 12,
+            "title": "64",
+            "alias": "64",
+            "note": "",
+            "published": 1,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 19,
+            "rgt": 20,
+            "language": "*",
+            "description": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 1,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_get_v1_content_categoriesResponse"
+  },
+  {
+    "operationId": "com_categories_post_v1_content_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_post_v1_content_categoriesRequest"
+  },
+  {
+    "operationId": "com_categories_post_v1_content_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "access": 1,
+      "alias": "8c3c6268-b662-44b6-b9ab-47aa67ef3701",
+      "extension": "com_content",
+      "language": "*",
+      "note": "",
+      "params": {
+        "workflow_id": 1
+      },
+      "parent_id": 1,
+      "published": 1,
+      "title": "Dynamic Brand Consultant"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_post_v1_content_categoriesRequest"
+  },
+  {
+    "operationId": "com_categories_post_v1_content_categories",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/content/categories"
+      },
+      "data": {
+        "type": "categories",
+        "id": "10",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 15,
+          "rgt": 16,
+          "alias": "8c3c6268-b662-44b6-b9ab-47aa67ef3701",
+          "id": 10,
+          "extension": "com_content",
+          "title": "Dynamic Brand Consultant",
+          "note": "",
+          "description": null,
+          "published": 1,
+          "checked_out": null,
+          "checked_out_time": null,
+          "access": 1,
+          "params": [],
+          "created_user_id": 361,
+          "language": "*"
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_post_v1_content_categoriesResponse"
   },
   {
     "operationId": "com_categories_get_v1_content_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_get_v1_content_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/content/categories/10"
+      },
       "data": {
         "type": "categories",
-        "id": "Example",
+        "id": "10",
         "attributes": {
-          "title": "Example",
-          "alias": "Example",
-          "note": "Example"
+          "parent_id": 1,
+          "level": 1,
+          "lft": 15,
+          "rgt": 16,
+          "alias": "8c3c6268-b662-44b6-b9ab-47aa67ef3701",
+          "id": 10,
+          "extension": "com_content",
+          "title": "Dynamic Brand Consultant",
+          "note": "",
+          "description": null,
+          "published": 1,
+          "checked_out": null,
+          "checked_out_time": null,
+          "access": 1,
+          "params": [],
+          "created_user_id": 361,
+          "language": "*",
+          "content-category-field": ""
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_categories_post_v1_content_categories",
-    "direction": "request",
-    "schema": "com_categories_post_v1_content_categoriesRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_categories_post_v1_content_categories",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_categories_post_v1_content_categoriesResponse",
-    "value": {
-      "data": {
-        "type": "categories",
-        "id": "Example",
-        "attributes": {
-          "title": "Example",
-          "alias": "Example",
-          "note": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_categories_get_v1_content_categories_idResponse"
   },
   {
     "operationId": "com_categories_patch_v1_content_categories_id",
     "direction": "request",
-    "schema": "com_categories_patch_v1_content_categories_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "parent_id": 1,
       "extension": "Example",
       "title": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_patch_v1_content_categories_idRequest"
+  },
+  {
+    "operationId": "com_categories_patch_v1_content_categories_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "alias": "4c024085-71fe-4c56-8da9-e1694f8c8692",
+      "note": "Animi deserunt ratione dolor sit officia asperiores odit.",
+      "parent_id": 1,
+      "title": "Intelligent Cotton Fish"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_patch_v1_content_categories_idRequest"
   },
   {
     "operationId": "com_categories_patch_v1_content_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_patch_v1_content_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "categories",
@@ -279,89 +710,232 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_patch_v1_content_categories_idResponse"
   },
   {
     "operationId": "com_categories_get_v1_newsfeeds_categories",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_get_v1_newsfeeds_categoriesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/newsfeeds/categories"
+      },
       "data": [
         {
           "type": "categories",
-          "id": "Example",
+          "id": "5",
           "attributes": {
+            "id": 5,
+            "title": "Uncategorised",
+            "alias": "uncategorised",
+            "note": "",
+            "published": 1,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 7,
+            "rgt": 8,
+            "language": "*",
+            "description": "",
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 0,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
+          }
+        },
+        {
+          "type": "categories",
+          "id": "11",
+          "attributes": {
+            "id": 11,
             "title": "Example",
-            "alias": "Example",
-            "note": "Example"
+            "alias": "example",
+            "note": "",
+            "published": 0,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 17,
+            "rgt": 18,
+            "language": "",
+            "description": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 0,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
+          }
+        },
+        {
+          "type": "categories",
+          "id": "13",
+          "attributes": {
+            "id": 13,
+            "title": "1",
+            "alias": "1",
+            "note": "",
+            "published": 1,
+            "access": 1,
+            "checked_out": null,
+            "checked_out_time": null,
+            "created_user_id": 361,
+            "parent_id": 1,
+            "level": 1,
+            "lft": 21,
+            "rgt": 22,
+            "language": "",
+            "description": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "author_name": "Admin",
+            "count_trashed": 0,
+            "count_unpublished": 0,
+            "count_published": 0,
+            "count_archived": 0,
+            "content-category-field": ""
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_get_v1_newsfeeds_categoriesResponse"
+  },
+  {
+    "operationId": "com_categories_post_v1_newsfeeds_categories",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_post_v1_newsfeeds_categoriesRequest"
+  },
+  {
+    "operationId": "com_categories_post_v1_newsfeeds_categories",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/newsfeeds/categories"
+      },
+      "data": {
+        "type": "categories",
+        "id": "11",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 17,
+          "rgt": 18,
+          "alias": "example",
+          "id": 11,
+          "extension": "com_newsfeeds",
+          "title": "Example",
+          "note": "",
+          "description": null,
+          "published": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "access": 1,
+          "params": [],
+          "created_user_id": 361,
+          "language": ""
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_post_v1_newsfeeds_categoriesResponse"
   },
   {
     "operationId": "com_categories_get_v1_newsfeeds_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_get_v1_newsfeeds_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/newsfeeds/categories/11"
+      },
       "data": {
         "type": "categories",
-        "id": "Example",
+        "id": "11",
         "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 17,
+          "rgt": 18,
+          "alias": "example",
+          "id": 11,
+          "extension": "com_newsfeeds",
           "title": "Example",
-          "alias": "Example",
-          "note": "Example"
+          "note": "",
+          "description": null,
+          "published": 0,
+          "checked_out": null,
+          "checked_out_time": null,
+          "access": 1,
+          "params": [],
+          "created_user_id": 361,
+          "language": "",
+          "content-category-field": ""
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_categories_post_v1_newsfeeds_categories",
-    "direction": "request",
-    "schema": "com_categories_post_v1_newsfeeds_categoriesRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_categories_post_v1_newsfeeds_categories",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_categories_post_v1_newsfeeds_categoriesResponse",
-    "value": {
-      "data": {
-        "type": "categories",
-        "id": "Example",
-        "attributes": {
-          "title": "Example",
-          "alias": "Example",
-          "note": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_categories_get_v1_newsfeeds_categories_idResponse"
   },
   {
     "operationId": "com_categories_patch_v1_newsfeeds_categories_id",
     "direction": "request",
-    "schema": "com_categories_patch_v1_newsfeeds_categories_idRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "parent_id": 1,
       "extension": "Example",
       "title": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_categories_patch_v1_newsfeeds_categories_idRequest"
   },
   {
     "operationId": "com_categories_patch_v1_newsfeeds_categories_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_categories_patch_v1_newsfeeds_categories_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "categories",
@@ -373,6 +947,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_categories_patch_v1_newsfeeds_categories_idResponse"
   }
 ]

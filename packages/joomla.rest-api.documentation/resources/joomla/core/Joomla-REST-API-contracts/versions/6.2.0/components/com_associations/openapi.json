@@ -7,26 +7,63 @@
   },
   "servers": [
     {
-      "url": "/api/index.php"
+      "url": "{scheme}://{site}/api/index.php",
+      "description": "Your Joomla site",
+      "variables": {
+        "scheme": {
+          "default": "https",
+          "enum": [
+            "https",
+            "http"
+          ],
+          "description": "Use http only for a local test site"
+        },
+        "site": {
+          "default": "example.com",
+          "description": "Domain of the Joomla site, plus its folder if Joomla is installed in a folder"
+        }
+      }
+    },
+    {
+      "url": "/api/index.php",
+      "description": "Relative to the site that serves this specification"
     }
   ],
   "security": [
     {
+      "BearerAuth": []
+    },
+    {
       "JoomlaToken": []
+    },
+    {
+      "BasicAuth": []
     }
   ],
   "paths": {},
   "components": {
     "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Joomla API token of a user, sent as `Authorization: Bearer <token>`. Users get their token on the Joomla API Token tab of their profile. The plugins \"API Authentication - Web Services Joomla Token\" and \"User - Joomla API Token\" must be enabled."
+      },
       "JoomlaToken": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-Joomla-Token"
+        "name": "X-Joomla-Token",
+        "description": "The same API token in the `X-Joomla-Token` header. Joomla tries to extract a Bearer token first and reads this header when the extracted token is empty. A non-empty Bearer token takes precedence even when authentication fails."
+      },
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Username and password of a user. Only works when the plugin \"API Authentication - Web Services Basic Auth\" is enabled, which it is not by default."
       },
       "JUpdateToken": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-JUpdate-Token"
+        "name": "X-JUpdate-Token",
+        "description": "Update token of the Joomla Automated Updates service, set in the options of Joomla Update. Only used by the `/v1/joomlaupdate` endpoints."
       }
     },
     "schemas": {
@@ -720,5 +757,11 @@
   "x-source-verification": {
     "method": "local route registration + XML + SQL + controller/view/serializer inspection",
     "runtime_requests": false
+  },
+  "tags": [],
+  "x-documentation-source": {
+    "url": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "pull_request": 724,
+    "guide_corrections": "context and client_id on create, from merged fork PRs #1 and #2"
   }
 }

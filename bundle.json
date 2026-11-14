@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "id": "webtolk.joomla-rest-api-knowledge",
-  "version": "1.1.0",
-  "released_at": "2026-10-23T10:08:25.912299Z",
+  "version": "1.2.0",
+  "released_at": "2026-11-14T04:55:22Z",
   "primary_joomla_version": "6.2.0",
   "archived_joomla_versions": [
     "5.4.8",
@@ -13,14 +13,14 @@
   "packages": [
     {
       "id": "joomla.rest-api.documentation",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.documentation",
       "resources": 1,
       "dependencies": []
     },
     {
       "id": "joomla.rest-api.associations",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.associations",
       "resources": 3,
       "dependencies": [
@@ -30,7 +30,7 @@
     },
     {
       "id": "joomla.rest-api.banners",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.banners",
       "resources": 3,
       "dependencies": [
@@ -40,7 +40,7 @@
     },
     {
       "id": "joomla.rest-api.categories",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.categories",
       "resources": 3,
       "dependencies": [
@@ -50,7 +50,7 @@
     },
     {
       "id": "joomla.rest-api.common",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.common",
       "resources": 3,
       "dependencies": [
@@ -59,7 +59,7 @@
     },
     {
       "id": "joomla.rest-api.config",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.config",
       "resources": 3,
       "dependencies": [
@@ -69,7 +69,7 @@
     },
     {
       "id": "joomla.rest-api.contact",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.contact",
       "resources": 3,
       "dependencies": [
@@ -79,7 +79,7 @@
     },
     {
       "id": "joomla.rest-api.content",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.content",
       "resources": 3,
       "dependencies": [
@@ -89,7 +89,7 @@
     },
     {
       "id": "joomla.rest-api.contenthistory",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.contenthistory",
       "resources": 3,
       "dependencies": [
@@ -99,7 +99,7 @@
     },
     {
       "id": "joomla.rest-api.fields",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.fields",
       "resources": 3,
       "dependencies": [
@@ -109,7 +109,7 @@
     },
     {
       "id": "joomla.rest-api.finder",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.finder",
       "resources": 3,
       "dependencies": [
@@ -119,7 +119,7 @@
     },
     {
       "id": "joomla.rest-api.installer",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.installer",
       "resources": 3,
       "dependencies": [
@@ -129,7 +129,7 @@
     },
     {
       "id": "joomla.rest-api.joomlaupdate",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.joomlaupdate",
       "resources": 3,
       "dependencies": [
@@ -139,7 +139,7 @@
     },
     {
       "id": "joomla.rest-api.languages",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.languages",
       "resources": 3,
       "dependencies": [
@@ -149,7 +149,7 @@
     },
     {
       "id": "joomla.rest-api.media",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.media",
       "resources": 3,
       "dependencies": [
@@ -159,7 +159,7 @@
     },
     {
       "id": "joomla.rest-api.menus",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.menus",
       "resources": 3,
       "dependencies": [
@@ -169,7 +169,7 @@
     },
     {
       "id": "joomla.rest-api.messages",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.messages",
       "resources": 3,
       "dependencies": [
@@ -179,7 +179,7 @@
     },
     {
       "id": "joomla.rest-api.modules",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.modules",
       "resources": 3,
       "dependencies": [
@@ -189,7 +189,7 @@
     },
     {
       "id": "joomla.rest-api.newsfeeds",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.newsfeeds",
       "resources": 3,
       "dependencies": [
@@ -199,7 +199,7 @@
     },
     {
       "id": "joomla.rest-api.plugins",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.plugins",
       "resources": 3,
       "dependencies": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "joomla.rest-api.privacy",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.privacy",
       "resources": 3,
       "dependencies": [
@@ -219,7 +219,7 @@
     },
     {
       "id": "joomla.rest-api.redirect",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.redirect",
       "resources": 3,
       "dependencies": [
@@ -229,7 +229,7 @@
     },
     {
       "id": "joomla.rest-api.tags",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.tags",
       "resources": 3,
       "dependencies": [
@@ -239,7 +239,7 @@
     },
     {
       "id": "joomla.rest-api.templates",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.templates",
       "resources": 3,
       "dependencies": [
@@ -249,7 +249,7 @@
     },
     {
       "id": "joomla.rest-api.users",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "path": "packages/joomla.rest-api.users",
       "resources": 3,
       "dependencies": [
@@ -258,5 +258,7 @@
       ]
     }
   ],
-  "format_note": "Repository inventory; native installation subjects and update manifest use the ProcessForge contract."
+  "format_note": "Repository inventory; native installation subjects and update manifest use the ProcessForge contract.",
+  "tested_processforge": "1.3.0-alpha1",
+  "release_summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
 }

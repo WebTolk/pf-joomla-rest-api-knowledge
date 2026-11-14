@@ -3,8 +3,11 @@
 Пакет joomla.rest-api.fields. Версия ядра: 6.2.0.
 
 Определение поля, группа и значение поля у владельца — разные сущности.
-Контекст задан маршрутом: com_content.article/categories, com_contact.contact/categories/mail,
-com_users.user. name — ключ значения; id — ID определения. assigned_cat_ids
+Маршрут выбирает контекст чтения: com_content.article/categories, com_contact.contact/categories/mail,
+com_users.user. При POST поля или группы также передавать context из x-route-defaults
+в теле: маршрут не подставляет его при сохранении. Без context запись может сохраниться,
+а ответ будет 404. Для поля нужны description и непустой params, для группы — description.
+Имя поля уникально среди всех контекстов. name — ключ значения; id — ID определения. assigned_cat_ids
 ограничивает применимость. fieldparams выбирается по типу из plugins/fields.
 params описывает отображение/поведение. Значения передаются через com_fields
 в операции владельца; поддерживаемые контроллеры также принимают имя поля сверху.
@@ -16,7 +19,7 @@ Subform сохраняет строки целиком; частичный merge
 - [openapi.json](openapi.json): схемы запросов/ответов, параметры, коды и примеры.
 - [fields.md](fields.md): типы, обязательность, enum/default, правила форм/showon.
 - [extension-parameters.json](extension-parameters.json): параметры штатных расширений.
-- [examples.json](examples.json): синтетические request/response fixtures.
+- [examples.json](examples.json): примеры запросов/ответов с указанным происхождением.
 - [errors.md](errors.md), [browser-fallback.md](browser-fallback.md).
 - [coverage.json](coverage.json), [source-evidence.json](source-evidence.json): покрытие/SHA-256.
 - [Общие правила](../../../../common/README.md).

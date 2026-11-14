@@ -2,28 +2,73 @@
   {
     "operationId": "com_newsfeeds_get_v1_newsfeeds_feeds",
     "direction": "response",
-    "status": 200,
-    "schema": "com_newsfeeds_get_v1_newsfeeds_feedsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "newsfeeds",
-          "id": "Example",
-          "attributes": {
-            "name": "Example",
-            "alias": "Example",
-            "checked_out": 1
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/newsfeeds/feeds"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_newsfeeds_get_v1_newsfeeds_feedsResponse"
+  },
+  {
+    "operationId": "com_newsfeeds_post_v1_newsfeeds_feeds",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "name": "Example feed",
+      "link": "https://example.org/feed",
+      "catid": 5,
+      "description": "",
+      "metadesc": "",
+      "images": {
+        "image_first": ""
+      },
+      "metadata": {
+        "robots": ""
+      },
+      "params": {
+        "show_feed_image": "1"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_newsfeeds_post_v1_newsfeeds_feedsRequest"
+  },
+  {
+    "operationId": "com_newsfeeds_post_v1_newsfeeds_feeds",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "newsfeeds",
+        "id": "Example",
+        "attributes": {
+          "name": "Example",
+          "alias": "Example",
+          "link": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_newsfeeds_post_v1_newsfeeds_feedsResponse"
   },
   {
     "operationId": "com_newsfeeds_get_v1_newsfeeds_feeds_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_newsfeeds_get_v1_newsfeeds_feeds_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "newsfeeds",
@@ -35,53 +80,49 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_newsfeeds_post_v1_newsfeeds_feeds",
-    "direction": "request",
-    "schema": "com_newsfeeds_post_v1_newsfeeds_feedsRequest",
-    "value": {
-      "name": "Example",
-      "catid": 1,
-      "link": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_newsfeeds_post_v1_newsfeeds_feeds",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_newsfeeds_post_v1_newsfeeds_feedsResponse",
-    "value": {
-      "data": {
-        "type": "newsfeeds",
-        "id": "Example",
-        "attributes": {
-          "name": "Example",
-          "alias": "Example",
-          "link": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_newsfeeds_get_v1_newsfeeds_feeds_idResponse"
   },
   {
     "operationId": "com_newsfeeds_patch_v1_newsfeeds_feeds_id",
     "direction": "request",
-    "schema": "com_newsfeeds_patch_v1_newsfeeds_feeds_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "name": "Example",
       "alias": "Example",
       "published": 1
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_newsfeeds_patch_v1_newsfeeds_feeds_idRequest"
+  },
+  {
+    "operationId": "com_newsfeeds_patch_v1_newsfeeds_feeds_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "access": 1,
+      "alias": "test2",
+      "catid": 5,
+      "description": "",
+      "link": "https://samoylov/joomla/gsoc19_webservices/index.php",
+      "metadesc": "",
+      "metakey": "",
+      "name": "Test"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_newsfeeds_patch_v1_newsfeeds_feeds_idRequest"
   },
   {
     "operationId": "com_newsfeeds_patch_v1_newsfeeds_feeds_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_newsfeeds_patch_v1_newsfeeds_feeds_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "newsfeeds",
@@ -93,6 +134,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_newsfeeds_patch_v1_newsfeeds_feeds_idResponse"
   }
 ]

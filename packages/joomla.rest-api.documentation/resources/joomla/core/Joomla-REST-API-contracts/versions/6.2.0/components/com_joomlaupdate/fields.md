@@ -20,18 +20,21 @@ password prepareUpdate — временный секрет, в артефакт�
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |targetVersion|"string"|да|""|targetVersion: ||
+
 ## REST POST /v1/joomlaupdate/finalizeUpdate
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |fromVersion|"string"|нет|""|fromVersion: ||
 |updateFileName|"string"|нет|""|updateFileName: ||
+
 ## REST POST /v1/joomlaupdate/notificationSuccess
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |fromVersion|"string"|нет|""|fromVersion: ||
 |toVersion|"string"|нет|""|toVersion: ||
+
 ## REST POST /v1/joomlaupdate/notificationFailed
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

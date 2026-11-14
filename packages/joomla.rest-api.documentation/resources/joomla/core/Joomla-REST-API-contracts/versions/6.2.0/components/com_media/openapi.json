@@ -7,21 +7,46 @@
   },
   "servers": [
     {
-      "url": "/api/index.php"
+      "url": "{scheme}://{site}/api/index.php",
+      "description": "Your Joomla site",
+      "variables": {
+        "scheme": {
+          "default": "https",
+          "enum": [
+            "https",
+            "http"
+          ],
+          "description": "Use http only for a local test site"
+        },
+        "site": {
+          "default": "example.com",
+          "description": "Domain of the Joomla site, plus its folder if Joomla is installed in a folder"
+        }
+      }
+    },
+    {
+      "url": "/api/index.php",
+      "description": "Relative to the site that serves this specification"
     }
   ],
   "security": [
     {
+      "BearerAuth": []
+    },
+    {
       "JoomlaToken": []
+    },
+    {
+      "BasicAuth": []
     }
   ],
   "paths": {
     "/v1/media/adapters": {
       "get": {
         "operationId": "com_media_get_v1_media_adapters",
-        "summary": "GET /v1/media/adapters",
+        "summary": "List Media Adapters",
         "tags": [
-          "com_media"
+          "Media Adapters"
         ],
         "x-controller-task": "adapters.displayList",
         "x-route-defaults": {
@@ -36,144 +61,164 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "A list of Media Adapters.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/com_media_get_v1_media_adaptersResponse"
                 },
-                "example": {
-                  "data": [
-                    {
-                      "type": "adapters",
-                      "id": "Example",
-                      "attributes": {
-                        "provider_id": "Example",
-                        "name": "Example",
-                        "path": "Example"
+                "examples": {
+                  "captured": {
+                    "summary": "Response of a Joomla 6.2.0 test site",
+                    "value": {
+                      "links": {
+                        "self": "https://example.com/api/index.php/v1/media/adapters"
+                      },
+                      "data": [
+                        {
+                          "type": "adapters",
+                          "id": "local-images",
+                          "attributes": {
+                            "provider_id": "local",
+                            "name": "images",
+                            "path": "local-images:/"
+                          }
+                        },
+                        {
+                          "type": "adapters",
+                          "id": "local-files",
+                          "attributes": {
+                            "provider_id": "local",
+                            "name": "files",
+                            "path": "local-files:/"
+                          }
+                        }
+                      ],
+                      "meta": {
+                        "total-pages": 1
                       }
                     }
-                  ]
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
         "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
-        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Get a list of configured Media Adapters. Adapters define storage backends and root paths for media files. For examples of how to use Media Adapters, please refer to\n\n[https://github.com/joomla/joomla-cms/blob/6.0-dev/tests/System/integration/api/com_media/Adapters.cy.js](https://github.com/joomla/joomla-cms/blob/6.0-dev/tests/System/integration/api/com_media/Adapters.cy.js)\n\nDiscover adapter IDs through /media/adapters; local-images is site configuration, not a universal ID. /media/files/{path}/ lists a directory; the same path without the trailing slash reads one item. Use JSON rather than multipart. For files, provide base64 content; for folders, omit it. PATCH requires at least path or content; explicitly set override: false to forbid overwriting. Allowed extensions, MIME types, sizes and operations depend on Media Manager and adapter settings.\n\nThe media models return the retrieved set without standard page slicing; do not use page[limit] to infer completeness. File lists support filter[search] and search_recursive. The url, temp and content query flags select optional URL, temporary URL or encoded-content attributes where the adapter supports them. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     },
     "/v1/media/adapters/{id}": {
       "get": {
         "operationId": "com_media_get_v1_media_adapters_id",
-        "summary": "GET /v1/media/adapters/{id}",
+        "summary": "Get Media Adapter",
         "tags": [
-          "com_media"
+          "Media Adapters"
         ],
         "x-controller-task": "adapters.displayItem",
         "x-route-defaults": {
@@ -197,20 +242,28 @@
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "The Media Adapter.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/com_media_get_v1_media_adapters_idResponse"
                 },
-                "example": {
-                  "data": {
-                    "type": "adapters",
-                    "id": "Example",
-                    "attributes": {
-                      "provider_id": "Example",
-                      "name": "Example",
-                      "path": "Example"
+                "examples": {
+                  "captured": {
+                    "summary": "Response of a Joomla 6.2.0 test site",
+                    "value": {
+                      "links": {
+                        "self": "https://example.com/api/index.php/v1/media/adapters/local-images"
+                      },
+                      "data": {
+                        "type": "adapters",
+                        "id": "local-images",
+                        "attributes": {
+                          "provider_id": "local",
+                          "name": "images",
+                          "path": "local-images:/"
+                        }
+                      }
                     }
                   }
                 }
@@ -218,121 +271,121 @@
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
         "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
-        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Get the Media Adapter with a specific adapter_id.\n\nDiscover adapter IDs through /media/adapters; local-images is site configuration, not a universal ID. /media/files/{path}/ lists a directory; the same path without the trailing slash reads one item. Use JSON rather than multipart. For files, provide base64 content; for folders, omit it. PATCH requires at least path or content; explicitly set override: false to forbid overwriting. Allowed extensions, MIME types, sizes and operations depend on Media Manager and adapter settings.\n\nThe media models return the retrieved set without standard page slicing; do not use page[limit] to infer completeness. File lists support filter[search] and search_recursive. The url, temp and content query flags select optional URL, temporary URL or encoded-content attributes where the adapter supports them. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     },
     "/v1/media/files": {
       "get": {
         "operationId": "com_media_get_v1_media_files",
-        "summary": "GET /v1/media/files",
+        "summary": "List Media Files",
         "tags": [
-          "com_media"
+          "Media Files"
         ],
         "x-controller-task": "media.displayList",
         "x-route-defaults": {
@@ -346,8 +399,19 @@
         "x-support": "source-derived",
         "parameters": [
           {
-            "name": "filter[search]",
+            "name": "path",
             "in": "query",
+            "allowReserved": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[^:/]+:/.*$"
+            },
+            "example": "local-images:/banners/",
+            "description": "Adapter ID, a colon and the path from the root of the adapter, for example `local-images:/banners/osmbanner1.png`. Get the adapter IDs from `/v1/media/adapters`. A folder lists its items, a file gives a list with only that file. Without `path` the list is empty. Unlike the path parameter of `/v1/media/files/{path}`, this one also works when the slashes are URL-encoded."
+          },
+          {
+            "in": "query",
+            "name": "filter[search]",
             "schema": {
               "type": "string"
             }
@@ -357,21 +421,24 @@
             "in": "query",
             "schema": {
               "type": "boolean"
-            }
+            },
+            "description": "Add the public URL of each file as `url`."
           },
           {
             "name": "temp",
             "in": "query",
             "schema": {
               "type": "boolean"
-            }
+            },
+            "description": "Passed on to the media adapter; Joomla core and its local adapter do not use it."
           },
           {
             "name": "content",
             "in": "query",
             "schema": {
               "type": "boolean"
-            }
+            },
+            "description": "Add the Base64-encoded content of the file as `content`."
           },
           {
             "name": "search_recursive",
@@ -385,142 +452,143 @@
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "A list of Media Files.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/com_media_get_v1_media_filesResponse"
                 },
-                "example": {
-                  "data": [
-                    {
-                      "type": "media",
-                      "id": "Example",
-                      "attributes": {
-                        "type": "Example",
-                        "name": "Example",
-                        "path": "Example"
+                "examples": {
+                  "captured": {
+                    "summary": "Response of a Joomla 6.2.0 test site",
+                    "value": {
+                      "links": {
+                        "self": "https://example.com/api/index.php/v1/media/files"
+                      },
+                      "data": [],
+                      "meta": {
+                        "total-pages": null
                       }
                     }
-                  ]
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
         "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
-        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Get a list of media files. This only gives back the files in the files-directory. Do you need some 'path' request variable?\n\nDiscover adapter IDs through /media/adapters; local-images is site configuration, not a universal ID. /media/files/{path}/ lists a directory; the same path without the trailing slash reads one item. Use JSON rather than multipart. For files, provide base64 content; for folders, omit it. PATCH requires at least path or content; explicitly set override: false to forbid overwriting. Allowed extensions, MIME types, sizes and operations depend on Media Manager and adapter settings.\n\nThe media models return the retrieved set without standard page slicing; do not use page[limit] to infer completeness. File lists support filter[search] and search_recursive. The url, temp and content query flags select optional URL, temporary URL or encoded-content attributes where the adapter supports them. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       },
       "post": {
         "operationId": "com_media_post_v1_media_files",
-        "summary": "POST /v1/media/files",
+        "summary": "Add Media File",
         "tags": [
-          "com_media"
+          "Media Files"
         ],
         "x-controller-task": "media.add",
         "x-route-defaults": {
@@ -534,7 +602,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "The created Media File.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
@@ -555,109 +623,109 @@
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
         "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
@@ -676,24 +744,24 @@
             }
           }
         },
-        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Add a (Base64-encoded) media file to the Joomla site.\n\nDiscover adapter IDs through /media/adapters; local-images is site configuration, not a universal ID. /media/files/{path}/ lists a directory; the same path without the trailing slash reads one item. Use JSON rather than multipart. For files, provide base64 content; for folders, omit it. PATCH requires at least path or content; explicitly set override: false to forbid overwriting. Allowed extensions, MIME types, sizes and operations depend on Media Manager and adapter settings.\n\nThe media models return the retrieved set without standard page slicing; do not use page[limit] to infer completeness. File lists support filter[search] and search_recursive. The url, temp and content query flags select optional URL, temporary URL or encoded-content attributes where the adapter supports them. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     },
-    "/v1/media/files/{path}/": {
+    "/v1/media/files/{path}": {
       "get": {
-        "operationId": "com_media_get_v1_media_files_path_directory",
-        "summary": "GET /v1/media/files/{path}/",
+        "operationId": "com_media_get_v1_media_files_path",
+        "summary": "Get Media File or List Media Folder",
         "tags": [
-          "com_media"
+          "Media Files"
         ],
-        "x-controller-task": "media.displayList",
+        "x-controller-task": "media.displayItem; media.displayList when the path ends with /",
         "x-route-defaults": {
           "public": false,
           "component": "com_media"
         },
         "x-source": [
-          "plugins/webservices/media/src/Extension/Media.php",
-          "api/components/com_media/src/Controller/MediaController.php"
+          "api/components/com_media/src/Controller/MediaController.php",
+          "plugins/webservices/media/src/Extension/Media.php"
         ],
         "x-support": "source-derived",
         "parameters": [
@@ -703,35 +771,40 @@
             "required": true,
             "schema": {
               "type": "string",
-              "pattern": "^.*\\/$"
-            }
-          },
-          {
-            "name": "filter[search]",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
+              "pattern": "^[^:/]+:/.*$"
+            },
+            "description": "Adapter ID, a colon and the path from the root of the adapter, for example `local-images:/banners/osmbanner1.png`. Get the adapter IDs from `/v1/media/adapters`. End the path with `/` to list a folder. Do not URL-encode the slashes: with the default Apache setting `AllowEncodedSlashes Off`, a `%2F` in the URL path gives a 404 from the web server before Joomla is reached. ",
+            "example": "local-images:/joomla_black.png"
           },
           {
             "name": "url",
             "in": "query",
             "schema": {
               "type": "boolean"
-            }
+            },
+            "description": "Add the public URL of each file as `url`."
           },
           {
             "name": "temp",
             "in": "query",
             "schema": {
               "type": "boolean"
-            }
+            },
+            "description": "Passed on to the media adapter; Joomla core and its local adapter do not use it."
           },
           {
             "name": "content",
             "in": "query",
             "schema": {
               "type": "boolean"
+            },
+            "description": "Add the Base64-encoded content of the file as `content`."
+          },
+          {
+            "in": "query",
+            "name": "filter[search]",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -746,203 +819,62 @@
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "The Media File, or the items in the Media Folder.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com_media_get_v1_media_files_path_directoryResponse"
-                },
-                "example": {
-                  "data": [
+                  "oneOf": [
                     {
-                      "type": "media",
-                      "id": "Example",
-                      "attributes": {
-                        "type": "Example",
-                        "name": "Example",
-                        "path": "Example"
+                      "$ref": "#/components/schemas/com_media_get_v1_media_files_pathResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/com_media_get_v1_media_files_path_directoryResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "file": {
+                    "summary": "Response of a Joomla 6.2.0 test site",
+                    "value": {
+                      "links": {
+                        "self": "https://example.com/api/index.php/v1/media/files/local-images:/joomla_black.png"
+                      },
+                      "data": {
+                        "type": "media",
+                        "id": "0",
+                        "attributes": {
+                          "type": "file",
+                          "name": "joomla_black.png",
+                          "path": "local-images:/joomla_black.png",
+                          "extension": "png",
+                          "size": 4979,
+                          "mime_type": "image/png",
+                          "width": 225,
+                          "height": 50,
+                          "create_date": "2026-10-29T21:02:51+00:00",
+                          "create_date_formatted": "2026-10-29 21:02",
+                          "modified_date": "2026-10-12T16:01:12+00:00",
+                          "modified_date_formatted": "2026-10-12 16:01",
+                          "thumb_path": "https://example.com/images/joomla_black.png",
+                          "adapter": "local-images"
+                        }
                       }
                     }
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Ошибка параметров, формы или сохранения",
-            "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "title": "Invalid field: Title"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "title": "Forbidden"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Действие запрещено ACL",
-            "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "title": "Access Denied",
-                      "code": 403
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Нет маршрута, записи или задачи",
-            "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "title": "Resource not found",
-                      "code": 404
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "title": "Not Acceptable"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
-                "example": {
-                  "errors": [
-                    {
-                      "title": "Internal server error",
-                      "code": 500
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
-        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
-      }
-    },
-    "/v1/media/files/{path}": {
-      "get": {
-        "operationId": "com_media_get_v1_media_files_path",
-        "summary": "GET /v1/media/files/{path}",
-        "tags": [
-          "com_media"
-        ],
-        "x-controller-task": "media.displayItem",
-        "x-route-defaults": {
-          "public": false,
-          "component": "com_media"
-        },
-        "x-source": [
-          "plugins/webservices/media/src/Extension/Media.php",
-          "api/components/com_media/src/Controller/MediaController.php"
-        ],
-        "x-support": "source-derived",
-        "parameters": [
-          {
-            "name": "path",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^.*$"
-            }
-          },
-          {
-            "name": "url",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "temp",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "content",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
-            "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/com_media_get_v1_media_files_pathResponse"
-                },
-                "example": {
-                  "data": {
-                    "type": "media",
-                    "id": "Example",
-                    "attributes": {
-                      "type": "Example",
-                      "name": "Example",
-                      "path": "Example"
+                  },
+                  "folder": {
+                    "summary": "A folder (path ending with /)",
+                    "value": {
+                      "data": [
+                        {
+                          "type": "media",
+                          "id": "Example",
+                          "attributes": {
+                            "type": "Example",
+                            "name": "Example",
+                            "path": "Example"
+                          }
+                        }
+                      ]
                     }
                   }
                 }
@@ -950,119 +882,119 @@
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
         "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
-        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Get the media file at the given path. When the path ends with `/`, list the items in that folder instead.\n\nDiscover adapter IDs through /media/adapters; local-images is site configuration, not a universal ID. /media/files/{path}/ lists a directory; the same path without the trailing slash reads one item. Use JSON rather than multipart. For files, provide base64 content; for folders, omit it. PATCH requires at least path or content; explicitly set override: false to forbid overwriting. Allowed extensions, MIME types, sizes and operations depend on Media Manager and adapter settings.\n\nThe media models return the retrieved set without standard page slicing; do not use page[limit] to infer completeness. File lists support filter[search] and search_recursive. The url, temp and content query flags select optional URL, temporary URL or encoded-content attributes where the adapter supports them. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       },
       "patch": {
         "operationId": "com_media_patch_v1_media_files_path",
-        "summary": "PATCH /v1/media/files/{path}",
+        "summary": "Update Media File",
         "tags": [
-          "com_media"
+          "Media Files"
         ],
         "x-controller-task": "media.edit",
         "x-route-defaults": {
@@ -1080,13 +1012,15 @@
             "required": true,
             "schema": {
               "type": "string",
-              "pattern": "^.*$"
-            }
+              "pattern": "^[^:/]+:/.*$"
+            },
+            "description": "Adapter ID, a colon and the path from the root of the adapter, for example `local-images:/banners/osmbanner1.png`. Get the adapter IDs from `/v1/media/adapters`. Do not URL-encode the slashes: with the default Apache setting `AllowEncodedSlashes Off`, a `%2F` in the URL path gives a 404 from the web server before Joomla is reached. ",
+            "example": "local-images:/joomla_black.png"
           }
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "The updated Media File.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
@@ -1107,109 +1041,109 @@
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
         "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
@@ -1228,13 +1162,13 @@
             }
           }
         },
-        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+        "description": "Update an existing media file by sending new Base64-encoded content.\n\nDiscover adapter IDs through /media/adapters; local-images is site configuration, not a universal ID. /media/files/{path}/ lists a directory; the same path without the trailing slash reads one item. Use JSON rather than multipart. For files, provide base64 content; for folders, omit it. PATCH requires at least path or content; explicitly set override: false to forbid overwriting. Allowed extensions, MIME types, sizes and operations depend on Media Manager and adapter settings.\n\nThe media models return the retrieved set without standard page slicing; do not use page[limit] to infer completeness. File lists support filter[search] and search_recursive. The url, temp and content query flags select optional URL, temporary URL or encoded-content attributes where the adapter supports them. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       },
       "delete": {
         "operationId": "com_media_delete_v1_media_files_path",
-        "summary": "DELETE /v1/media/files/{path}",
+        "summary": "Delete Media File",
         "tags": [
-          "com_media"
+          "Media Files"
         ],
         "x-controller-task": "media.delete",
         "x-route-defaults": {
@@ -1252,136 +1186,150 @@
             "required": true,
             "schema": {
               "type": "string",
-              "pattern": "^.*$"
-            }
+              "pattern": "^[^:/]+:/.*$"
+            },
+            "description": "Adapter ID, a colon and the path from the root of the adapter, for example `local-images:/banners/osmbanner1.png`. Get the adapter IDs from `/v1/media/adapters`. Do not URL-encode the slashes: with the default Apache setting `AllowEncodedSlashes Off`, a `%2F` in the URL path gives a 404 from the web server before Joomla is reached. ",
+            "example": "local-images:/joomla_black.png"
           }
         ],
         "responses": {
           "204": {
-            "description": "Удалено; обязательное тело отсутствует."
+            "description": "Deleted; no response body is required."
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
         "x-pagination": "No standard page slicing: the specialized model/view returns all retrieved items or its own search result batch. Do not infer 20-item pagination from the generic controller.",
-        "description": "path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.\nGET files/{path}/ с завершающим / возвращает список, без / — элемент.\nPOST требует path; для файла нужен base64 content, для папки content отсутствует.\nPOST override по умолчанию false; PATCH override по умолчанию true: для запрета\nперезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.\nНужен хотя бы path или content. Не передавать multipart, data: URL или сырые байты.\nЛимиты размера, допустимые MIME/расширения и возможности определяются настройками\nи адаптером. content/url/tempUrl в ответе условны.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Delete the media file at the given path.\n\nDiscover adapter IDs through /media/adapters; local-images is site configuration, not a universal ID. /media/files/{path}/ lists a directory; the same path without the trailing slash reads one item. Use JSON rather than multipart. For files, provide base64 content; for folders, omit it. PATCH requires at least path or content; explicitly set override: false to forbid overwriting. Allowed extensions, MIME types, sizes and operations depend on Media Manager and adapter settings.\n\nThe media models return the retrieved set without standard page slicing; do not use page[limit] to infer completeness. File lists support filter[search] and search_recursive. The url, temp and content query flags select optional URL, temporary URL or encoded-content attributes where the adapter supports them. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     }
   },
   "components": {
     "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Joomla API token of a user, sent as `Authorization: Bearer <token>`. Users get their token on the Joomla API Token tab of their profile. The plugins \"API Authentication - Web Services Joomla Token\" and \"User - Joomla API Token\" must be enabled."
+      },
       "JoomlaToken": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-Joomla-Token"
+        "name": "X-Joomla-Token",
+        "description": "The same API token in the `X-Joomla-Token` header. Joomla tries to extract a Bearer token first and reads this header when the extracted token is empty. A non-empty Bearer token takes precedence even when authentication fails."
+      },
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Username and password of a user. Only works when the plugin \"API Authentication - Web Services Basic Auth\" is enabled, which it is not by default."
       },
       "JUpdateToken": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-JUpdate-Token"
+        "name": "X-JUpdate-Token",
+        "description": "Update token of the Joomla Automated Updates service, set in the options of Joomla Update. Only used by the `/v1/joomlaupdate` endpoints."
       }
     },
     "schemas": {
@@ -2197,10 +2145,14 @@
                         },
                         {
                           "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "const": ""
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
-                      "x-type-origin": "numeric model/view alias"
+                      "description": "File size in bytes. The core local filesystem adapter returns an empty string for directories.",
+                      "x-type-origin": "filesystem adapter metadata"
                     },
                     "mime_type": {
                       "type": [
@@ -2222,7 +2174,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "height": {
@@ -2238,7 +2190,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "create_date": {
@@ -2401,10 +2353,14 @@
                         },
                         {
                           "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "const": ""
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
-                      "x-type-origin": "numeric model/view alias"
+                      "description": "File size in bytes. The core local filesystem adapter returns an empty string for directories.",
+                      "x-type-origin": "filesystem adapter metadata"
                     },
                     "mime_type": {
                       "type": [
@@ -2426,7 +2382,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "height": {
@@ -2442,7 +2398,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "create_date": {
@@ -2603,10 +2559,14 @@
                       },
                       {
                         "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "const": ""
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
-                    "x-type-origin": "numeric model/view alias"
+                    "description": "File size in bytes. The core local filesystem adapter returns an empty string for directories.",
+                    "x-type-origin": "filesystem adapter metadata"
                   },
                   "mime_type": {
                     "type": [
@@ -2628,7 +2588,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-type-origin": "numeric model/view alias"
                   },
                   "height": {
@@ -2644,7 +2604,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-type-origin": "numeric model/view alias"
                   },
                   "create_date": {
@@ -2847,10 +2807,14 @@
                       },
                       {
                         "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "const": ""
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
-                    "x-type-origin": "numeric model/view alias"
+                    "description": "File size in bytes. The core local filesystem adapter returns an empty string for directories.",
+                    "x-type-origin": "filesystem adapter metadata"
                   },
                   "mime_type": {
                     "type": [
@@ -2872,7 +2836,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-type-origin": "numeric model/view alias"
                   },
                   "height": {
@@ -2888,7 +2852,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-type-origin": "numeric model/view alias"
                   },
                   "create_date": {
@@ -3081,10 +3045,14 @@
                       },
                       {
                         "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "const": ""
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
-                    "x-type-origin": "numeric model/view alias"
+                    "description": "File size in bytes. The core local filesystem adapter returns an empty string for directories.",
+                    "x-type-origin": "filesystem adapter metadata"
                   },
                   "mime_type": {
                     "type": [
@@ -3106,7 +3074,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-type-origin": "numeric model/view alias"
                   },
                   "height": {
@@ -3122,7 +3090,7 @@
                         "type": "null"
                       }
                     ],
-                    "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                    "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                     "x-type-origin": "numeric model/view alias"
                   },
                   "create_date": {
@@ -3238,5 +3206,20 @@
   "x-source-verification": {
     "method": "local route registration + XML + SQL + controller/view/serializer inspection",
     "runtime_requests": false
+  },
+  "tags": [
+    {
+      "name": "Media Adapters",
+      "description": "Discover storage adapters, list media, create folders, upload files and modify files through the com_media Media Manager backend."
+    },
+    {
+      "name": "Media Files",
+      "description": "Discover storage adapters, list media, create folders, upload files and modify files through the com_media Media Manager backend."
+    }
+  ],
+  "x-documentation-source": {
+    "url": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "pull_request": 724,
+    "guide_corrections": "context and client_id on create, from merged fork PRs #1 and #2"
   }
 }

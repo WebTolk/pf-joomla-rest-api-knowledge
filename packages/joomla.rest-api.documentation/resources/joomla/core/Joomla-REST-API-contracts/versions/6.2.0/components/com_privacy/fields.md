@@ -32,6 +32,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["a.state ASC", "a.state DESC", "u.name ASC", "u.name DESC", "u.username ASC", "u.username DESC", "a.user_id ASC", "a.user_id DESC", "a.subject ASC", "a.subject DESC", "a.created ASC", "a.created DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_privacy/forms/filter_requests.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -43,6 +44,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.email ASC", "a.email DESC", "a.request_type ASC", "a.request_type DESC", "a.requested_at ASC", "a.requested_at DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_privacy/forms/request.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -51,6 +53,7 @@
 |status|["integer", "string"]|нет|[0, -1, 1, 2, "0", "-1", "1", "2"]|Request Status: Joomla form field status; input is validated and filtered according to x-joomla-form.||
 |request_type|"string"|нет|["export", "remove"]|Request Type: Joomla form field request_type; input is validated and filtered according to x-joomla-form.||
 |id|["integer", "string"]|нет|"0"|ID: Record number in the database.||
+
 ## administrator/components/com_privacy/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

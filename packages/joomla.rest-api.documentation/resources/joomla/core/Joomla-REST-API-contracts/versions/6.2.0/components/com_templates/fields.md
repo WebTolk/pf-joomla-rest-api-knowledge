@@ -3,6 +3,8 @@
 См. форму и схему ответа endpoint.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST стиля нужен непустой params. В списке стилей assigned может быть целым числом назначенных пунктов меню.
+
 ## Приоритет схем
 
 Точный requestBody операции — допустимое тело REST. Инвентарь XML ниже содержит также поля UI и read-only данные; он не разрешает автоматически отправлять их в API. Условные варианты params выбираются по x-extension-parameter-schemas.
@@ -14,9 +16,10 @@
 |title|"string"|да|""|Style Name: Joomla form field title; input is validated and filtered according to x-joomla-form.||
 |assigned|"string"|нет|""|assigned: Joomla form field assigned; input is validated and filtered according to x-joomla-form.||
 |home|["integer", "string"]|нет|"0"|Default: Joomla form field home; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |client_id|["integer", "string"]|нет|[0, "0"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
 |template|"string"|да|""|template: Installed template element. Required on create; controller preserves the stored template on PATCH.||
+
 ## REST PATCH /v1/templates/styles/site/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -27,6 +30,7 @@
 |params|"object"|нет|""|params: ||
 |client_id|["integer", "string"]|нет|[0, "0"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
 |template|"string"|нет|""|template: Installed template element. Required on create; controller preserves the stored template on PATCH.||
+
 ## REST POST /v1/templates/styles/administrator
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -34,9 +38,10 @@
 |title|"string"|да|""|Style Name: Joomla form field title; input is validated and filtered according to x-joomla-form.||
 |assigned|"string"|нет|""|assigned: Joomla form field assigned; input is validated and filtered according to x-joomla-form.||
 |home|["integer", "string"]|нет|[0, 1, "0", "1"]|Default: Joomla form field home; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |client_id|["integer", "string"]|нет|[1, "1"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
 |template|"string"|да|""|template: Installed template element. Required on create; controller preserves the stored template on PATCH.||
+
 ## REST PATCH /v1/templates/styles/administrator/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -62,6 +67,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.title ASC", "a.title DESC", "a.home ASC", "a.home DESC", "a.template ASC", "a.template DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_templates/forms/filter_templates.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -72,6 +78,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.element ASC", "a.element DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_templates/forms/source.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -82,6 +89,7 @@
 |core|"string"|нет|""|Source Code: Joomla form field core; input is validated and filtered according to x-joomla-form.||
 |show_core|["integer", "string"]|нет|[0, 1, "0", "1"]|Show Original File: Joomla form field show_core; input is validated and filtered according to x-joomla-form.||
 |show_diff|["integer", "string"]|нет|[0, 1, "0", "1"]|Show Differences: Joomla form field show_diff; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_templates/forms/style.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -93,16 +101,19 @@
 |assigned|"string"|нет|""|assigned: Joomla form field assigned; input is validated and filtered according to x-joomla-form.||
 |inheritable|["integer", "string"]|нет|""|inheritable: Joomla form field inheritable; input is validated and filtered according to x-joomla-form.||
 |parent|"string"|нет|""|parent: Joomla form field parent; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_templates/forms/style_administrator.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |home|["integer", "string"]|нет|[0, 1, "0", "1"]|Default: Joomla form field home; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_templates/forms/style_site.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |home|["integer", "string"]|нет|"0"|Default: Joomla form field home; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_templates/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

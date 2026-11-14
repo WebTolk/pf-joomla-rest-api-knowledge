@@ -2,84 +2,142 @@
   {
     "operationId": "com_tags_get_v1_tags",
     "direction": "response",
-    "status": 200,
-    "schema": "com_tags_get_v1_tagsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "tags",
-          "id": "Example",
-          "attributes": {
-            "title": "Example",
-            "alias": "Example",
-            "note": "Example"
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/tags"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_tags_get_v1_tagsResponse"
+  },
+  {
+    "operationId": "com_tags_post_v1_tags",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example tag",
+      "parent_id": 1,
+      "description": "",
+      "language": "*"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_tags_post_v1_tagsRequest"
+  },
+  {
+    "operationId": "com_tags_post_v1_tags",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "tags",
+        "id": "Example",
+        "attributes": {
+          "parent_id": 1,
+          "level": 1,
+          "lft": 1
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_tags_post_v1_tagsResponse"
   },
   {
     "operationId": "com_tags_get_v1_tags_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_tags_get_v1_tags_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/tags/1"
+      },
       "data": {
         "type": "tags",
-        "id": "Example",
+        "id": "1",
         "attributes": {
-          "parent_id": 1,
-          "level": 1,
-          "lft": 1
+          "typeAlias": "com_tags.tag",
+          "parent_id": 0,
+          "level": 0,
+          "lft": 0,
+          "rgt": 1,
+          "alias": "root",
+          "id": 1,
+          "path": "",
+          "title": "ROOT",
+          "note": "",
+          "description": "",
+          "published": 1,
+          "checked_out": null,
+          "checked_out_time": null,
+          "access": 1,
+          "params": [],
+          "metadesc": "",
+          "metakey": "",
+          "metadata": [],
+          "created_user_id": 361,
+          "created_time": "2026-10-29 21:03:23",
+          "created_by_alias": "",
+          "modified_user_id": 361,
+          "modified_time": "2026-10-29 21:03:23",
+          "images": [],
+          "urls": [],
+          "hits": 0,
+          "language": "*",
+          "version": 1,
+          "publish_up": null,
+          "publish_down": null
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_tags_post_v1_tags",
-    "direction": "request",
-    "schema": "com_tags_post_v1_tagsRequest",
-    "value": {
-      "title": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_tags_post_v1_tags",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_tags_post_v1_tagsResponse",
-    "value": {
-      "data": {
-        "type": "tags",
-        "id": "Example",
-        "attributes": {
-          "parent_id": 1,
-          "level": 1,
-          "lft": 1
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_tags_get_v1_tags_idResponse"
   },
   {
     "operationId": "com_tags_patch_v1_tags_id",
     "direction": "request",
-    "schema": "com_tags_patch_v1_tags_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "parent_id": 1,
       "title": "Example",
       "note": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_tags_patch_v1_tags_idRequest"
+  },
+  {
+    "operationId": "com_tags_patch_v1_tags_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "alias": "test",
+      "title": "new title"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_tags_patch_v1_tags_idRequest"
   },
   {
     "operationId": "com_tags_patch_v1_tags_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_tags_patch_v1_tags_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "tags",
@@ -91,6 +149,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_tags_patch_v1_tags_idResponse"
   }
 ]

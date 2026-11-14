@@ -39,6 +39,7 @@ enabled, ordering и access имеют различную семантику.
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "ordering ASC", "ordering DESC", "enabled ASC", "enabled DESC", "name ASC", "name DESC", "folder ASC", "folder DESC", "element ASC", "element DESC", "access ASC", "access DESC", "extension_id ASC", "extension_id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_plugins/forms/plugin.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -51,6 +52,7 @@ enabled, ordering и access имеют различную семантику.
 |folder|"string"|нет|""|Plugin Type: Joomla form field folder; input is validated and filtered according to x-joomla-form.||
 |element|"string"|нет|""|Plugin File: Joomla form field element; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_plugins/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

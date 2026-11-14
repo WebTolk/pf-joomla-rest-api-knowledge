@@ -27,6 +27,9 @@ def main(a):
   files=[folder/'package.yaml']+sorted(p for p in folder.rglob('*') if p.is_file() and p!=folder/'package.yaml')
   zip_files(artifact,folder,files);digest=sha(artifact);checksums.append((artifact.name,digest))
   item={'version':version,'channels':['stable'],'stability':'stable','prerelease':False,'released_at':bundle['released_at'],'yanked':False,'source':{'provider':'github','repository':REPOSITORY,'ref':tag},'release':{'changelog_url':f'https://raw.githubusercontent.com/{REPOSITORY}/{tag}/CHANGELOG.md'},'compatibility':{'tested_processforge':'1.2.0','requires_contracts':['normalized-update-manifest-v1','knowledge-package-zip']},'dependencies':[{'type':'knowledge_package','id':d,'version':version} for d in entry['dependencies']],'artifacts':[{'type':'knowledge_package','format':'zip','url':f'https://github.com/{REPOSITORY}/releases/download/{tag}/{artifact.name}','sha256':digest,'size':artifact.stat().st_size}],'changes':[{'breaking':False,'summary':'Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites.'}],'migration':{'required':False}}
+  item['changes'][0]['summary']=bundle.get('release_summary',item['changes'][0]['summary'])
+  if bundle.get('tested_processforge'):
+   item['compatibility']['tested_processforge']=bundle['tested_processforge']
   history=[x for x in old.get(m['id'],{}).get('versions',[]) if x['version']!=version]
   same=next((x for x in old.get(m['id'],{}).get('versions',[]) if x['version']==version),None)
   if same and same['artifacts'][0]['sha256']!=digest and not (a.allow_unpublished_rebuild or a.validation_build):raise SystemExit('Version artifact changed; bump version instead of replacing a published release: '+m['id'])
@@ -38,7 +41,7 @@ def main(a):
  bundle_files=[]
  for name in ['packages','docs','templates','updates','evidence','tools']:
   bundle_files.extend(p for p in (ROOT/name).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix not in {'.pyc','.log'})
- bundle_files.extend(ROOT/name for name in ['README.md','LICENSE','NOTICE.md','CHANGELOG.md','bundle.json','requirements.txt'])
+ bundle_files.extend(ROOT/name for name in ['README.md','LICENSE','JEDL-LICENSE.md','NOTICE.md','CHANGELOG.md','bundle.json','requirements.txt'])
  full=out/f'pf-joomla-rest-api-knowledge-{version}.zip';zip_files(full,ROOT,sorted(bundle_files));checksums.append((full.name,sha(full)))
  (out/'SHA256SUMS').write_text(''.join(f'{h}  {name}\n' for name,h in sorted(checksums)),encoding='utf-8')
  print(json.dumps({'version':version,'package_archives':len(subjects),'bundle':full.name,'total_bytes':sum((out/name).stat().st_size for name,_ in checksums)}))

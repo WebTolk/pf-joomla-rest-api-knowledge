@@ -1,6 +1,8 @@
 # com_modules: браузерный fallback
 
-Маршруты site/administrator задают client_id=0/1. module — машинное имя mod_*.
+Маршруты site/administrator выбирают client_id=0/1 для чтения. Для создания
+administrator-модуля через REST передавать client_id: 1, language и непустой params.
+В UI сверять выбранный клиент перед сохранением. module — машинное имя mod_*.
 params выбирается по module и client_id, а не только ID экземпляра.
 assignment/assigned задают назначение на меню; пустой набор нельзя автоматически
 считать «везде». position — позиция установленного шаблона.

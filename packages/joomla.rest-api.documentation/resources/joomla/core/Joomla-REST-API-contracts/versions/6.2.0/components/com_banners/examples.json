@@ -2,85 +2,228 @@
   {
     "operationId": "com_banners_get_v1_banners",
     "direction": "response",
-    "status": 200,
-    "schema": "com_banners_get_v1_bannersResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners"
+      },
       "data": [
         {
           "type": "banners",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "name": "Example",
-            "alias": "Example",
-            "checked_out": 1
+            "id": 1,
+            "name": "Name for this Banner",
+            "alias": "name-for-this-banner",
+            "checked_out": null,
+            "checked_out_time": null,
+            "catid": 3,
+            "clicks": 0,
+            "metakey": "some keywords",
+            "sticky": 0,
+            "impmade": 0,
+            "imptotal": 0,
+            "state": 0,
+            "ordering": 1,
+            "purchase_type": -1,
+            "language": "",
+            "publish_up": null,
+            "publish_down": null,
+            "language_image": null,
+            "editor": null,
+            "category_title": "Uncategorised",
+            "client_name": null,
+            "client_purchase_type": null
           }
         }
-      ]
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_banners_get_v1_banners_id",
-    "direction": "response",
-    "status": 200,
-    "schema": "com_banners_get_v1_banners_idResponse",
-    "value": {
-      "data": {
-        "type": "banners",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "cid": 1,
-          "type": 1
-        }
+      ],
+      "meta": {
+        "total-pages": 1
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_banners_get_v1_bannersResponse"
   },
   {
     "operationId": "com_banners_post_v1_banners",
     "direction": "request",
-    "schema": "com_banners_post_v1_bannersRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "name": "Example",
       "catid": 1
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_banners_post_v1_bannersRequest"
+  },
+  {
+    "operationId": "com_banners_post_v1_banners",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "catid": 3,
+      "clicks": 0,
+      "custombannercode": "",
+      "description": "Some description of this Banner.",
+      "metakey": "some keywords",
+      "name": "Name for this Banner",
+      "params": {
+        "alt": "Managed user-facing alliance",
+        "height": 480,
+        "imageurl": "images/banners/banner.jpg",
+        "width": 640
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_banners_post_v1_bannersRequest"
   },
   {
     "operationId": "com_banners_post_v1_banners",
     "direction": "response",
-    "status": 200,
-    "schema": "com_banners_post_v1_bannersResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners"
+      },
       "data": {
         "type": "banners",
-        "id": "Example",
+        "id": "1",
         "attributes": {
-          "typeAlias": "Example",
-          "cid": 1,
-          "type": 1
+          "typeAlias": "com_banners.banner",
+          "id": 1,
+          "cid": 0,
+          "type": 0,
+          "name": "Name for this Banner",
+          "alias": "name-for-this-banner",
+          "imptotal": 0,
+          "impmade": 0,
+          "clicks": 0,
+          "clickurl": "",
+          "state": 0,
+          "catid": 3,
+          "description": "Some description of this Banner.",
+          "custombannercode": "",
+          "sticky": 0,
+          "ordering": 1,
+          "metakey": "some keywords",
+          "params": {
+            "imageurl": "images/banners/banner.jpg",
+            "width": 640,
+            "height": 480,
+            "alt": "Managed user-facing alliance"
+          },
+          "own_prefix": 0,
+          "metakey_prefix": "",
+          "purchase_type": -1,
+          "track_clicks": -1,
+          "track_impressions": -1,
+          "checked_out": null,
+          "checked_out_time": null,
+          "publish_up": null,
+          "publish_down": null,
+          "reset": null,
+          "created": "2026-10-29 21:03:32",
+          "language": "",
+          "created_by": 361,
+          "created_by_alias": "",
+          "modified": "2026-10-29 21:03:32",
+          "modified_by": 361,
+          "version": 1
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_banners_post_v1_bannersResponse"
+  },
+  {
+    "operationId": "com_banners_get_v1_banners_id",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners/1"
+      },
+      "data": {
+        "type": "banners",
+        "id": "1",
+        "attributes": {
+          "typeAlias": "com_banners.banner",
+          "id": 1,
+          "cid": 0,
+          "type": 0,
+          "name": "Name for this Banner",
+          "alias": "name-for-this-banner",
+          "imptotal": 0,
+          "impmade": 0,
+          "clicks": 0,
+          "clickurl": "",
+          "state": 0,
+          "catid": 3,
+          "description": "Some description of this Banner.",
+          "custombannercode": "",
+          "sticky": 0,
+          "ordering": 1,
+          "metakey": "some keywords",
+          "params": {
+            "imageurl": "images/banners/banner.jpg",
+            "width": 640,
+            "height": 480,
+            "alt": "Managed user-facing alliance"
+          },
+          "own_prefix": 0,
+          "metakey_prefix": "",
+          "purchase_type": -1,
+          "track_clicks": -1,
+          "track_impressions": -1,
+          "checked_out": null,
+          "checked_out_time": null,
+          "publish_up": null,
+          "publish_down": null,
+          "reset": null,
+          "created": "2026-10-29 21:03:32",
+          "language": "",
+          "created_by": 361,
+          "created_by_alias": "",
+          "modified": "2026-10-29 21:03:32",
+          "modified_by": 361,
+          "version": 1
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_banners_get_v1_banners_idResponse"
   },
   {
     "operationId": "com_banners_patch_v1_banners_id",
     "direction": "request",
-    "schema": "com_banners_patch_v1_banners_idRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "name": "Example",
       "alias": "Example",
       "catid": 1
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_banners_patch_v1_banners_idRequest"
   },
   {
     "operationId": "com_banners_patch_v1_banners_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_banners_patch_v1_banners_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "banners",
@@ -92,90 +235,187 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_banners_patch_v1_banners_idResponse"
   },
   {
     "operationId": "com_banners_get_v1_banners_clients",
     "direction": "response",
-    "status": 200,
-    "schema": "com_banners_get_v1_banners_clientsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners/clients"
+      },
       "data": [
         {
           "type": "clients",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "name": "Example",
-            "contact": "Example",
-            "checked_out": 1
+            "id": 1,
+            "name": "Name of client",
+            "contact": "Some ContactpersonName",
+            "checked_out": null,
+            "checked_out_time": null,
+            "state": 1,
+            "metakey": "some keywords",
+            "purchase_type": -1,
+            "nbanners": 0,
+            "editor": null,
+            "count_published": 0,
+            "count_unpublished": 0,
+            "count_trashed": 0,
+            "count_archived": 0
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_banners_get_v1_banners_clientsResponse"
+  },
+  {
+    "operationId": "com_banners_post_v1_banners_clients",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "name": "Example client",
+      "contact": "Contact person",
+      "extrainfo": ""
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_banners_post_v1_banners_clientsRequest"
+  },
+  {
+    "operationId": "com_banners_post_v1_banners_clients",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "contact": "Some ContactpersonName",
+      "email": "somename@example.org",
+      "extrainfo": "Some extra info about this Banners Client.",
+      "metakey": "some keywords",
+      "name": "Name of client",
+      "state": 1
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_banners_post_v1_banners_clientsRequest"
+  },
+  {
+    "operationId": "com_banners_post_v1_banners_clients",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners/clients"
+      },
+      "data": {
+        "type": "clients",
+        "id": "1",
+        "attributes": {
+          "typeAlias": "com_banners.client",
+          "id": 1,
+          "name": "Name of client",
+          "contact": "Some ContactpersonName",
+          "email": "somename@example.org",
+          "extrainfo": "Some extra info about this Banners Client.",
+          "state": 1,
+          "checked_out": null,
+          "checked_out_time": null,
+          "metakey": "some keywords",
+          "own_prefix": 0,
+          "metakey_prefix": "",
+          "purchase_type": -1,
+          "track_clicks": -1,
+          "track_impressions": -1
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_banners_post_v1_banners_clientsResponse"
   },
   {
     "operationId": "com_banners_get_v1_banners_clients_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_banners_get_v1_banners_clients_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/banners/clients/1"
+      },
       "data": {
         "type": "clients",
-        "id": "Example",
+        "id": "1",
         "attributes": {
-          "typeAlias": "Example",
-          "checked_out_time": "Example",
-          "name": "Example"
+          "typeAlias": "com_banners.client",
+          "id": 1,
+          "name": "Name of client",
+          "contact": "Some ContactpersonName",
+          "email": "somename@example.org",
+          "extrainfo": "Some extra info about this Banners Client.",
+          "state": 1,
+          "checked_out": null,
+          "checked_out_time": null,
+          "metakey": "some keywords",
+          "own_prefix": 0,
+          "metakey_prefix": "",
+          "purchase_type": -1,
+          "track_clicks": -1,
+          "track_impressions": -1
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_banners_post_v1_banners_clients",
-    "direction": "request",
-    "schema": "com_banners_post_v1_banners_clientsRequest",
-    "value": {
-      "name": "Example",
-      "contact": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_banners_post_v1_banners_clients",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_banners_post_v1_banners_clientsResponse",
-    "value": {
-      "data": {
-        "type": "clients",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "checked_out_time": "Example",
-          "name": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_banners_get_v1_banners_clients_idResponse"
   },
   {
     "operationId": "com_banners_patch_v1_banners_clients_id",
     "direction": "request",
-    "schema": "com_banners_patch_v1_banners_clients_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "name": "Example",
       "contact": "Example",
       "email": "example@example.invalid"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_banners_patch_v1_banners_clients_idRequest"
+  },
+  {
+    "operationId": "com_banners_patch_v1_banners_clients_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "contact": "Updated ContactpersonName",
+      "email": "newemail@example.org",
+      "name": "Updated ClientName"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_banners_patch_v1_banners_clients_idRequest"
   },
   {
     "operationId": "com_banners_patch_v1_banners_clients_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_banners_patch_v1_banners_clients_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "clients",
@@ -187,6 +427,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_banners_patch_v1_banners_clients_idResponse"
   }
 ]

@@ -127,6 +127,7 @@ PATCH компонента принимает плоские параметры,
 |cookie_path|"string"|нет|""|Cookie Path: Joomla form field cookie_path; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|FIELD_RULES_LABEL: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |filters|"string"|нет|""|Text Filters: Joomla form field filters; input is validated and filtered according to x-joomla-form.||
+
 ## REST PATCH /v1/config/{component_name}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -250,6 +251,7 @@ PATCH компонента принимает плоские параметры,
 |rules|"object"|нет|""|FIELD_RULES_LABEL: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |filters|"string"|нет|""|Text Filters: Joomla form field filters; input is validated and filtered according to x-joomla-form.||
 |asset_id|"string"|нет|""|asset_id: Joomla form field asset_id; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_config/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

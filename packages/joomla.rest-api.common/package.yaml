@@ -4,7 +4,7 @@ name: Joomla REST API common contract
 title: Joomla REST API common contract
 kind: documentation
 scope: workplace
-version: 1.1.0
+version: 1.2.0
 status: released
 description: Source-pinned REST request, response, error, field and browser fallback
   knowledge; independent of tools and MCP.
@@ -43,8 +43,9 @@ resources:
     reproducibility: exact
   package: joomla.rest-api.common
   license:
-    id: GPL-2.0-or-later
-    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+    id: GPL-2.0-or-later AND LicenseRef-JEDL-1.0
+    notice: 'CMS-derived data: GPL-2.0-or-later; Joomla Manual additions: JEDL 1.0.
+      See LICENSE, JEDL-LICENSE.md and NOTICE.md.'
 - id: contracts-catalog
   kind: documentation
   title: Joomla REST component contract catalog
@@ -77,8 +78,9 @@ resources:
     reproducibility: exact
   package: joomla.rest-api.common
   license:
-    id: GPL-2.0-or-later
-    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+    id: GPL-2.0-or-later AND LicenseRef-JEDL-1.0
+    notice: 'CMS-derived data: GPL-2.0-or-later; Joomla Manual additions: JEDL 1.0.
+      See LICENSE, JEDL-LICENSE.md and NOTICE.md.'
 - id: validation
   kind: documentation
   title: Joomla REST contract validation
@@ -111,8 +113,9 @@ resources:
     reproducibility: exact
   package: joomla.rest-api.common
   license:
-    id: GPL-2.0-or-later
-    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+    id: GPL-2.0-or-later AND LicenseRef-JEDL-1.0
+    notice: 'CMS-derived data: GPL-2.0-or-later; Joomla Manual additions: JEDL 1.0.
+      See LICENSE, JEDL-LICENSE.md and NOTICE.md.'
 indexes:
   resource_index: indexes/resource-index.yaml
 tags:

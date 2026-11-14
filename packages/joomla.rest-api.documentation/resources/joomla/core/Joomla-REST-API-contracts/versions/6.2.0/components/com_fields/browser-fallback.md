@@ -1,8 +1,10 @@
 # com_fields: браузерный fallback
 
 Определение поля, группа и значение поля у владельца — разные сущности.
-Контекст задан маршрутом: com_content.article/categories, com_contact.contact/categories/mail,
-com_users.user. name — ключ значения; id — ID определения. assigned_cat_ids
+Маршрут задаёт контекст чтения: com_content.article/categories, com_contact.contact/categories/mail,
+com_users.user. Для создания поля/группы через REST передавать context явно;
+полю нужны description и непустой params, группе — description. В UI сверять
+выбранный контекст перед сохранением. name — ключ значения; id — ID определения. assigned_cat_ids
 ограничивает применимость. fieldparams выбирается по типу из plugins/fields.
 params описывает отображение/поведение. Значения передаются через com_fields
 в операции владельца; поддерживаемые контроллеры также принимают имя поля сверху.

@@ -3,6 +3,8 @@
 См. форму и схему ответа endpoint.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST клиента баннеров дополнительно передавать extrainfo (допустима пустая строка).
+
 ## Приоритет схем
 
 Точный requestBody операции — допустимое тело REST. Инвентарь XML ниже содержит также поля UI и read-only данные; он не разрешает автоматически отправлять их в API. Условные варианты params выбираются по x-extension-parameter-schemas.
@@ -44,6 +46,7 @@
 |params.height|["integer", "string"]|нет|""|Height: Joomla form field height; input is validated and filtered according to x-joomla-form.||
 |params.alt|"string"|нет|""|Alt Text: Joomla form field alt; input is validated and filtered according to x-joomla-form.||
 |bannercode|"string"|нет|""|Custom Code: Joomla form field bannercode; input is validated and filtered according to x-joomla-form.||
+
 ## REST PATCH /v1/banners/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -81,6 +84,7 @@
 |params.height|["integer", "string"]|нет|""|Height: Joomla form field height; input is validated and filtered according to x-joomla-form.||
 |params.alt|"string"|нет|""|Alt Text: Joomla form field alt; input is validated and filtered according to x-joomla-form.||
 |bannercode|"string"|нет|""|Custom Code: Joomla form field bannercode; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/banners/clients
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -96,7 +100,8 @@
 |metakey|"string"|нет|""|Keywords: Joomla form field metakey; input is validated and filtered according to x-joomla-form.||
 |own_prefix|["integer", "string"]|нет|[0, 1, "0", "1"]|Use Own Prefix: Joomla form field own_prefix; input is validated and filtered according to x-joomla-form.||
 |metakey_prefix|"string"|нет|""|Keyword Prefix: When matching Keywords, only search for Keywords with this prefix (improves performance).||
-|extrainfo|"string"|нет|""|Additional Information: Joomla form field extrainfo; input is validated and filtered according to x-joomla-form.||
+|extrainfo|"string"|да|""|Additional Information: Joomla form field extrainfo; input is validated and filtered according to x-joomla-form.||
+
 ## REST PATCH /v1/banners/clients/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -155,10 +160,12 @@
 |params.height|["integer", "string"]|нет|""|Height: Joomla form field height; input is validated and filtered according to x-joomla-form.||
 |params.alt|"string"|нет|""|Alt Text: Joomla form field alt; input is validated and filtered according to x-joomla-form.||
 |bannercode|"string"|нет|""|Custom Code: Joomla form field bannercode; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_banners/forms/category.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## administrator/components/com_banners/forms/client.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -176,12 +183,14 @@
 |own_prefix|["integer", "string"]|нет|[0, 1, "0", "1"]|Use Own Prefix: Joomla form field own_prefix; input is validated and filtered according to x-joomla-form.||
 |metakey_prefix|"string"|нет|""|Keyword Prefix: When matching Keywords, only search for Keywords with this prefix (improves performance).||
 |extrainfo|"string"|нет|""|Additional Information: Joomla form field extrainfo; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_banners/forms/download.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |compressed|["integer", "string"]|нет|[0, 1, "0", "1"]|Compressed: Joomla form field compressed; input is validated and filtered according to x-joomla-form.||
 |basename|"string"|нет|""|File Name: File name pattern which can have<br>__SITE__ for the site name<br>__CATID__ for the category ID<br>__CATNAME__ for the category name<br>__CLIENTID__ for the client ID<br>__CLIENTNAME__ for the client name<br>__TYPE__ for the type<br>__TYPENAME__ for the type name<br>__BEGIN__ for the begin date<br>__END__ for the end date.||
+
 ## administrator/components/com_banners/forms/filter_banners.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -196,6 +205,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.state ASC", "a.state DESC", "a.name ASC", "a.name DESC", "category_title ASC", "category_title DESC", "a.sticky ASC", "a.sticky DESC", "client_name ASC", "client_name DESC", "impmade ASC", "impmade DESC", "clicks ASC", "clicks DESC", "a.language ASC", "a.language DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_banners/forms/filter_clients.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -207,6 +217,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.state ASC", "a.state DESC", "a.name ASC", "a.name DESC", "a.contact ASC", "a.contact DESC", "a.purchase_type ASC", "a.purchase_type DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_banners/forms/filter_tracks.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -222,6 +233,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "b.name ASC", "b.name DESC", "cl.name ASC", "cl.name DESC", "a.track_type ASC", "a.track_type DESC", "a.count ASC", "a.count DESC", "a.track_date ASC", "a.track_date DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"5"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_banners/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

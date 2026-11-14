@@ -2,105 +2,323 @@
   {
     "operationId": "com_contact_post_v1_contacts_form_id",
     "direction": "request",
-    "schema": "com_contact_post_v1_contacts_form_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "contact_name": "Example",
       "contact_email": "example@example.invalid",
       "contact_subject": "Example",
       "contact_message": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_contact_post_v1_contacts_form_idRequest"
+  },
+  {
+    "operationId": "com_contact_post_v1_contacts_form_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "contact_email": "email@example.org",
+      "contact_message": "some text",
+      "contact_name": "name",
+      "contact_subject": "subject"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_contact_post_v1_contacts_form_idRequest"
   },
   {
     "operationId": "com_contact_post_v1_contacts_form_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contact_post_v1_contacts_form_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": [],
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contact_post_v1_contacts_form_idResponse"
   },
   {
     "operationId": "com_contact_get_v1_contacts",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contact_get_v1_contactsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/contacts"
+      },
       "data": [
         {
           "type": "contacts",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "alias": "Example",
-            "name": "Example",
-            "created": "Example"
+            "id": 1,
+            "name": "Someones Name",
+            "alias": "someones-name",
+            "user_id": 0,
+            "created": "2026-10-29 21:03:34",
+            "created_by": 361,
+            "modified_by": 361,
+            "contact-field": "",
+            "tags": [],
+            "schemaorg": null
+          },
+          "relationships": {
+            "category": {
+              "data": {
+                "type": "categories",
+                "id": "4"
+              }
+            },
+            "created_by": {
+              "data": {
+                "type": "users",
+                "id": "361"
+              }
+            },
+            "modified_by": {
+              "data": {
+                "type": "users",
+                "id": "361"
+              }
+            },
+            "user_id": {
+              "data": null
+            },
+            "tags": {
+              "data": []
+            }
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contact_get_v1_contactsResponse"
+  },
+  {
+    "operationId": "com_contact_post_v1_contacts",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "name": "Example contact",
+      "catid": 4,
+      "language": "*"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_contact_post_v1_contactsRequest"
+  },
+  {
+    "operationId": "com_contact_post_v1_contacts",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "alias": "someones-name",
+      "catid": 4,
+      "language": "*",
+      "name": "Someones Name"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_contact_post_v1_contactsRequest"
+  },
+  {
+    "operationId": "com_contact_post_v1_contacts",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/contacts"
+      },
+      "data": {
+        "type": "contacts",
+        "id": "1",
+        "attributes": {
+          "id": 1,
+          "name": "Someones Name",
+          "alias": "someones-name",
+          "con_position": null,
+          "address": null,
+          "suburb": null,
+          "state": null,
+          "country": null,
+          "postcode": null,
+          "telephone": null,
+          "fax": null,
+          "misc": null,
+          "image": null,
+          "email_to": null,
+          "default_con": 0,
+          "user_id": 0,
+          "access": 1,
+          "mobile": "",
+          "webpage": "",
+          "sortname1": "",
+          "sortname2": "",
+          "sortname3": "",
+          "created": "2026-10-29 21:03:34",
+          "created_by": 361,
+          "created_by_alias": "",
+          "modified": "2026-10-29 21:03:34",
+          "modified_by": 361,
+          "metakey": null,
+          "metadesc": "",
+          "metadata": [],
+          "featured": 0,
+          "publish_up": null,
+          "publish_down": null,
+          "version": 1,
+          "hits": 0,
+          "tags": [],
+          "schemaorg": null
+        },
+        "relationships": {
+          "category": {
+            "data": {
+              "type": "categories",
+              "id": "4"
+            }
+          },
+          "created_by": {
+            "data": {
+              "type": "users",
+              "id": "361"
+            }
+          },
+          "modified_by": {
+            "data": {
+              "type": "users",
+              "id": "361"
+            }
+          },
+          "user_id": {
+            "data": null
+          },
+          "tags": {
+            "data": []
+          }
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contact_post_v1_contactsResponse"
   },
   {
     "operationId": "com_contact_get_v1_contacts_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contact_get_v1_contacts_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/contacts/1"
+      },
       "data": {
         "type": "contacts",
-        "id": "Example",
+        "id": "1",
         "attributes": {
-          "alias": "Example",
-          "name": "Example",
-          "created": "Example"
+          "id": 1,
+          "name": "Someones Name",
+          "alias": "someones-name",
+          "con_position": null,
+          "address": null,
+          "suburb": null,
+          "state": null,
+          "country": null,
+          "postcode": null,
+          "telephone": null,
+          "fax": null,
+          "misc": null,
+          "image": null,
+          "email_to": null,
+          "default_con": 0,
+          "user_id": 0,
+          "access": 1,
+          "mobile": "",
+          "webpage": "",
+          "sortname1": "",
+          "sortname2": "",
+          "sortname3": "",
+          "created": "2026-10-29 21:03:34",
+          "created_by": 361,
+          "created_by_alias": "",
+          "modified": "2026-10-29 21:03:34",
+          "modified_by": 361,
+          "metakey": null,
+          "metadesc": "",
+          "metadata": [],
+          "featured": 0,
+          "publish_up": null,
+          "publish_down": null,
+          "version": 1,
+          "hits": 0,
+          "tags": [],
+          "contact-field": "",
+          "schemaorg": null
+        },
+        "relationships": {
+          "category": {
+            "data": {
+              "type": "categories",
+              "id": "4"
+            }
+          },
+          "created_by": {
+            "data": {
+              "type": "users",
+              "id": "361"
+            }
+          },
+          "modified_by": {
+            "data": {
+              "type": "users",
+              "id": "361"
+            }
+          },
+          "user_id": {
+            "data": null
+          },
+          "tags": {
+            "data": []
+          }
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_contact_post_v1_contacts",
-    "direction": "request",
-    "schema": "com_contact_post_v1_contactsRequest",
-    "value": {
-      "name": "Example",
-      "catid": 1
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_contact_post_v1_contacts",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_contact_post_v1_contactsResponse",
-    "value": {
-      "data": {
-        "type": "contacts",
-        "id": "Example",
-        "attributes": {
-          "alias": "Example",
-          "name": "Example",
-          "created": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_contact_get_v1_contacts_idResponse"
   },
   {
     "operationId": "com_contact_patch_v1_contacts_id",
     "direction": "request",
-    "schema": "com_contact_patch_v1_contacts_idRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "name": "Example",
       "alias": "Example",
       "version_note": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_contact_patch_v1_contacts_idRequest"
   },
   {
     "operationId": "com_contact_patch_v1_contacts_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_contact_patch_v1_contacts_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "contacts",
@@ -112,6 +330,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_contact_patch_v1_contacts_idResponse"
   }
 ]

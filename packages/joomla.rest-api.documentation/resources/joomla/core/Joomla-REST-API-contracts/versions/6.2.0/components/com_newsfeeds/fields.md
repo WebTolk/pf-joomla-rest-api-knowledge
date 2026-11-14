@@ -3,6 +3,8 @@
 См. форму и схему ответа endpoint.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST ленты нужны description, images, metadata, metadesc и непустой params; использовать исправленный пример.
+
 ## Приоритет схем
 
 Точный requestBody операции — допустимое тело REST. Инвентарь XML ниже содержит также поля UI и read-only данные; он не разрешает автоматически отправлять их в API. Условные варианты params выбираются по x-extension-parameter-schemas.
@@ -18,7 +20,7 @@
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |tags|"array"|нет|""|Tags: Full tag ID list; #new#Title creates a tag only with core.create on com_tags. Omitted tags are restored by ArticlesController, but generic ApiController supplies [] for absent tags; other owners can clear tag relations.||
 |version_note|"string"|нет|""|Version Note: Joomla form field version_note; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |link|"string"|да|""|Link: URL subject to field relative/scheme settings; empty string may clear an optional URL.||
 |numarticles|["integer", "string"]|нет|"5"|Number of Articles: Joomla form field numarticles; input is validated and filtered according to x-joomla-form.||
 |cache_time|["integer", "string"]|нет|"3600"|Cache Time: Joomla form field cache_time; input is validated and filtered according to x-joomla-form.||
@@ -30,8 +32,8 @@
 |publish_down|"string"|нет|""|Finish Publishing: Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |metakey|"string"|нет|""|Keywords: Joomla form field metakey; input is validated and filtered according to x-joomla-form.||
-|metadesc|"string"|нет|""|Meta Description: Joomla form field metadesc; input is validated and filtered according to x-joomla-form.||
-|images|"object"|нет|""|images: ||
+|metadesc|"string"|да|""|Meta Description: Joomla form field metadesc; input is validated and filtered according to x-joomla-form.||
+|images|"object"|да|""|images: ||
 |images.image_first|"string"|нет|""|First Image: Joomla form field image_first; input is validated and filtered according to x-joomla-form.||
 |images.float_first|"string"|нет|["", "right", "left", "none"]|Image Float: Joomla form field float_first; input is validated and filtered according to x-joomla-form.||
 |images.image_first_alt|"string"|нет|""|Image Description (Alt Text): Joomla form field image_first_alt; input is validated and filtered according to x-joomla-form.||
@@ -43,17 +45,18 @@
 |images.image_second_alt_empty|"string"|нет|""|No Description: Decorative Image - no description required||
 |images.image_second_caption|"string"|нет|""|Caption: Joomla form field image_second_caption; input is validated and filtered according to x-joomla-form.||
 |rtl|["integer", "string"]|нет|[0, 1, 2, "0", "1", "2"]|Language Direction: Joomla form field rtl; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |params.show_feed_image|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Feed Image: Joomla form field show_feed_image; input is validated and filtered according to x-joomla-form.||
 |params.show_feed_description|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Feed Description: Joomla form field show_feed_description; input is validated and filtered according to x-joomla-form.||
 |params.show_item_description|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Feed Content: Joomla form field show_item_description; input is validated and filtered according to x-joomla-form.||
 |params.feed_character_count|["integer", "string"]|нет|""|Characters Count: 0 will show all the text.||
 |params.newsfeed_layout|"string"|нет|""|Layout: Joomla form field newsfeed_layout; input is validated and filtered according to x-joomla-form.||
 |params.feed_display_order|"string"|нет|["", "des", "asc"]|Feed Display Order: Joomla form field feed_display_order; input is validated and filtered according to x-joomla-form.||
-|metadata|"object"|нет|""|metadata: ||
+|metadata|"object"|да|""|metadata: ||
 |metadata.robots|"string"|нет|["", "index, follow", "noindex, follow", "index, nofollow", "noindex, nofollow"]|Robots: Joomla form field robots; input is validated and filtered according to x-joomla-form.||
 |metadata.rights|"string"|нет|""|Content Rights: Joomla form field rights; input is validated and filtered according to x-joomla-form.||
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
+
 ## REST PATCH /v1/newsfeeds/feeds/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -108,6 +111,7 @@
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## administrator/components/com_newsfeeds/forms/filter_newsfeeds.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -123,6 +127,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.published ASC", "a.published DESC", "a.name ASC", "a.name DESC", "category_title ASC", "category_title DESC", "access_level ASC", "access_level DESC", "numarticles ASC", "numarticles DESC", "a.cache_time ASC", "a.cache_time DESC", "association ASC", "association DESC", "language_title ASC", "language_title DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_newsfeeds/forms/newsfeed.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -171,6 +176,7 @@
 |metadata|"object"|нет|""|metadata: ||
 |metadata.robots|"string"|нет|["", "index, follow", "noindex, follow", "index, nofollow", "noindex, nofollow"]|Robots: Joomla form field robots; input is validated and filtered according to x-joomla-form.||
 |metadata.rights|"string"|нет|""|Content Rights: Joomla form field rights; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_newsfeeds/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

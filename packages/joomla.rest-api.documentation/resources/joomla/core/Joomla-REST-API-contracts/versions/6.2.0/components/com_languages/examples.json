@@ -2,58 +2,65 @@
   {
     "operationId": "com_languages_get_v1_languages_content",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_get_v1_languages_contentResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/languages/content"
+      },
       "data": [
         {
           "type": "languages",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "asset_id": 1,
-            "lang_code": "Example",
-            "title": "Example"
+            "asset_id": 0,
+            "lang_code": "en-GB",
+            "title": "English (en-GB)",
+            "title_native": "English (United Kingdom)",
+            "sef": "en",
+            "image": "en_gb",
+            "description": "",
+            "metakey": "",
+            "metadesc": "",
+            "sitename": "",
+            "published": 1,
+            "access": 1,
+            "ordering": 1,
+            "home": null,
+            "access_level": "Public",
+            "id": 1
           }
         }
-      ]
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_languages_get_v1_languages_content_id",
-    "direction": "response",
-    "status": 200,
-    "schema": "com_languages_get_v1_languages_content_idResponse",
-    "value": {
-      "data": {
-        "type": "languages",
-        "id": "Example",
-        "attributes": {
-          "asset_id": 1,
-          "lang_code": "Example",
-          "title": "Example"
-        }
+      ],
+      "meta": {
+        "total-pages": 1
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_contentResponse"
   },
   {
     "operationId": "com_languages_post_v1_languages_content",
     "direction": "request",
-    "schema": "com_languages_post_v1_languages_contentRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "lang_code": "Example",
       "title": "Example",
       "title_native": "Example",
       "sef": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_post_v1_languages_contentRequest"
   },
   {
     "operationId": "com_languages_post_v1_languages_content",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_post_v1_languages_contentResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "languages",
@@ -65,24 +72,65 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_contentResponse"
+  },
+  {
+    "operationId": "com_languages_get_v1_languages_content_id",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/languages/content/1"
+      },
+      "data": {
+        "type": "languages",
+        "id": "1",
+        "attributes": {
+          "asset_id": 0,
+          "lang_code": "en-GB",
+          "title": "English (en-GB)",
+          "title_native": "English (United Kingdom)",
+          "sef": "en",
+          "image": "en_gb",
+          "description": "",
+          "metakey": "",
+          "metadesc": "",
+          "sitename": "",
+          "published": 1,
+          "access": 1,
+          "ordering": 1,
+          "id": 1
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_content_idResponse"
   },
   {
     "operationId": "com_languages_patch_v1_languages_content_id",
     "direction": "request",
-    "schema": "com_languages_patch_v1_languages_content_idRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "lang_code": "Example",
       "title": "Example",
       "title_native": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_patch_v1_languages_content_idRequest"
   },
   {
     "operationId": "com_languages_patch_v1_languages_content_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_patch_v1_languages_content_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "languages",
@@ -94,23 +142,42 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_patch_v1_languages_content_idResponse"
   },
   {
     "operationId": "com_languages_post_v1_languages_overrides_search",
     "direction": "request",
-    "schema": "com_languages_post_v1_languages_overrides_searchRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "searchstring": "Example",
       "searchtype": "constant"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_post_v1_languages_overrides_searchRequest"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_search",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "searchstring": "JLIB_APPLICATION_ERROR_SAVE_FAILED",
+      "searchtype": "constant"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_post_v1_languages_overrides_searchRequest"
   },
   {
     "operationId": "com_languages_post_v1_languages_overrides_search",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_post_v1_languages_overrides_searchResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": [
         {
@@ -123,39 +190,93 @@
         }
       ]
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_overrides_searchResponse"
   },
   {
     "operationId": "com_languages_post_v1_languages_overrides_search_cache_refresh",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_post_v1_languages_overrides_search_cache_refreshResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": [],
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_overrides_search_cache_refreshResponse"
   },
   {
     "operationId": "com_languages_get_v1_languages_overrides_site_lang_code",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_get_v1_languages_overrides_site_lang_codeResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "overrides",
-          "id": "Example",
-          "attributes": {
-            "value": "Example"
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/languages/overrides/site/en-GB"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_overrides_site_lang_codeResponse"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_site_lang_code",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "key": "Example"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_post_v1_languages_overrides_site_lang_codeRequest"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_site_lang_code",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "key": "new_key",
+      "override": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_post_v1_languages_overrides_site_lang_codeRequest"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_site_lang_code",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/languages/overrides/site/en-GB"
+      },
+      "data": {
+        "type": "overrides",
+        "id": "",
+        "attributes": {
+          "value": ""
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_overrides_site_lang_codeResponse"
   },
   {
     "operationId": "com_languages_get_v1_languages_overrides_site_lang_code_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_get_v1_languages_overrides_site_lang_code_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "overrides",
@@ -165,49 +286,43 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_languages_post_v1_languages_overrides_site_lang_code",
-    "direction": "request",
-    "schema": "com_languages_post_v1_languages_overrides_site_lang_codeRequest",
-    "value": {
-      "key": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_languages_post_v1_languages_overrides_site_lang_code",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_languages_post_v1_languages_overrides_site_lang_codeResponse",
-    "value": {
-      "data": {
-        "type": "overrides",
-        "id": "Example",
-        "attributes": {
-          "value": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_languages_get_v1_languages_overrides_site_lang_code_idResponse"
   },
   {
     "operationId": "com_languages_patch_v1_languages_overrides_site_lang_code_id",
     "direction": "request",
-    "schema": "com_languages_patch_v1_languages_overrides_site_lang_code_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "key": "Example",
       "override": "Example",
       "both": false
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_patch_v1_languages_overrides_site_lang_code_idRequest"
+  },
+  {
+    "operationId": "com_languages_patch_v1_languages_overrides_site_lang_code_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "key": "new_key",
+      "override": "new text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_patch_v1_languages_overrides_site_lang_code_idRequest"
   },
   {
     "operationId": "com_languages_patch_v1_languages_overrides_site_lang_code_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_patch_v1_languages_overrides_site_lang_code_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "overrides",
@@ -217,83 +332,139 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_patch_v1_languages_overrides_site_lang_code_idResponse"
   },
   {
     "operationId": "com_languages_get_v1_languages_overrides_administrator_lang_code",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_get_v1_languages_overrides_administrator_lang_codeResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/languages/overrides/administrator/en-GB"
+      },
       "data": [
         {
           "type": "overrides",
-          "id": "Example",
+          "id": "NEW_KEY",
           "attributes": {
-            "value": "Example"
+            "value": "text"
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_get_v1_languages_overrides_administrator_lang_codeResponse"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_administrator_lang_code",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "key": "Example"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_post_v1_languages_overrides_administrator_lang_codeRequest"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_administrator_lang_code",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "key": "new_key",
+      "override": "text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_post_v1_languages_overrides_administrator_lang_codeRequest"
+  },
+  {
+    "operationId": "com_languages_post_v1_languages_overrides_administrator_lang_code",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/languages/overrides/administrator/en-GB"
+      },
+      "data": {
+        "type": "overrides",
+        "id": "NEW_KEY",
+        "attributes": {
+          "value": "text"
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_post_v1_languages_overrides_administrator_lang_codeResponse"
   },
   {
     "operationId": "com_languages_get_v1_languages_overrides_administrator_lang_code_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_get_v1_languages_overrides_administrator_lang_code_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/languages/overrides/administrator/en-GB/NEW_KEY"
+      },
       "data": {
         "type": "overrides",
-        "id": "Example",
+        "id": "NEW_KEY",
         "attributes": {
-          "value": "Example"
+          "value": "text"
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_languages_post_v1_languages_overrides_administrator_lang_code",
-    "direction": "request",
-    "schema": "com_languages_post_v1_languages_overrides_administrator_lang_codeRequest",
-    "value": {
-      "key": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_languages_post_v1_languages_overrides_administrator_lang_code",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_languages_post_v1_languages_overrides_administrator_lang_codeResponse",
-    "value": {
-      "data": {
-        "type": "overrides",
-        "id": "Example",
-        "attributes": {
-          "value": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_languages_get_v1_languages_overrides_administrator_lang_code_idResponse"
   },
   {
     "operationId": "com_languages_patch_v1_languages_overrides_administrator_lang_code_id",
     "direction": "request",
-    "schema": "com_languages_patch_v1_languages_overrides_administrator_lang_code_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "key": "Example",
       "override": "Example",
       "both": false
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_patch_v1_languages_overrides_administrator_lang_code_idRequest"
+  },
+  {
+    "operationId": "com_languages_patch_v1_languages_overrides_administrator_lang_code_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "key": "new_key",
+      "override": "new text"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_languages_patch_v1_languages_overrides_administrator_lang_code_idRequest"
   },
   {
     "operationId": "com_languages_patch_v1_languages_overrides_administrator_lang_code_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_languages_patch_v1_languages_overrides_administrator_lang_code_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "overrides",
@@ -303,6 +474,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_languages_patch_v1_languages_overrides_administrator_lang_code_idResponse"
   }
 ]

@@ -2,86 +2,292 @@
   {
     "operationId": "com_content_get_v1_content_articles",
     "direction": "response",
-    "status": 200,
-    "schema": "com_content_get_v1_content_articlesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/content/articles"
+      },
       "data": [
         {
           "type": "articles",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "typeAlias": "Example",
-            "asset_id": 1,
-            "title": "Example"
+            "id": 1,
+            "asset_id": 105,
+            "title": "Here's an article",
+            "alias": "my-article",
+            "state": 0,
+            "access": 1,
+            "created": "2026-10-29 21:03:35",
+            "created_by": 361,
+            "created_by_alias": "",
+            "modified": "2026-10-29 21:03:35",
+            "featured": 0,
+            "language": "*",
+            "hits": 0,
+            "publish_up": null,
+            "publish_down": null,
+            "introtext": "My text",
+            "fulltext": "",
+            "note": "",
+            "images": [],
+            "metakey": "",
+            "metadesc": "",
+            "metadata": [],
+            "version": 1,
+            "featured_up": null,
+            "featured_down": null,
+            "typeAlias": "com_content.article",
+            "text": "My text ",
+            "article-field": "",
+            "tags": [],
+            "schemaorg": null
+          },
+          "relationships": {
+            "category": {
+              "data": {
+                "type": "categories",
+                "id": "12"
+              }
+            },
+            "created_by": {
+              "data": {
+                "type": "users",
+                "id": "361"
+              }
+            },
+            "tags": {
+              "data": []
+            }
           }
         }
-      ]
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_content_get_v1_content_articles_id",
-    "direction": "response",
-    "status": 200,
-    "schema": "com_content_get_v1_content_articles_idResponse",
-    "value": {
-      "data": {
-        "type": "articles",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "title": "Example"
-        }
+      ],
+      "meta": {
+        "total-pages": 1
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_content_get_v1_content_articlesResponse"
   },
   {
     "operationId": "com_content_post_v1_content_articles",
     "direction": "request",
-    "schema": "com_content_post_v1_content_articlesRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "API Example",
       "catid": 2,
       "state": 0,
       "introtext": "<p>Example</p>",
-      "fulltext": ""
+      "fulltext": "",
+      "language": "*"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_content_post_v1_content_articlesRequest"
+  },
+  {
+    "operationId": "com_content_post_v1_content_articles",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "alias": "my-article",
+      "articletext": "My text",
+      "catid": 64,
+      "language": "*",
+      "metadesc": "",
+      "metakey": "",
+      "title": "Here's an article"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_content_post_v1_content_articlesRequest"
   },
   {
     "operationId": "com_content_post_v1_content_articles",
     "direction": "response",
-    "status": 200,
-    "schema": "com_content_post_v1_content_articlesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/content/articles"
+      },
       "data": {
         "type": "articles",
-        "id": "Example",
+        "id": "1",
         "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "title": "Example"
+          "typeAlias": "com_content.article",
+          "id": 1,
+          "asset_id": 105,
+          "title": "Here's an article",
+          "alias": "my-article",
+          "introtext": "My text",
+          "fulltext": "",
+          "state": 0,
+          "created": "2026-10-29 21:03:35",
+          "created_by": 361,
+          "created_by_alias": "",
+          "modified": "2026-10-29 21:03:35",
+          "modified_by": 361,
+          "publish_up": null,
+          "publish_down": null,
+          "images": [],
+          "urls": [],
+          "version": 1,
+          "metakey": "",
+          "metadesc": "",
+          "access": 1,
+          "hits": 0,
+          "metadata": [],
+          "featured": 0,
+          "language": "*",
+          "note": "",
+          "tags": [],
+          "featured_up": null,
+          "featured_down": null,
+          "text": "My text ",
+          "schemaorg": null
+        },
+        "relationships": {
+          "category": {
+            "data": {
+              "type": "categories",
+              "id": "12"
+            }
+          },
+          "created_by": {
+            "data": {
+              "type": "users",
+              "id": "361"
+            }
+          },
+          "tags": {
+            "data": []
+          },
+          "modified_by": {
+            "data": {
+              "type": "users",
+              "id": "361"
+            }
+          }
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_content_post_v1_content_articlesResponse"
+  },
+  {
+    "operationId": "com_content_get_v1_content_articles_id",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/content/articles/1"
+      },
+      "data": {
+        "type": "articles",
+        "id": "1",
+        "attributes": {
+          "typeAlias": "com_content.article",
+          "id": 1,
+          "asset_id": 105,
+          "title": "Here's an article",
+          "alias": "my-article",
+          "introtext": "My text",
+          "fulltext": "",
+          "state": 0,
+          "created": "2026-10-29 21:03:35",
+          "created_by": 361,
+          "created_by_alias": "",
+          "modified": "2026-10-29 21:03:35",
+          "modified_by": 361,
+          "publish_up": null,
+          "publish_down": null,
+          "images": [],
+          "urls": [],
+          "version": 1,
+          "metakey": "",
+          "metadesc": "",
+          "access": 1,
+          "hits": 0,
+          "metadata": [],
+          "featured": 0,
+          "language": "*",
+          "note": "",
+          "tags": [],
+          "featured_up": null,
+          "featured_down": null,
+          "text": "My text ",
+          "article-field": "",
+          "schemaorg": null
+        },
+        "relationships": {
+          "category": {
+            "data": {
+              "type": "categories",
+              "id": "12"
+            }
+          },
+          "created_by": {
+            "data": {
+              "type": "users",
+              "id": "361"
+            }
+          },
+          "tags": {
+            "data": []
+          },
+          "modified_by": {
+            "data": {
+              "type": "users",
+              "id": "361"
+            }
+          }
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_content_get_v1_content_articles_idResponse"
   },
   {
     "operationId": "com_content_patch_v1_content_articles_id",
     "direction": "request",
-    "schema": "com_content_patch_v1_content_articles_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "Updated title"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_content_patch_v1_content_articles_idRequest"
+  },
+  {
+    "operationId": "com_content_patch_v1_content_articles_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "catid": 64,
+      "title": "Updated article"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_content_patch_v1_content_articles_idRequest"
   },
   {
     "operationId": "com_content_patch_v1_content_articles_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_content_patch_v1_content_articles_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "articles",
@@ -93,6 +299,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_content_patch_v1_content_articles_idResponse"
   }
 ]

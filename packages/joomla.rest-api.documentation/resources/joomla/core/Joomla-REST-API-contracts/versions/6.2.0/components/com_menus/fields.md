@@ -1,6 +1,8 @@
 # com_menus: заполнение полей, Joomla 6.2.0
 
-site/administrator разделяют клиентов. menutype — ключ меню; parent_id — родитель
+site/administrator разделяют клиентов при чтении. При POST меню administrator
+явно передавать client_id: 1: иначе ответ 200 может сопровождать создание меню сайта.
+Пункту меню site при POST нужны alias и link. menutype — ключ меню; parent_id — родитель
 пункта; type определяет форму параметров. Для component используются link/request
 и параметры соответствующего view. GET items/types имеет отдельную структуру.
 SEF URL зависит от дерева, языка и router, не только alias.
@@ -21,6 +23,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |client_id|["integer", "string"]|нет|[0, "0"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
 |preset|"string"|нет|""|Import a preset: Select a preset if you want to populate this menu with the menu items in that preset. Otherwise leave this empty.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
+
 ## REST PATCH /v1/menus/site/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -31,6 +34,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |client_id|["integer", "string"]|нет|[0, "0"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
 |preset|"string"|нет|""|Import a preset: Select a preset if you want to populate this menu with the menu items in that preset. Otherwise leave this empty.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/menus/administrator
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -38,9 +42,10 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |menutype|"string"|да|""|Unique Name: Joomla form field menutype; input is validated and filtered according to x-joomla-form.||
 |title|"string"|да|""|Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
 |description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
-|client_id|["integer", "string"]|нет|[1, "1"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
+|client_id|["integer", "string"]|да|[1, "1"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
 |preset|"string"|нет|""|Import a preset: Select a preset if you want to populate this menu with the menu items in that preset. Otherwise leave this empty.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
+
 ## REST PATCH /v1/menus/administrator/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -51,14 +56,15 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |client_id|["integer", "string"]|нет|[1, "1"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
 |preset|"string"|нет|""|Import a preset: Select a preset if you want to populate this menu with the menu items in that preset. Otherwise leave this empty.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/menus/site/items
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |title|"string"|да|""|Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
-|alias|"string"|нет|""|Alias: The Alias will be used as part of the URL.||
+|alias|"string"|да|""|Alias: The Alias will be used as part of the URL.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
-|link|"string"|нет|""|link: Menu target URL; controller preprocesses it before form loading.||
+|link|"string"|да|""|link: Menu target URL; controller preprocesses it before form loading.||
 |menutype|"string"|да|""|Menu: Joomla form field menutype; input is validated and filtered according to x-joomla-form.||
 |type|"string"|да|""|Menu Item Type: Joomla form field type; input is validated and filtered according to x-joomla-form.||
 |published|["integer", "string"]|нет|[1, 0, -2, "1", "0", "-2"]|Status: Joomla form field published; input is validated and filtered according to x-joomla-form.||
@@ -78,6 +84,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |request|"object"|нет|""|request: ||
 |associations|"object"|нет|""|associations: Language tag -> menu item ID; only when associations are enabled.||
 |client_id|["integer", "string"]|нет|[0, "0"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
+
 ## REST PATCH /v1/menus/site/items/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -105,6 +112,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |request|"object"|нет|""|request: ||
 |associations|"object"|нет|""|associations: Language tag -> menu item ID; only when associations are enabled.||
 |client_id|["integer", "string"]|нет|[0, "0"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
+
 ## REST POST /v1/menus/administrator/items
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -127,6 +135,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params|"object"|нет|""|params: ||
 |request|"object"|нет|""|request: ||
 |client_id|["integer", "string"]|нет|[1, "1"]|client_id: Fixed by the site/administrator route; cannot switch clients with the body.||
+
 ## REST PATCH /v1/menus/administrator/items/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -169,6 +178,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.lft ASC", "a.lft DESC", "a.published ASC", "a.published DESC", "a.title ASC", "a.title DESC", "menutype_title ASC", "menutype_title DESC", "a.home ASC", "a.home DESC", "a.access ASC", "a.access DESC", "association ASC", "association DESC", "language ASC", "language DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/filter_itemsadmin.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -183,6 +193,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.lft ASC", "a.lft DESC", "a.published ASC", "a.published DESC", "a.title ASC", "a.title DESC", "menutype_title ASC", "menutype_title DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/filter_menus.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -193,6 +204,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.title ASC", "a.title DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"5"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/item.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -218,6 +230,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |toggle_modules_assigned|["integer", "string"]|нет|[0, 1, "0", "1"]|Unassigned Modules: Joomla form field toggle_modules_assigned; input is validated and filtered according to x-joomla-form.||
 |toggle_modules_published|["integer", "string"]|нет|[0, 1, "0", "1"]|Unpublished Modules: Joomla form field toggle_modules_published; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
+
 ## administrator/components/com_menus/forms/item_alias.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -232,6 +245,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.menu_image_css|"string"|нет|""|Image Class: Joomla form field menu_image_css; input is validated and filtered according to x-joomla-form.||
 |params.menu_text|["integer", "string"]|нет|[0, 1, "0", "1"]|Display Menu Item Title: Joomla form field menu_text; input is validated and filtered according to x-joomla-form.||
 |params.menu_show|["integer", "string"]|нет|[0, 1, "0", "1"]|Display in Menu: Joomla form field menu_show; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/item_component.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -250,6 +264,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.pageclass_sfx|"string"|нет|""|Page Class: Joomla form field pageclass_sfx; input is validated and filtered according to x-joomla-form.||
 |params.menu-meta_description|"string"|нет|""|Meta Description: Joomla form field menu-meta_description; input is validated and filtered according to x-joomla-form.||
 |params.robots|"string"|нет|["", "index, follow", "noindex, follow", "index, nofollow", "noindex, nofollow"]|Robots: Joomla form field robots; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/item_heading.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -262,6 +277,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.menu_image_css|"string"|нет|""|Image Class: Joomla form field menu_image_css; input is validated and filtered according to x-joomla-form.||
 |params.menu_text|["integer", "string"]|нет|[0, 1, "0", "1"]|Display Menu Item Title: Joomla form field menu_text; input is validated and filtered according to x-joomla-form.||
 |params.menu_show|["integer", "string"]|нет|[0, 1, "0", "1"]|Display in Menu: Joomla form field menu_show; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/item_separator.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -273,6 +289,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.menu_image_css|"string"|нет|""|Image Class: Joomla form field menu_image_css; input is validated and filtered according to x-joomla-form.||
 |params.menu_text|["integer", "string"]|нет|[0, 1, "0", "1"]|Display Menu Item Title: Joomla form field menu_text; input is validated and filtered according to x-joomla-form.||
 |params.menu_show|["integer", "string"]|нет|[0, 1, "0", "1"]|Display in Menu: Joomla form field menu_show; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/item_url.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -286,6 +303,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.menu_image_css|"string"|нет|""|Image Class: Joomla form field menu_image_css; input is validated and filtered according to x-joomla-form.||
 |params.menu_text|["integer", "string"]|нет|[0, 1, "0", "1"]|Display Menu Item Title: Joomla form field menu_text; input is validated and filtered according to x-joomla-form.||
 |params.menu_show|["integer", "string"]|нет|[0, 1, "0", "1"]|Display in Menu: Joomla form field menu_show; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/itemadmin.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -307,6 +325,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |template_style_id|"string"|нет|"0"|template_style_id: Joomla form field template_style_id; input is validated and filtered according to x-joomla-form.||
 |language|"string"|нет|"*"|language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
+
 ## administrator/components/com_menus/forms/itemadmin_alias.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -319,6 +338,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.menu_image_css|"string"|нет|""|Image Class: Joomla form field menu_image_css; input is validated and filtered according to x-joomla-form.||
 |params.menu_text|["integer", "string"]|нет|[0, 1, "0", "1"]|Display Menu Item Title: Joomla form field menu_text; input is validated and filtered according to x-joomla-form.||
 |params.menu_show|["integer", "string"]|нет|[0, 1, "0", "1"]|Display in Menu: Joomla form field menu_show; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/itemadmin_component.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -330,6 +350,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.menu_image_css|"string"|нет|""|Image Class: Joomla form field menu_image_css; input is validated and filtered according to x-joomla-form.||
 |params.menu_text|["integer", "string"]|нет|[0, 1, "0", "1"]|Display Menu Item Title: Joomla form field menu_text; input is validated and filtered according to x-joomla-form.||
 |params.menu_show|["integer", "string"]|нет|[0, 1, "0", "1"]|Display in Menu: Joomla form field menu_show; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/itemadmin_container.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -344,6 +365,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.menu_text|["integer", "string"]|нет|[0, 1, "0", "1"]|Display Menu Item Title: Joomla form field menu_text; input is validated and filtered according to x-joomla-form.||
 |params.menu_show|["integer", "string"]|нет|[0, 1, "0", "1"]|Display in Menu: Joomla form field menu_show; input is validated and filtered according to x-joomla-form.||
 |params.hideitems|"array"|нет|""|Show or Hide Menu Items: Select the menu items that should or should not be shown in this container. If there are no items to show, then this container will also be hidden.<br>Please note that when you install a new component it will be displayed by default until you come back here and hide it too.||
+
 ## administrator/components/com_menus/forms/itemadmin_heading.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -358,6 +380,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.menu_text|["integer", "string"]|нет|[0, 1, "0", "1"]|Display Menu Item Title: Joomla form field menu_text; input is validated and filtered according to x-joomla-form.||
 |params.menu_show|["integer", "string"]|нет|[0, 1, "0", "1"]|Display in Menu: Joomla form field menu_show; input is validated and filtered according to x-joomla-form.||
 |params.dashboard|"string"|нет|""|Dashboard: If an identifier is provided, a dashboard is created for this menu item.||
+
 ## administrator/components/com_menus/forms/itemadmin_separator.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -366,6 +389,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |browserNav|"string"|нет|"0"|browserNav: Joomla form field browserNav; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.text_separator|["integer", "string"]|нет|[0, 1, "0", "1"]|Display: Joomla form field text_separator; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/itemadmin_url.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -378,6 +402,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.menu_image_css|"string"|нет|""|Image Class: Joomla form field menu_image_css; input is validated and filtered according to x-joomla-form.||
 |params.menu_text|["integer", "string"]|нет|[0, 1, "0", "1"]|Display Menu Item Title: Joomla form field menu_text; input is validated and filtered according to x-joomla-form.||
 |params.menu_show|["integer", "string"]|нет|[0, 1, "0", "1"]|Display in Menu: Joomla form field menu_show; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/forms/menu.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -389,6 +414,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |client_id|["integer", "string"]|нет|""|client_id: Joomla form field client_id; input is validated and filtered according to x-joomla-form.||
 |preset|"string"|нет|""|Import a preset: Select a preset if you want to populate this menu with the menu items in that preset. Otherwise leave this empty.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_menus/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -398,18 +424,21 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |page_heading|"string"|нет|""|Page Heading: Joomla form field page_heading; input is validated and filtered according to x-joomla-form.|show_page_heading:1|
 |pageclass_sfx|"string"|нет|""|Page Class: Joomla form field pageclass_sfx; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_config/tmpl/config/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |request|"object"|нет|""|request: ||
 |request.controller|"string"|нет|""|controller: Joomla form field controller; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_config/tmpl/templates/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |request|"object"|нет|""|request: ||
 |request.controller|"string"|нет|""|controller: Joomla form field controller; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_contact/tmpl/categories/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -478,6 +507,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.custom_reply|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Custom Reply: Stops Joomla from sending the email, allowing for Plugins to handle integration with other systems.||
 |params.redirect|"string"|нет|""|Contact Redirect URL: Joomla form field redirect; input is validated and filtered according to x-joomla-form.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_contact/tmpl/category/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -546,6 +576,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.custom_reply|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Custom Reply: Stops Joomla from sending the email, allowing for Plugins to handle integration with other systems.||
 |params.redirect|"string"|нет|""|Contact Redirect URL: Joomla form field redirect; input is validated and filtered according to x-joomla-form.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_contact/tmpl/contact/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -588,6 +619,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.validate_session|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Session Check: Joomla form field validate_session; input is validated and filtered according to x-joomla-form.||
 |params.custom_reply|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Custom Reply: Stops Joomla from sending the email, allowing for Plugins to handle integration with other systems.||
 |params.redirect|"string"|нет|""|Contact Redirect URL: Joomla form field redirect; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_contact/tmpl/featured/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -636,11 +668,13 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.validate_session|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Session Check: Joomla form field validate_session; input is validated and filtered according to x-joomla-form.||
 |params.custom_reply|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Custom Reply: Stops Joomla from sending the email, allowing for Plugins to handle integration with other systems.||
 |params.redirect|"string"|нет|""|Contact Redirect URL: Joomla form field redirect; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_contact/tmpl/form/edit.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |params|"object"|нет|""|params: ||
+
 ## Component view metadata: components/com_content/tmpl/archive/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -669,6 +703,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_publish_date|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Publish Date: Joomla form field show_publish_date; input is validated and filtered according to x-joomla-form.||
 |params.show_item_navigation|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Navigation: Joomla form field show_item_navigation; input is validated and filtered according to x-joomla-form.||
 |params.show_hits|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Hits: Joomla form field show_hits; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_content/tmpl/article/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -697,6 +732,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_tags|["integer", "string"]|нет|["", 1, 0, "1", "0"]|Tags: Joomla form field show_tags; input is validated and filtered according to x-joomla-form.||
 |params.show_noauth|["integer", "string"]|нет|["", 1, 0, "1", "0"]|Unauthorised Links: If set to Yes, links to registered content will be shown even if you are not logged-in. You will need to log in to access the full item.||
 |params.urls_position|["integer", "string"]|нет|["", 0, 1, -1, "0", "1", "-1"]|Positioning of the Links: Joomla form field urls_position; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_content/tmpl/categories/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -758,6 +794,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_noauth|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Unauthorised Links: If set to Yes, links to registered content will be shown even if you are not logged-in. You will need to log in to access the full item.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
 |params.feed_summary|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Include in Feed: Joomla form field feed_summary; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_content/tmpl/category/blog.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -820,6 +857,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_noauth|"string"|нет|["", "use_article", "0", "1"]|Unauthorised Links: If set to Yes, links to registered content will be shown even if you are not logged-in. You will need to log in to access the full item.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
 |params.feed_summary|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Include in Feed: Joomla form field feed_summary; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_content/tmpl/category/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -879,6 +917,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_noauth|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Unauthorised Links: If set to Yes, links to registered content will be shown even if you are not logged-in. You will need to log in to access the full item.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
 |params.feed_summary|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Include in Feed: Joomla form field feed_summary; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_content/tmpl/featured/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -923,6 +962,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_noauth|"string"|нет|["", "use_article", "0", "1"]|Unauthorised Links: If set to Yes, links to registered content will be shown even if you are not logged-in. You will need to log in to access the full item.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
 |params.feed_summary|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Include in Feed: Joomla form field feed_summary; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_content/tmpl/form/edit.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -933,6 +973,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.redirect_menuitem|["integer", "string"]|нет|""|Submission/Cancel Redirect: Select the page the user will be redirected to after a successful article submission and after cancel (if not set differently below). The default is to redirect to the home page.||
 |params.custom_cancel_redirect|["integer", "string"]|нет|[0, 1, "0", "1"]|Custom Redirect on Cancel: If set to 'Yes', you can set a redirection page, distinct from above 'Submission/Cancel Redirect', to redirect to when user Cancels article submission.<br>If set to 'No', when user Cancels article submission, the user is redirected to the above 'Submission/Cancel Redirect' page.||
 |params.cancel_redirect_menuitem|["integer", "string"]|нет|""|Cancel Redirect: Select the page the user will be redirected to after Canceling article submission. The default is to redirect to the same article submission page (cleaning form).|custom_cancel_redirect:1|
+
 ## Component view metadata: components/com_finder/tmpl/search/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -964,6 +1005,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.shown_sort_order|"array"|нет|""|Additional Sort Fields: Joomla form field shown_sort_order; input is validated and filtered according to x-joomla-form.|show_sort_order:1|
 |params.sort_direction|"string"|нет|["", "desc", "asc"]|Sort Direction: Joomla form field sort_direction; input is validated and filtered according to x-joomla-form.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_newsfeeds/tmpl/categories/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -995,6 +1037,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_feed_description|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Feed Description: Joomla form field show_feed_description; input is validated and filtered according to x-joomla-form.||
 |params.show_item_description|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Feed Content: Joomla form field show_item_description; input is validated and filtered according to x-joomla-form.||
 |params.feed_character_count|["integer", "string"]|нет|""|Characters Count: 0 will show all the text.||
+
 ## Component view metadata: components/com_newsfeeds/tmpl/category/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -1021,6 +1064,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_item_description|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Feed Content: Joomla form field show_item_description; input is validated and filtered according to x-joomla-form.||
 |params.feed_character_count|["integer", "string"]|нет|""|Characters Count: 0 will show all the text.||
 |params.feed_display_order|"string"|нет|["", "des", "asc"]|Feed Display Order: Joomla form field feed_display_order; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_newsfeeds/tmpl/newsfeed/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -1034,18 +1078,22 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_tags|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Tags: Joomla form field show_tags; input is validated and filtered according to x-joomla-form.||
 |params.feed_character_count|["integer", "string"]|нет|""|Characters Count: 0 will show all the text.||
 |params.feed_display_order|"string"|нет|["", "des", "asc"]|Feed Display Order: Joomla form field feed_display_order; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_privacy/tmpl/confirm/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## Component view metadata: components/com_privacy/tmpl/remind/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## Component view metadata: components/com_privacy/tmpl/request/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## Component view metadata: components/com_tags/tmpl/tag/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -1074,6 +1122,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.return_any_or_all|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Match Type: Joomla form field return_any_or_all; input is validated and filtered according to x-joomla-form.||
 |params.include_children|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Child Tags: Joomla form field include_children; input is validated and filtered according to x-joomla-form.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_tags/tmpl/tag/list.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -1106,6 +1155,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.return_any_or_all|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Match Type: Joomla form field return_any_or_all; input is validated and filtered according to x-joomla-form.||
 |params.include_children|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Child Tags: Joomla form field include_children; input is validated and filtered according to x-joomla-form.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_tags/tmpl/tags/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -1132,6 +1182,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.show_pagination|["integer", "string"]|нет|["", 0, 1, 2, "0", "1", "2"]|Pagination: Joomla form field show_pagination; input is validated and filtered according to x-joomla-form.||
 |params.show_pagination_results|["integer", "string"]|нет|["", 0, 1, "0", "1"]|Pagination Summary: Joomla form field show_pagination_results; input is validated and filtered according to x-joomla-form.||
 |params.show_feed_link|["integer", "string"]|нет|["", 0, 1, "0", "1"]|RSS Feed Link: Joomla form field show_feed_link; input is validated and filtered according to x-joomla-form.||
+
 ## Component view metadata: components/com_users/tmpl/login/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -1154,6 +1205,7 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |params.logout_image_alt|"string"|нет|""|Image Description (Alt Text): Joomla form field logout_image_alt; input is validated and filtered according to x-joomla-form.||
 |params.logout_image_alt_empty|"string"|нет|""|No Description: Decorative Image - no description required||
 |params.customRegLinkMenu|["integer", "string"]|нет|""|Registration Page: Set a Menu Item to utilize a custom registration page.||
+
 ## Component view metadata: components/com_users/tmpl/login/logout.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -1162,26 +1214,32 @@ published/home/browserNav/access/template_style_id — самостоятель�
 |request.task|"string"|нет|"user.menulogout"|task: Joomla form field task; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.logout|["integer", "string"]|нет|""|Logout Redirection Page: Select or create the page the user will be redirected to after ending their current session by logging out. The default is to stay on the same page.||
+
 ## Component view metadata: components/com_users/tmpl/profile/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## Component view metadata: components/com_users/tmpl/profile/edit.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## Component view metadata: components/com_users/tmpl/registration/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## Component view metadata: components/com_users/tmpl/remind/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## Component view metadata: components/com_users/tmpl/reset/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## Component view metadata: components/com_wrapper/tmpl/wrapper/default.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

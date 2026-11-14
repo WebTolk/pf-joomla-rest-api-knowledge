@@ -32,6 +32,7 @@
 |params.d1|"string"|нет|""|Start Date: Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.||
 |params.w2|["integer", "string"]|нет|["", -1, 0, 1, "-1", "0", "1"]|When (End Date): Joomla form field w2; input is validated and filtered according to x-joomla-form.||
 |params.d2|"string"|нет|""|End Date: Calendar input. A date-only field uses YYYY-MM-DD. With time, use the effective form/language format (normally YYYY-MM-DD HH:mm:ss), in the effective API user timezone for USER_UTC; stored UTC is not interchangeable with local input.||
+
 ## administrator/components/com_finder/forms/filter_filters.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -42,6 +43,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.state ASC", "a.state DESC", "a.title ASC", "a.title DESC", "a.created_by_alias ASC", "a.created_by_alias DESC", "a.created ASC", "a.created DESC", "a.map_count ASC", "a.map_count DESC", "a.filter_id ASC", "a.filter_id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_finder/forms/filter_index.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -55,6 +57,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "l.published ASC", "l.published DESC", "l.title ASC", "l.title DESC", "t.title ASC", "t.title DESC", "l.indexdate ASC", "l.indexdate DESC", "l.language ASC", "l.language DESC", "l.url ASC", "l.url DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_finder/forms/filter_maps.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -67,6 +70,7 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.state ASC", "a.state DESC", "branch_title ASC, a.lft ASC", "branch_title DESC, a.lft DESC", "a.language ASC", "a.language DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_finder/forms/filter_searches.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -76,12 +80,14 @@
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.searchterm ASC", "a.searchterm DESC", "a.hits ASC", "a.hits DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_finder/forms/indexer.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |plugin|"string"|да|""|Finder Plugin: Joomla form field plugin; input is validated and filtered according to x-joomla-form.||
 |id|"string"|да|""|ID: Joomla form field id; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_finder/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

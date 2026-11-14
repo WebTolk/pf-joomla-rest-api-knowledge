@@ -2,28 +2,62 @@
   {
     "operationId": "com_messages_get_v1_messages",
     "direction": "response",
-    "status": 200,
-    "schema": "com_messages_get_v1_messagesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "messages",
-          "id": "Example",
-          "attributes": {
-            "user_id_from": 1,
-            "user_id_to": 1,
-            "date_time": "Example"
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/messages"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_messages_get_v1_messagesResponse"
+  },
+  {
+    "operationId": "com_messages_post_v1_messages",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "user_id_to": 1,
+      "subject": "Example",
+      "message": "Example"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_messages_post_v1_messagesRequest"
+  },
+  {
+    "operationId": "com_messages_post_v1_messages",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "messages",
+        "id": "Example",
+        "attributes": {
+          "user_id_from": 1,
+          "user_id_to": 1,
+          "date_time": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_messages_post_v1_messagesResponse"
   },
   {
     "operationId": "com_messages_get_v1_messages_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_messages_get_v1_messages_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "messages",
@@ -35,24 +69,30 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_messages_get_v1_messages_idResponse"
   },
   {
-    "operationId": "com_messages_post_v1_messages",
+    "operationId": "com_messages_patch_v1_messages_id",
     "direction": "request",
-    "schema": "com_messages_post_v1_messagesRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "user_id_to": 1,
       "subject": "Example",
       "message": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_messages_patch_v1_messages_idRequest"
   },
   {
-    "operationId": "com_messages_post_v1_messages",
+    "operationId": "com_messages_patch_v1_messages_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_messages_post_v1_messagesResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "messages",
@@ -64,35 +104,9 @@
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_messages_patch_v1_messages_id",
-    "direction": "request",
-    "schema": "com_messages_patch_v1_messages_idRequest",
-    "value": {
-      "user_id_to": 1,
-      "subject": "Example",
-      "message": "Example"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_messages_patch_v1_messages_id",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_messages_patch_v1_messages_idResponse",
-    "value": {
-      "data": {
-        "type": "messages",
-        "id": "Example",
-        "attributes": {
-          "user_id_from": 1,
-          "user_id_to": 1,
-          "date_time": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_messages_patch_v1_messages_idResponse"
   }
 ]

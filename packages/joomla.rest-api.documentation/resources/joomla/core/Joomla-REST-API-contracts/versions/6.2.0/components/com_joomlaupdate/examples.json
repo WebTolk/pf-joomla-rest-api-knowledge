@@ -2,8 +2,8 @@
   {
     "operationId": "com_joomlaupdate_get_v1_joomlaupdate_healthcheck",
     "direction": "response",
-    "status": 200,
-    "schema": "com_joomlaupdate_get_v1_joomlaupdate_healthcheckResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "healthcheck",
@@ -15,13 +15,16 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_joomlaupdate_get_v1_joomlaupdate_healthcheckResponse"
   },
   {
     "operationId": "com_joomlaupdate_get_v1_joomlaupdate_getUpdate",
     "direction": "response",
-    "status": 200,
-    "schema": "com_joomlaupdate_get_v1_joomlaupdate_getUpdateResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "updates",
@@ -31,22 +34,28 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_joomlaupdate_get_v1_joomlaupdate_getUpdateResponse"
   },
   {
     "operationId": "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdate",
     "direction": "request",
-    "schema": "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "targetVersion": "6.1.4"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateRequest"
   },
   {
     "operationId": "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdate",
     "direction": "response",
-    "status": 200,
-    "schema": "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "updates",
@@ -58,23 +67,29 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_joomlaupdate_post_v1_joomlaupdate_prepareUpdateResponse"
   },
   {
     "operationId": "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdate",
     "direction": "request",
-    "schema": "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "fromVersion": "6.1.3",
       "updateFileName": "update.zip"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateRequest"
   },
   {
     "operationId": "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdate",
     "direction": "response",
-    "status": 200,
-    "schema": "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "updates",
@@ -85,23 +100,29 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_joomlaupdate_post_v1_joomlaupdate_finalizeUpdateResponse"
   },
   {
     "operationId": "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccess",
     "direction": "request",
-    "schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "fromVersion": "6.1.3",
       "toVersion": "6.1.4"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessRequest"
   },
   {
     "operationId": "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccess",
     "direction": "response",
-    "status": 200,
-    "schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "notification",
@@ -111,23 +132,29 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationSuccessResponse"
   },
   {
     "operationId": "com_joomlaupdate_post_v1_joomlaupdate_notificationFailed",
     "direction": "request",
-    "schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationFailedRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "fromVersion": "6.1.3",
       "toVersion": "6.1.4"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationFailedRequest"
   },
   {
     "operationId": "com_joomlaupdate_post_v1_joomlaupdate_notificationFailed",
     "direction": "response",
-    "status": 200,
-    "schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationFailedResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "notification",
@@ -137,6 +164,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_joomlaupdate_post_v1_joomlaupdate_notificationFailedResponse"
   }
 ]

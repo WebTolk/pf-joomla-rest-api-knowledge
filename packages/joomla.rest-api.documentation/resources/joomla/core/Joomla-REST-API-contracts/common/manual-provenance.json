@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "core_version": "6.2.0",
+  "retrieved_at": "2026-11-14",
+  "repository": "joomla/Manual",
+  "ref": "ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec",
+  "upstream_path": "static/openapi/joomla-6.2.0.json",
+  "snapshot_path": "../versions/6.2.0/openapi.json",
+  "sha256": "35c4ceefb919b498848c228228293042ab26a615978b9fb6125dc6a593644ce8",
+  "pull_requests": [
+    {
+      "html_url": "https://github.com/joomla/Manual/pull/724",
+      "title": "[6.2] Document core Web Services API with server and browser examples",
+      "state": "closed",
+      "merged_at": "2026-11-13T18:33:02Z",
+      "merge_commit_sha": "ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec"
+    },
+    {
+      "html_url": "https://github.com/sergeytolkachyov/Manual-Joomla-org/pull/1",
+      "title": "[6.2] Required fields of create requests, tested on a fresh site",
+      "state": "closed",
+      "merged_at": "2026-11-03T09:56:26Z",
+      "merge_commit_sha": "c8f6bbf62d523422bfaf255a3c4ba6a65abc24b4"
+    },
+    {
+      "html_url": "https://github.com/sergeytolkachyov/Manual-Joomla-org/pull/2",
+      "title": "[6.2] Articles and tags: required fields of create requests",
+      "state": "closed",
+      "merged_at": "2026-11-13T10:54:19Z",
+      "merge_commit_sha": "26a44345c4d26bffcc726401864ab90189e20b7e"
+    }
+  ],
+  "local_live_testing": false,
+  "examples": "Upstream captured responses retain their provenance; other examples are synthetic. No new live Joomla acceptance was performed.",
+  "registered_routes": 236,
+  "openapi_operations": 235,
+  "media_route_alias": "GET /v1/media/files/{path}/ is represented by GET /v1/media/files/{path} with a trailing slash in path; the original source-route inventory is retained."
+}

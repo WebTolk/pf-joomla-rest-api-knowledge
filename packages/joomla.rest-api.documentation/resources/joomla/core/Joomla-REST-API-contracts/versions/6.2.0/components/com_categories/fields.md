@@ -44,6 +44,7 @@ JSON после сохранения для перемещения в дерев
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
 |location|"string"|нет|["before", "after", "first-child", "last-child"]|location: Optional Nested-table positioning after save; relative to location_reference or parent_id. This is read from the JSON body.||
 |location_reference|["integer", "string"]|нет|""|location_reference: ||
+
 ## REST PATCH /v1/banners/categories/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -76,6 +77,7 @@ JSON после сохранения для перемещения в дерев
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
 |location|"string"|нет|["before", "after", "first-child", "last-child"]|location: Optional Nested-table positioning after save; relative to location_reference or parent_id. This is read from the JSON body.||
 |location_reference|["integer", "string"]|нет|""|location_reference: ||
+
 ## REST POST /v1/contacts/categories
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -108,6 +110,7 @@ JSON после сохранения для перемещения в дерев
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
 |location|"string"|нет|["before", "after", "first-child", "last-child"]|location: Optional Nested-table positioning after save; relative to location_reference or parent_id. This is read from the JSON body.||
 |location_reference|["integer", "string"]|нет|""|location_reference: ||
+
 ## REST PATCH /v1/contacts/categories/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -140,6 +143,7 @@ JSON после сохранения для перемещения в дерев
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
 |location|"string"|нет|["before", "after", "first-child", "last-child"]|location: Optional Nested-table positioning after save; relative to location_reference or parent_id. This is read from the JSON body.||
 |location_reference|["integer", "string"]|нет|""|location_reference: ||
+
 ## REST POST /v1/content/categories
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -173,6 +177,7 @@ JSON после сохранения для перемещения в дерев
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
 |location|"string"|нет|["before", "after", "first-child", "last-child"]|location: Optional Nested-table positioning after save; relative to location_reference or parent_id. This is read from the JSON body.||
 |location_reference|["integer", "string"]|нет|""|location_reference: ||
+
 ## REST PATCH /v1/content/categories/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -206,6 +211,7 @@ JSON после сохранения для перемещения в дерев
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
 |location|"string"|нет|["before", "after", "first-child", "last-child"]|location: Optional Nested-table positioning after save; relative to location_reference or parent_id. This is read from the JSON body.||
 |location_reference|["integer", "string"]|нет|""|location_reference: ||
+
 ## REST POST /v1/newsfeeds/categories
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -238,6 +244,7 @@ JSON после сохранения для перемещения в дерев
 |associations|"object"|нет|""|associations: Installed content-language tag -> owner record ID (integer/numeric string; 0 or empty string removes an entry from the supplied map). Dynamic form exists only with enabled associations and more than one content language; categories also require an association-capable owner. Supply the full desired mapping. An empty object is skipped by AdminModel and does not mean unlink all.||
 |location|"string"|нет|["before", "after", "first-child", "last-child"]|location: Optional Nested-table positioning after save; relative to location_reference or parent_id. This is read from the JSON body.||
 |location_reference|["integer", "string"]|нет|""|location_reference: ||
+
 ## REST PATCH /v1/newsfeeds/categories/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -304,6 +311,7 @@ JSON после сохранения для перемещения в дерев
 |metadata|"object"|нет|""|metadata: ||
 |metadata.author|"string"|нет|""|Author: Joomla form field author; input is validated and filtered according to x-joomla-form.||
 |metadata.robots|"string"|нет|["", "index, follow", "noindex, follow", "index, nofollow", "noindex, nofollow"]|Robots: Joomla form field robots; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_categories/forms/filter_categories.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

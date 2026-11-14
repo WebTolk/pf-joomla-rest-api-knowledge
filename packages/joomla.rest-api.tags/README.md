@@ -1,12 +1,12 @@
 # joomla.rest-api.tags
 
-Пакет знаний ProcessForge. Версия пакета: 1.1.0. Основной выпуск Joomla: 6.2.0.
+Пакет знаний ProcessForge. Версия пакета: 1.2.0. Основной выпуск Joomla: 6.2.0.
 
 Versioned Joomla REST schemas, field semantics, responses, errors and browser fallback. Knowledge only; no tools or MCP.
 
 ## Использование
 
-[Установка и обновление](https://github.com/WebTolk/pf-joomla-rest-api-knowledge/blob/v1.1.0/README.md). [Структура пакетов](https://github.com/WebTolk/pf-joomla-rest-api-knowledge/blob/v1.1.0/docs/knowledge-package-layout.md). [Лицензия](LICENSE).
+[Установка и обновление](https://github.com/WebTolk/pf-joomla-rest-api-knowledge/blob/v1.2.0/README.md). [Структура пакетов](https://github.com/WebTolk/pf-joomla-rest-api-knowledge/blob/v1.2.0/docs/knowledge-package-layout.md). [Лицензия](LICENSE), [JEDL](JEDL-LICENSE.md), [NOTICE](NOTICE.md).
 
 Зависимости: joomla.rest-api.documentation, joomla.rest-api.common.
 

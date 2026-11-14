@@ -1,7 +1,10 @@
 # com_media: заполнение полей, Joomla 6.2.0
 
 path включает адаптер, например local-images:/example.webp; ID адаптера — данные сайта.
-GET files/{path}/ с завершающим / возвращает список, без / — элемент.
+GET files/{path} описывает файл и каталог: завершающий / в path выбирает список.
+В URL-пути не кодировать разделители / как %2F: Apache может вернуть 404 до Joomla.
+Для чтения также доступен GET files?path=...; в query закодированные слеши допустимы.
+Без query path список GET files пуст. Размер каталога в ответе может быть пустой строкой.
 POST требует path; для файла нужен base64 content, для папки content отсутствует.
 POST override по умолчанию false; PATCH override по умолчанию true: для запрета
 перезаписи явно передавать false. В PATCH path тела — новый путь, URL path — старый.
@@ -21,6 +24,7 @@ POST override по умолчанию false; PATCH override по умолчан�
 |path|"string"|да|""|path: Adapter-prefixed path||
 |content|"string"|нет|""|content: Nonempty base64-encoded file content. Empty/false decoded content is treated as a folder; zero-byte uploads and decoded string '0' are not reliable file creation.||
 |override|"boolean"|нет|false|override: ||
+
 ## REST PATCH /v1/media/files/{path}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -35,6 +39,7 @@ POST override по умолчанию false; PATCH override по умолчан�
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
+
 ## administrator/components/com_media/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

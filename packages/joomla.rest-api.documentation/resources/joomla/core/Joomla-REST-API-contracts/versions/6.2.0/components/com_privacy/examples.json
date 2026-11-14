@@ -2,46 +2,118 @@
   {
     "operationId": "com_privacy_get_v1_privacy_requests",
     "direction": "response",
-    "status": 200,
-    "schema": "com_privacy_get_v1_privacy_requestsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/privacy/requests"
+      },
       "data": [
         {
           "type": "requests",
-          "id": "Example",
+          "id": "1",
           "attributes": {
-            "email": "Example",
-            "requested_at": "Example",
-            "status": 1
+            "id": 1,
+            "email": "test@example.org",
+            "requested_at": "2026-10-29 21:03:40",
+            "status": 0,
+            "request_type": "export"
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_privacy_get_v1_privacy_requestsResponse"
+  },
+  {
+    "operationId": "com_privacy_post_v1_privacy_requests",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "email": "example@example.invalid"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_privacy_post_v1_privacy_requestsRequest"
+  },
+  {
+    "operationId": "com_privacy_post_v1_privacy_requests",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "email": "test@example.org",
+      "request_type": "export"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_privacy_post_v1_privacy_requestsRequest"
+  },
+  {
+    "operationId": "com_privacy_post_v1_privacy_requests",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/privacy/requests"
+      },
+      "data": {
+        "type": "requests",
+        "id": "1",
+        "attributes": {
+          "typeAlias": null,
+          "id": 1,
+          "email": "test@example.org",
+          "requested_at": "2026-10-29 21:03:40",
+          "status": 0,
+          "request_type": "export"
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_privacy_post_v1_privacy_requestsResponse"
   },
   {
     "operationId": "com_privacy_get_v1_privacy_requests_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_privacy_get_v1_privacy_requests_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/privacy/requests/1"
+      },
       "data": {
         "type": "requests",
-        "id": "Example",
+        "id": "1",
         "attributes": {
-          "typeAlias": "Example",
-          "email": "Example",
-          "requested_at": "Example"
+          "typeAlias": null,
+          "id": 1,
+          "email": "test@example.org",
+          "requested_at": "2026-10-29 21:03:40",
+          "status": 0,
+          "request_type": "export"
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_privacy_get_v1_privacy_requests_idResponse"
   },
   {
     "operationId": "com_privacy_get_v1_privacy_requests_export_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_privacy_get_v1_privacy_requests_export_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "export",
@@ -54,60 +126,35 @@
         ]
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_privacy_post_v1_privacy_requests",
-    "direction": "request",
-    "schema": "com_privacy_post_v1_privacy_requestsRequest",
-    "value": {
-      "email": "example@example.invalid"
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_privacy_post_v1_privacy_requests",
-    "direction": "response",
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_privacy_post_v1_privacy_requestsResponse",
-    "value": {
-      "data": {
-        "type": "requests",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "email": "Example",
-          "requested_at": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_privacy_get_v1_privacy_requests_export_idResponse"
   },
   {
     "operationId": "com_privacy_get_v1_privacy_consents",
     "direction": "response",
-    "status": 200,
-    "schema": "com_privacy_get_v1_privacy_consentsResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
-      "data": [
-        {
-          "type": "consents",
-          "id": "Example",
-          "attributes": {
-            "user_id": 1,
-            "state": 1,
-            "created": "Example"
-          }
-        }
-      ]
+      "links": {
+        "self": "https://example.com/api/index.php/v1/privacy/consents"
+      },
+      "data": [],
+      "meta": {
+        "total-pages": 0
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_privacy_get_v1_privacy_consentsResponse"
   },
   {
     "operationId": "com_privacy_get_v1_privacy_consents_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_privacy_get_v1_privacy_consents_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "consents",
@@ -119,6 +166,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_privacy_get_v1_privacy_consents_idResponse"
   }
 ]

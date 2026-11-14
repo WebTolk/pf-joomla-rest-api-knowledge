@@ -28,6 +28,7 @@ POST получает правильный контекст, а PATCH не га�
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |metadesc|"string"|нет|""|Meta Description: Joomla form field metadesc; input is validated and filtered according to x-joomla-form.||
 |sitename|"string"|нет|""|Custom Site Name: Joomla form field sitename; input is validated and filtered according to x-joomla-form.||
+
 ## REST PATCH /v1/languages/content/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -42,12 +43,14 @@ POST получает правильный контекст, а PATCH не га�
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |metadesc|"string"|нет|""|Meta Description: Joomla form field metadesc; input is validated and filtered according to x-joomla-form.||
 |sitename|"string"|нет|""|Custom Site Name: Joomla form field sitename; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/languages/overrides/search
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
 |searchstring|"string"|да|""|searchstring: ||
 |searchtype|"string"|да|["constant", "value"]|searchtype: ||
+
 ## REST POST /v1/languages/overrides/site/{lang_code}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -57,6 +60,7 @@ POST получает правильный контекст, а PATCH не га�
 |both|"boolean"|нет|""|For Both Locations: Joomla form field both; input is validated and filtered according to x-joomla-form.||
 |searchstring|"string"|нет|""|Search Text: Joomla form field searchstring; input is validated and filtered according to x-joomla-form.||
 |searchtype|"string"|нет|["constant", "value"]|Search For: Joomla form field searchtype; input is validated and filtered according to x-joomla-form.||
+
 ## REST PATCH /v1/languages/overrides/site/{lang_code}/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -66,6 +70,7 @@ POST получает правильный контекст, а PATCH не га�
 |both|"boolean"|нет|""|For Both Locations: Joomla form field both; input is validated and filtered according to x-joomla-form.||
 |searchstring|"string"|нет|""|Search Text: Joomla form field searchstring; input is validated and filtered according to x-joomla-form.||
 |searchtype|"string"|нет|["constant", "value"]|Search For: Joomla form field searchtype; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/languages/overrides/administrator/{lang_code}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -75,6 +80,7 @@ POST получает правильный контекст, а PATCH не га�
 |both|"boolean"|нет|""|For Both Locations: Joomla form field both; input is validated and filtered according to x-joomla-form.||
 |searchstring|"string"|нет|""|Search Text: Joomla form field searchstring; input is validated and filtered according to x-joomla-form.||
 |searchtype|"string"|нет|["constant", "value"]|Search For: Joomla form field searchtype; input is validated and filtered according to x-joomla-form.||
+
 ## REST PATCH /v1/languages/overrides/administrator/{lang_code}/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -97,6 +103,7 @@ POST получает правильный контекст, а PATCH не га�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "name ASC", "name DESC", "nativeName ASC", "nativeName DESC", "language ASC", "language DESC", "published ASC", "published DESC", "version ASC", "version DESC", "creationDate ASC", "creationDate DESC", "author ASC", "author DESC", "authorEmail ASC", "authorEmail DESC", "extension_id ASC", "extension_id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_languages/forms/filter_languages.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -108,6 +115,7 @@ POST получает правильный контекст, а PATCH не га�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.published ASC", "a.published DESC", "a.title ASC", "a.title DESC", "a.title_native ASC", "a.title_native DESC", "a.lang_code ASC", "a.lang_code DESC", "a.sef ASC", "a.sef DESC", "a.image ASC", "a.image DESC", "a.access ASC", "a.access DESC", "l.home ASC", "l.home DESC", "a.lang_id ASC", "a.lang_id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_languages/forms/filter_overrides.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -118,6 +126,7 @@ POST получает правильный контекст, а PATCH не га�
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "key ASC", "key DESC", "text ASC", "text DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_languages/forms/language.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -133,6 +142,7 @@ POST получает правильный контекст, а PATCH не га�
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |metadesc|"string"|нет|""|Meta Description: Joomla form field metadesc; input is validated and filtered according to x-joomla-form.||
 |sitename|"string"|нет|""|Custom Site Name: Joomla form field sitename; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_languages/forms/override.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -143,6 +153,7 @@ POST получает правильный контекст, а PATCH не га�
 |searchstring|"string"|нет|""|Search Text: Joomla form field searchstring; input is validated and filtered according to x-joomla-form.||
 |searchtype|"string"|нет|["constant", "value"]|Search For: Joomla form field searchtype; input is validated and filtered according to x-joomla-form.||
 |id|"string"|нет|""|id: Joomla form field id; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_languages/config.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

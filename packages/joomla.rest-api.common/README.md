@@ -1,12 +1,12 @@
 # joomla.rest-api.common
 
-Пакет знаний ProcessForge. Версия пакета: 1.1.0. Основной выпуск Joomla: 6.2.0.
+Пакет знаний ProcessForge. Версия пакета: 1.2.0. Основной выпуск Joomla: 6.2.0.
 
 Source-pinned REST request, response, error, field and browser fallback knowledge; independent of tools and MCP.
 
 ## Использование
 
-[Установка и обновление](https://github.com/WebTolk/pf-joomla-rest-api-knowledge/blob/v1.1.0/README.md). [Структура пакетов](https://github.com/WebTolk/pf-joomla-rest-api-knowledge/blob/v1.1.0/docs/knowledge-package-layout.md). [Лицензия](LICENSE).
+[Установка и обновление](https://github.com/WebTolk/pf-joomla-rest-api-knowledge/blob/v1.2.0/README.md). [Структура пакетов](https://github.com/WebTolk/pf-joomla-rest-api-knowledge/blob/v1.2.0/docs/knowledge-package-layout.md). [Лицензия](LICENSE), [JEDL](JEDL-LICENSE.md), [NOTICE](NOTICE.md).
 
 Зависимости: joomla.rest-api.documentation.
 

@@ -2,7 +2,9 @@
 
 Пакет joomla.rest-api.menus. Версия ядра: 6.2.0.
 
-site/administrator разделяют клиентов. menutype — ключ меню; parent_id — родитель
+site/administrator разделяют клиентов при чтении. При POST меню administrator
+явно передавать client_id: 1: иначе ответ 200 может сопровождать создание меню сайта.
+Пункту меню site при POST нужны alias и link. menutype — ключ меню; parent_id — родитель
 пункта; type определяет форму параметров. Для component используются link/request
 и параметры соответствующего view. GET items/types имеет отдельную структуру.
 SEF URL зависит от дерева, языка и router, не только alias.

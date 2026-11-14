@@ -1,10 +1,11 @@
 [
   {
     "version": "6.2.0",
-    "operations": 236,
+    "operations": 235,
     "components": 23,
     "schemas": 831,
-    "examples": 281
+    "examples": 334,
+    "registered_source_routes": 236
   },
   {
     "version": "5.4.8",

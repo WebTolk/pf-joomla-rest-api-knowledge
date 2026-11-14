@@ -2,126 +2,2301 @@
   {
     "operationId": "com_modules_get_v1_modules_types_site",
     "direction": "response",
-    "status": 200,
-    "schema": "com_modules_get_v1_modules_types_siteResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/modules/types/site"
+      },
       "data": [
         {
           "type": "modules",
-          "id": "Example",
+          "id": "61",
           "attributes": {
-            "name": "Example",
-            "module": "Example",
-            "xml": "Example"
+            "name": "Articles",
+            "module": "mod_articles",
+            "xml": {
+              "@attributes": {
+                "type": "module",
+                "client": "site",
+                "method": "upgrade"
+              },
+              "name": "mod_articles",
+              "author": "Joomla! Project",
+              "creationDate": "2024-07",
+              "copyright": "(C) 2024 Open Source Matters, Inc.",
+              "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+              "authorEmail": "admin@joomla.org",
+              "authorUrl": "www.joomla.org",
+              "version": "5.2.0",
+              "description": "MOD_ARTICLES_XML_DESCRIPTION",
+              "namespace": "Joomla\\Module\\Articles",
+              "files": {
+                "folder": [
+                  "services",
+                  "src",
+                  "tmpl"
+                ]
+              },
+              "languages": {
+                "language": [
+                  "language/en-GB/mod_articles.ini",
+                  "language/en-GB/mod_articles.sys.ini"
+                ]
+              },
+              "help": {
+                "@attributes": {
+                  "key": "Site_Modules:_Articles"
+                }
+              },
+              "config": {
+                "fields": {
+                  "@attributes": {
+                    "name": "params"
+                  },
+                  "fieldset": [
+                    {
+                      "@attributes": {
+                        "name": "basic",
+                        "addfieldprefix": "Joomla\\Component\\Content\\Administrator\\Field"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "mode",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_MODE_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_MODE_DESC",
+                            "default": "normal",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_NORMAL_VALUE",
+                            "MOD_ARTICLES_OPTION_DYNAMIC_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_on_article_page",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_SHOWONARTICLEPAGE_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_SHOWONARTICLEPAGE_DESC",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "1",
+                            "filter": "integer",
+                            "showon": "mode:dynamic"
+                          },
+                          "option": [
+                            "JNO",
+                            "JYES"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "count",
+                            "type": "number",
+                            "label": "MOD_ARTICLES_FIELD_COUNT_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_COUNT_DESC",
+                            "default": "5",
+                            "filter": "integer",
+                            "min": "0",
+                            "validate": "number"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "category_filtering_type",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_CATFILTERINGTYPE_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_CATFILTERINGTYPE_DESC",
+                            "default": "1",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_EXCLUSIVE_VALUE",
+                            "MOD_ARTICLES_OPTION_INCLUSIVE_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "catid",
+                            "type": "category",
+                            "label": "JCATEGORY",
+                            "extension": "com_content",
+                            "multiple": "true",
+                            "layout": "joomla.form.field.list-fancy-select",
+                            "filter": "intarray",
+                            "class": "multipleCategories"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_child_category_articles",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_SHOWCHILDCATEGORYARTICLES_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_SHOWCHILDCATEGORYARTICLES_DESC",
+                            "default": "0",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_EXCLUDE_VALUE",
+                            "MOD_ARTICLES_OPTION_INCLUDE_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "levels",
+                            "type": "number",
+                            "label": "MOD_ARTICLES_FIELD_CATDEPTH_LABEL",
+                            "default": "1",
+                            "filter": "integer",
+                            "showon": "show_child_category_articles:1"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "exclude_current",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_EXCLUDE_CURRENT_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "1",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "JNO",
+                            "JYES"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "ex_or_include_articles",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_EX_OR_INCLUDE_LABEL",
+                            "default": "0",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_EXCLUDE_VALUE",
+                            "MOD_ARTICLES_OPTION_INCLUDE_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "excluded_articles",
+                            "type": "subform",
+                            "label": "MOD_ARTICLES_FIELD_EXCLUDEDARTICLES_LABEL",
+                            "multiple": "true",
+                            "buttons": "add,remove",
+                            "showon": "ex_or_include_articles:0"
+                          },
+                          "form": {
+                            "field": {
+                              "@attributes": {
+                                "name": "id",
+                                "type": "modal_article",
+                                "label": "MOD_ARTICLES_FIELD_SELECT_ARTICLE_LABEL",
+                                "select": "true",
+                                "new": "false",
+                                "edit": "false",
+                                "clear": "true"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "included_articles",
+                            "type": "subform",
+                            "label": "MOD_ARTICLES_FIELD_INCLUDEDARTICLES_LABEL",
+                            "multiple": "true",
+                            "buttons": "add,remove",
+                            "showon": "ex_or_include_articles:1"
+                          },
+                          "form": {
+                            "field": {
+                              "@attributes": {
+                                "name": "id",
+                                "type": "modal_article",
+                                "label": "MOD_ARTICLES_FIELD_SELECT_ARTICLE_LABEL",
+                                "select": "true",
+                                "new": "false",
+                                "edit": "false",
+                                "clear": "true"
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "display",
+                        "label": "MOD_ARTICLES_FIELD_GROUP_DISPLAY_LABEL"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "title_only",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_TITLEONLY_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "JNO",
+                            "JYES"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "articles_layout",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_LAYOUT_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_LAYOUT_DESC",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_FIELD_LAYOUT_VERT",
+                            "MOD_ARTICLES_FIELD_LAYOUT_HOR"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "layout_columns",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_LAYOUT_COL_LABEL",
+                            "default": "3",
+                            "filter": "integer",
+                            "showon": "title_only:0[AND]articles_layout:1",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "2",
+                            "3",
+                            "4"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "item_title",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_TITLE_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "1",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "item_heading",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_TITLE_HEADING",
+                            "default": "h4",
+                            "showon": "title_only:0[AND]item_title:1",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JH1",
+                            "JH2",
+                            "JH3",
+                            "JH4",
+                            "JH5",
+                            "JH6",
+                            "MOD_ARTICLES_FIELD_TITLE_HEADING_NONE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "link_titles",
+                            "type": "radio",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "label": "MOD_ARTICLES_FIELD_LINKTITLES_LABEL",
+                            "default": "1",
+                            "showon": "title_only:0[AND]item_title:1",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "JNO",
+                            "JYES"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_author",
+                            "type": "radio",
+                            "label": "JAUTHOR",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_category",
+                            "type": "radio",
+                            "label": "JCATEGORY",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_category_link",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_SHOWCATEGORYLINK_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0[AND]show_category:1"
+                          },
+                          "option": [
+                            "JNO",
+                            "JYES"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_date",
+                            "type": "radio",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "label": "JDATE",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_date_field",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_DATEFIELD_LABEL",
+                            "default": "created",
+                            "showon": "title_only:0[AND]show_date:1",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_CREATED_VALUE",
+                            "MOD_ARTICLES_OPTION_MODIFIED_VALUE",
+                            "MOD_ARTICLES_OPTION_STARTPUBLISHING_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_date_format",
+                            "type": "text",
+                            "label": "MOD_ARTICLES_FIELD_DATEFIELDFORMAT_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_DATEFIELDFORMAT_DESC",
+                            "default": "Y-m-d H:i:s",
+                            "showon": "title_only:0[AND]show_date:1"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_hits",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_SHOWHITS_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "info_layout",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_INFOLAYOUT_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_INFOLAYOUT_DESC",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "show_date:1[OR]show_category:1[OR]show_hits:1[OR]show_author:1[AND]title_only:0"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_FIELD_LAYOUT_MULTILINE",
+                            "MOD_ARTICLES_FIELD_LAYOUT_SINGLELINE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_tags",
+                            "type": "radio",
+                            "label": "JTAG",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "trigger_events",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_TRIGGER_EVENTS_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_TRIGGER_EVENTS_DESC",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "JNO",
+                            "JYES"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_introtext",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_SHOWINTROTEXT_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "introtext_limit",
+                            "type": "number",
+                            "label": "MOD_ARTICLES_FIELD_INTROTEXTLIMIT_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_INTROTEXTLIMIT_DESC",
+                            "default": "100",
+                            "filter": "integer",
+                            "showon": "title_only:0[AND]show_introtext:1"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "image",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_IMAGES_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_IMAGES_DESC",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0[AND]show_introtext:1"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "img_intro_full",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_IMAGES_ARTICLE_LABEL",
+                            "default": "none",
+                            "validate": "options",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_INTROIMAGE",
+                            "MOD_ARTICLES_OPTION_FULLIMAGE",
+                            "JNO"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_readmore",
+                            "type": "radio",
+                            "label": "JGLOBAL_SHOW_READMORE_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "title_only:0"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_readmore_title",
+                            "type": "radio",
+                            "label": "JGLOBAL_SHOW_READMORE_TITLE_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "1",
+                            "filter": "integer",
+                            "showon": "title_only:0[AND]show_readmore:1"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "readmore_limit",
+                            "type": "number",
+                            "label": "JGLOBAL_SHOW_READMORE_LIMIT_LABEL",
+                            "default": "15",
+                            "filter": "integer",
+                            "showon": "title_only:0[AND]show_readmore:1[AND]show_readmore_title:1"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "filtering",
+                        "label": "MOD_ARTICLES_FIELD_GROUP_FILTERING_LABEL"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "show_featured",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_SHOWFEATURED_LABEL",
+                            "default": "show",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JSHOW",
+                            "JHIDE",
+                            "MOD_ARTICLES_OPTION_ONLYFEATURED_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "filteringspacer1",
+                            "type": "spacer",
+                            "hr": "true"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_archived",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_ONLYARCHIVED_LABEL",
+                            "default": "hide",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_ONLYARCHIVEDSHOW_VALUE",
+                            "MOD_ARTICLES_OPTION_ONLYARCHIVEDHIDE_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_unpublished",
+                            "type": "radio",
+                            "label": "MOD_ARTICLES_FIELD_UNPUBLISHED_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer",
+                            "showon": "show_archived!:show"
+                          },
+                          "option": [
+                            "JNO",
+                            "JYES"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "filteringspacer2",
+                            "type": "spacer",
+                            "hr": "true"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "filter_tag",
+                            "type": "tag",
+                            "label": "JTAG",
+                            "mode": "nested",
+                            "multiple": "true",
+                            "filter": "intarray",
+                            "class": "multipleTags"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "filteringspacer3",
+                            "type": "spacer",
+                            "hr": "true"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "author_filtering_type",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_AUTHORFILTERING_LABEL",
+                            "default": "1",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_EXCLUSIVE_VALUE",
+                            "MOD_ARTICLES_OPTION_INCLUSIVE_VALUE",
+                            "MOD_ARTICLES_OPTION_ONLYCURRENTUSER_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "created_by",
+                            "type": "author",
+                            "label": "MOD_ARTICLES_FIELD_AUTHOR_LABEL",
+                            "multiple": "true",
+                            "layout": "joomla.form.field.list-fancy-select",
+                            "filter": "intarray",
+                            "class": "multipleAuthors",
+                            "showon": "author_filtering_type!:2"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "filteringspacer4",
+                            "type": "spacer",
+                            "hr": "true"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "author_alias_filtering_type",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_AUTHORALIASFILTERING_LABEL",
+                            "default": "1",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_EXCLUSIVE_VALUE",
+                            "MOD_ARTICLES_OPTION_INCLUSIVE_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "created_by_alias",
+                            "type": "sql",
+                            "label": "MOD_ARTICLES_FIELD_AUTHORALIAS_LABEL",
+                            "multiple": "true",
+                            "layout": "joomla.form.field.list-fancy-select",
+                            "query": "select distinct(created_by_alias) from #__content where created_by_alias != '' order by created_by_alias ASC",
+                            "key_field": "created_by_alias",
+                            "value_field": "created_by_alias",
+                            "class": "multipleAuthorAliases"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "filteringspacer5",
+                            "type": "spacer",
+                            "hr": "true"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "date_filtering",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_DATEFILTERING_LABEL",
+                            "default": "off",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_OFF_VALUE",
+                            "MOD_ARTICLES_OPTION_DATERANGE_VALUE",
+                            "MOD_ARTICLES_OPTION_RELATIVEDAY_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "date_field",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_DATERANGEFIELD_LABEL",
+                            "default": "a.created",
+                            "showon": "date_filtering!:off",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_CREATED_VALUE",
+                            "MOD_ARTICLES_OPTION_MODIFIED_VALUE",
+                            "MOD_ARTICLES_OPTION_STARTPUBLISHING_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "start_date_range",
+                            "type": "calendar",
+                            "label": "MOD_ARTICLES_FIELD_STARTDATE_LABEL",
+                            "translateformat": "true",
+                            "showtime": "true",
+                            "filter": "user_utc",
+                            "showon": "date_filtering:range"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "end_date_range",
+                            "type": "calendar",
+                            "label": "MOD_ARTICLES_FIELD_ENDDATE_LABEL",
+                            "translateformat": "true",
+                            "showtime": "true",
+                            "filter": "user_utc",
+                            "showon": "date_filtering:range"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "relative_date",
+                            "type": "number",
+                            "label": "MOD_ARTICLES_FIELD_RELATIVEDATE_LABEL",
+                            "default": "30",
+                            "filter": "integer",
+                            "showon": "date_filtering:relative"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "ordering",
+                        "label": "MOD_ARTICLES_FIELD_GROUP_ORDERING_LABEL"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "article_ordering",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_ARTICLEORDERING_LABEL",
+                            "default": "a.title",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_ORDERING_VALUE",
+                            "MOD_ARTICLES_OPTION_ORDERINGFEATURED_VALUE",
+                            "JGLOBAL_TITLE",
+                            "MOD_ARTICLES_OPTION_ID_VALUE",
+                            "JFIELD_ALIAS_LABEL",
+                            "MOD_ARTICLES_OPTION_CREATED_VALUE",
+                            "MOD_ARTICLES_OPTION_MODIFIED_VALUE",
+                            "MOD_ARTICLES_OPTION_STARTPUBLISHING_VALUE",
+                            "MOD_ARTICLES_OPTION_FINISHPUBLISHING_VALUE",
+                            "MOD_ARTICLES_OPTION_RANDOM_VALUE",
+                            "MOD_ARTICLES_OPTION_HITS_VALUE",
+                            "MOD_ARTICLES_OPTION_VOTE_VALUE",
+                            "MOD_ARTICLES_OPTION_RATING_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "article_ordering_direction",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_ARTICLEORDERINGDIR_LABEL",
+                            "default": "ASC",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_DESCENDING_VALUE",
+                            "MOD_ARTICLES_OPTION_ASCENDING_VALUE"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "grouping",
+                        "label": "MOD_ARTICLES_FIELD_GROUP_GROUPING_LABEL"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "article_grouping",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_ARTICLEGROUPING_LABEL",
+                            "default": "none",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JNONE",
+                            "MOD_ARTICLES_OPTION_YEAR_VALUE",
+                            "MOD_ARTICLES_OPTION_MONTHYEAR_VALUE",
+                            "JAUTHOR",
+                            "JCATEGORY",
+                            "JTAG"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "date_grouping_field",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_DATEGROUPINGFIELD_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_DATEGROUPINGFIELD_DESC",
+                            "default": "created",
+                            "showon": "article_grouping:year,month_year",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_CREATED_VALUE",
+                            "MOD_ARTICLES_OPTION_MODIFIED_VALUE",
+                            "MOD_ARTICLES_OPTION_STARTPUBLISHING_VALUE"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "month_year_format",
+                            "type": "text",
+                            "label": "MOD_ARTICLES_FIELD_MONTHYEARFORMAT_LABEL",
+                            "description": "MOD_ARTICLES_FIELD_MONTHYEARFORMAT_DESC",
+                            "default": "F Y",
+                            "showon": "article_grouping:year,month_year"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "article_grouping_direction",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_FIELD_ARTICLEGROUPINGDIR_LABEL",
+                            "default": "ksort",
+                            "showon": "article_grouping!:none",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "MOD_ARTICLES_OPTION_DESCENDING_VALUE",
+                            "MOD_ARTICLES_OPTION_ASCENDING_VALUE"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "advanced"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "layout",
+                            "type": "modulelayout",
+                            "label": "JFIELD_ALT_LAYOUT_LABEL",
+                            "class": "form-select",
+                            "validate": "moduleLayout"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "moduleclass_sfx",
+                            "type": "textarea",
+                            "label": "COM_MODULES_FIELD_MODULECLASS_SFX_LABEL",
+                            "rows": "3",
+                            "validate": "CssIdentifier"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "owncache",
+                            "type": "list",
+                            "label": "COM_MODULES_FIELD_CACHING_LABEL",
+                            "default": "1",
+                            "filter": "integer",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JGLOBAL_USE_GLOBAL",
+                            "COM_MODULES_FIELD_VALUE_NOCACHING"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "cache_time",
+                            "type": "number",
+                            "label": "COM_MODULES_FIELD_CACHE_TIME_LABEL",
+                            "default": "900",
+                            "filter": "integer"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "desc": "This module displays articles in a variety of ways.",
+            "id": 61
+          }
+        },
+        {
+          "type": "modules",
+          "id": "39",
+          "attributes": {
+            "name": "Articles - Archived (Legacy)",
+            "module": "mod_articles_archive",
+            "xml": {
+              "@attributes": {
+                "type": "module",
+                "client": "site",
+                "method": "upgrade"
+              },
+              "name": "mod_articles_archive",
+              "author": "Joomla! Project",
+              "creationDate": "2006-07",
+              "copyright": "(C) 2006 Open Source Matters, Inc.",
+              "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+              "authorEmail": "admin@joomla.org",
+              "authorUrl": "www.joomla.org",
+              "version": "3.0.0",
+              "description": "MOD_ARTICLES_ARCHIVE_XML_DESCRIPTION",
+              "namespace": "Joomla\\Module\\ArticlesArchive",
+              "files": {
+                "folder": [
+                  "services",
+                  "src",
+                  "tmpl"
+                ]
+              },
+              "languages": {
+                "language": [
+                  "language/en-GB/mod_articles_archive.ini",
+                  "language/en-GB/mod_articles_archive.sys.ini"
+                ]
+              },
+              "help": {
+                "@attributes": {
+                  "key": "Site_Modules:_Articles_-_Archived"
+                }
+              },
+              "config": {
+                "fields": {
+                  "@attributes": {
+                    "name": "params"
+                  },
+                  "fieldset": [
+                    {
+                      "@attributes": {
+                        "name": "basic"
+                      },
+                      "field": {
+                        "@attributes": {
+                          "name": "count",
+                          "type": "number",
+                          "label": "MOD_ARTICLES_ARCHIVE_FIELD_COUNT_LABEL",
+                          "default": "10",
+                          "filter": "integer",
+                          "min": "1",
+                          "validate": "number"
+                        }
+                      }
+                    },
+                    {
+                      "@attributes": {
+                        "name": "advanced"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "layout",
+                            "type": "modulelayout",
+                            "label": "JFIELD_ALT_LAYOUT_LABEL",
+                            "class": "form-select",
+                            "validate": "moduleLayout"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "moduleclass_sfx",
+                            "type": "textarea",
+                            "label": "COM_MODULES_FIELD_MODULECLASS_SFX_LABEL",
+                            "rows": "3",
+                            "validate": "CssIdentifier"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "cache",
+                            "type": "list",
+                            "label": "COM_MODULES_FIELD_CACHING_LABEL",
+                            "default": "1",
+                            "filter": "integer",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JGLOBAL_USE_GLOBAL",
+                            "COM_MODULES_FIELD_VALUE_NOCACHING"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "cache_time",
+                            "type": "number",
+                            "label": "COM_MODULES_FIELD_CACHE_TIME_LABEL",
+                            "default": "900",
+                            "filter": "integer"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "cachemode",
+                            "type": "hidden",
+                            "default": "static"
+                          },
+                          "option": {
+                            "@attributes": {
+                              "value": "static"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "desc": "This module shows a list of the calendar months containing Archived Articles. After you have changed the status of an Article to Archived, this list will be automatically generated. This module is superseded by the \"Articles\" module.",
+            "id": 39
+          }
+        },
+        {
+          "type": "modules",
+          "id": "58",
+          "attributes": {
+            "name": "Articles - Categories",
+            "module": "mod_articles_categories",
+            "xml": {
+              "@attributes": {
+                "type": "module",
+                "client": "site",
+                "method": "upgrade"
+              },
+              "name": "mod_articles_categories",
+              "author": "Joomla! Project",
+              "creationDate": "2010-02",
+              "copyright": "(C) 2010 Open Source Matters, Inc.",
+              "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+              "authorEmail": "admin@joomla.org",
+              "authorUrl": "www.joomla.org",
+              "version": "3.0.0",
+              "description": "MOD_ARTICLES_CATEGORIES_XML_DESCRIPTION",
+              "namespace": "Joomla\\Module\\ArticlesCategories",
+              "files": {
+                "folder": [
+                  "services",
+                  "src",
+                  "tmpl"
+                ]
+              },
+              "languages": {
+                "language": [
+                  "language/en-GB/mod_articles_categories.ini",
+                  "language/en-GB/mod_articles_categories.sys.ini"
+                ]
+              },
+              "help": {
+                "@attributes": {
+                  "key": "Site_Modules:_Articles_-_Categories"
+                }
+              },
+              "config": {
+                "fields": {
+                  "@attributes": {
+                    "name": "params"
+                  },
+                  "fieldset": [
+                    {
+                      "@attributes": {
+                        "name": "basic",
+                        "addfieldprefix": "Joomla\\Component\\Categories\\Administrator\\Field"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "parent",
+                            "type": "modal_category",
+                            "label": "MOD_ARTICLES_CATEGORIES_FIELD_PARENT_LABEL",
+                            "extension": "com_content",
+                            "filter": "integer",
+                            "published": "",
+                            "select": "true",
+                            "new": "true",
+                            "edit": "true",
+                            "clear": "true"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_description",
+                            "type": "radio",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "label": "MOD_ARTICLES_CATEGORIES_FIELD_SHOW_DESCRIPTION_LABEL",
+                            "default": "0",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "numitems",
+                            "type": "radio",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "label": "MOD_ARTICLES_CATEGORIES_FIELD_NUMITEMS_LABEL",
+                            "default": "0",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "show_children",
+                            "type": "radio",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "label": "MOD_ARTICLES_CATEGORIES_FIELD_SHOW_CHILDREN_LABEL",
+                            "default": "0",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "count",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_CATEGORIES_FIELD_COUNT_LABEL",
+                            "description": "MOD_ARTICLES_CATEGORIES_FIELD_COUNT_DESC",
+                            "default": "0",
+                            "filter": "integer",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JALL",
+                            "J1",
+                            "J2",
+                            "J3",
+                            "J4",
+                            "J5",
+                            "J6",
+                            "J7",
+                            "J8",
+                            "J9",
+                            "J10"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "maxlevel",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_CATEGORIES_FIELD_MAXLEVEL_LABEL",
+                            "default": "0",
+                            "filter": "integer",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JALL",
+                            "J1",
+                            "J2",
+                            "J3",
+                            "J4",
+                            "J5",
+                            "J6",
+                            "J7",
+                            "J8",
+                            "J9",
+                            "J10"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "advanced"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "layout",
+                            "type": "modulelayout",
+                            "label": "JFIELD_ALT_LAYOUT_LABEL",
+                            "class": "form-select",
+                            "validate": "moduleLayout"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "item_heading",
+                            "type": "list",
+                            "label": "MOD_ARTICLES_CATEGORIES_TITLE_HEADING_LABEL",
+                            "default": "4",
+                            "filter": "integer",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JH1",
+                            "JH2",
+                            "JH3",
+                            "JH4",
+                            "JH5"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "moduleclass_sfx",
+                            "type": "textarea",
+                            "label": "COM_MODULES_FIELD_MODULECLASS_SFX_LABEL",
+                            "rows": "3",
+                            "validate": "CssIdentifier"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "owncache",
+                            "type": "list",
+                            "label": "COM_MODULES_FIELD_CACHING_LABEL",
+                            "default": "1",
+                            "filter": "integer",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JGLOBAL_USE_GLOBAL",
+                            "COM_MODULES_FIELD_VALUE_NOCACHING"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "cache_time",
+                            "type": "number",
+                            "label": "COM_MODULES_FIELD_CACHE_TIME_LABEL",
+                            "default": "900",
+                            "filter": "integer"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "desc": "This module displays a list of categories from one parent category.",
+            "id": 58
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_types_siteResponse"
   },
   {
     "operationId": "com_modules_get_v1_modules_types_administrator",
     "direction": "response",
-    "status": 200,
-    "schema": "com_modules_get_v1_modules_types_administratorResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/modules/types/administrator"
+      },
       "data": [
         {
           "type": "modules",
-          "id": "Example",
+          "id": "83",
           "attributes": {
-            "name": "Example",
-            "module": "Example",
-            "xml": "Example"
+            "name": "Action Logs - Latest",
+            "module": "mod_latestactions",
+            "xml": {
+              "@attributes": {
+                "type": "module",
+                "client": "administrator",
+                "method": "upgrade"
+              },
+              "name": "mod_latestactions",
+              "author": "Joomla! Project",
+              "creationDate": "2018-05",
+              "copyright": "(C) 2018 Open Source Matters, Inc.",
+              "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+              "authorEmail": "admin@joomla.org",
+              "authorUrl": "www.joomla.org",
+              "version": "3.9.0",
+              "description": "MOD_LATESTACTIONS_XML_DESCRIPTION",
+              "namespace": "Joomla\\Module\\LatestActions",
+              "files": {
+                "folder": [
+                  "services",
+                  "src",
+                  "tmpl"
+                ]
+              },
+              "languages": {
+                "language": [
+                  "language/en-GB/mod_latestactions.ini",
+                  "language/en-GB/mod_latestactions.sys.ini"
+                ]
+              },
+              "help": {
+                "@attributes": {
+                  "key": "Admin_Modules:_Action_Logs_-_Latest"
+                }
+              },
+              "config": {
+                "fields": {
+                  "@attributes": {
+                    "name": "params"
+                  },
+                  "fieldset": [
+                    {
+                      "@attributes": {
+                        "name": "basic"
+                      },
+                      "field": {
+                        "@attributes": {
+                          "name": "count",
+                          "type": "number",
+                          "label": "MOD_LATESTACTIONS_FIELD_COUNT_LABEL",
+                          "default": "5",
+                          "filter": "integer",
+                          "min": "1",
+                          "validate": "number"
+                        }
+                      }
+                    },
+                    {
+                      "@attributes": {
+                        "name": "advanced"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "layout",
+                            "type": "modulelayout",
+                            "label": "JFIELD_ALT_LAYOUT_LABEL",
+                            "class": "form-select",
+                            "validate": "moduleLayout"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "moduleclass_sfx",
+                            "type": "textarea",
+                            "label": "COM_MODULES_FIELD_MODULECLASS_SFX_LABEL",
+                            "rows": "3",
+                            "validate": "CssIdentifier"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "automatic_title",
+                            "type": "radio",
+                            "label": "COM_MODULES_FIELD_AUTOMATIC_TITLE_LABEL",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "0",
+                            "filter": "integer"
+                          },
+                          "option": [
+                            "JNO",
+                            "JYES"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "cache",
+                            "type": "list",
+                            "label": "COM_MODULES_FIELD_CACHING_LABEL",
+                            "default": "1",
+                            "filter": "integer",
+                            "validate": "options"
+                          },
+                          "option": [
+                            "JGLOBAL_USE_GLOBAL",
+                            "COM_MODULES_FIELD_VALUE_NOCACHING"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "cache_time",
+                            "type": "number",
+                            "label": "COM_MODULES_FIELD_CACHE_TIME_LABEL",
+                            "default": "900",
+                            "filter": "integer",
+                            "min": "1",
+                            "validate": "number"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "cachemode",
+                            "type": "hidden",
+                            "default": "static"
+                          },
+                          "option": {
+                            "@attributes": {
+                              "value": "static"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "desc": "This module shows a list of the most recent actions.",
+            "id": 83
+          }
+        },
+        {
+          "type": "modules",
+          "id": "85",
+          "attributes": {
+            "name": "Administrator Dashboard Menu",
+            "module": "mod_submenu",
+            "xml": {
+              "@attributes": {
+                "type": "module",
+                "client": "administrator",
+                "method": "upgrade"
+              },
+              "name": "mod_submenu",
+              "author": "Joomla! Project",
+              "creationDate": "2006-02",
+              "copyright": "(C) 2006 Open Source Matters, Inc.",
+              "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+              "authorEmail": "admin@joomla.org",
+              "authorUrl": "www.joomla.org",
+              "version": "3.0.0",
+              "description": "MOD_SUBMENU_XML_DESCRIPTION",
+              "namespace": "Joomla\\Module\\Submenu",
+              "files": {
+                "folder": [
+                  "services",
+                  "src",
+                  "tmpl"
+                ]
+              },
+              "languages": {
+                "language": [
+                  "language/en-GB/mod_submenu.ini",
+                  "language/en-GB/mod_submenu.sys.ini"
+                ]
+              },
+              "help": {
+                "@attributes": {
+                  "key": "Admin_Modules:_Administrator_Dashboard_Menu"
+                }
+              },
+              "config": {
+                "fields": {
+                  "@attributes": {
+                    "name": "params"
+                  },
+                  "fieldset": [
+                    {
+                      "@attributes": {
+                        "name": "basic",
+                        "addfieldprefix": "Joomla\\Component\\Menus\\Administrator\\Field"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "menutype",
+                            "type": "menu",
+                            "label": "MOD_SUBMENU_FIELD_MENUTYPE_LABEL",
+                            "clientid": "1"
+                          },
+                          "option": "MOD_SUBMENU_FIELD_MENUTYPE_OPTION_PREDEFINED"
+                        },
+                        {
+                          "@attributes": {
+                            "name": "preset",
+                            "type": "menuPreset",
+                            "label": "MOD_SUBMENU_FIELD_PRESET_LABEL",
+                            "showon": "menutype:*"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "advanced"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "layout",
+                            "type": "modulelayout",
+                            "label": "JFIELD_ALT_LAYOUT_LABEL",
+                            "class": "form-select",
+                            "validate": "moduleLayout"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "moduleclass_sfx",
+                            "type": "textarea",
+                            "label": "COM_MODULES_FIELD_MODULECLASS_SFX_LABEL",
+                            "rows": "3",
+                            "validate": "CssIdentifier"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "desc": "This module displays an administrator submenu module.",
+            "id": 85
+          }
+        },
+        {
+          "type": "modules",
+          "id": "68",
+          "attributes": {
+            "name": "Administrator Menu",
+            "module": "mod_menu",
+            "xml": {
+              "@attributes": {
+                "type": "module",
+                "client": "administrator",
+                "method": "upgrade"
+              },
+              "name": "mod_menu",
+              "author": "Joomla! Project",
+              "creationDate": "2006-03",
+              "copyright": "(C) 2006 Open Source Matters, Inc.",
+              "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+              "authorEmail": "admin@joomla.org",
+              "authorUrl": "www.joomla.org",
+              "version": "3.0.0",
+              "description": "MOD_MENU_XML_DESCRIPTION",
+              "namespace": "Joomla\\Module\\Menu",
+              "files": {
+                "folder": [
+                  "services",
+                  "src",
+                  "tmpl"
+                ]
+              },
+              "languages": {
+                "language": [
+                  "language/en-GB/mod_menu.ini",
+                  "language/en-GB/mod_menu.sys.ini"
+                ]
+              },
+              "help": {
+                "@attributes": {
+                  "key": "Admin_Modules:_Administrator_Menu"
+                }
+              },
+              "config": {
+                "fields": {
+                  "@attributes": {
+                    "name": "params"
+                  },
+                  "fieldset": [
+                    {
+                      "@attributes": {
+                        "name": "basic",
+                        "addfieldprefix": "Joomla\\Component\\Menus\\Administrator\\Field"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "menutype",
+                            "type": "menu",
+                            "label": "MOD_MENU_FIELD_MENUTYPE_LABEL",
+                            "clientid": "1"
+                          },
+                          "option": "MOD_MENU_FIELD_MENUTYPE_OPTION_PREDEFINED"
+                        },
+                        {
+                          "@attributes": {
+                            "name": "preset",
+                            "type": "menuPreset",
+                            "default": "default",
+                            "label": "MOD_MENU_FIELD_PRESET_LABEL",
+                            "description": "MOD_MENU_FIELD_PRESET_DESC",
+                            "showon": "menutype:*"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "check",
+                            "type": "radio",
+                            "label": "MOD_MENU_FIELD_CHECK_LABEL",
+                            "description": "MOD_MENU_FIELD_CHECK_DESC",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "1",
+                            "filter": "integer",
+                            "showon": "menutype!:*"
+                          },
+                          "option": [
+                            "JNO",
+                            "JYES"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "shownew",
+                            "type": "radio",
+                            "label": "MOD_MENU_FIELD_SHOWNEW",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "1",
+                            "filter": "integer",
+                            "showon": "menutype:*"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "showhelp",
+                            "type": "radio",
+                            "label": "MOD_MENU_FIELD_SHOWHELP",
+                            "layout": "joomla.form.field.radio.switcher",
+                            "default": "1",
+                            "filter": "integer",
+                            "showon": "menutype:*"
+                          },
+                          "option": [
+                            "JHIDE",
+                            "JSHOW"
+                          ]
+                        },
+                        {
+                          "@attributes": {
+                            "name": "forum_url",
+                            "type": "url",
+                            "label": "MOD_MENU_FIELD_FORUMURL_LABEL",
+                            "description": "MOD_MENU_FIELD_FORUMURL_DESC",
+                            "filter": "url",
+                            "default": "",
+                            "showon": "preset:alternate",
+                            "validate": "url"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "@attributes": {
+                        "name": "advanced"
+                      },
+                      "field": [
+                        {
+                          "@attributes": {
+                            "name": "layout",
+                            "type": "modulelayout",
+                            "label": "JFIELD_ALT_LAYOUT_LABEL",
+                            "class": "form-select",
+                            "validate": "moduleLayout"
+                          }
+                        },
+                        {
+                          "@attributes": {
+                            "name": "moduleclass_sfx",
+                            "type": "textarea",
+                            "label": "COM_MODULES_FIELD_MODULECLASS_SFX_LABEL",
+                            "rows": "3",
+                            "validate": "CssIdentifier"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "desc": "This module displays an administrator menu module.",
+            "id": 68
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_types_administratorResponse"
   },
   {
     "operationId": "com_modules_get_v1_modules_site",
     "direction": "response",
-    "status": 200,
-    "schema": "com_modules_get_v1_modules_siteResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/modules/site"
+      },
       "data": [
         {
           "type": "modules",
-          "id": "Example",
+          "id": "110",
           "attributes": {
-            "title": "Example",
-            "note": "Example",
-            "position": "Example"
+            "id": 110,
+            "title": "Title",
+            "note": "",
+            "position": "",
+            "module": "mod_articles_archive",
+            "language": "*",
+            "checked_out": null,
+            "checked_out_time": null,
+            "published": 1,
+            "enabled": 1,
+            "access": 1,
+            "ordering": 1,
+            "publish_up": null,
+            "publish_down": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "pages": "All",
+            "name": "Articles - Archived (Legacy)"
+          }
+        },
+        {
+          "type": "modules",
+          "id": "17",
+          "attributes": {
+            "id": 17,
+            "title": "Breadcrumbs",
+            "note": "",
+            "position": "breadcrumbs",
+            "module": "mod_breadcrumbs",
+            "language": "*",
+            "checked_out": null,
+            "checked_out_time": null,
+            "published": 1,
+            "enabled": 1,
+            "access": 1,
+            "ordering": 1,
+            "publish_up": null,
+            "publish_down": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "pages": "All",
+            "name": "Breadcrumbs"
+          }
+        },
+        {
+          "type": "modules",
+          "id": "1",
+          "attributes": {
+            "id": 1,
+            "title": "Main Menu",
+            "note": "",
+            "position": "sidebar-right",
+            "module": "mod_menu",
+            "language": "*",
+            "checked_out": null,
+            "checked_out_time": null,
+            "published": 1,
+            "enabled": 1,
+            "access": 1,
+            "ordering": 1,
+            "publish_up": null,
+            "publish_down": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Public",
+            "pages": "All",
+            "name": "Menu"
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 1
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_siteResponse"
+  },
+  {
+    "operationId": "com_modules_post_v1_modules_site",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "minimal",
+    "value": {
+      "title": "Example module",
+      "module": "mod_custom",
+      "language": "*",
+      "params": {
+        "style": "0"
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_modules_post_v1_modules_siteRequest"
+  },
+  {
+    "operationId": "com_modules_post_v1_modules_site",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "access": "1",
+      "assigned": [
+        "101",
+        "105"
+      ],
+      "assignment": "0",
+      "client_id": "0",
+      "language": "*",
+      "module": "mod_articles_archive",
+      "note": "",
+      "ordering": "1",
+      "params": {
+        "bootstrap_size": "0",
+        "cache": "1",
+        "cache_time": "900",
+        "cachemode": "static",
+        "count": "10",
+        "header_class": "",
+        "header_tag": "h3",
+        "layout": "_:default",
+        "module_tag": "div",
+        "moduleclass_sfx": "",
+        "style": "0"
+      },
+      "position": "",
+      "publish_down": "",
+      "publish_up": "",
+      "published": "1",
+      "showtitle": "1",
+      "title": "Title"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_modules_post_v1_modules_siteRequest"
+  },
+  {
+    "operationId": "com_modules_post_v1_modules_site",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
+    "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/modules/site"
+      },
+      "data": {
+        "type": "modules",
+        "id": "110",
+        "attributes": {
+          "typeAlias": null,
+          "id": 110,
+          "asset_id": 115,
+          "title": "Title",
+          "note": "",
+          "content": null,
+          "ordering": 1,
+          "position": "",
+          "checked_out": null,
+          "checked_out_time": null,
+          "publish_up": null,
+          "publish_down": null,
+          "published": 1,
+          "module": "mod_articles_archive",
+          "access": 1,
+          "showtitle": 1,
+          "params": {
+            "count": 10,
+            "layout": "_:default",
+            "moduleclass_sfx": "",
+            "cache": 1,
+            "cache_time": 900,
+            "cachemode": "static",
+            "module_tag": "div",
+            "bootstrap_size": "0",
+            "header_tag": "h3",
+            "header_class": "",
+            "style": "0"
+          },
+          "client_id": 0,
+          "language": "*",
+          "assigned": [
+            0
+          ],
+          "assignment": 0,
+          "xml": {
+            "@attributes": {
+              "type": "module",
+              "client": "site",
+              "method": "upgrade"
+            },
+            "name": "mod_articles_archive",
+            "author": "Joomla! Project",
+            "creationDate": "2006-07",
+            "copyright": "(C) 2006 Open Source Matters, Inc.",
+            "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+            "authorEmail": "admin@joomla.org",
+            "authorUrl": "www.joomla.org",
+            "version": "3.0.0",
+            "description": "MOD_ARTICLES_ARCHIVE_XML_DESCRIPTION",
+            "namespace": "Joomla\\Module\\ArticlesArchive",
+            "files": {
+              "folder": [
+                "services",
+                "src",
+                "tmpl"
+              ]
+            },
+            "languages": {
+              "language": [
+                "language/en-GB/mod_articles_archive.ini",
+                "language/en-GB/mod_articles_archive.sys.ini"
+              ]
+            },
+            "help": {
+              "@attributes": {
+                "key": "Site_Modules:_Articles_-_Archived"
+              }
+            },
+            "config": {
+              "fields": {
+                "@attributes": {
+                  "name": "params"
+                },
+                "fieldset": [
+                  {
+                    "@attributes": {
+                      "name": "basic"
+                    },
+                    "field": {
+                      "@attributes": {
+                        "name": "count",
+                        "type": "number",
+                        "label": "MOD_ARTICLES_ARCHIVE_FIELD_COUNT_LABEL",
+                        "default": "10",
+                        "filter": "integer",
+                        "min": "1",
+                        "validate": "number"
+                      }
+                    }
+                  },
+                  {
+                    "@attributes": {
+                      "name": "advanced"
+                    },
+                    "field": [
+                      {
+                        "@attributes": {
+                          "name": "layout",
+                          "type": "modulelayout",
+                          "label": "JFIELD_ALT_LAYOUT_LABEL",
+                          "class": "form-select",
+                          "validate": "moduleLayout"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "moduleclass_sfx",
+                          "type": "textarea",
+                          "label": "COM_MODULES_FIELD_MODULECLASS_SFX_LABEL",
+                          "rows": "3",
+                          "validate": "CssIdentifier"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "cache",
+                          "type": "list",
+                          "label": "COM_MODULES_FIELD_CACHING_LABEL",
+                          "default": "1",
+                          "filter": "integer",
+                          "validate": "options"
+                        },
+                        "option": [
+                          "JGLOBAL_USE_GLOBAL",
+                          "COM_MODULES_FIELD_VALUE_NOCACHING"
+                        ]
+                      },
+                      {
+                        "@attributes": {
+                          "name": "cache_time",
+                          "type": "number",
+                          "label": "COM_MODULES_FIELD_CACHE_TIME_LABEL",
+                          "default": "900",
+                          "filter": "integer"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "cachemode",
+                          "type": "hidden",
+                          "default": "static"
+                        },
+                        "option": {
+                          "@attributes": {
+                            "value": "static"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_modules_post_v1_modules_siteResponse"
   },
   {
     "operationId": "com_modules_get_v1_modules_site_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_modules_get_v1_modules_site_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/modules/site/110"
+      },
       "data": {
         "type": "modules",
-        "id": "Example",
+        "id": "110",
         "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "title": "Example"
+          "typeAlias": null,
+          "id": 110,
+          "asset_id": 115,
+          "title": "Title",
+          "note": "",
+          "content": null,
+          "ordering": 1,
+          "position": "",
+          "checked_out": null,
+          "checked_out_time": null,
+          "publish_up": null,
+          "publish_down": null,
+          "published": 1,
+          "module": "mod_articles_archive",
+          "access": 1,
+          "showtitle": 1,
+          "params": {
+            "count": 10,
+            "layout": "_:default",
+            "moduleclass_sfx": "",
+            "cache": 1,
+            "cache_time": 900,
+            "cachemode": "static",
+            "module_tag": "div",
+            "bootstrap_size": "0",
+            "header_tag": "h3",
+            "header_class": "",
+            "style": "0"
+          },
+          "client_id": 0,
+          "language": "*",
+          "assigned": [
+            0
+          ],
+          "assignment": 0,
+          "xml": {
+            "@attributes": {
+              "type": "module",
+              "client": "site",
+              "method": "upgrade"
+            },
+            "name": "mod_articles_archive",
+            "author": "Joomla! Project",
+            "creationDate": "2006-07",
+            "copyright": "(C) 2006 Open Source Matters, Inc.",
+            "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+            "authorEmail": "admin@joomla.org",
+            "authorUrl": "www.joomla.org",
+            "version": "3.0.0",
+            "description": "MOD_ARTICLES_ARCHIVE_XML_DESCRIPTION",
+            "namespace": "Joomla\\Module\\ArticlesArchive",
+            "files": {
+              "folder": [
+                "services",
+                "src",
+                "tmpl"
+              ]
+            },
+            "languages": {
+              "language": [
+                "language/en-GB/mod_articles_archive.ini",
+                "language/en-GB/mod_articles_archive.sys.ini"
+              ]
+            },
+            "help": {
+              "@attributes": {
+                "key": "Site_Modules:_Articles_-_Archived"
+              }
+            },
+            "config": {
+              "fields": {
+                "@attributes": {
+                  "name": "params"
+                },
+                "fieldset": [
+                  {
+                    "@attributes": {
+                      "name": "basic"
+                    },
+                    "field": {
+                      "@attributes": {
+                        "name": "count",
+                        "type": "number",
+                        "label": "MOD_ARTICLES_ARCHIVE_FIELD_COUNT_LABEL",
+                        "default": "10",
+                        "filter": "integer",
+                        "min": "1",
+                        "validate": "number"
+                      }
+                    }
+                  },
+                  {
+                    "@attributes": {
+                      "name": "advanced"
+                    },
+                    "field": [
+                      {
+                        "@attributes": {
+                          "name": "layout",
+                          "type": "modulelayout",
+                          "label": "JFIELD_ALT_LAYOUT_LABEL",
+                          "class": "form-select",
+                          "validate": "moduleLayout"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "moduleclass_sfx",
+                          "type": "textarea",
+                          "label": "COM_MODULES_FIELD_MODULECLASS_SFX_LABEL",
+                          "rows": "3",
+                          "validate": "CssIdentifier"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "cache",
+                          "type": "list",
+                          "label": "COM_MODULES_FIELD_CACHING_LABEL",
+                          "default": "1",
+                          "filter": "integer",
+                          "validate": "options"
+                        },
+                        "option": [
+                          "JGLOBAL_USE_GLOBAL",
+                          "COM_MODULES_FIELD_VALUE_NOCACHING"
+                        ]
+                      },
+                      {
+                        "@attributes": {
+                          "name": "cache_time",
+                          "type": "number",
+                          "label": "COM_MODULES_FIELD_CACHE_TIME_LABEL",
+                          "default": "900",
+                          "filter": "integer"
+                        }
+                      },
+                      {
+                        "@attributes": {
+                          "name": "cachemode",
+                          "type": "hidden",
+                          "default": "static"
+                        },
+                        "option": {
+                          "@attributes": {
+                            "value": "static"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_modules_post_v1_modules_site",
-    "direction": "request",
-    "schema": "com_modules_post_v1_modules_siteRequest",
-    "value": {
-      "title": "API example",
-      "module": "mod_custom",
-      "params": {}
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_modules_post_v1_modules_site",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_modules_post_v1_modules_siteResponse",
-    "value": {
-      "data": {
-        "type": "modules",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "title": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_modules_get_v1_modules_site_idResponse"
   },
   {
     "operationId": "com_modules_patch_v1_modules_site_id",
     "direction": "request",
-    "schema": "com_modules_patch_v1_modules_site_idRequest",
+    "media_type": "application/json",
+    "example": "minimal",
     "value": {
       "title": "Example",
       "note": "Example",
       "version_note": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_modules_patch_v1_modules_site_idRequest"
+  },
+  {
+    "operationId": "com_modules_patch_v1_modules_site_id",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "joomlaSite",
+    "value": {
+      "access": "1",
+      "client_id": "0",
+      "language": "*",
+      "module": "mod_articles_archive",
+      "note": "",
+      "ordering": "1",
+      "title": "New Title"
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_modules_patch_v1_modules_site_idRequest"
   },
   {
     "operationId": "com_modules_patch_v1_modules_site_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_modules_patch_v1_modules_site_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "modules",
@@ -133,91 +2308,279 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_modules_patch_v1_modules_site_idResponse"
   },
   {
     "operationId": "com_modules_get_v1_modules_administrator",
     "direction": "response",
-    "status": 200,
-    "schema": "com_modules_get_v1_modules_administratorResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/modules/administrator",
+        "next": "https://example.com/api/index.php/v1/modules/administrator?page%5Boffset%5D=20&page%5Blimit%5D=20",
+        "last": "https://example.com/api/index.php/v1/modules/administrator?page%5Boffset%5D=20&page%5Blimit%5D=20"
+      },
       "data": [
         {
           "type": "modules",
-          "id": "Example",
+          "id": "87",
           "attributes": {
-            "title": "Example",
-            "note": "Example",
-            "position": "Example"
+            "id": 87,
+            "title": "Sample Data",
+            "note": "",
+            "position": "cpanel",
+            "module": "mod_sampledata",
+            "language": "*",
+            "checked_out": null,
+            "checked_out_time": null,
+            "published": 1,
+            "enabled": 1,
+            "access": 6,
+            "ordering": 1,
+            "publish_up": null,
+            "publish_down": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Super Users",
+            "pages": "All",
+            "name": "Sample Data"
+          }
+        },
+        {
+          "type": "modules",
+          "id": "10",
+          "attributes": {
+            "id": 10,
+            "title": "Logged-in Users",
+            "note": "",
+            "position": "cpanel",
+            "module": "mod_logged",
+            "language": "*",
+            "checked_out": null,
+            "checked_out_time": null,
+            "published": 1,
+            "enabled": 1,
+            "access": 3,
+            "ordering": 2,
+            "publish_up": null,
+            "publish_down": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Special",
+            "pages": "All",
+            "name": "Logged-in Users"
+          }
+        },
+        {
+          "type": "modules",
+          "id": "88",
+          "attributes": {
+            "id": 88,
+            "title": "Latest Actions",
+            "note": "",
+            "position": "cpanel",
+            "module": "mod_latestactions",
+            "language": "*",
+            "checked_out": null,
+            "checked_out_time": null,
+            "published": 1,
+            "enabled": 1,
+            "access": 6,
+            "ordering": 3,
+            "publish_up": null,
+            "publish_down": null,
+            "language_title": null,
+            "language_image": null,
+            "editor": null,
+            "access_level": "Super Users",
+            "pages": "All",
+            "name": "Action Logs - Latest"
           }
         }
-      ]
+      ],
+      "meta": {
+        "total-pages": 2
+      }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_modules_get_v1_modules_administratorResponse"
+  },
+  {
+    "operationId": "com_modules_post_v1_modules_administrator",
+    "direction": "request",
+    "media_type": "application/json",
+    "example": "default",
+    "value": {
+      "title": "Example module",
+      "module": "mod_custom",
+      "language": "*",
+      "params": {
+        "style": "0"
+      },
+      "client_id": 1
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_modules_post_v1_modules_administratorRequest"
+  },
+  {
+    "operationId": "com_modules_post_v1_modules_administrator",
+    "direction": "response",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
+    "value": {
+      "data": {
+        "type": "modules",
+        "id": "Example",
+        "attributes": {
+          "typeAlias": "Example",
+          "asset_id": 1,
+          "title": "Example"
+        }
+      }
+    },
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_modules_post_v1_modules_administratorResponse"
   },
   {
     "operationId": "com_modules_get_v1_modules_administrator_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_modules_get_v1_modules_administrator_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "captured",
     "value": {
+      "links": {
+        "self": "https://example.com/api/index.php/v1/modules/administrator/87"
+      },
       "data": {
         "type": "modules",
-        "id": "Example",
+        "id": "87",
         "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "title": "Example"
+          "typeAlias": null,
+          "id": 87,
+          "asset_id": 55,
+          "title": "Sample Data",
+          "note": "",
+          "content": "",
+          "ordering": 1,
+          "position": "cpanel",
+          "checked_out": null,
+          "checked_out_time": null,
+          "publish_up": null,
+          "publish_down": null,
+          "published": 1,
+          "module": "mod_sampledata",
+          "access": 6,
+          "showtitle": 1,
+          "params": {
+            "bootstrap_size": "12",
+            "header_tag": "h2"
+          },
+          "client_id": 1,
+          "language": "*",
+          "assigned": [
+            0
+          ],
+          "assignment": 0,
+          "xml": {
+            "@attributes": {
+              "type": "module",
+              "client": "administrator",
+              "method": "upgrade"
+            },
+            "name": "mod_sampledata",
+            "author": "Joomla! Project",
+            "creationDate": "2017-07",
+            "copyright": "(C) 2017 Open Source Matters, Inc.",
+            "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+            "authorEmail": "admin@joomla.org",
+            "authorUrl": "www.joomla.org",
+            "version": "3.8.0",
+            "description": "MOD_SAMPLEDATA_XML_DESCRIPTION",
+            "namespace": "Joomla\\Module\\Sampledata",
+            "files": {
+              "folder": [
+                "services",
+                "src",
+                "tmpl"
+              ]
+            },
+            "media": {
+              "@attributes": {
+                "destination": "mod_sampledata",
+                "folder": "media"
+              },
+              "folder": "js"
+            },
+            "languages": {
+              "language": [
+                "language/en-GB/mod_sampledata.ini",
+                "language/en-GB/mod_sampledata.sys.ini"
+              ]
+            },
+            "help": {
+              "@attributes": {
+                "key": "Admin_Modules:_Sample_Data"
+              }
+            },
+            "config": {
+              "fields": {
+                "@attributes": {
+                  "name": "params"
+                },
+                "fieldset": {
+                  "@attributes": {
+                    "name": "advanced"
+                  },
+                  "field": {
+                    "@attributes": {
+                      "name": "layout",
+                      "type": "modulelayout",
+                      "label": "JFIELD_ALT_LAYOUT_LABEL",
+                      "class": "form-select",
+                      "validate": "moduleLayout"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_modules_post_v1_modules_administrator",
-    "direction": "request",
-    "schema": "com_modules_post_v1_modules_administratorRequest",
-    "value": {
-      "title": "API example",
-      "module": "mod_custom",
-      "params": {}
-    },
-    "provenance": "synthetic"
-  },
-  {
-    "operationId": "com_modules_post_v1_modules_administrator",
-    "direction": "response",
+    "provenance": "upstream-captured",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
     "status": 200,
-    "schema": "com_modules_post_v1_modules_administratorResponse",
-    "value": {
-      "data": {
-        "type": "modules",
-        "id": "Example",
-        "attributes": {
-          "typeAlias": "Example",
-          "asset_id": 1,
-          "title": "Example"
-        }
-      }
-    },
-    "provenance": "synthetic"
+    "schema": "com_modules_get_v1_modules_administrator_idResponse"
   },
   {
     "operationId": "com_modules_patch_v1_modules_administrator_id",
     "direction": "request",
-    "schema": "com_modules_patch_v1_modules_administrator_idRequest",
+    "media_type": "application/json",
+    "example": "default",
     "value": {
       "title": "Example",
       "note": "Example",
       "version_note": "Example"
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "schema": "com_modules_patch_v1_modules_administrator_idRequest"
   },
   {
     "operationId": "com_modules_patch_v1_modules_administrator_id",
     "direction": "response",
-    "status": 200,
-    "schema": "com_modules_patch_v1_modules_administrator_idResponse",
+    "media_type": "application/vnd.api+json",
+    "example": "default",
     "value": {
       "data": {
         "type": "modules",
@@ -229,6 +2592,9 @@
         }
       }
     },
-    "provenance": "synthetic"
+    "provenance": "upstream-example",
+    "source": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "status": 200,
+    "schema": "com_modules_patch_v1_modules_administrator_idResponse"
   }
 ]

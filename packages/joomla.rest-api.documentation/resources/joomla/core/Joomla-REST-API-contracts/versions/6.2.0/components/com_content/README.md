@@ -15,12 +15,14 @@ created_by и metadata.author различаются; API-пользовател
 В 6.2.0 list/item содержат introtext и fulltext. text помечен deprecated с удалением в 8.0; для нового клиента выбирать отдельные поля. onContentPrepare всё ещё может изменять объект статьи: это не гарантия неизменённых БД-байтов.
 В базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.
 
+При POST статьи явно передавать language, например "*": API не получает этот default из формы.
+
 ## Состав
 
 - [openapi.json](openapi.json): схемы запросов/ответов, параметры, коды и примеры.
 - [fields.md](fields.md): типы, обязательность, enum/default, правила форм/showon.
 - [extension-parameters.json](extension-parameters.json): параметры штатных расширений.
-- [examples.json](examples.json): синтетические request/response fixtures.
+- [examples.json](examples.json): примеры запросов/ответов с указанным происхождением.
 - [errors.md](errors.md), [browser-fallback.md](browser-fallback.md).
 - [coverage.json](coverage.json), [source-evidence.json](source-evidence.json): покрытие/SHA-256.
 - [Общие правила](../../../../common/README.md).

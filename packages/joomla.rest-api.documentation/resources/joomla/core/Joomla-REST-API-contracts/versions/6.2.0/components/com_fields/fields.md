@@ -1,8 +1,11 @@
 # com_fields: заполнение полей, Joomla 6.2.0
 
 Определение поля, группа и значение поля у владельца — разные сущности.
-Контекст задан маршрутом: com_content.article/categories, com_contact.contact/categories/mail,
-com_users.user. name — ключ значения; id — ID определения. assigned_cat_ids
+Маршрут выбирает контекст чтения: com_content.article/categories, com_contact.contact/categories/mail,
+com_users.user. При POST поля или группы также передавать context из x-route-defaults
+в теле: маршрут не подставляет его при сохранении. Без context запись может сохраниться,
+а ответ будет 404. Для поля нужны description и непустой params, для группы — description.
+Имя поля уникально среди всех контекстов. name — ключ значения; id — ID определения. assigned_cat_ids
 ограничивает применимость. fieldparams выбирается по типу из plugins/fields.
 params описывает отображение/поведение. Значения передаются через com_fields
 в операции владельца; поддерживаемые контроллеры также принимают имя поля сверху.
@@ -17,7 +20,7 @@ Subform сохраняет строки целиком; частичный merge
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
-|context|"string"|нет|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
 |group_id|["integer", "string"]|нет|""|Field Group: Joomla form field group_id; input is validated and filtered according to x-joomla-form.||
 |assigned_cat_ids|"array"|нет|""|Category: Joomla form field assigned_cat_ids; input is validated and filtered according to x-joomla-form.|only_use_in_subform:0|
 |title|"string"|да|""|Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
@@ -32,11 +35,11 @@ Subform сохраняет строки целиком; частичный merge
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
 |label|"string"|нет|""|Label: Joomla form field label; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |params.hint|"string"|нет|""|Placeholder: Placeholder text which will appear inside the field as a hint to the user for the required input.||
 |params.class|"string"|нет|""|Field Class: Joomla form field class; input is validated and filtered according to x-joomla-form.||
 |params.label_class|"string"|нет|""|Label Class (Form): Joomla form field label_class; input is validated and filtered according to x-joomla-form.||
@@ -53,6 +56,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST PATCH /v1/fields/contacts/contact/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -93,11 +97,12 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST POST /v1/fields/contacts/mail
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
-|context|"string"|нет|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
 |group_id|["integer", "string"]|нет|""|Field Group: Joomla form field group_id; input is validated and filtered according to x-joomla-form.||
 |assigned_cat_ids|"array"|нет|""|Category: Joomla form field assigned_cat_ids; input is validated and filtered according to x-joomla-form.|only_use_in_subform:0|
 |title|"string"|да|""|Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
@@ -112,11 +117,11 @@ Subform сохраняет строки целиком; частичный merge
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
 |label|"string"|нет|""|Label: Joomla form field label; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |params.hint|"string"|нет|""|Placeholder: Placeholder text which will appear inside the field as a hint to the user for the required input.||
 |params.class|"string"|нет|""|Field Class: Joomla form field class; input is validated and filtered according to x-joomla-form.||
 |params.label_class|"string"|нет|""|Label Class (Form): Joomla form field label_class; input is validated and filtered according to x-joomla-form.||
@@ -133,6 +138,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST PATCH /v1/fields/contacts/mail/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -173,11 +179,12 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST POST /v1/fields/contacts/categories
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
-|context|"string"|нет|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
 |group_id|["integer", "string"]|нет|""|Field Group: Joomla form field group_id; input is validated and filtered according to x-joomla-form.||
 |assigned_cat_ids|"array"|нет|""|Category: Joomla form field assigned_cat_ids; input is validated and filtered according to x-joomla-form.|only_use_in_subform:0|
 |title|"string"|да|""|Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
@@ -192,11 +199,11 @@ Subform сохраняет строки целиком; частичный merge
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
 |label|"string"|нет|""|Label: Joomla form field label; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |params.hint|"string"|нет|""|Placeholder: Placeholder text which will appear inside the field as a hint to the user for the required input.||
 |params.class|"string"|нет|""|Field Class: Joomla form field class; input is validated and filtered according to x-joomla-form.||
 |params.label_class|"string"|нет|""|Label Class (Form): Joomla form field label_class; input is validated and filtered according to x-joomla-form.||
@@ -213,6 +220,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST PATCH /v1/fields/contacts/categories/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -253,6 +261,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST POST /v1/fields/groups/contacts/contact
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -263,12 +272,14 @@ Subform сохраняет строки целиком; частичный merge
 |created_by|["integer", "string"]|нет|""|Created By: Joomla form field created_by; input is validated and filtered according to x-joomla-form.||
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|The context of the route, for example com_content.article. Must be sent when creating: the context of the route is not applied when saving.||
+
 ## REST PATCH /v1/fields/groups/contacts/contact/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -285,6 +296,7 @@ Subform сохраняет строки целиком; частичный merge
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/fields/groups/contacts/mail
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -295,12 +307,14 @@ Subform сохраняет строки целиком; частичный merge
 |created_by|["integer", "string"]|нет|""|Created By: Joomla form field created_by; input is validated and filtered according to x-joomla-form.||
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|The context of the route, for example com_content.article. Must be sent when creating: the context of the route is not applied when saving.||
+
 ## REST PATCH /v1/fields/groups/contacts/mail/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -317,6 +331,7 @@ Subform сохраняет строки целиком; частичный merge
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/fields/groups/contacts/categories
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -327,12 +342,14 @@ Subform сохраняет строки целиком; частичный merge
 |created_by|["integer", "string"]|нет|""|Created By: Joomla form field created_by; input is validated and filtered according to x-joomla-form.||
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|The context of the route, for example com_content.article. Must be sent when creating: the context of the route is not applied when saving.||
+
 ## REST PATCH /v1/fields/groups/contacts/categories/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -349,11 +366,12 @@ Subform сохраняет строки целиком; частичный merge
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/fields/content/articles
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
-|context|"string"|нет|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
 |group_id|["integer", "string"]|нет|""|Field Group: Joomla form field group_id; input is validated and filtered according to x-joomla-form.||
 |assigned_cat_ids|"array"|нет|""|Category: Joomla form field assigned_cat_ids; input is validated and filtered according to x-joomla-form.|only_use_in_subform:0|
 |title|"string"|да|""|Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
@@ -368,11 +386,11 @@ Subform сохраняет строки целиком; частичный merge
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
 |label|"string"|нет|""|Label: Joomla form field label; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |params.hint|"string"|нет|""|Placeholder: Placeholder text which will appear inside the field as a hint to the user for the required input.||
 |params.class|"string"|нет|""|Field Class: Joomla form field class; input is validated and filtered according to x-joomla-form.||
 |params.label_class|"string"|нет|""|Label Class (Form): Joomla form field label_class; input is validated and filtered according to x-joomla-form.||
@@ -389,6 +407,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST PATCH /v1/fields/content/articles/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -429,11 +448,12 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST POST /v1/fields/content/categories
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
-|context|"string"|нет|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
 |group_id|["integer", "string"]|нет|""|Field Group: Joomla form field group_id; input is validated and filtered according to x-joomla-form.||
 |assigned_cat_ids|"array"|нет|""|Category: Joomla form field assigned_cat_ids; input is validated and filtered according to x-joomla-form.|only_use_in_subform:0|
 |title|"string"|да|""|Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
@@ -448,11 +468,11 @@ Subform сохраняет строки целиком; частичный merge
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
 |label|"string"|нет|""|Label: Joomla form field label; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |params.hint|"string"|нет|""|Placeholder: Placeholder text which will appear inside the field as a hint to the user for the required input.||
 |params.class|"string"|нет|""|Field Class: Joomla form field class; input is validated and filtered according to x-joomla-form.||
 |params.label_class|"string"|нет|""|Label Class (Form): Joomla form field label_class; input is validated and filtered according to x-joomla-form.||
@@ -469,6 +489,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST PATCH /v1/fields/content/categories/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -509,6 +530,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST POST /v1/fields/groups/content/articles
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -519,12 +541,14 @@ Subform сохраняет строки целиком; частичный merge
 |created_by|["integer", "string"]|нет|""|Created By: Joomla form field created_by; input is validated and filtered according to x-joomla-form.||
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|The context of the route, for example com_content.article. Must be sent when creating: the context of the route is not applied when saving.||
+
 ## REST PATCH /v1/fields/groups/content/articles/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -541,6 +565,7 @@ Subform сохраняет строки целиком; частичный merge
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/fields/groups/content/categories
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -551,12 +576,14 @@ Subform сохраняет строки целиком; частичный merge
 |created_by|["integer", "string"]|нет|""|Created By: Joomla form field created_by; input is validated and filtered according to x-joomla-form.||
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|The context of the route, for example com_content.article. Must be sent when creating: the context of the route is not applied when saving.||
+
 ## REST PATCH /v1/fields/groups/content/categories/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -573,11 +600,12 @@ Subform сохраняет строки целиком; частичный merge
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+
 ## REST POST /v1/fields/users
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
 |---|---|---|---|---|---|
-|context|"string"|нет|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|context: Joomla form field context; input is validated and filtered according to x-joomla-form.||
 |group_id|["integer", "string"]|нет|""|Field Group: Joomla form field group_id; input is validated and filtered according to x-joomla-form.||
 |assigned_cat_ids|"array"|нет|""|Category: Joomla form field assigned_cat_ids; input is validated and filtered according to x-joomla-form.|only_use_in_subform:0|
 |title|"string"|да|""|Title: Joomla form field title; input is validated and filtered according to x-joomla-form.||
@@ -592,11 +620,11 @@ Subform сохраняет строки целиком; частичный merge
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
 |label|"string"|нет|""|Label: Joomla form field label; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
-|params|"object"|нет|""|params: ||
+|params|"object"|да|""|params: ||
 |params.hint|"string"|нет|""|Placeholder: Placeholder text which will appear inside the field as a hint to the user for the required input.||
 |params.class|"string"|нет|""|Field Class: Joomla form field class; input is validated and filtered according to x-joomla-form.||
 |params.label_class|"string"|нет|""|Label Class (Form): Joomla form field label_class; input is validated and filtered according to x-joomla-form.||
@@ -613,6 +641,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST PATCH /v1/fields/users/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -653,6 +682,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
 |fieldparams|"object"|нет|""|fieldparams: ||
+
 ## REST POST /v1/fields/groups/users
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -663,12 +693,14 @@ Subform сохраняет строки целиком; частичный merge
 |created_by|["integer", "string"]|нет|""|Created By: Joomla form field created_by; input is validated and filtered according to x-joomla-form.||
 |language|"string"|нет|""|Language: Joomla form field language; input is validated and filtered according to x-joomla-form.||
 |note|"string"|нет|""|Note: Joomla form field note; input is validated and filtered according to x-joomla-form.||
-|description|"string"|нет|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
+|description|"string"|да|""|Description: Joomla form field description; input is validated and filtered according to x-joomla-form.||
 |access|["integer", "string"]|нет|""|Access: Joomla form field access; input is validated and filtered according to x-joomla-form.||
 |rules|"object"|нет|""|Group Permissions: Joomla form field rules; input is validated and filtered according to x-joomla-form.||
 |ordering|["integer", "string"]|нет|""|Ordering: Joomla form field ordering; input is validated and filtered according to x-joomla-form.||
 |params|"object"|нет|""|params: ||
 |params.display_readonly|["integer", "string"]|нет|[0, 1, "0", "1"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
+|context|"string"|да|""|The context of the route, for example com_content.article. Must be sent when creating: the context of the route is not applied when saving.||
+
 ## REST PATCH /v1/fields/groups/users/{id}
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -729,6 +761,7 @@ Subform сохраняет строки целиком; частичный merge
 |params.layout|"string"|нет|""|Layout: Joomla form field layout; input is validated and filtered according to x-joomla-form.||
 |params.display_readonly|["integer", "string"]|нет|[2, 1, 0, "2", "1", "0"]|Display When Read-Only: Joomla form field display_readonly; input is validated and filtered according to x-joomla-form.||
 |params.searchindex|["integer", "string"]|нет|[0, 1, 2, 3, "0", "1", "2", "3"]|Search Index: Warning: When 'Make searchable' is selected, content from the field is indexed with the viewing permissions of the content item. This might lead to unexpected information disclosure.||
+
 ## administrator/components/com_fields/forms/filter_fields.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -745,6 +778,7 @@ Subform сохраняет строки целиком; частичный merge
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.state ASC", "a.state DESC", "a.title ASC", "a.title DESC", "a.type ASC", "a.type DESC", "g.title ASC", "g.title DESC", "a.access ASC", "a.access DESC", "a.language ASC", "a.language DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_fields/forms/filter_groups.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |
@@ -758,6 +792,7 @@ Subform сохраняет строки целиком; частичный merge
 |list|"object"|нет|""|list: ||
 |list.fullordering|"string"|нет|["", "a.ordering ASC", "a.ordering DESC", "a.state ASC", "a.state DESC", "a.title ASC", "a.title DESC", "a.access ASC", "a.access DESC", "a.language ASC", "a.language DESC", "a.id ASC", "a.id DESC"]|Sort Table By:: Joomla form field fullordering; input is validated and filtered according to x-joomla-form.||
 |list.limit|"string"|нет|"25"|Select number of items per page.: Joomla form field limit; input is validated and filtered according to x-joomla-form.||
+
 ## administrator/components/com_fields/forms/group.xml
 
 | Поле | JSON-тип | Обязательно POST | Enum / default | Назначение | Условия UI |

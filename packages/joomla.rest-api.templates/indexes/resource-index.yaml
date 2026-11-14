@@ -1,9 +1,9 @@
 schema_version: 1
 package:
   id: joomla.rest-api.templates
-  version: 1.1.0
+  version: 1.2.0
   package_root: global
-generated_at: '2026-10-23T10:08:25Z'
+generated_at: '2026-11-14T04:55:22Z'
 load_policy:
   default: on_demand
   heavy_resources: index_only_until_requested
@@ -109,5 +109,6 @@ resources:
     reproducibility: exact
   package: joomla.rest-api.templates
   license:
-    id: GPL-2.0-or-later
-    notice: Joomla-derived metadata; see repository LICENSE and NOTICE.md.
+    id: GPL-2.0-or-later AND LicenseRef-JEDL-1.0
+    notice: 'CMS-derived data: GPL-2.0-or-later; Joomla Manual additions: JEDL 1.0.
+      See LICENSE, JEDL-LICENSE.md and NOTICE.md.'

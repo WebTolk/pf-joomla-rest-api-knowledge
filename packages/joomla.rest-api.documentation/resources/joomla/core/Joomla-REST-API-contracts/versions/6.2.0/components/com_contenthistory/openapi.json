@@ -7,21 +7,46 @@
   },
   "servers": [
     {
-      "url": "/api/index.php"
+      "url": "{scheme}://{site}/api/index.php",
+      "description": "Your Joomla site",
+      "variables": {
+        "scheme": {
+          "default": "https",
+          "enum": [
+            "https",
+            "http"
+          ],
+          "description": "Use http only for a local test site"
+        },
+        "site": {
+          "default": "example.com",
+          "description": "Domain of the Joomla site, plus its folder if Joomla is installed in a folder"
+        }
+      }
+    },
+    {
+      "url": "/api/index.php",
+      "description": "Relative to the site that serves this specification"
     }
   ],
   "security": [
     {
+      "BearerAuth": []
+    },
+    {
       "JoomlaToken": []
+    },
+    {
+      "BasicAuth": []
     }
   ],
   "paths": {
     "/v1/banners/{id}/contenthistory": {
       "get": {
         "operationId": "com_contenthistory_get_v1_banners_id_contenthistory",
-        "summary": "GET /v1/banners/{id}/contenthistory",
+        "summary": "List Banner Versions",
         "tags": [
-          "com_contenthistory"
+          "Banners Content History"
         ],
         "x-controller-task": "history.displayList",
         "x-route-defaults": {
@@ -37,170 +62,219 @@
         "x-support": "source-derived",
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          {
-            "name": "page[offset]",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "default": 0
-            }
-          },
-          {
-            "name": "page[limit]",
-            "in": "query",
-            "schema": {
-              "type": "integer",
               "minimum": 1,
-              "default": 20
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page[offset]",
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page[limit]",
+            "schema": {
+              "default": 20,
+              "minimum": 1,
+              "type": "integer"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "A list of Banner Versions.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/com_contenthistory_get_v1_banners_id_contenthistoryResponse"
                 },
-                "example": {
-                  "data": [
-                    {
-                      "type": "history",
-                      "id": "Example",
-                      "attributes": {
-                        "ucm_item_id": 1,
-                        "ucm_type_id": 1,
-                        "version_note": "Example"
+                "examples": {
+                  "captured": {
+                    "summary": "Response of a Joomla 6.2.0 test site",
+                    "value": {
+                      "links": {
+                        "self": "https://example.com/api/index.php/v1/banners/1/contenthistory"
+                      },
+                      "data": [
+                        {
+                          "type": "history",
+                          "id": "1",
+                          "attributes": {
+                            "version_note": "",
+                            "save_date": "2026-10-29 21:03:32",
+                            "editor_user_id": 361,
+                            "character_count": 683,
+                            "sha1_hash": "ba64c4c433651fe3677f6a9b19fdd51ef6b92376",
+                            "version_data": {
+                              "name": "Name for this Banner",
+                              "catid": 3,
+                              "description": "Some description of this Banner.",
+                              "custombannercode": "",
+                              "clicks": 0,
+                              "metakey": "some keywords",
+                              "params": "{\"imageurl\":\"images\\/banners\\/banner.jpg\",\"width\":640,\"height\":480,\"alt\":\"Managed user-facing alliance\"}",
+                              "tags": [],
+                              "typeAlias": "com_banners.banner",
+                              "id": 1,
+                              "cid": 0,
+                              "type": 0,
+                              "alias": "name-for-this-banner",
+                              "imptotal": 0,
+                              "impmade": 0,
+                              "clickurl": "",
+                              "state": 0,
+                              "sticky": 0,
+                              "ordering": 1,
+                              "own_prefix": 0,
+                              "metakey_prefix": "",
+                              "purchase_type": -1,
+                              "track_clicks": -1,
+                              "track_impressions": -1,
+                              "publish_up": null,
+                              "publish_down": null,
+                              "reset": null,
+                              "created": "2026-10-29 21:03:32",
+                              "language": "",
+                              "created_by": 361,
+                              "created_by_alias": ""
+                            },
+                            "keep_forever": 0,
+                            "editor": "Admin",
+                            "id": 1
+                          }
+                        }
+                      ],
+                      "meta": {
+                        "total-pages": 1
                       }
                     }
-                  ]
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
-        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Get the stored versions (content history) of the Banner with a specific ID.\n\nGET uses the owner ID and route defaults for type_alias and type_id. PATCH to /keep toggles keep_forever; it does not accept a desired state such as {\"keep\":true}. Repeating it can undo the first action. There is no general history creation form or restore endpoint here. Use stored version data as editing source only when it matches the owner and intended version. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       },
       "delete": {
         "operationId": "com_contenthistory_delete_v1_banners_id_contenthistory",
-        "summary": "DELETE /v1/banners/{id}/contenthistory",
+        "summary": "Delete Banner Version",
         "tags": [
-          "com_contenthistory"
+          "Banners Content History"
         ],
         "x-controller-task": "history.delete",
         "x-route-defaults": {
@@ -221,163 +295,164 @@
             "schema": {
               "type": "integer",
               "minimum": 1
-            }
+            },
+            "description": "ID of the version (content history record), not of the Banner."
           }
         ],
         "responses": {
           "204": {
-            "description": "Удалено; обязательное тело отсутствует."
+            "description": "Deleted; no response body is required."
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи; AdminModel session flag can instead produce legacy application/json envelope.",
             "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
+              "application/json": {
+                "example": {
+                  "data": {
+                    "code": 404,
+                    "message": "Resource not found",
+                    "status": "not found"
+                  },
+                  "message": null,
+                  "messages": null,
+                  "success": true
                 },
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                }
+              },
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LegacyDeleteError"
                 },
-                "example": {
-                  "success": true,
-                  "message": null,
-                  "messages": null,
-                  "data": {
-                    "status": "not found",
-                    "code": 404,
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found. The AdminModel session flag can instead produce a legacy application/json error envelope."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           },
           "409": {
-            "description": "Запись нельзя удалить в текущем состоянии",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LegacyDeleteError"
-                },
                 "example": {
-                  "success": true,
+                  "data": {
+                    "code": 409,
+                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted",
+                    "status": "Conflict"
+                  },
                   "message": null,
                   "messages": null,
-                  "data": {
-                    "status": "Conflict",
-                    "code": 409,
-                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted"
-                  }
+                  "success": true
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
                 }
               }
-            }
+            },
+            "description": "The record cannot be deleted in its current state."
           }
         },
-        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Delete the stored version of a Banner with a specific version ID. ID of the version (content history record), not of the Banner.\n\nGET uses the owner ID and route defaults for type_alias and type_id. PATCH to /keep toggles keep_forever; it does not accept a desired state such as {\"keep\":true}. Repeating it can undo the first action. There is no general history creation form or restore endpoint here. Use stored version data as editing source only when it matches the owner and intended version. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     },
     "/v1/banners/{id}/contenthistory/keep": {
       "patch": {
         "operationId": "com_contenthistory_patch_v1_banners_id_contenthistory_keep",
-        "summary": "PATCH /v1/banners/{id}/contenthistory/keep",
+        "summary": "Keep Banner Version",
         "tags": [
-          "com_contenthistory"
+          "Banners Content History"
         ],
         "x-controller-task": "history.keep",
         "x-route-defaults": {
@@ -398,12 +473,13 @@
             "schema": {
               "type": "integer",
               "minimum": 1
-            }
+            },
+            "description": "ID of the version (content history record), not of the Banner."
           }
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "Successful response.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
@@ -414,120 +490,120 @@
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
-        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+        "description": "Toggle \"keep forever\" of the stored version of a Banner with a specific version ID. ID of the version (content history record), not of the Banner.\n\nGET uses the owner ID and route defaults for type_alias and type_id. PATCH to /keep toggles keep_forever; it does not accept a desired state such as {\"keep\":true}. Repeating it can undo the first action. There is no general history creation form or restore endpoint here. Use stored version data as editing source only when it matches the owner and intended version. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     },
     "/v1/contacts/{id}/contenthistory": {
       "get": {
         "operationId": "com_contenthistory_get_v1_contacts_id_contenthistory",
-        "summary": "GET /v1/contacts/{id}/contenthistory",
+        "summary": "List Contact Versions",
         "tags": [
-          "com_contenthistory"
+          "Contacts Content History"
         ],
         "x-controller-task": "history.displayList",
         "x-route-defaults": {
@@ -543,170 +619,226 @@
         "x-support": "source-derived",
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          {
-            "name": "page[offset]",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "default": 0
-            }
-          },
-          {
-            "name": "page[limit]",
-            "in": "query",
-            "schema": {
-              "type": "integer",
               "minimum": 1,
-              "default": 20
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page[offset]",
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page[limit]",
+            "schema": {
+              "default": 20,
+              "minimum": 1,
+              "type": "integer"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "A list of Contact Versions.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/com_contenthistory_get_v1_contacts_id_contenthistoryResponse"
                 },
-                "example": {
-                  "data": [
-                    {
-                      "type": "history",
-                      "id": "Example",
-                      "attributes": {
-                        "ucm_item_id": 1,
-                        "ucm_type_id": 1,
-                        "version_note": "Example"
+                "examples": {
+                  "captured": {
+                    "summary": "Response of a Joomla 6.2.0 test site",
+                    "value": {
+                      "links": {
+                        "self": "https://example.com/api/index.php/v1/contacts/1/contenthistory"
+                      },
+                      "data": [
+                        {
+                          "type": "history",
+                          "id": "8",
+                          "attributes": {
+                            "version_note": "",
+                            "save_date": "2026-10-29 21:03:34",
+                            "editor_user_id": 361,
+                            "character_count": 603,
+                            "sha1_hash": "2544253f485a64b59ef749ff9a2e57749009f384",
+                            "version_data": {
+                              "name": "Someones Name",
+                              "alias": "someones-name",
+                              "catid": 4,
+                              "language": "*",
+                              "tags": [],
+                              "typeAlias": "com_contact.contact",
+                              "id": 1,
+                              "con_position": null,
+                              "address": null,
+                              "suburb": null,
+                              "state": null,
+                              "country": null,
+                              "postcode": null,
+                              "telephone": null,
+                              "fax": null,
+                              "misc": null,
+                              "image": null,
+                              "email_to": null,
+                              "default_con": 0,
+                              "published": 0,
+                              "ordering": 1,
+                              "params": "{}",
+                              "user_id": 0,
+                              "access": 1,
+                              "mobile": "",
+                              "webpage": "",
+                              "sortname1": "",
+                              "sortname2": "",
+                              "sortname3": "",
+                              "created": "2026-10-29 21:03:34",
+                              "created_by": 361,
+                              "created_by_alias": "",
+                              "metakey": null,
+                              "metadesc": "",
+                              "metadata": "{}",
+                              "featured": 0,
+                              "publish_up": null,
+                              "publish_down": null
+                            },
+                            "keep_forever": 0,
+                            "editor": "Admin",
+                            "id": 8
+                          }
+                        }
+                      ],
+                      "meta": {
+                        "total-pages": 1
                       }
                     }
-                  ]
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
-        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Get the stored versions (content history) of the Contact with a specific ID.\n\nGET uses the owner ID and route defaults for type_alias and type_id. PATCH to /keep toggles keep_forever; it does not accept a desired state such as {\"keep\":true}. Repeating it can undo the first action. There is no general history creation form or restore endpoint here. Use stored version data as editing source only when it matches the owner and intended version. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       },
       "delete": {
         "operationId": "com_contenthistory_delete_v1_contacts_id_contenthistory",
-        "summary": "DELETE /v1/contacts/{id}/contenthistory",
+        "summary": "Delete Contact Version",
         "tags": [
-          "com_contenthistory"
+          "Contacts Content History"
         ],
         "x-controller-task": "history.delete",
         "x-route-defaults": {
@@ -727,163 +859,164 @@
             "schema": {
               "type": "integer",
               "minimum": 1
-            }
+            },
+            "description": "ID of the version (content history record), not of the Contact."
           }
         ],
         "responses": {
           "204": {
-            "description": "Удалено; обязательное тело отсутствует."
+            "description": "Deleted; no response body is required."
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи; AdminModel session flag can instead produce legacy application/json envelope.",
             "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
+              "application/json": {
+                "example": {
+                  "data": {
+                    "code": 404,
+                    "message": "Resource not found",
+                    "status": "not found"
+                  },
+                  "message": null,
+                  "messages": null,
+                  "success": true
                 },
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                }
+              },
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LegacyDeleteError"
                 },
-                "example": {
-                  "success": true,
-                  "message": null,
-                  "messages": null,
-                  "data": {
-                    "status": "not found",
-                    "code": 404,
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found. The AdminModel session flag can instead produce a legacy application/json error envelope."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           },
           "409": {
-            "description": "Запись нельзя удалить в текущем состоянии",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LegacyDeleteError"
-                },
                 "example": {
-                  "success": true,
+                  "data": {
+                    "code": 409,
+                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted",
+                    "status": "Conflict"
+                  },
                   "message": null,
                   "messages": null,
-                  "data": {
-                    "status": "Conflict",
-                    "code": 409,
-                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted"
-                  }
+                  "success": true
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
                 }
               }
-            }
+            },
+            "description": "The record cannot be deleted in its current state."
           }
         },
-        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Delete the stored version of a Contact with a specific version ID. ID of the version (content history record), not of the Contact.\n\nGET uses the owner ID and route defaults for type_alias and type_id. PATCH to /keep toggles keep_forever; it does not accept a desired state such as {\"keep\":true}. Repeating it can undo the first action. There is no general history creation form or restore endpoint here. Use stored version data as editing source only when it matches the owner and intended version. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     },
     "/v1/contacts/{id}/contenthistory/keep": {
       "patch": {
         "operationId": "com_contenthistory_patch_v1_contacts_id_contenthistory_keep",
-        "summary": "PATCH /v1/contacts/{id}/contenthistory/keep",
+        "summary": "Keep Contact Version",
         "tags": [
-          "com_contenthistory"
+          "Contacts Content History"
         ],
         "x-controller-task": "history.keep",
         "x-route-defaults": {
@@ -904,12 +1037,13 @@
             "schema": {
               "type": "integer",
               "minimum": 1
-            }
+            },
+            "description": "ID of the version (content history record), not of the Contact."
           }
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "Successful response.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
@@ -920,120 +1054,120 @@
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
-        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+        "description": "Toggle \"keep forever\" of the stored version of a Contact with a specific version ID. ID of the version (content history record), not of the Contact.\n\nGET uses the owner ID and route defaults for type_alias and type_id. PATCH to /keep toggles keep_forever; it does not accept a desired state such as {\"keep\":true}. Repeating it can undo the first action. There is no general history creation form or restore endpoint here. Use stored version data as editing source only when it matches the owner and intended version. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     },
     "/v1/content/articles/{id}/contenthistory": {
       "get": {
         "operationId": "com_contenthistory_get_v1_content_articles_id_contenthistory",
-        "summary": "GET /v1/content/articles/{id}/contenthistory",
+        "summary": "List Article Versions",
         "tags": [
-          "com_contenthistory"
+          "Content Articles Content History"
         ],
         "x-controller-task": "history.displayList",
         "x-route-defaults": {
@@ -1049,170 +1183,214 @@
         "x-support": "source-derived",
         "parameters": [
           {
-            "name": "id",
             "in": "path",
+            "name": "id",
             "required": true,
             "schema": {
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          {
-            "name": "page[offset]",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "default": 0
-            }
-          },
-          {
-            "name": "page[limit]",
-            "in": "query",
-            "schema": {
-              "type": "integer",
               "minimum": 1,
-              "default": 20
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page[offset]",
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page[limit]",
+            "schema": {
+              "default": 20,
+              "minimum": 1,
+              "type": "integer"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "A list of Article Versions.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/com_contenthistory_get_v1_content_articles_id_contenthistoryResponse"
                 },
-                "example": {
-                  "data": [
-                    {
-                      "type": "history",
-                      "id": "Example",
-                      "attributes": {
-                        "ucm_item_id": 1,
-                        "ucm_type_id": 1,
-                        "version_note": "Example"
+                "examples": {
+                  "captured": {
+                    "summary": "Response of a Joomla 6.2.0 test site",
+                    "value": {
+                      "links": {
+                        "self": "https://example.com/api/index.php/v1/content/articles/1/contenthistory"
+                      },
+                      "data": [
+                        {
+                          "type": "history",
+                          "id": "10",
+                          "attributes": {
+                            "version_note": "",
+                            "save_date": "2026-10-29 21:03:35",
+                            "editor_user_id": 361,
+                            "character_count": 428,
+                            "sha1_hash": "ce86d1ce38c571ae80798c91c2b2758e0b5c6881",
+                            "version_data": {
+                              "title": "Here's an article",
+                              "alias": "my-article",
+                              "catid": 12,
+                              "metakey": "",
+                              "metadesc": "",
+                              "language": "*",
+                              "tags": [],
+                              "typeAlias": "com_content.article",
+                              "id": 1,
+                              "asset_id": 105,
+                              "introtext": "My text",
+                              "fulltext": "",
+                              "state": 0,
+                              "created": "2026-10-29 21:03:35",
+                              "created_by": 361,
+                              "created_by_alias": "",
+                              "publish_up": null,
+                              "publish_down": null,
+                              "images": "{}",
+                              "urls": "{}",
+                              "attribs": "{}",
+                              "ordering": 0,
+                              "access": 1,
+                              "metadata": "{}",
+                              "featured": 0,
+                              "note": ""
+                            },
+                            "keep_forever": 0,
+                            "editor": "Admin",
+                            "id": 10
+                          }
+                        }
+                      ],
+                      "meta": {
+                        "total-pages": 1
                       }
                     }
-                  ]
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
-        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Get the stored versions (content history) of the Article with a specific ID.\n\nGET uses the owner ID and route defaults for type_alias and type_id. PATCH to /keep toggles keep_forever; it does not accept a desired state such as {\"keep\":true}. Repeating it can undo the first action. There is no general history creation form or restore endpoint here. Use stored version data as editing source only when it matches the owner and intended version. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       },
       "delete": {
         "operationId": "com_contenthistory_delete_v1_content_articles_id_contenthistory",
-        "summary": "DELETE /v1/content/articles/{id}/contenthistory",
+        "summary": "Delete Article Version",
         "tags": [
-          "com_contenthistory"
+          "Content Articles Content History"
         ],
         "x-controller-task": "history.delete",
         "x-route-defaults": {
@@ -1233,163 +1411,164 @@
             "schema": {
               "type": "integer",
               "minimum": 1
-            }
+            },
+            "description": "ID of the version (content history record), not of the Article."
           }
         ],
         "responses": {
           "204": {
-            "description": "Удалено; обязательное тело отсутствует."
+            "description": "Deleted; no response body is required."
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи; AdminModel session flag can instead produce legacy application/json envelope.",
             "content": {
-              "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
+              "application/json": {
+                "example": {
+                  "data": {
+                    "code": 404,
+                    "message": "Resource not found",
+                    "status": "not found"
+                  },
+                  "message": null,
+                  "messages": null,
+                  "success": true
                 },
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
+                }
+              },
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LegacyDeleteError"
                 },
-                "example": {
-                  "success": true,
-                  "message": null,
-                  "messages": null,
-                  "data": {
-                    "status": "not found",
-                    "code": 404,
-                    "message": "Resource not found"
-                  }
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found. The AdminModel session flag can instead produce a legacy application/json error envelope."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           },
           "409": {
-            "description": "Запись нельзя удалить в текущем состоянии",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LegacyDeleteError"
-                },
                 "example": {
-                  "success": true,
+                  "data": {
+                    "code": 409,
+                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted",
+                    "status": "Conflict"
+                  },
                   "message": null,
                   "messages": null,
-                  "data": {
-                    "status": "Conflict",
-                    "code": 409,
-                    "message": "Resource not in state that can be deleted, must be trashed before it can be deleted"
-                  }
+                  "success": true
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/LegacyDeleteError"
                 }
               }
-            }
+            },
+            "description": "The record cannot be deleted in its current state."
           }
         },
-        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\n"
+        "description": "Delete the stored version of an Article with a specific version ID. ID of the version (content history record), not of the Article.\n\nGET uses the owner ID and route defaults for type_alias and type_id. PATCH to /keep toggles keep_forever; it does not accept a desired state such as {\"keep\":true}. Repeating it can undo the first action. There is no general history creation form or restore endpoint here. Use stored version data as editing source only when it matches the owner and intended version. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     },
     "/v1/content/articles/{id}/contenthistory/keep": {
       "patch": {
         "operationId": "com_contenthistory_patch_v1_content_articles_id_contenthistory_keep",
-        "summary": "PATCH /v1/content/articles/{id}/contenthistory/keep",
+        "summary": "Keep Article Version",
         "tags": [
-          "com_contenthistory"
+          "Content Articles Content History"
         ],
         "x-controller-task": "history.keep",
         "x-route-defaults": {
@@ -1410,12 +1589,13 @@
             "schema": {
               "type": "integer",
               "minimum": 1
-            }
+            },
+            "description": "ID of the version (content history record), not of the Article."
           }
         ],
         "responses": {
           "200": {
-            "description": "Пример формы ответа по реализации; не live acceptance.",
+            "description": "Successful response.",
             "content": {
               "application/vnd.api+json": {
                 "schema": {
@@ -1426,126 +1606,138 @@
             }
           },
           "400": {
-            "description": "Ошибка параметров, формы или сохранения",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
                       "title": "Invalid field: Title"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Нет допустимой API-аутентификации",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Invalid parameters, form validation or save failure."
+          },
+          "401": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Forbidden"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Missing or invalid API authentication."
           },
           "403": {
-            "description": "Действие запрещено ACL",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Access Denied",
-                      "code": 403
+                      "code": 403,
+                      "title": "Access Denied"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Access denied by ACL."
           },
           "404": {
-            "description": "Нет маршрута, записи или задачи",
             "content": {
               "application/vnd.api+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorDocument"
-                },
                 "example": {
                   "errors": [
                     {
-                      "title": "Resource not found",
-                      "code": 404
+                      "code": 404,
+                      "title": "Resource not found"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "406": {
-            "description": "Недопустимый Accept",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Route, record or task not found."
+          },
+          "406": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
                       "title": "Not Acceptable"
                     }
                   ]
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Ошибка модели или сервера",
-            "content": {
-              "application/vnd.api+json": {
+                },
                 "schema": {
                   "$ref": "#/components/schemas/ErrorDocument"
-                },
+                }
+              }
+            },
+            "description": "Unsupported Accept header."
+          },
+          "500": {
+            "content": {
+              "application/vnd.api+json": {
                 "example": {
                   "errors": [
                     {
-                      "title": "Internal server error",
-                      "code": 500
+                      "code": 500,
+                      "title": "Internal server error"
                     }
                   ]
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDocument"
                 }
               }
-            }
+            },
+            "description": "Model or server error."
           }
         },
-        "description": "GET history использует ID владельца и type_alias/type_id из маршрута.\nPATCH history/keep и DELETE history используют числовой сегмент как ID версии;\nодно имя id не означает одну сущность у всех действий.\nkeep переключает keep_forever, а не принимает вымышленное {keep:true}.\nversion_data — JSON-строка снимка. Перед использованием raw-источника проверить\nсоответствие текущей версии и изменяемой записи.\nВ базовом ApiController 6.2.0 для редактирования нужны core.manage и права записи core.edit либо core.edit.own с совпадающим владельцем; контроллер компонента может переопределять проверку. Пропущенные календарные поля SERVER_UTC/USER_UTC восстанавливаются из БД без второй конвертации UTC.\n\nPATCH: сверять вложенные данные и календарь; поведение пропущенных UTC-полей зависит от версии, см. пояснения выше."
+        "description": "Toggle \"keep forever\" of the stored version of an Article with a specific version ID. ID of the version (content history record), not of the Article.\n\nGET uses the owner ID and route defaults for type_alias and type_id. PATCH to /keep toggles keep_forever; it does not accept a desired state such as {\"keep\":true}. Repeating it can undo the first action. There is no general history creation form or restore endpoint here. Use stored version data as editing source only when it matches the owner and intended version. The base edit check requires core.manage and record core.edit, or core.edit.own with a matching owner; component overrides take precedence. Omitted SERVER_UTC/USER_UTC calendar values are restored from the stored UTC values after validation, avoiding a second timezone conversion."
       }
     }
   },
   "components": {
     "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Joomla API token of a user, sent as `Authorization: Bearer <token>`. Users get their token on the Joomla API Token tab of their profile. The plugins \"API Authentication - Web Services Joomla Token\" and \"User - Joomla API Token\" must be enabled."
+      },
       "JoomlaToken": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-Joomla-Token"
+        "name": "X-Joomla-Token",
+        "description": "The same API token in the `X-Joomla-Token` header. Joomla tries to extract a Bearer token first and reads this header when the extracted token is empty. A non-empty Bearer token takes precedence even when authentication fails."
+      },
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Username and password of a user. Only works when the plugin \"API Authentication - Web Services Basic Auth\" is enabled, which it is not by default."
       },
       "JUpdateToken": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-JUpdate-Token"
+        "name": "X-JUpdate-Token",
+        "description": "Update token of the Joomla Automated Updates service, set in the options of Joomla Update. Only used by the `/v1/joomlaupdate` endpoints."
       }
     },
     "schemas": {
@@ -1925,7 +2117,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "ucm_type_id": {
@@ -1941,7 +2133,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "version_note": {
@@ -1971,13 +2163,14 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "character_count": {
                       "type": [
                         "string",
-                        "null"
+                        "null",
+                        "integer"
                       ],
                       "x-type-origin": "textual joined/view attribute"
                     },
@@ -1990,15 +2183,17 @@
                     },
                     "version_data": {
                       "type": [
-                        "string",
-                        "null"
+                        "object",
+                        "array"
                       ],
-                      "x-type-origin": "textual joined/view attribute"
+                      "description": "Decoded history version data; the API view decodes the stored JSON before rendering.",
+                      "x-source": "api/components/com_contenthistory/src/View/History/JsonapiView.php"
                     },
                     "keep_forever": {
                       "type": [
                         "string",
-                        "null"
+                        "null",
+                        "integer"
                       ],
                       "x-type-origin": "textual joined/view attribute"
                     },
@@ -2008,6 +2203,9 @@
                         "null"
                       ],
                       "x-type-origin": "textual joined/view attribute"
+                    },
+                    "id": {
+                      "type": "integer"
                     }
                   },
                   "additionalProperties": false
@@ -2050,7 +2248,8 @@
         ]
       },
       "com_contenthistory_patch_v1_banners_id_contenthistory_keepResponse": {
-        "$ref": "#/components/schemas/EmptyActionResponse"
+        "type": "array",
+        "maxItems": 0
       },
       "com_contenthistory_get_v1_contacts_id_contenthistoryResponse": {
         "type": "object",
@@ -2083,7 +2282,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "ucm_type_id": {
@@ -2099,7 +2298,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "version_note": {
@@ -2129,13 +2328,14 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "character_count": {
                       "type": [
                         "string",
-                        "null"
+                        "null",
+                        "integer"
                       ],
                       "x-type-origin": "textual joined/view attribute"
                     },
@@ -2148,15 +2348,17 @@
                     },
                     "version_data": {
                       "type": [
-                        "string",
-                        "null"
+                        "object",
+                        "array"
                       ],
-                      "x-type-origin": "textual joined/view attribute"
+                      "description": "Decoded history version data; the API view decodes the stored JSON before rendering.",
+                      "x-source": "api/components/com_contenthistory/src/View/History/JsonapiView.php"
                     },
                     "keep_forever": {
                       "type": [
                         "string",
-                        "null"
+                        "null",
+                        "integer"
                       ],
                       "x-type-origin": "textual joined/view attribute"
                     },
@@ -2166,6 +2368,9 @@
                         "null"
                       ],
                       "x-type-origin": "textual joined/view attribute"
+                    },
+                    "id": {
+                      "type": "integer"
                     }
                   },
                   "additionalProperties": false
@@ -2208,7 +2413,8 @@
         ]
       },
       "com_contenthistory_patch_v1_contacts_id_contenthistory_keepResponse": {
-        "$ref": "#/components/schemas/EmptyActionResponse"
+        "type": "array",
+        "maxItems": 0
       },
       "com_contenthistory_get_v1_content_articles_id_contenthistoryResponse": {
         "type": "object",
@@ -2241,7 +2447,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "ucm_type_id": {
@@ -2257,7 +2463,7 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "version_note": {
@@ -2287,13 +2493,14 @@
                           "type": "null"
                         }
                       ],
-                      "description": "Числовое значение модели: integer либо числовая строка драйвера; null при отсутствующем значении.",
+                      "description": "Numeric model value: integer or a numeric string from the database driver; null when absent.",
                       "x-type-origin": "numeric model/view alias"
                     },
                     "character_count": {
                       "type": [
                         "string",
-                        "null"
+                        "null",
+                        "integer"
                       ],
                       "x-type-origin": "textual joined/view attribute"
                     },
@@ -2306,15 +2513,17 @@
                     },
                     "version_data": {
                       "type": [
-                        "string",
-                        "null"
+                        "object",
+                        "array"
                       ],
-                      "x-type-origin": "textual joined/view attribute"
+                      "description": "Decoded history version data; the API view decodes the stored JSON before rendering.",
+                      "x-source": "api/components/com_contenthistory/src/View/History/JsonapiView.php"
                     },
                     "keep_forever": {
                       "type": [
                         "string",
-                        "null"
+                        "null",
+                        "integer"
                       ],
                       "x-type-origin": "textual joined/view attribute"
                     },
@@ -2324,6 +2533,9 @@
                         "null"
                       ],
                       "x-type-origin": "textual joined/view attribute"
+                    },
+                    "id": {
+                      "type": "integer"
                     }
                   },
                   "additionalProperties": false
@@ -2366,7 +2578,8 @@
         ]
       },
       "com_contenthistory_patch_v1_content_articles_id_contenthistory_keepResponse": {
-        "$ref": "#/components/schemas/EmptyActionResponse"
+        "type": "array",
+        "maxItems": 0
       }
     }
   },
@@ -2379,5 +2592,24 @@
   "x-source-verification": {
     "method": "local route registration + XML + SQL + controller/view/serializer inspection",
     "runtime_requests": false
+  },
+  "tags": [
+    {
+      "name": "Banners Content History",
+      "description": "Read stored versions of articles, contacts and banners with com_contenthistory, and manage whether individual versions are retained."
+    },
+    {
+      "name": "Contacts Content History",
+      "description": "Read stored versions of articles, contacts and banners with com_contenthistory, and manage whether individual versions are retained."
+    },
+    {
+      "name": "Content Articles Content History",
+      "description": "Read stored versions of articles, contacts and banners with com_contenthistory, and manage whether individual versions are retained."
+    }
+  ],
+  "x-documentation-source": {
+    "url": "https://github.com/joomla/Manual/blob/ab18edff1038bdd2d70b3983a8bbc3e43c7d7cec/static/openapi/joomla-6.2.0.json",
+    "pull_request": 724,
+    "guide_corrections": "context and client_id on create, from merged fork PRs #1 and #2"
   }
 }
