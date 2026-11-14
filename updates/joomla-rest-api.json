@@ -3,10 +3,10 @@
   "product": {
     "id": "webtolk.joomla-rest-api-knowledge"
   },
-  "generated_at": "2026-10-23T10:08:25.912299Z",
+  "generated_at": "2026-11-14T04:55:22Z",
   "channels": {
     "stable": {
-      "latest": "1.1.0"
+      "latest": "1.2.0"
     }
   },
   "subjects": [
@@ -53,6 +53,50 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.documentation-1.2.0.zip",
+              "sha256": "29b8c19730b61770deedff93644164a6840cb6e96e0d6c4ae273133b85d90a2f",
+              "size": 4069192
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -120,6 +164,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.associations-1.2.0.zip",
+              "sha256": "51b0fd31792e2aec1486693c95ffe0c802ea32bbff464f8ef1a1683af781fa06",
+              "size": 12856
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -177,6 +276,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.banners-1.2.0.zip",
+              "sha256": "92d81bbb2fb923ab0d42b9c1707d4505bddb0c1c6aef0c59764af4d75f0108f0",
+              "size": 12847
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -244,6 +398,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.categories-1.2.0.zip",
+              "sha256": "475e2a3deae6aecf602b26e4da541c888b7db0f37c06168b069fe12fa9c54d38",
+              "size": 12857
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -296,6 +505,56 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.common-1.2.0.zip",
+              "sha256": "bd1b098cab168d73e99ba28fb8a3719c4477cb384b65c613820425736b4644f4",
+              "size": 12756
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -363,6 +622,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.config-1.2.0.zip",
+              "sha256": "2d03ac09e51ee31d88b28d85ce5672b84802562355c1613ab19afc72ca6c146d",
+              "size": 12845
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -420,6 +734,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.contact-1.2.0.zip",
+              "sha256": "ce6f4bd063e5e9466170df686352ecf0f233b16789bb5b910f29734c11d0863b",
+              "size": 12842
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -487,6 +856,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.content-1.2.0.zip",
+              "sha256": "3311cca3f95f4a23a1b40a8787f0ead3d3b3f40b65b2b9a07c105aabbe9558ea",
+              "size": 12838
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -544,6 +968,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.contenthistory-1.2.0.zip",
+              "sha256": "73befc9bb13bfe2ee3a9854461af7753e70267c06d73e83d0a51cf9f05393eb4",
+              "size": 12858
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -611,6 +1090,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.fields-1.2.0.zip",
+              "sha256": "d351b23df917ce618cea29afa9393b80d6b87f50add317c36b0e313b28730adf",
+              "size": 12839
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -668,6 +1202,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.finder-1.2.0.zip",
+              "sha256": "153972cae22793223f3aab4ce8c957b01dc70ab4aabb10103cb07290eee08a88",
+              "size": 12847
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -735,6 +1324,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.installer-1.2.0.zip",
+              "sha256": "40f14fb2d60a6b9138ef626ee9a033372014e24e9fa4d7c4221d5441ba34a10d",
+              "size": 12849
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -792,6 +1436,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.joomlaupdate-1.2.0.zip",
+              "sha256": "21df877513d5807f12696d99fef4c68812de06e4826f449f778a02f9ddd15ba2",
+              "size": 12846
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -859,6 +1558,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.languages-1.2.0.zip",
+              "sha256": "31b59181478c2f8cce1429dcc9f194ef84faf4c5b42fdba73236b2abf75bec69",
+              "size": 12853
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -916,6 +1670,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.media-1.2.0.zip",
+              "sha256": "2335c775c93b81a55102c91f73bbb58ba6e90ccfa3b6cb216fa84a56ff21b6ff",
+              "size": 12842
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -983,6 +1792,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.menus-1.2.0.zip",
+              "sha256": "aaa9d37b51ebbd50369b93e3e478f37794d167a9a0393acc8428a15dbe4d7fa1",
+              "size": 12840
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -1040,6 +1904,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.messages-1.2.0.zip",
+              "sha256": "cf190e563635514892eb7dcdeb0f1307299e936bf0aa917798a1ca96535acc36",
+              "size": 12850
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -1107,6 +2026,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.modules-1.2.0.zip",
+              "sha256": "c80a52366c90d8522a9d5e133f98a45791c4bf739e0429a71c8a6760fab75a6f",
+              "size": 12848
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -1164,6 +2138,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.newsfeeds-1.2.0.zip",
+              "sha256": "1c02bb65e50cc19af00c9ec5af16c55845adc0ec1cbdcb7fbdcfa845ff132d8e",
+              "size": 12854
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -1231,6 +2260,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.plugins-1.2.0.zip",
+              "sha256": "b94ddf3bc0d46a99b621abe0e509046485da01d5ff0c758d9d9c7a039f08679f",
+              "size": 12850
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -1288,6 +2372,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.privacy-1.2.0.zip",
+              "sha256": "4863e58e4ad16d6e9f9b728c70ee382f5a682a4855e6ee91e618c859ff3b430d",
+              "size": 12850
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -1355,6 +2494,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.redirect-1.2.0.zip",
+              "sha256": "d6259a339721b4b2772d28f3bff4215a7e6a7ce03513eb78726ca7439b72c772",
+              "size": 12848
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -1412,6 +2606,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.tags-1.2.0.zip",
+              "sha256": "effd2ca323e561889d904b1d1d607923eafc753f856c6ef027312f2e58463606",
+              "size": 12840
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
@@ -1479,6 +2728,61 @@
           "migration": {
             "required": false
           }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.templates-1.2.0.zip",
+              "sha256": "9bf8693fb1ceebd55739a0d3c7ae794955830bb2d7019a5d606909cc74ed6810",
+              "size": 12844
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
         }
       ]
     },
@@ -1536,6 +2840,61 @@
             {
               "breaking": false,
               "summary": "Portable Joomla REST knowledge, primary core 6.2.0; native package-owned payload and update sites."
+            }
+          ],
+          "migration": {
+            "required": false
+          }
+        },
+        {
+          "version": "1.2.0",
+          "channels": [
+            "stable"
+          ],
+          "stability": "stable",
+          "prerelease": false,
+          "released_at": "2026-11-14T04:55:22Z",
+          "yanked": false,
+          "source": {
+            "provider": "github",
+            "repository": "WebTolk/pf-joomla-rest-api-knowledge",
+            "ref": "v1.2.0"
+          },
+          "release": {
+            "changelog_url": "https://raw.githubusercontent.com/WebTolk/pf-joomla-rest-api-knowledge/v1.2.0/CHANGELOG.md"
+          },
+          "compatibility": {
+            "tested_processforge": "1.3.0-alpha1",
+            "requires_contracts": [
+              "normalized-update-manifest-v1",
+              "knowledge-package-zip"
+            ]
+          },
+          "dependencies": [
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.documentation",
+              "version": "1.2.0"
+            },
+            {
+              "type": "knowledge_package",
+              "id": "joomla.rest-api.common",
+              "version": "1.2.0"
+            }
+          ],
+          "artifacts": [
+            {
+              "type": "knowledge_package",
+              "format": "zip",
+              "url": "https://github.com/WebTolk/pf-joomla-rest-api-knowledge/releases/download/v1.2.0/joomla.rest-api.users-1.2.0.zip",
+              "sha256": "8c9eaefadff7d6cbead7501f99fb95ff2cbe5ad7b318a6e2620818a87c928f56",
+              "size": 12838
+            }
+          ],
+          "changes": [
+            {
+              "breaking": false,
+              "summary": "Joomla 6.2.0 Manual PR #724 corrections: required create fields, explicit context/client_id, token authentication, media paths and response schemas."
             }
           ],
           "migration": {
